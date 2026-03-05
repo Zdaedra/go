@@ -1,0 +1,30 @@
+name: go-lesson-vast
+
+services:
+  api_vast:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: go_vast_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - KATAGO_BINARY=/opt/katago/katago
+      - KATAGO_NETWORK=/opt/katago/models/network.bin.gz
+      - KATAGO_CONFIG=/opt/katago/config.cfg
+      - ANALYSIS_VISITS_PASS1=300
+      - ANALYSIS_VISITS_PASS2=1600
+      - BOARD_SIZE_DEFAULT=9
+      - LESSON_SCENES_MIN=4
+      - LESSON_SCENES_MAX=6
+      - OPENAI_API_KEY=${LLM_API_KEY}
+      - OPENAI_ORG_ID=${OPENAI_ORG_ID}
+      - OPENAI_PROJECT_ID=${OPENAI_PROJECT_ID}
+      - TTS_API_KEY=${TTS_API_KEY}
+    volumes:
+      - ./katago:/opt/katago/models
+  # Optional KataGo warm container, but since katago_runner.py uses subprocess
+  # we actually just need the katago binary inside the api_vast container or 
+  # mapped from the host. KataGo does not run as a server by default natively
+  # unless compiled/configured with TCP. Let's install it inside api_vast Dockerfile!
