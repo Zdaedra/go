@@ -1,0 +1,11 @@
+name: "score_graph"
+description: "Score graph interactions on OGS"
+steps:
+  - action: "open_url"
+    url: "https://online-go.com/..." # requires specific game
+  - action: "enable_graph"
+  - action: "toggle_modes"
+  - action: "toggle_legend"
+  - action: "hover_tooltip"
+  - action: "snapshot"
+    note: "Take screenshots before/after interactions"

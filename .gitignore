@@ -1,2 +1,7 @@
 katago-*.zip
 test*.sgf
+node_modules/
+venv/
+__pycache__/
+.env
+*.db

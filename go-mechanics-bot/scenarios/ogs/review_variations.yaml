@@ -1,0 +1,9 @@
+name: "review_variations"
+description: "Review variations on OGS"
+steps:
+  - action: "open_url"
+    url: "https://online-go.com/..." # requires specific game
+  - action: "enable_variations_mode"
+  - action: "add_branch"
+  - action: "delete_branch"
+  - action: "switch_branch"

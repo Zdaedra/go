@@ -1,0 +1,11 @@
+name: "sgf_upload_download"
+description: "Upload and download SGF files on OGS"
+steps:
+  - action: "open_url"
+    url: "https://online-go.com"
+  - action: "navigate"
+    target: "Analysis / Editor"
+  - action: "upload_sgf"
+  - action: "download_sgf"
+  - action: "snapshot"
+    note: "Record UI elements changes after upload/download"

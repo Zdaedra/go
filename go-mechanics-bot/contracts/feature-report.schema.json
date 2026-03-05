@@ -1,0 +1,362 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/schemas/feature-report.schema.json",
+    "title": "FeatureReport",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "job_id",
+        "source",
+        "scenario_id",
+        "created_at",
+        "feature",
+        "spec",
+        "implementation",
+        "tests",
+        "confidence"
+    ],
+    "properties": {
+        "job_id": {
+            "type": "string",
+            "minLength": 6
+        },
+        "source": {
+            "type": "string",
+            "enum": [
+                "ogs",
+                "kgs_web",
+                "fox_web",
+                "other"
+            ]
+        },
+        "scenario_id": {
+            "type": "string",
+            "minLength": 3
+        },
+        "created_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "artifact_bundle_uri": {
+            "type": "string",
+            "minLength": 1
+        },
+        "feature": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "name",
+                "category",
+                "where_in_ui"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 3
+                },
+                "category": {
+                    "type": "string",
+                    "enum": [
+                        "analysis",
+                        "review",
+                        "navigation",
+                        "sgf",
+                        "graph",
+                        "ai",
+                        "settings",
+                        "other"
+                    ]
+                },
+                "where_in_ui": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            }
+        },
+        "spec": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "user_story",
+                "steps",
+                "states",
+                "edge_cases"
+            ],
+            "properties": {
+                "user_story": {
+                    "type": "string",
+                    "minLength": 10
+                },
+                "steps": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "when",
+                            "action",
+                            "then"
+                        ],
+                        "properties": {
+                            "when": {
+                                "type": "string",
+                                "minLength": 3
+                            },
+                            "action": {
+                                "type": "string",
+                                "minLength": 3
+                            },
+                            "then": {
+                                "type": "string",
+                                "minLength": 3
+                            }
+                        }
+                    }
+                },
+                "states": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "name",
+                            "description"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "minLength": 2
+                            },
+                            "description": {
+                                "type": "string",
+                                "minLength": 5
+                            }
+                        }
+                    }
+                },
+                "edge_cases": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "inferred_data_flow": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "inputs",
+                        "outputs"
+                    ],
+                    "properties": {
+                        "inputs": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "storage": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "inferred_api": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "type",
+                            "hint"
+                        ],
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "http",
+                                    "websocket",
+                                    "graphql",
+                                    "unknown"
+                                ]
+                            },
+                            "hint": {
+                                "type": "string",
+                                "minLength": 5
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "implementation": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "plan",
+                "files_to_touch",
+                "components"
+            ],
+            "properties": {
+                "plan": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                        "type": "string",
+                        "minLength": 5
+                    }
+                },
+                "files_to_touch": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "components": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "selectors_pack": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "purpose"
+                        ],
+                        "properties": {
+                            "purpose": {
+                                "type": "string",
+                                "minLength": 3
+                            },
+                            "css": {
+                                "type": "string"
+                            },
+                            "text": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string"
+                            },
+                            "coords": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "properties": {
+                                    "x": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 4096
+                                    },
+                                    "y": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 4096
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "tests": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "acceptance",
+                "e2e"
+            ],
+            "properties": {
+                "acceptance": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                        "type": "string",
+                        "minLength": 5
+                    }
+                },
+                "e2e": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "name",
+                            "steps"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "minLength": 3
+                            },
+                            "steps": {
+                                "type": "array",
+                                "minItems": 2,
+                                "items": {
+                                    "type": "string",
+                                    "minLength": 3
+                                }
+                            }
+                        }
+                    }
+                },
+                "unit_or_integration": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "confidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "score",
+                "reasons",
+                "open_questions"
+            ],
+            "properties": {
+                "score": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "reasons": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "open_questions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

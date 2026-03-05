@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/artifact-bundle.schema.json",
+  "title": "ArtifactBundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "job_id",
+    "source",
+    "scenario_id",
+    "captured_at",
+    "start_url",
+    "window",
+    "artifacts"
+  ],
+  "properties": {
+    "job_id": { "type": "string", "minLength": 6 },
+    "source": {
+      "type": "string",
+      "enum": ["ogs", "kgs_web", "fox_web", "other"]
+    },
+    "scenario_id": { "type": "string", "minLength": 3 },
+    "captured_at": { "type": "string", "format": "date-time" },
+    "start_url": { "type": "string", "format": "uri" },
+    "final_url": { "type": "string", "format": "uri" },
+
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "device_scale_factor"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 320, "maximum": 4096 },
+        "height": { "type": "integer", "minimum": 320, "maximum": 4096 },
+        "device_scale_factor": { "type": "number", "minimum": 1, "maximum": 4 }
+      }
+    },
+
+    "notes": { "type": "string" },
+
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manifest_version", "storage", "files"],
+      "properties": {
+        "manifest_version": { "type": "string", "enum": ["1.0"] },
+
+        "storage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["provider", "bucket", "prefix"],
+          "properties": {
+            "provider": { "type": "string", "enum": ["s3", "minio", "filesystem"] },
+            "bucket": { "type": "string", "minLength": 1 },
+            "prefix": { "type": "string", "minLength": 1 }
+          }
+        },
+
+        "files": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["video", "screenshots", "actions", "trace"],
+          "properties": {
+            "video": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["uri", "duration_sec", "format"],
+              "properties": {
+                "uri": { "type": "string", "minLength": 1 },
+                "duration_sec": { "type": "number", "minimum": 1, "maximum": 600 },
+                "format": { "type": "string", "enum": ["mp4", "webm"] }
+              }
+            },
+
+            "screenshots": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["uri", "label", "at_ms"],
+                "properties": {
+                  "uri": { "type": "string", "minLength": 1 },
+                  "label": { "type": "string", "minLength": 1 },
+                  "at_ms": { "type": "integer", "minimum": 0, "maximum": 600000 }
+                }
+              }
+            },
+
+            "actions": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["uri", "format"],
+              "properties": {
+                "uri": { "type": "string", "minLength": 1 },
+                "format": { "type": "string", "enum": ["json"] }
+              }
+            },
+
+            "trace": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["uri", "format"],
+              "properties": {
+                "uri": { "type": "string", "minLength": 1 },
+                "format": { "type": "string", "enum": ["playwright_trace_zip"] }
+              }
+            },
+
+            "network_har": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["uri", "format"],
+              "properties": {
+                "uri": { "type": "string", "minLength": 1 },
+                "format": { "type": "string", "enum": ["har"] }
+              }
+            },
+
+            "ws_log": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["uri", "format"],
+              "properties": {
+                "uri": { "type": "string", "minLength": 1 },
+                "format": { "type": "string", "enum": ["json"] }
+              }
+            },
+
+            "dom_snapshots": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["uri", "label", "at_ms"],
+                "properties": {
+                  "uri": { "type": "string", "minLength": 1 },
+                  "label": { "type": "string", "minLength": 1 },
+                  "at_ms": { "type": "integer", "minimum": 0, "maximum": 600000 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
