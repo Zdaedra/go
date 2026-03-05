@@ -6,7 +6,7 @@ echo "Updating system..."
 apt update
 
 echo "Installing dependencies..."
-apt install -y git docker.io docker-compose curl
+apt install -y git curl
 
 echo "Starting docker..."
 systemctl start docker
