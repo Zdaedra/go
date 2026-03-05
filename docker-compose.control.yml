@@ -34,7 +34,7 @@ services:
 
   api:
     build:
-      context: ./backend
+      context: ./orchestrator
       dockerfile: Dockerfile.api
     container_name: go_api
     restart: unless-stopped
@@ -61,7 +61,7 @@ services:
 
   worker:
     build:
-      context: ./backend
+      context: ./orchestrator
       dockerfile: Dockerfile.worker
     container_name: go_worker
     restart: unless-stopped
