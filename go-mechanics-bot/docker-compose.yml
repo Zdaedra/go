@@ -30,7 +30,9 @@ services:
       - miniodata:/data
 
   orchestrator:
-    build: ./services/orchestrator
+    build:
+      context: .
+      dockerfile: services/orchestrator/Dockerfile
     environment:
       PG_DSN: ${PG_DSN}
       REDIS_URL: ${REDIS_URL}
