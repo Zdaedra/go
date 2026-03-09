@@ -59,6 +59,17 @@ services:
     volumes:
       - /data/sites:/app/sites
 
+  go_worker:
+    build:
+      context: ./apps/go-worker
+      dockerfile: Dockerfile
+    container_name: sc_go_worker
+    environment:
+      - REDIS_URL=redis://redis:6379/1
+    depends_on:
+      redis:
+        condition: service_healthy
+
   dashboard:
     build:
       context: ./apps/dashboard
