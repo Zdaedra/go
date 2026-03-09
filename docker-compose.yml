@@ -34,7 +34,7 @@ services:
       - DATABASE_URL=postgresql+psycopg://crawler:crawler_password@postgres:5432/crawler_db
       - REDIS_URL=redis://redis:6379/0
     ports:
-      - "8001:8000"
+      - "8800:8000"
     depends_on:
       postgres:
         condition: service_healthy
@@ -65,9 +65,9 @@ services:
       dockerfile: Dockerfile
     container_name: sc_dashboard
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8001
+      - NEXT_PUBLIC_API_URL=http://localhost:8800
     ports:
-      - "3001:3000"
+      - "3300:3000"
     depends_on:
       - orchestrator
 
