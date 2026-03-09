@@ -15,7 +15,7 @@ export default function DashboardHome() {
   // Fetch sites on load
   const loadSites = async () => {
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const apiUrl = "/api";
       const res = await fetch(`${apiUrl}/v1/sites`);
       if (res.ok) setSites(await res.json());
     } catch (err) {
@@ -26,7 +26,7 @@ export default function DashboardHome() {
   useEffect(() => {
     loadSites();
     // Connect to the Orchestrator SSE stream
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const apiUrl = "/api";
     const eventSource = new EventSource(`${apiUrl}/v1/logs/stream`);
 
     eventSource.addEventListener("log", (e) => {
@@ -54,7 +54,7 @@ export default function DashboardHome() {
     setAdding(true);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const apiUrl = "/api";
       // 1. Create Site
       const createRes = await fetch(`${apiUrl}/v1/sites/`, {
         method: 'POST',

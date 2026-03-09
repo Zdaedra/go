@@ -2,7 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'standalone',
-  /* config options here */
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://orchestrator:8000/:path*', // Docker network hostname
+      },
+    ]
+  },
 };
 
 export default nextConfig;
