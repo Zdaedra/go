@@ -64,9 +64,22 @@ class SiteCrawler:
                 if self.game_mode:
                     push_log(self.site_id, "Checking for Go Board (Game UI State)...")
                     try:
+                        # 0. Try to click 'Computer' then 'Play' (for online-go MVP)
+                        logger.info("Game Mode: Attempting to start a bot match on OGS")
+                        try:
+                            # OGS Play Menu Flow:
+                            if page.get_by_role("button", name="Computer", exact=True).is_visible(timeout=2000):
+                                page.get_by_role("button", name="Computer", exact=True).click()
+                                time.sleep(1)
+                            if page.get_by_role("button", name="Play", exact=True).is_visible(timeout=2000):
+                                page.get_by_role("button", name="Play", exact=True).click()
+                                push_log(self.site_id, "Clicked Play button. Waiting for game board...")
+                        except Exception as click_err:
+                            logger.info(f"Could not follow standard Play flow: {click_err}")
+                            
                         # Naive heuristic: look for a large canvas which usually implies the WebGL/Canvas board
-                        # Wait up to 8 seconds for the SPA to hydrate the board
-                        page.wait_for_selector("canvas", timeout=8000)
+                        # Wait up to 10 seconds for the SPA to hydrate the board after click
+                        page.wait_for_selector("canvas", timeout=10000)
                         canvases = page.locator("canvas").all()
                         if len(canvases) > 0:
                             push_log(self.site_id, f"Detected {len(canvases)} `<canvas>` elements. Marking as Active Game.", level="info")
