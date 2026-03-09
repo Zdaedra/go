@@ -34,7 +34,7 @@ class SiteCrawler:
         os.makedirs(self.output_dir, exist_ok=True)
         
     def run(self):
-        msg = f"Starting crawl for Site {self.site_id} at {self.base_url}"
+        msg = f"Starting crawl for Site {self.site_id} at {self.base_url} | Game Mode: {self.game_mode}"
         logger.info(msg)
         push_log(self.site_id, msg)
         
@@ -63,21 +63,26 @@ class SiteCrawler:
                 # GAME DETECTION (Phase 2 MVP)
                 if self.game_mode:
                     push_log(self.site_id, "Checking for Go Board (Game UI State)...")
-                    # Naive heuristic: look for a large canvas which usually implies the WebGL/Canvas board
-                    canvases = page.locator("canvas").all()
-                    if len(canvases) > 0:
-                        push_log(self.site_id, f"Detected {len(canvases)} `<canvas>` elements. Marking as Active Game.", level="info")
-                        # 1. Register Game with Orchestrator
-                        try:
+                    try:
+                        # Naive heuristic: look for a large canvas which usually implies the WebGL/Canvas board
+                        # Wait up to 8 seconds for the SPA to hydrate the board
+                        page.wait_for_selector("canvas", timeout=8000)
+                        canvases = page.locator("canvas").all()
+                        if len(canvases) > 0:
+                            push_log(self.site_id, f"Detected {len(canvases)} `<canvas>` elements. Marking as Active Game.", level="info")
+                            # 1. Register Game with Orchestrator
                             import requests
                             resp = requests.post(f"{ORCHESTRATOR_URL}/v1/games/start?site_id={self.site_id}&board_size=19", timeout=5)
                             if resp.status_code == 200:
                                 game_data = resp.json()
                                 push_log(self.site_id, f"Registered Game Session: {game_data}")
                                 # TODOPhase2: Enter handoff loop here
-                        except Exception as e:
-                            logger.error(f"Failed to start game with orchestrator: {e}")
-                            push_log(self.site_id, f"Failed to start game session: {e}", level="error")
+                                time.sleep(2) # simulate game analysis time before snapshot
+                            else:
+                                push_log(self.site_id, f"Failed to register game: {resp.status_code}")
+                    except Exception as e:
+                        logger.warning(f"No game board canvas detected within timeout: {e}")
+                        push_log(self.site_id, "No active Game Board Canvas detected on this screen.")
                 
                 
                 dump_path = f"{self.output_dir}/dom_dumps/home.html"

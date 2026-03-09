@@ -62,6 +62,10 @@ def trigger_crawl(site_id: int, db: Session = Depends(get_db)):
     db.commit()
     
     # Push to Celery / Redis queue for crawler-worker
-    tasks.start_crawl.delay(site.id, site.base_url, site.game_mode)
+    tasks.start_crawl.apply_async(kwargs={
+        "site_id": site.id, 
+        "base_url": site.base_url, 
+        "game_mode": site.game_mode
+    })
     
     return {"status": "success", "run_id": run.id}
