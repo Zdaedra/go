@@ -25,9 +25,10 @@ def push_log(site_id: int, message: str, level="info", payload=None):
         logger.warning(f"Failed to push log to orchestrator: {e}")
 
 class SiteCrawler:
-    def __init__(self, site_id: int, base_url: str):
+    def __init__(self, site_id: int, base_url: str, game_mode: bool = False):
         self.site_id = site_id
         self.base_url = base_url
+        self.game_mode = game_mode
         sites_dir = os.environ.get("SITES_DIR", "/app/sites")
         self.output_dir = f"{sites_dir}/Site_{site_id}"
         os.makedirs(self.output_dir, exist_ok=True)
@@ -58,6 +59,26 @@ class SiteCrawler:
                 
                 screenshot_path = f"{self.output_dir}/screenshots/home.png"
                 page.screenshot(path=screenshot_path)
+                
+                # GAME DETECTION (Phase 2 MVP)
+                if self.game_mode:
+                    push_log(self.site_id, "Checking for Go Board (Game UI State)...")
+                    # Naive heuristic: look for a large canvas which usually implies the WebGL/Canvas board
+                    canvases = page.locator("canvas").all()
+                    if len(canvases) > 0:
+                        push_log(self.site_id, f"Detected {len(canvases)} `<canvas>` elements. Marking as Active Game.", level="info")
+                        # 1. Register Game with Orchestrator
+                        try:
+                            import requests
+                            resp = requests.post(f"{ORCHESTRATOR_URL}/v1/games/start?site_id={self.site_id}&board_size=19", timeout=5)
+                            if resp.status_code == 200:
+                                game_data = resp.json()
+                                push_log(self.site_id, f"Registered Game Session: {game_data}")
+                                # TODOPhase2: Enter handoff loop here
+                        except Exception as e:
+                            logger.error(f"Failed to start game with orchestrator: {e}")
+                            push_log(self.site_id, f"Failed to start game session: {e}", level="error")
+                
                 
                 dump_path = f"{self.output_dir}/dom_dumps/home.html"
                 with open(dump_path, "w", encoding="utf-8") as f:

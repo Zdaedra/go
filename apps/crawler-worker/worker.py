@@ -20,10 +20,10 @@ celery_app.conf.update(
 )
 
 @celery_app.task(name="tasks.start_crawl")
-def execute_crawl(site_id: int, base_url: str):
+def execute_crawl(site_id: int, base_url: str, game_mode: bool = False):
     """
     Subscribes to the tasks.start_crawl queue and actually launches Playwright.
     """
-    crawler = SiteCrawler(site_id=site_id, base_url=base_url)
+    crawler = SiteCrawler(site_id=site_id, base_url=base_url, game_mode=game_mode)
     crawler.run()
     return {"status": "success", "site_id": site_id}

@@ -18,11 +18,33 @@ celery_app.conf.update(
 )
 
 @celery_app.task(name="tasks.start_crawl")
-def start_crawl(site_id: int, base_url: str):
+def start_crawl(site_id: int, base_url: str, game_mode: bool = False):
     """
     This task will be picked up by the crawler-worker
     which connects to the same Redis instance.
     """
-    # In reality, this function definition is just the signature used by Orchestrator to push to the queue.
-    # The actual execution happens inside crawler-worker.
+    pass
+
+# Go Worker Configuration (different Redis DB)
+GO_REDIS_URL = os.environ.get("GO_REDIS_URL", "redis://localhost:6379/1")
+
+go_celery_app = Celery(
+    "go_worker_tasks",
+    broker=GO_REDIS_URL,
+    backend=GO_REDIS_URL
+)
+
+go_celery_app.conf.update(
+    task_serializer="json",
+    accept_content=["json"],
+    result_serializer="json",
+    timezone="UTC",
+    enable_utc=True,
+)
+
+@go_celery_app.task(name="tasks.analyze_board")
+def analyze_board(game_id: int, board_state: dict):
+    """
+    Signature for dispatching tasks to apps/go-worker/worker.py
+    """
     pass

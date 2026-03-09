@@ -35,11 +35,11 @@ def analyze_board_state(game_id: int, payload: dict, db: Session = Depends(get_d
     if not game:
         raise HTTPException(status_code=404, detail="Game not found")
         
-    # TODOPhase2: Dispatch task to apps/go-worker using Celery
-    import logging
-    logging.info(f"Received board state for game {game_id}: {payload}")
+    import celery_app as tasks
     
-    # Fake response for MVP skeleton
+    # Dispatch task to apps/go-worker using Celery
+    tasks.analyze_board.delay(game_id, payload)
+    
     return {
         "status": "queued", 
         "message": "Board state analysis queued for Go Worker"
