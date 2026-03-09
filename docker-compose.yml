@@ -8,8 +8,6 @@ services:
       POSTGRES_USER: crawler
       POSTGRES_PASSWORD: crawler_password
       POSTGRES_DB: crawler_db
-    ports:
-      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
