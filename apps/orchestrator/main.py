@@ -17,10 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from routers import sites, logs
+from routers import sites, logs, games
 
 app.include_router(sites.router)
 app.include_router(logs.router)
+app.include_router(games.router)
 
 @app.get("/")
 def health_check():
