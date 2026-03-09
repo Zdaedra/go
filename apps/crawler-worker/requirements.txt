@@ -1,0 +1,5 @@
+playwright
+pydantic
+sqlalchemy
+psycopg[binary]
+requests
