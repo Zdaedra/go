@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: crawler_password
       POSTGRES_DB: crawler_db
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - /data/storage/postgres:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U crawler -d crawler_db" ]
       interval: 5s
@@ -41,7 +41,7 @@ services:
       redis:
         condition: service_healthy
     volumes:
-      - ./sites:/app/sites
+      - /data/sites:/app/sites
 
   crawler_worker:
     build:
@@ -57,7 +57,7 @@ services:
       orchestrator:
         condition: service_started
     volumes:
-      - ./sites:/app/sites
+      - /data/sites:/app/sites
 
   dashboard:
     build:
@@ -70,6 +70,3 @@ services:
       - "3300:3000"
     depends_on:
       - orchestrator
-
-volumes:
-  pgdata:
