@@ -28,7 +28,8 @@ class SiteCrawler:
     def __init__(self, site_id: int, base_url: str):
         self.site_id = site_id
         self.base_url = base_url
-        self.output_dir = f"../../sites/site_{site_id}"
+        sites_dir = os.environ.get("SITES_DIR", "/app/sites")
+        self.output_dir = f"{sites_dir}/Site_{site_id}"
         os.makedirs(self.output_dir, exist_ok=True)
         
     def run(self):
