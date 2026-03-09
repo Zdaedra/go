@@ -30,15 +30,19 @@ def init_db():
                 target_state TEXT DEFAULT 'paused'
             )
             ''')
+        conn.commit()
             
+        with conn.cursor() as cursor:
             # In case the table exists but is missing target_state (migration)
             try:
                 cursor.execute("ALTER TABLE metrics ADD COLUMN target_state TEXT DEFAULT 'paused'")
+                conn.commit()
             except psycopg2.errors.DuplicateColumn:
                 conn.rollback() # Column already exists
             except psycopg2.Error:
                 conn.rollback()
             
+        with conn.cursor() as cursor:
             # Table for history of captured features to avoid repetition
             cursor.execute('''
             CREATE TABLE IF NOT EXISTS feature_history (
