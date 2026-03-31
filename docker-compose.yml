@@ -4,6 +4,7 @@ services:
   postgres:
     image: postgres:15-alpine
     container_name: sc_postgres
+    restart: unless-stopped
     environment:
       POSTGRES_USER: crawler
       POSTGRES_PASSWORD: crawler_password
@@ -19,6 +20,7 @@ services:
   redis:
     image: redis:7-alpine
     container_name: sc_redis
+    restart: unless-stopped
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]
       interval: 5s
@@ -30,9 +32,13 @@ services:
       context: ./apps/orchestrator
       dockerfile: Dockerfile
     container_name: sc_orchestrator
+    restart: unless-stopped
     environment:
       - DATABASE_URL=postgresql+psycopg://crawler:crawler_password@postgres:5432/crawler_db
       - REDIS_URL=redis://redis:6379/0
+      - GO_REDIS_URL=redis://redis:6379/1
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PYTHONPATH=/app
     ports:
       - "8800:8000"
     depends_on:
@@ -48,9 +54,12 @@ services:
       context: ./apps/crawler-worker
       dockerfile: Dockerfile
     container_name: sc_crawler_worker
+    restart: unless-stopped
     environment:
       - REDIS_URL=redis://redis:6379/0
       - ORCHESTRATOR_URL=http://orchestrator:8000
+      - REMOTE_BROWSER_WS=ws://chromium:3000
+      - PYTHONPATH=/app
     depends_on:
       redis:
         condition: service_healthy
@@ -64,20 +73,89 @@ services:
       context: ./apps/go-worker
       dockerfile: Dockerfile
     container_name: sc_go_worker
+    restart: unless-stopped
     environment:
       - REDIS_URL=redis://redis:6379/1
     depends_on:
       redis:
         condition: service_healthy
 
+  chromium:
+    image: browserless/chrome:latest
+    container_name: sc_chromium
+    restart: unless-stopped
+    environment:
+      - PORT=3000
+    ports:
+      - "9222:3000"
+
   dashboard:
     build:
       context: ./apps/dashboard
       dockerfile: Dockerfile
     container_name: sc_dashboard
+    restart: unless-stopped
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8800
     ports:
       - "3300:3000"
     depends_on:
       - orchestrator
+
+  gpt_worker:
+    build:
+      context: ./apps/orchestrator
+      dockerfile: Dockerfile
+    container_name: sc_gpt_worker
+    restart: unless-stopped
+    command: [ "celery", "-A", "gpt_worker.gpt_celery_app", "worker", "-Q", "gpt_spec_queue", "--loglevel=info" ]
+    environment:
+      - DATABASE_URL=postgresql+psycopg://crawler:crawler_password@postgres:5432/crawler_db
+      - REDIS_URL=redis://redis:6379/0
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PYTHONPATH=/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  code_worker:
+    build:
+      context: ./apps/orchestrator
+      dockerfile: Dockerfile
+    container_name: sc_code_worker
+    restart: unless-stopped
+    command: [ "celery", "-A", "code_worker.code_celery_app", "worker", "-Q", "code_generation_queue", "--loglevel=info" ]
+    environment:
+      - DATABASE_URL=postgresql+psycopg://crawler:crawler_password@postgres:5432/crawler_db
+      - REDIS_URL=redis://redis:6379/0
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PYTHONPATH=/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - /data/generated_projects:/data/generated_projects
+
+  good_bot_worker:
+    build:
+      context: ./apps/orchestrator
+      dockerfile: Dockerfile
+    container_name: sc_good_bot_worker
+    restart: unless-stopped
+    command: [ "celery", "-A", "good_bot_worker.code_bot_app", "worker", "-Q", "good_bot_queue", "--loglevel=info" ]
+    environment:
+      - DATABASE_URL=postgresql+psycopg://crawler:crawler_password@postgres:5432/crawler_db
+      - REDIS_URL=redis://redis:6379/0
+      - REMOTE_BROWSER_WS=ws://chromium:3000
+      - PYTHONPATH=/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - /data/sites:/app/sites

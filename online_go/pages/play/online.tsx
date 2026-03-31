@@ -2,11 +2,37 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ChevronLeft, Check, Clock, Zap, Target, Search, XCircle, RotateCcw, Play } from 'lucide-react';
+import { ChevronLeft, User, Cpu, Check, Clock, Zap, Target, Search, XCircle, RotateCcw, Play } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type MatchState = 'settings' | 'waiting' | 'found' | 'live' | 'result';
 
+
+
+// --- TIERED TIME CONTROL DATA ---
+const TIME_CONFIG = {
+    9: {
+        fast: { label: '~5 min', presets: [{ id: '9_f_1', label: '30 sec + 5 sec' }, { id: '9_f_2', label: '30 sec + 5x10 sec' }] },
+        medium: { label: '~10 min', presets: [{ id: '9_m_1', label: '2 min + 7 sec' }, { id: '9_m_2', label: '2 min + 5x30 sec' }] },
+        long: { label: '~15 min', presets: [{ id: '9_l_1', label: '3 min + 10 sec' }, { id: '9_l_2', label: '5 min + 5x30 sec' }] }
+    },
+    13: {
+        fast: { label: '~10 min', presets: [{ id: '13_f_1', label: '30 sec + 5 sec' }, { id: '13_f_2', label: '30 sec + 5x10 sec' }] },
+        medium: { label: '~20 min', presets: [{ id: '13_m_1', label: '3 min + 7 sec' }, { id: '13_m_2', label: '3 min + 5x30 sec' }] },
+        long: { label: '~30 min', presets: [{ id: '13_l_1', label: '5 min + 10 sec' }, { id: '13_l_2', label: '10 min + 5x30 sec' }] }
+    },
+    19: {
+        fast: { label: '~15 min', presets: [{ id: '19_f_1', label: '30 sec + 5 sec' }, { id: '19_f_2', label: '30 sec + 5x10 sec' }] },
+        medium: { label: '~25 min', presets: [{ id: '19_m_1', label: '5 min + 7 sec' }, { id: '19_m_2', label: '5 min + 5x30 sec' }] },
+        long: { label: '~40 min', presets: [{ id: '19_l_1', label: '10 min + 10 sec' }, { id: '19_l_2', label: '20 min + 5x30 sec' }] }
+    }
+};
+
+const MODE_DESCRIPTIONS = {
+    exact: "Find opponent matching this exact preset.",
+    flexible: "Can match with nearby time settings.",
+    multiple: "Play simultaneously against multiple opponents."
+};
 
 export default function OnlinePlay() {
     const router = useRouter();
@@ -23,10 +49,13 @@ export default function OnlinePlay() {
     }, [router.isReady, router.query, gameState]);
 
     // Match Settings
-    const [boardSizes, setBoardSizes] = useState<number[]>([9, 13, 19]);
-    const [ruleset, setRuleset] = useState<'japanese' | 'chinese'>('japanese');
+    const [boardSize, setBoardSize] = useState<number>(19);
     const [strength, setStrength] = useState<'easier' | 'around' | 'stronger'>('around');
-    const [timePreset, setTimePreset] = useState<'blitz' | 'rapid' | 'standard' | 'correspondence'>('rapid');
+    const [timeTier, setTimeTier] = useState<'fast' | 'medium' | 'long'>('medium');
+    const [timePresetId, setTimePresetId] = useState<string>('preset_medium_1');
+    const [timeMode, setTimeMode] = useState<'exact' | 'flexible' | 'multiple'>('exact');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [ruleset, setRuleset] = useState<'japanese' | 'chinese'>('japanese');
 
     // Correspondence Settings
     const [daysPerMove, setDaysPerMove] = useState(3);
@@ -65,12 +94,14 @@ export default function OnlinePlay() {
             }
 
             const configPayload = {
-                board_sizes: boardSizes,
+                board_sizes: [boardSize],
                 ruleset,
                 time_control: {
-                    mode: timePreset,
-                    days_per_move: timePreset === 'correspondence' ? daysPerMove : undefined,
-                    pause_on_weekends: timePreset === 'correspondence' ? pauseOnWeekends : undefined
+                    tier: timeTier,
+                    preset: timePresetId,
+                    mode: timeMode,
+                    days_per_move: undefined,
+                    pause_on_weekends: undefined
                 },
                 ranked: isRanked,
                 handicap
@@ -111,8 +142,6 @@ export default function OnlinePlay() {
                     router.push('/login');
                 } else if (!matchFoundRef && gameState === 'waiting' && !isIntentionallyClosed.current) {
                     setGameState('settings');
-                    alert("Connection lost. Please login again to play online.");
-                    router.push('/login');
                 }
             };
 
@@ -132,7 +161,7 @@ export default function OnlinePlay() {
                 ws.close();
             }
         };
-    }, [gameState, timePreset, router]);
+    }, [gameState, timeTier, timePresetId, timeMode, router, boardSize]);
 
     const formatWaitTime = (seconds: number) => {
         const m = Math.floor(seconds / 60);
@@ -149,245 +178,320 @@ export default function OnlinePlay() {
     // Rendering Helpers
     const renderSettings = () => (
         <div className="w-full max-w-[600px] mx-auto animate-fade-in-up">
-            <div className="text-center mb-8">
-                <h1 className="text-3xl font-semibold text-gray-900 mb-2 tracking-tight">Play vs People</h1>
-                <p className="text-gray-500 text-sm">Fast pairing with a live player near your level</p>
-            </div>
-
-            <div className="bg-white rounded-[16px] sm:rounded-[24px] p-4 sm:p-5 shadow-2xl border border-gray-200 flex flex-col gap-4 sm:gap-5 relative w-full">
-                {/* Fastest Queue Hint */}
-                <div className="absolute top-0 left-0 right-0 bg-blue-500/10 border-b border-blue-500/20 py-1.5 flex items-center justify-center gap-2 text-blue-400 text-[10px] font-semibold uppercase tracking-widest">
-                    <Zap className="w-3.5 h-3.5" />
-                    Fastest queue right now: 9x9 Rapid
-                </div>
-                <div className="mt-1"></div>
-
-                {/* BOARD SIZE */}
-                <div>
-                    <h3 className="text-gray-900 font-medium mb-1.5 sm:mb-2 text-[13px] flex items-center justify-between">
-                        Board Size
-                        <span className="text-xs text-gray-500 font-normal">Select one</span>
-                    </h3>
-                    <div className="grid grid-cols-3 gap-3">
-                        {[9, 13, 19].map(size => (
-                            <button
-                                key={size}
-                                onClick={() => {
-                                    if (boardSizes.includes(size)) {
-                                        if (boardSizes.length === 1) {
-                                            setShakeBoardSize(true);
-                                            setTimeout(() => setShakeBoardSize(false), 500);
-                                        } else {
-                                            setBoardSizes(boardSizes.filter(s => s !== size));
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                                                                        .hero-zone {
+                                            position: relative;
+                                            padding: 28px 24px 20px;
+                                            background: linear-gradient(180deg, rgba(255, 244, 230, 0.42) 0%, rgba(255, 255, 255, 0.18) 100%);
+                                            border-top-left-radius: 28px;
+                                            border-top-right-radius: 28px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            justify-content: center;
+                                            text-align: center;
                                         }
-                                    } else {
-                                        setBoardSizes([...boardSizes, size].sort((a, b) => a - b));
-                                    }
-                                }}
-                                className={`h-[36px] sm:h-10 rounded-lg sm:rounded-xl border text-sm font-medium transition-all ${boardSizes.includes(size)
-                                    ? 'bg-blue-500/10 border-blue-500 text-blue-400 shadow-sm'
-                                    : 'bg-gray-50 border-gray-200 text-gray-500 hover:border-gray-300'
-                                    } ${shakeBoardSize && boardSizes.length === 1 && boardSizes.includes(size) ? 'animate-bounce' : ''}`}
-                            >
-                                {size}x{size}
-                            </button>
-                        ))}
-                    </div>
+                                        .hero-zone::before {
+                                            content: ""; position: absolute; inset: 0;
+                                            border-top-left-radius: 28px;
+                                            border-top-right-radius: 28px;
+                                            background: radial-gradient(circle at 50% 0%, rgba(255, 196, 128, 0.20), transparent 58%), linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+                                            pointer-events: none;
+                                        }
+                                        .hero-title { font-size: 28px; font-weight: 700; color: #1b1b1b; letter-spacing: -0.03em; text-shadow: 0 1px 0 rgba(255,255,255,0.35); position: relative; z-index: 10; text-align: center; }
+                                        .hero-subtitle { margin-top: 6px; font-size: 14px; line-height: 1.35; color: rgba(0,0,0,0.48); position: relative; z-index: 10; text-align: center; }
+                                        .hero-content { padding: 20px 24px 24px; }
+
+                .setup-panel {
+                    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,245,245,0.85));
+                    backdrop-filter: blur(16px);
+                    -webkit-backdrop-filter: blur(16px);
+                    border-radius: 28px;
+                    border: 1px solid rgba(255,255,255,0.38);
+                    box-shadow: 0 24px 60px rgba(25,18,12,0.12), 0 8px 24px rgba(25,18,12,0.08), inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(255,255,255,0.22);
+                    position: relative;
+                }
+                .setup-panel::before {
+                    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+                    background: radial-gradient(circle at 22% 12%, rgba(255,210,150,0.22), transparent 40%), radial-gradient(circle at 75% 20%, rgba(255,235,210,0.12), transparent 42%);
+                }
+                .setup-section { padding: 8px 0; position: relative; z-index: 10; }
+                .section-title { font-size: 15px; font-weight: 600; color: #1E1C19; display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; text-shadow: 0 1px 0 rgba(255,255,255,0.6); }
+                .section-subtitle { font-size: 12px; color: #6E675F; font-weight: 500; }
+                
+                .choice-chip {
+                    background: linear-gradient(180deg, rgba(255,255,255,0.58), rgba(255,250,246,0.78));
+                    border: 1px solid rgba(120,92,62,0.10);
+                    border-radius: 12px;
+                    box-shadow: 0 4px 10px rgba(40,24,12,0.05), inset 0 1px 0 rgba(255,255,255,0.78);
+                    transition: all 0.2s ease; color: #6E675F; font-weight: 600; font-size: 14px;
+                    padding: 8px 16px; display: flex; align-items: center; justify-content: center; cursor: pointer; text-align: center;
+                }
+                .choice-chip:hover { transform: translateY(-1px); background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,250,246,0.9)); }
+                .choice-chip.active {
+                    background: linear-gradient(180deg, rgba(255,225,188,0.95), rgba(255,206,152,0.82));
+                    border: 1px solid rgba(195,138,74,0.38);
+                    box-shadow: 0 10px 24px rgba(193,132,68,0.22), 0 0 18px rgba(255,184,108,0.14), inset 0 1px 0 rgba(255,255,255,0.62);
+                    color: #7A4B1A; text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+                }
+                
+                .segment { 
+                    background: linear-gradient(180deg, rgba(240,236,232,0.82), rgba(250,248,246,0.62));
+                    border: 1px solid rgba(80,60,40,0.06);
+                    border-radius: 14px; padding: 2px; display: flex; position: relative; 
+                    box-shadow: inset 0 2px 8px rgba(45,30,20,0.05), inset 0 1px 0 rgba(255,255,255,0.45);
+                }
+                .segment-slider {
+                    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(252,248,245,0.88));
+                    border: 1px solid rgba(90,70,50,0.08);
+                    box-shadow: 0 6px 18px rgba(35,24,14,0.08), inset 0 1px 0 rgba(255,255,255,0.88);
+                }
+                .segment-btn { flex: 1; padding: 6px 0; font-size: 13px; font-weight: 600; text-align: center; color: #6E675F; border-radius: 12px; transition: all 0.2s; position: relative; z-index: 2; cursor: pointer; text-shadow: 0 1px 0 rgba(255,255,255,0.4); }
+                .segment-active { color: #1E1C19 !important; }
+                
+                .time-tier {
+                    background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(248,244,240,0.88));
+                    border: 1px solid rgba(80,60,40,0.08);
+                    border-radius: 20px;
+                    box-shadow: 0 12px 28px rgba(35,22,12,0.08), inset 0 1px 0 rgba(255,255,255,0.75);
+                    padding: 14px 12px; transition: all 0.25s ease; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex: 1;
+                }
+                .time-tier:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(35,22,12,0.10); }
+                .time-tier.active {
+                    background: linear-gradient(180deg, rgba(255,225,188,0.95), rgba(255,206,152,0.85));
+                    border: 1px solid rgba(195,138,74,0.38);
+                    box-shadow: 0 14px 30px rgba(193,132,68,0.22), 0 0 20px rgba(255,184,108,0.18), inset 0 1px 0 rgba(255,255,255,0.6);
+                }
+                
+
+                .dropdown {
+                    background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(248,244,240,0.92));
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
+                    border: 1px solid rgba(80,60,40,0.08);
+                    box-shadow: 0 18px 40px rgba(25,18,12,0.15);
+                    border-radius: 16px; overflow: hidden;
+                    position: absolute; top: calc(100% + 4px); right: 0; min-width: 220px; z-index: 50;
+                }
+                .dropdown-item {
+                    padding: 10px 14px; cursor: pointer; transition: background 0.2s;
+                    border-bottom: 1px solid rgba(80,60,40,0.04);
+                }
+                .dropdown-item:last-child { border-bottom: none; }
+                .dropdown-item:hover { background: rgba(255,235,210,0.4); }
+                .dropdown-item.active { background: rgba(255,225,188,0.5); }
+                
+                .premium-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(70,50,30,0.1), transparent); margin: 2px 0; position: relative; z-index: 10; }
+                
+                .premium-toggle {
+                    background: linear-gradient(180deg, rgba(240,236,232,0.82), rgba(250,248,246,0.62));
+                    border: 1px solid rgba(80,60,40,0.06);
+                    box-shadow: inset 0 2px 8px rgba(45,30,20,0.1), inset 0 1px 0 rgba(255,255,255,0.45);
+                    transition: all 0.3s; 
+                }
+                .premium-toggle.active { 
+                    background: linear-gradient(90deg, #7fd9a8, #4fae7c);
+                    border-color: rgba(88,164,123,0.34);
+                    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); 
+                }
+                .cta-btn {
+                    background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
+                    box-shadow: 0 12px 30px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+                    color: #fce8d5;
+                    border: 1px solid #000;
+                }
+                .cta-btn:hover {
+                    background: linear-gradient(180deg, #2a2a2a, #151515);
+                    box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15);
+                }
+                `
+            }} />
+
+            <div className="setup-panel flex flex-col relative w-full h-auto xl:max-h-[85vh] overflow-hidden">
+                <div className="hero-zone shrink-0">
+                    <button onClick={() => router.push('/')} className="absolute left-6 top-[28px] text-gray-800/40 hover:text-gray-900 transition-colors z-[50]">
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <div className="hero-title">Play vs People</div>
+                    <div className="hero-subtitle">Fast pairing with a live player near your level</div>
                 </div>
 
-                {/* RULESET */}
-                <div>
-                    <h3 className="text-gray-900 font-medium mb-1.5 sm:mb-2 text-[13px] flex items-center justify-between">
-                        Ruleset
-                        <span className="text-xs text-gray-500 font-normal">Scoring & Komi</span>
-                    </h3>
-                    <div className="flex bg-gray-50 p-1 rounded-xl border border-gray-200 relative">
-                        {['japanese', 'chinese'].map((rule) => (
-                            <button
-                                key={rule}
-                                onClick={() => setRuleset(rule as any)}
-                                className={`flex-1 py-1.5 sm:py-2 text-[11px] sm:text-xs font-medium rounded-lg transition-all z-10 ${ruleset === rule ? 'text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-900'
-                                    }`}
-                            >
-                                {rule === 'japanese' ? 'Japanese' : 'Chinese'}
-                            </button>
-                        ))}
-                        <div className="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-lg transition-transform duration-200 ease-out border border-gray-200"
-                            style={{
-                                transform: `translateX(${ruleset === 'japanese' ? '0' : '100%'})`,
-                                left: ruleset === 'japanese' ? '4px' : '8px'
-                            }}
-                        ></div>
-                    </div>
-                </div>
+                <div className="hero-content flex flex-col overflow-y-auto pr-1 flex-1 z-10 space-y-3" style={{ scrollbarWidth: 'none' }}>
 
-                {/* OPPONENT STRENGTH */}
-                <div>
-                    <h3 className="text-gray-900 font-medium mb-1.5 sm:mb-2 text-[13px] flex items-center justify-between">
-                        Opponent Level
-                        <span className="text-xs text-gray-500 font-normal">Target preference</span>
-                    </h3>
-                    <div className="flex bg-gray-50 p-1 rounded-xl border border-gray-200 relative">
-                        {['easier', 'around', 'stronger'].map((lvl) => (
-                            <button
-                                key={lvl}
-                                onClick={() => setStrength(lvl as any)}
-                                className={`flex-1 py-1.5 sm:py-2 text-[11px] sm:text-xs font-medium rounded-lg transition-all z-10 ${strength === lvl ? 'text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-900'
-                                    }`}
-                            >
-                                {lvl === 'easier' ? 'Easier' : lvl === 'around' ? 'Around my level' : 'Stronger'}
-                            </button>
-                        ))}
-                        {/* Selector indicator */}
-                        <div className="absolute top-1 bottom-1 w-[calc(33.33%-2.66px)] bg-white rounded-lg transition-transform duration-200 ease-out border border-gray-200"
-                            style={{
-                                transform: `translateX(${strength === 'easier' ? '0' : strength === 'around' ? '100%' : '200%'})`,
-                                left: strength === 'easier' ? '4px' : strength === 'around' ? '6px' : '8px'
-                            }}
-                        ></div>
-                    </div>
-                </div>
-
-                {/* TIME PRESET */}
-                <div>
-                    <h3 className="text-gray-900 font-medium mb-1.5 sm:mb-2 text-[13px]">Time Control</h3>
-                    <div className="flex flex-col gap-1.5 sm:gap-2">
-                        {[
-                            { id: 'blitz', name: 'Blitz', icon: Zap, desc: 'Very fast. 3-5 min total pace.' },
-                            { id: 'rapid', name: 'Rapid', icon: Clock, desc: 'Medium pace. 10-15 min total.' },
-                            { id: 'standard', name: 'Standard', icon: Target, desc: 'Full game pace. Deep thinking.' },
-                            { id: 'correspondence', name: 'Correspondence', icon: Clock, desc: 'Slow play. ~1 move per day.' }
-                        ].map(t => (
-                            <div
-                                key={t.id}
-                                onClick={() => {
-                                    setTimePreset(t.id as any);
-                                    if (t.id === 'correspondence') setIsRanked(false);
-                                }}
-                                className={`flex items-center gap-3 p-2 sm:p-3 rounded-xl border cursor-pointer transition-all ${timePreset === t.id
-                                    ? 'bg-[#E8F5EE] border-[#4CAF84] shadow-sm'
-                                    : 'bg-gray-50 border-gray-200 hover:border-gray-300 hover:bg-gray-100'
-                                    }`}
-                            >
-                                <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center ${timePreset === t.id ? 'bg-[#E8F5EE] text-[#4CAF84]' : 'bg-white/5 text-gray-500'}`}>
-                                    <t.icon className="w-5 h-5" />
+                    {/* BOARD SIZE */}
+                    <div className="setup-section">
+                        <div className="section-title">
+                            Board Size
+                            <span className="section-subtitle">Select one</span>
+                        </div>
+                        <div className="grid grid-cols-3 gap-2 mt-1.5">
+                            {[9, 13, 19].map(size => (
+                                <div
+                                    key={size}
+                                    onClick={() => {
+                                        setBoardSize(size);
+                                        // Reset tier options based on board size safely
+                                        const presets = (TIME_CONFIG as any)[size][timeTier].presets;
+                                        if (presets && presets.length > 0) {
+                                            setTimePresetId(presets[0].id);
+                                        }
+                                    }}
+                                    className={`choice-chip ${boardSize === size ? 'active' : ''}`}
+                                >
+                                    {size}x{size}
                                 </div>
-                                <div className="flex-1">
-                                    <div className={`font-semibold text-sm ${timePreset === t.id ? 'text-[#4CAF84]' : 'text-gray-700'}`}>{t.name}</div>
-                                    <div className="text-[10px] sm:text-xs text-gray-500">{t.desc}</div>
-                                </div>
-                                <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 flex items-center justify-center transition-colors ${timePreset === t.id ? 'border-[#4CAF84] bg-[#4CAF84]' : 'border-gray-300'}`}>
-                                    {timePreset === t.id && <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-black" />}
-                                </div>
-                            </div>
-                        ))}
-
-                        {timePreset === 'correspondence' && (
-                            <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                className="bg-gray-50 p-4 rounded-xl border border-[#4CAF84]/20 mt-1 flex flex-col gap-4 overflow-hidden"
-                            >
-                                <div className="flex justify-between items-center">
-                                    <div className="text-gray-900 text-sm font-medium">Days per move</div>
-                                    <select
-                                        value={daysPerMove}
-                                        onChange={(e) => setDaysPerMove(Number(e.target.value))}
-                                        className="bg-white border border-gray-200 rounded-lg text-gray-900 text-sm px-3 py-1.5 outline-none focus:border-[#4CAF84]"
-                                    >
-                                        <option value={1}>1 day</option>
-                                        <option value={2}>2 days</option>
-                                        <option value={3}>3 days</option>
-                                        <option value={7}>7 days</option>
-                                        <option value={14}>14 days</option>
-                                    </select>
-                                </div>
-                                <div className="flex justify-between items-center cursor-pointer" onClick={() => setPauseOnWeekends(!pauseOnWeekends)}>
-                                    <div>
-                                        <div className="text-gray-900 text-sm font-medium">Pause on weekends</div>
-                                        <div className="text-xs text-gray-500">Clock pauses Sat & Sun (UTC)</div>
-                                    </div>
-                                    <button className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${pauseOnWeekends ? 'bg-[#4CAF84]' : 'bg-gray-300'}`}>
-                                        <span className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${pauseOnWeekends ? 'translate-x-5' : 'translate-x-0'}`} />
-                                    </button>
-                                </div>
-                            </motion.div>
-                        )}
-                    </div>
-                </div>
-
-                {/* RATED TOGGLE */}
-                <div
-                    className={`pt-2.5 sm:pt-4 border-t border-gray-200 flex items-center justify-between ${timePreset === 'correspondence' ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-                    onClick={() => {
-                        if (timePreset !== 'correspondence') setIsRanked(!isRanked);
-                    }}
-                >
-                    <div>
-                        <div className="text-gray-900 text-sm font-medium">Ranked Match</div>
-                        <div className="text-xs text-gray-500">
-                            {timePreset === 'correspondence' ? 'Correspondence games are unranked' : 'Affects your overall ladder rating'}
+                            ))}
                         </div>
                     </div>
-                    <button className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${isRanked ? 'bg-[#4CAF84]' : 'bg-gray-300'}`}>
-                        <span className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${isRanked ? 'translate-x-5' : 'translate-x-0'}`} />
-                    </button>
-                </div>
 
-                {/* MORE OPTIONS */}
-                <div className="pt-2.5 sm:pt-4 border-t border-gray-200">
-                    <button
-                        onClick={() => setShowMoreOptions(!showMoreOptions)}
-                        className="flex items-center gap-2 text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors outline-none"
-                    >
-                        More Options
-                        <ChevronLeft className={`w-4 h-4 transition-transform duration-200 ${showMoreOptions ? '-rotate-90' : 'rotate-180'}`} />
-                    </button>
+                    <div className="premium-divider" />
 
-                    <AnimatePresence>
-                        {showMoreOptions && (
-                            <motion.div
-                                initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                                animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
-                                exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                                className="flex flex-col gap-4 overflow-hidden"
-                            >
-                                <div className="flex justify-between items-center text-sm">
-                                    <div>
-                                        <div className="text-gray-900 font-medium">Handicap</div>
-                                        <div className="text-gray-500 text-xs">Stones given to weaker player</div>
-                                    </div>
-                                    <select
-                                        value={handicap}
-                                        onChange={(e) => setHandicap(e.target.value as any)}
-                                        className="bg-white border border-gray-200 rounded-lg text-gray-900 text-sm px-3 py-1.5 outline-none focus:border-[#4CAF84] min-w-[100px]"
-                                    >
-                                        <option value="auto">Auto</option>
-                                        <option value="none">None</option>
-                                    </select>
+                    {/* RULESET */}
+                    <div className="setup-section">
+                        <div className="section-title">
+                            Ruleset
+                            <span className="section-subtitle">Scoring & Komi</span>
+                        </div>
+                        <div className="segment mt-1.5">
+                            <div className="segment-slider absolute top-[2px] bottom-[2px] w-[calc(50%-2px)] rounded-[12px] transition-transform duration-200 ease-out"
+                                style={{
+                                    transform: `translateX(${ruleset === 'japanese' ? '0' : '100%'})`,
+                                    left: ruleset === 'japanese' ? '2px' : '4px'
+                                }}
+                            ></div>
+                            <div onClick={() => setRuleset('japanese')} className={`segment-btn ${ruleset === 'japanese' ? 'segment-active' : ''}`}>Japanese</div>
+                            <div onClick={() => setRuleset('chinese')} className={`segment-btn ${ruleset === 'chinese' ? 'segment-active' : ''}`}>Chinese</div>
+                        </div>
+                    </div>
+
+                    <div className="premium-divider" />
+
+
+
+                    {/* MATCH TYPE */}
+                    <div className="setup-section">
+                        <div className="section-title">
+                            Match Type
+                            <span className="section-subtitle">Ranked Settings</span>
+                        </div>
+                        <div className="segment mt-1.5">
+                            <div className="segment-slider absolute top-[2px] bottom-[2px] w-[calc(50%-2px)] rounded-[12px] transition-transform duration-200 ease-out"
+                                style={{
+                                    transform: `translateX(${isRanked ? '0' : '100%'})`,
+                                    left: isRanked ? '2px' : '4px'
+                                }}
+                            ></div>
+                            <div onClick={() => setIsRanked(true)} className={`segment-btn ${isRanked ? 'segment-active' : ''}`}>Ranked</div>
+                            <div onClick={() => setIsRanked(false)} className={`segment-btn ${!isRanked ? 'segment-active' : ''}`}>Unranked</div>
+                        </div>
+                    </div>
+
+                    <div className="premium-divider" />
+
+                    {/* NEW TIME CONTROL BROWSER */}
+                    <div className="setup-section">
+                        <div className="section-title mb-2">
+                            Time Control
+
+                            {/* ADVANCED MODE DROPDOWN */}
+                            <div className="relative">
+                                <div
+                                    className="text-[12px] font-bold text-[#A37549] flex items-center gap-1 cursor-pointer hover:opacity-80 transition-opacity bg-[rgba(255,235,210,0.3)] px-2 py-1 rounded-md"
+                                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                >
+                                    Mode: {timeMode.charAt(0).toUpperCase() + timeMode.slice(1)}
+                                    <svg className={`w-3 h-3 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                                 </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </div>
+                                <AnimatePresence>
+                                    {isDropdownOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -5, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.95 }}
+                                            transition={{ duration: 0.15 }}
+                                            className="dropdown"
+                                        >
+                                            {(['exact', 'flexible', 'multiple'] as const).map(mode => (
+                                                <div
+                                                    key={mode}
+                                                    className={`dropdown-item ${timeMode === mode ? 'active' : ''}`}
+                                                    onClick={() => { setTimeMode(mode); setIsDropdownOpen(false); }}
+                                                >
+                                                    <div className="text-[13px] font-bold text-[#1E1C19] flex items-center gap-2">
+                                                        {timeMode === mode && <div className="w-1.5 h-1.5 rounded-full bg-[#A37549] shadow-[0_0_5px_rgba(163,117,73,0.5)]" />}
+                                                        {mode.charAt(0).toUpperCase() + mode.slice(1)}
+                                                    </div>
+                                                    <div className="text-[11px] text-[#948C83] font-medium leading-tight mt-0.5">
+                                                        {(MODE_DESCRIPTIONS as any)[mode]}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+
+                        </div>
+
+                        {/* STEP 1: TIERS */}
+                        <div className="flex gap-2 w-full mt-1">
+                            {(['fast', 'medium', 'long'] as const).map(tier => (
+                                <div
+                                    key={tier}
+                                    onClick={() => {
+                                        setTimeTier(tier);
+                                        const presets = (TIME_CONFIG as any)[boardSize][tier].presets;
+                                        if (presets && presets.length > 0) {
+                                            setTimePresetId(presets[0].id);
+                                        }
+                                    }}
+                                    className={`time-tier ${timeTier === tier ? 'active' : ''}`}
+                                >
+                                    <div className="text-[10px] uppercase font-bold tracking-widest text-[#948C83] mb-1 leading-none">{tier}</div>
+                                    <div className="text-[15px] font-black leading-none" style={{ color: timeTier === tier ? '#7A4B1A' : '#1E1C19' }}>
+                                        {(TIME_CONFIG as any)[boardSize as 9 | 13 | 19][tier].label}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* STEP 2: PRESETS */}
+                        <div className="grid grid-cols-2 gap-2 mt-3 p-2 bg-[rgba(255,255,255,0.4)] rounded-2xl border border-[rgba(80,60,40,0.04)] shadow-[inset_0_2px_10px_rgba(45,30,20,0.02)]">
+                            {((TIME_CONFIG as any)[boardSize as 9 | 13 | 19][timeTier].presets).map((preset: any) => (
+                                <div
+                                    key={preset.id}
+                                    onClick={() => setTimePresetId(preset.id)}
+                                    className={`choice-chip ${timePresetId === preset.id ? 'active' : ''}`}
+                                >
+                                    {preset.label}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+
+                </div> {/* End of Settings Scroll Context */}
 
                 {/* CTA */}
-                <button
-                    onClick={() => {
-                        const token = localStorage.getItem('token');
-                        if (!token || token === 'undefined' || token === 'null') {
-                            alert("Please log in to play online.");
-                            router.push('/login');
-                            return;
-                        }
-                        setGameState('waiting');
-                    }}
-                    className="w-full mt-0 sm:mt-1 h-11 sm:h-12 bg-gradient-to-r from-[#4CAF84] to-[#3B82F6] hover:from-blue-500 hover:to-blue-400 text-gray-900 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all flex items-center justify-center gap-2"
-                >
-                    <Search className="w-5 h-5" /> Find Match
-                </button>
-                <div className="text-center text-xs text-gray-500 -mt-4">
-                    We'll look for an opponent with similar settings
+                <div className="pt-2 z-20 pb-0">
+                    <button
+                        onClick={() => {
+                            const token = localStorage.getItem('token');
+                            if (!token || token === 'undefined' || token === 'null') {
+                                alert("Please log in to play online.");
+                                router.push('/login');
+                                return;
+                            }
+                            setGameState('waiting');
+                        }}
+                        className="cta-btn w-full h-[48px] rounded-[16px] font-bold text-[14px] tracking-wide transition-all flex items-center justify-center gap-2 outline-none"
+                    >
+                        <Search className="w-4 h-4 opacity-90" /> Find Exact Match
+                    </button>
+                    <div className="text-center text-[11px] font-medium mt-2" style={{ color: '#948C83' }}>
+                        We'll securely bridge your connection
+                    </div>
                 </div>
             </div>
         </div>
@@ -395,37 +499,51 @@ export default function OnlinePlay() {
 
     const renderWaitingContent = (isFound: boolean) => {
         return (
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center absolute inset-0 z-50 justify-center bg-transparent">
                 {isFound ? (
                     <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="flex flex-col items-center">
-                        <div className="w-[80px] h-[80px] rounded-full bg-gradient-to-tr from-green-500 to-[#E9C46A] flex items-center justify-center shadow-[0_0_40px_rgba(76,175,132,0.4)] mb-4 border-[4px] border-[#111]">
-                            <Check className="w-10 h-10 text-gray-900" strokeWidth={3} />
+                        <div className="w-[80px] h-[80px] rounded-full bg-gradient-to-tr from-[#4f8f6b] to-[#E9C46A] flex items-center justify-center shadow-[0_0_40px_rgba(255,200,140,0.2)] mb-4 border-[4px] border-[#1E1C19]">
+                            <Check className="w-10 h-10 text-white" strokeWidth={3} />
                         </div>
                         <h3 className="text-[28px] font-black tracking-tight text-white drop-shadow-lg mb-1">Match Intercepted</h3>
-                        <span className="text-[13px] font-bold text-gray-300 uppercase tracking-widest mt-1">Connecting to Arena...</span>
+                        <span className="text-[13px] font-bold text-[#E9C46A] uppercase tracking-widest mt-1">Connecting to Arena...</span>
                     </motion.div>
                 ) : (
                     <div className="flex flex-col items-center">
-                        <div className="relative w-20 h-20 mb-6 drop-shadow-[0_0_25px_rgba(59,130,246,0.3)]">
-                            <div className="absolute inset-0 border-[6px] border-gray-600 rounded-full"></div>
-                            <div className="absolute inset-0 border-[6px] border-transparent border-t-[#3B82F6] rounded-full animate-spin"></div>
+                        <div className="relative w-20 h-20 mb-6 drop-shadow-[0_0_20px_rgba(255,210,150,0.2)]">
+                            <div className="absolute inset-0 border-[4px] border-[#948C83]/20 rounded-full"></div>
+                            <div className="absolute inset-0 border-[4px] border-transparent rounded-full animate-spin" style={{ borderTopColor: 'rgba(255, 210, 150, 0.85)' }}></div>
                         </div>
-                        <h3 className="text-[24px] font-bold text-white drop-shadow-md tracking-tight">Searching for Opponent</h3>
-                        <div className="mt-3 font-mono text-[24px] font-black text-[#4CAF84] tracking-wider drop-shadow-sm">{formatWaitTime(waitTime)}</div>
+                        <h3 className="text-[24px] font-bold text-[#FDFCF9] drop-shadow-md tracking-tight">Searching for Opponent</h3>
+                        <div className="mt-2 font-mono text-[24px] font-medium text-[#E9C46A] tracking-wider drop-shadow-sm">{formatWaitTime(waitTime)}</div>
                     </div>
                 )}
-                
+
                 <div className="w-[300px] flex flex-col gap-6 shrink-0 mt-8">
-                    <div className="bg-white/10 backdrop-blur-md rounded-[20px] p-6 border border-white/10 shadow-2xl relative overflow-hidden">
-                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4CAF84] to-[#3B82F6]"></div>
-                        <h2 className="text-[14px] font-bold text-gray-300 uppercase tracking-widest mb-4 flex items-center justify-between">Queue Status</h2>
-                        <div className="flex flex-col gap-3 mb-8">
-                            <div className="flex justify-between items-center text-[13px]"><span className="text-gray-400 font-medium">Board Size</span><span className="text-white font-bold">{boardSizes.map(s => `${s}x${s}`).join(', ')}</span></div>
-                            <div className="flex justify-between items-center text-[13px]"><span className="text-gray-400 font-medium">Time Preset</span><span className="text-white font-bold capitalize">{timePreset}</span></div>
-                            <div className="flex justify-between items-center text-[13px]"><span className="text-gray-400 font-medium">Mode</span><span className="text-white font-bold flex items-center gap-1.5">{isRanked ? <div className="w-1.5 h-1.5 rounded-full bg-green-500" /> : <div className="w-1.5 h-1.5 rounded-full bg-gray-500" />}{isRanked ? 'Ranked' : 'Casual'}</span></div>
+                    <div className="rounded-[24px] p-6 shadow-2xl relative overflow-hidden backdrop-blur-md border border-[rgba(0,0,0,0.05)]" 
+                         style={{ background: 'radial-gradient(circle at 30% 20%, rgba(255, 200, 140, 0.18), transparent 50%), rgba(255, 253, 250, 0.95)' }}>
+                        <h2 className="text-[14px] font-bold text-[#1E1C19] uppercase tracking-widest mb-4 flex items-center justify-between">Queue Status</h2>
+                        <div className="flex flex-col gap-2 mt-3 p-3 rounded-xl border border-[rgba(0,0,0,0.04)] shadow-inner" style={{ background: 'rgba(0,0,0,0.02)' }}>
+                            <div className="flex justify-between items-center text-[13px]"><span className="font-medium" style={{ color: '#6E675F' }}>Board Size</span><span className="font-bold" style={{ color: '#1E1C19' }}>{boardSize}x{boardSize}</span></div>
+                            <div className="flex justify-between items-center text-[13px]"><span className="font-medium" style={{ color: '#6E675F' }}>Rules</span><span className="font-bold capitalize" style={{ color: '#1E1C19' }}>{ruleset}</span></div>
+                            <div className="flex justify-between items-center text-[13px]"><span className="font-medium" style={{ color: '#6E675F' }}>Mode</span>
+                                <span className="font-bold flex items-center gap-1.5" style={{ color: '#1E1C19' }}>
+                                    {isRanked ? <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#4f8f6b' }} /> : <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#948C83' }} />}
+                                    {isRanked ? 'Ranked' : 'Casual'}
+                                </span>
+                            </div>
                         </div>
                         {!isFound && (
-                            <button onClick={handleCancel} className="w-full h-[46px] bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-xl font-bold transition-colors border border-red-500/20 flex items-center justify-center gap-2 text-[14px]">
+                            <button onClick={handleCancel} 
+                                    className="w-full h-[46px] rounded-xl font-bold transition-colors flex items-center justify-center gap-2 text-[14px] mt-4"
+                                    style={{ 
+                                        background: 'rgba(0,0,0,0.12)', 
+                                        color: 'rgba(0,0,0,0.55)', 
+                                        border: '1px solid rgba(0,0,0,0.08)' 
+                                    }}
+                                    onMouseOver={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.18)'}
+                                    onMouseOut={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.12)'}
+                            >
                                 <XCircle className="w-4 h-4" /> Cancel Search
                             </button>
                         )}
@@ -479,7 +597,7 @@ export default function OnlinePlay() {
     return (
         <div className="min-h-[100dvh] bg-[#FDFCF9] text-gray-900 font-sans flex flex-col items-center justify-center pt-[80px] pb-[40px] px-4 relative overflow-x-hidden selection:bg-[#4CAF84]">
             <Head>
-                <title>Online Match - GoAI</title>
+                <title>Online Match - KAI</title>
                 <style dangerouslySetInnerHTML={{
                     __html: `
                     /* Glassmorphism Styles */
@@ -565,7 +683,7 @@ export default function OnlinePlay() {
             {/* MAIN 3-ZONE LAYOUT */}
             <div className="w-full max-w-[1920px] flex flex-col items-center justify-center relative z-10 flex-1">
                 <main className="w-full flex flex-col xl:flex-row gap-[24px] justify-center items-center">
-                    
+
                     {/* Left Flank: Player Cards */}
                     <div className={`w-full flex xl:flex-col gap-[24px] shrink-0 order-2 xl:order-1 pt-4 transition-all duration-1000 xl:w-[200px]`}>
                         {/* Player Card (YOU) */}
@@ -573,8 +691,8 @@ export default function OnlinePlay() {
                             <div className={`w-[72px] h-[72px] rounded-full bg-[#1A1A1A] flex items-center justify-center mb-3 transition-all duration-1000 ${gameState === 'found' ? 'theater-glass-avatar' : ''}`}>
                                 <User className="w-9 h-9 text-white" />
                             </div>
-                            <div className={`font-bold text-gray-900 text-[15px] transition-colors duration-1000 ${gameState === 'found' ? 'theater-glass-name' : ''}`}>{user?.username || 'You'}</div>
-                            <div className={`text-[13px] font-bold mb-4 transition-colors duration-1000 ${gameState === 'found' ? 'theater-glass-meta' : 'text-[#4CAF84]'}`}>{user?.rank || '25k'}</div>
+                            <div className={`font-bold text-gray-900 text-[15px] transition-colors duration-1000 ${gameState === 'found' ? 'theater-glass-name' : ''}`}>{'You'}</div>
+                            <div className={`text-[13px] font-bold mb-4 transition-colors duration-1000 ${gameState === 'found' ? 'theater-glass-meta' : 'text-[#4CAF84]'}`}>{'Ready'}</div>
                         </div>
 
                         {/* Opponent Card */}
@@ -595,13 +713,13 @@ export default function OnlinePlay() {
                     {/* Center Flank: Board */}
                     <div className="flex-1 flex flex-col items-center justify-center shrink-0 min-w-[300px] w-full xl:max-w-[70vw] order-1 xl:order-2 gap-[24px] z-20 overflow-visible xl:px-4">
                         <div className="w-full flex items-center justify-center relative my-2 sm:my-4">
-                            
-                            {/* THEATER MODE BOWLS (Right Flank) */}
-                            <div className={`absolute top-[52%] z-[5] hidden xl:flex flex-col pointer-events-none transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] origin-right gap-[20px]`}
-                                style={{ transform: 'translateY(-50%)', right: '-80px' }}
+
+                            <div className={`absolute top-[52%] z-[5] hidden xl:flex flex-col pointer-events-none transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] origin-right gap-[30px] mix-blend-multiply`}
+                                style={{ transform: 'translateY(-50%)', right: '-200px' }}
                             >
-                                <img src="/white_lid.png" alt="White Stones" className="w-[180px] h-auto object-contain drop-shadow-2xl brightness-95" />
-                                <img src="/black_lid.png" alt="Black Stones" className="w-[180px] h-auto object-contain drop-shadow-2xl brightness-95" />
+                                {/* Group-level blend-mode drops the background flush into the lobby geometry without stacking-context isolation. */}
+                                <img src="/assets/bowls_v3/woven_lid.png" alt="White Stones" className="w-[400px] h-[400px] object-contain" />
+                                <img src="/assets/bowls_v3/woven_lid.png" alt="Black Stones" className="w-[400px] h-[400px] object-contain" />
                             </div>
 
                             <div className="relative inline-flex items-center justify-center w-full max-w-[800px] aspect-square">
@@ -630,14 +748,8 @@ export default function OnlinePlay() {
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/10 backdrop-blur-sm px-4"
                 >
-                    {/* SUB-HEADER (title) */}
-                    {gameState !== 'live' && gameState !== 'found' && gameState !== 'waiting' && (
-                        <div className="text-center mb-6 z-10 pt-20">
-                            <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-lg">Play vs People</h1>
-                            <p className="text-white/80 font-medium text-[15px] mt-1 drop-shadow">Fast pairing with a live player near your level</p>
-                        </div>
-                    )}
-                    
+
+
                     <div className="w-full max-w-[500px]">
                         {gameState === 'settings' ? renderSettings() : gameState === 'result' ? renderResult() : renderWaiting()}
                     </div>
