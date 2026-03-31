@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y wget unzip sudo bash && \
     echo "40a9dbe7b73380c66de6ef97fe9196f8192428ad2f5c804db5bacd11f7d9e5b4  katago.zip" | sha256sum -c - && \
     unzip -o katago.zip && chmod +x katago && rm katago.zip
 
+# Download Official Neural Network Weights (Self-Contained)
+RUN wget -qO network.bin.gz "https://github.com/lightvector/KataGo/releases/download/v1.15.0/b18c384nbt-humanv0.bin.gz"
+
 COPY . /app/
 EXPOSE 8080
 
