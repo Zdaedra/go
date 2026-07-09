@@ -42,6 +42,12 @@ opening names) — the book's prose commentary is not included.
 
 Coordinates use SGF convention (`a`–`i`, left→right / top→bottom); `gtp`
 gives the human-readable form (columns `A`–`J` skipping `I`, rows 9–1).
+
+**Continuation semantics.** The `labels` (letters A, B, C, …) and
+`markers` (triangles/squares) shown at a diagram's final position mark the
+candidate *next moves* — the branch points where the opening continues into
+the variations discussed around that diagram. Downstream tooling should
+treat them as the diagram's continuation set, keyed by coordinate.
 Continuation diagrams start numbering where the previous diagram left off
 (the first SGF move then carries an `MN[..]` property).
 
