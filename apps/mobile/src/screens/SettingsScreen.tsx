@@ -5,6 +5,7 @@ import { ScrollView, Text, Pressable, StyleSheet, View } from 'react-native';
 import { boardThemes } from '../theme/boardThemes';
 import { stoneThemes } from '../theme/stoneThemes';
 import { useTheme } from '../theme/ThemeContext';
+import { useAuth } from '../state/AuthContext';
 import Goban from '../components/Goban';
 import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
 
@@ -21,6 +22,7 @@ function previewPosition(): string {
 
 export default function SettingsScreen() {
   const { board, stones, setBoardTheme, setStoneTheme } = useTheme();
+  const auth = useAuth();
   const preview = React.useMemo(previewPosition, []);
 
   return (
@@ -67,6 +69,16 @@ export default function SettingsScreen() {
         Темы доски и камней независимы. Новые темы добавляются в
         src/theme/boardThemes.ts и src/theme/stoneThemes.ts.
       </Text>
+
+      <Text style={styles.section}>Аккаунт</Text>
+      <Text style={styles.accountText}>
+        {auth.email ?? 'Гостевой режим'} · тариф: {auth.plan === 'pro' ? 'подписка' : 'бесплатный'}
+      </Text>
+      <View style={styles.row}>
+        <Pressable style={styles.opt} onPress={auth.signOut}>
+          <Text style={styles.optText}>Выйти</Text>
+        </Pressable>
+      </View>
     </ScrollView>
   );
 }
@@ -89,4 +101,5 @@ const styles = StyleSheet.create({
   stonePair: { flexDirection: 'row', gap: 2 },
   stone: { width: 18, height: 18, borderRadius: 9 },
   note: { fontSize: 13, color: '#6E6152', marginTop: 12 },
+  accountText: { fontSize: 14, color: '#2A2118' },
 });

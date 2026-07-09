@@ -2,7 +2,7 @@
 // identifies the opening/branch in real time and shows continuation
 // hints from the database.
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import Goban, { GobanMark, GhostStone } from '../components/Goban';
 import { EMPTY_BOARD, play } from '../engine/board';
@@ -11,6 +11,8 @@ import {
 } from '../engine/identify';
 import { openingDisplayName } from '../data/names';
 import { useTheme } from '../theme/ThemeContext';
+import { useAuth } from '../state/AuthContext';
+import { recordOpeningIdentified, FREE_DAILY_LIMIT } from '../state/usage';
 
 interface HistoryItem {
   board: string;
@@ -18,11 +20,15 @@ interface HistoryItem {
   color: 'b' | 'w';
 }
 
-export default function PlayScreen() {
+export default function PlayScreen({ navigation }: { navigation: any }) {
   const { board: boardTheme } = useTheme();
+  const auth = useAuth();
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [myColor, setMyColor] = useState<'b' | 'w'>('b');
   const [showHints, setShowHints] = useState(true);
+  const [locked, setLocked] = useState(false);
+  const [usedToday, setUsedToday] = useState(0);
+  const countedOpenings = useRef(new Set<string>());
 
   const position = history.length ? history[history.length - 1].board : EMPTY_BOARD;
   const toMove: 'b' | 'w' =
@@ -31,24 +37,54 @@ export default function PlayScreen() {
   const result = useMemo(() => identify(position), [position]);
   const branch = useMemo(() => currentBranch(result), [result]);
 
+  const fullMarks = useMemo(() => continuationMarks(result), [result]);
   const marks: GobanMark[] = useMemo(
-    () => continuationMarks(result).map((m) => ({ at: m.at, label: m.label, kind: m.kind })),
-    [result]
+    () => (locked ? [] : fullMarks.map((m) => ({ at: m.at, label: m.label, kind: m.kind }))),
+    [fullMarks, locked]
   );
   const ghosts: GhostStone[] = useMemo(() => {
-    if (!showHints || result.status === 'unknown' || marks.length > 0) return [];
+    if (locked || !showHints || result.status === 'unknown' || marks.length > 0) return [];
     return suggestions(result, 3)
       .filter((s) => s.color === toMove)
       .map((s) => ({ at: s.at, color: s.color, label: s.label }));
-  }, [showHints, result, marks, toMove]);
+  }, [locked, showHints, result, marks, toMove]);
 
   const placeStone = (at: number) => {
-    const next = play(position, at, toMove);
+    // Tapping a continuation letter/triangle plays that branch's move:
+    // identification then announces the branch it leads into.
+    const mark = fullMarks.find((m) => m.at === at);
+    const color = mark?.by === 'b' || mark?.by === 'w' ? mark.by : toMove;
+    const next = play(position, at, color);
     if (!next) return; // occupied or suicide
-    setHistory([...history, { board: next.board, at, color: toMove }]);
+    setHistory([...history, { board: next.board, at, color }]);
   };
 
+  // Free-tier metering: identifying a NEW opening consumes one of the
+  // daily slots; over the limit the identification panel locks.
+  useEffect(() => {
+    if (result.status !== 'identified' || auth.plan === 'pro') {
+      if (result.status !== 'identified') setLocked(false);
+      return;
+    }
+    const o = result.opening!;
+    const key = `${o.family}/${o.opening}`;
+    if (countedOpenings.current.has(key)) return;
+    recordOpeningIdentified(key, { plan: auth.plan, token: auth.token }).then((usage) => {
+      setUsedToday(usage.used);
+      if (usage.allowed) {
+        countedOpenings.current.add(key);
+        setLocked(false);
+      } else {
+        setLocked(true);
+        navigation.navigate('Paywall');
+      }
+    });
+  }, [result, auth.plan, auth.token, navigation]);
+
   const status = (() => {
+    if (locked) {
+      return `Дневной лимит: ${FREE_DAILY_LIMIT} дебюта. Название скрыто 🔒`;
+    }
     switch (result.status) {
       case 'empty':
         return `Поставь первый камень. Ты играешь за ${myColor === 'b' ? 'чёрных' : 'белых'}.`;
@@ -109,7 +145,17 @@ export default function PlayScreen() {
         )}
         <Text style={styles.statusSub}>
           Ход: {toMove === 'b' ? 'чёрные ⚫' : 'белые ⚪'}
+          {auth.plan === 'free' && usedToday > 0
+            ? ` · дебютов сегодня: ${usedToday}/${FREE_DAILY_LIMIT}`
+            : ''}
         </Text>
+        {locked && (
+          <Pressable onPress={() => navigation.navigate('Paywall')}>
+            <Text style={[styles.statusSub, { color: boardTheme.letter }]}>
+              Снять лимит — $5/мес →
+            </Text>
+          </Pressable>
+        )}
       </View>
 
       <View style={styles.controls}>
