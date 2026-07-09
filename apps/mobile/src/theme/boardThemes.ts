@@ -1,0 +1,66 @@
+// Board (goban) visual themes. Board and stone themes are selected
+// independently in Settings. Each theme is pure draw parameters —
+// adding a theme is adding an object, no component changes needed.
+// Looks are inspired by open-source gobans (Sabaki, Lizzie, OGS).
+
+export interface BoardTheme {
+  id: string;
+  nameRu: string;
+  /** Background gradient stops, top to bottom. */
+  wood: [string, string, string];
+  /** Subtle horizontal grain streak color (drawn at low opacity). */
+  grain: string;
+  grainOpacity: number;
+  line: string;
+  edgeLine: string;
+  hoshi: string;
+  coordText: string;
+  /** Color for variation letters (A, B, C...) drawn on empty points. */
+  letter: string;
+  /** Ghost-stone suggestion opacity. */
+  ghostOpacity: number;
+}
+
+export const boardThemes: Record<string, BoardTheme> = {
+  kaya: {
+    id: 'kaya',
+    nameRu: 'Кайя (классика)',
+    wood: ['#E8C476', '#DDB05C', '#D2A34E'],
+    grain: '#B98E3F',
+    grainOpacity: 0.18,
+    line: '#4A3B24',
+    edgeLine: '#3A2E1C',
+    hoshi: '#3A2E1C',
+    coordText: '#6B5530',
+    letter: '#B23A2B',
+    ghostOpacity: 0.38,
+  },
+  night: {
+    id: 'night',
+    nameRu: 'Тёмная',
+    wood: ['#4B4238', '#3E362D', '#332C24'],
+    grain: '#2A241D',
+    grainOpacity: 0.3,
+    line: '#B9A98E',
+    edgeLine: '#CDBEA2',
+    hoshi: '#CDBEA2',
+    coordText: '#8F8168',
+    letter: '#E06A50',
+    ghostOpacity: 0.42,
+  },
+  paper: {
+    id: 'paper',
+    nameRu: 'Бумага',
+    wood: ['#F6F1E6', '#F2ECDE', '#EDE6D5'],
+    grain: '#E0D6C2',
+    grainOpacity: 0.35,
+    line: '#57503F',
+    edgeLine: '#3E382B',
+    hoshi: '#3E382B',
+    coordText: '#8A8069',
+    letter: '#B23A2B',
+    ghostOpacity: 0.35,
+  },
+};
+
+export const defaultBoardTheme = 'kaya';

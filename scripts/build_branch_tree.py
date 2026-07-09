@@ -173,6 +173,11 @@ def main() -> int:
             "caption": d["caption"],
             "result": d["result"],
             "to_move": d["to_move"],
+            # This diagram's own numbered moves; position_index plies refer
+            # to prefixes of this list (ply p = position after moves[:p]).
+            "moves": [{"color": m["color"], "coord": m["coord"]} for m in info["seq"]],
+            "setup_black": d["setup_black"],
+            "setup_white": d["setup_white"],
             "line": info["line"],           # full ordered moves from empty board, or null
             "line_len": len(info["line"]) if info["line"] else None,
             "parent": (

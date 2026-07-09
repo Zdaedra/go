@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Дебюты Го 9×9",
+    "slug": "go-openings-9x9",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#FBF8F1",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.zdaedra.goopenings9x9"
+    },
+    "android": {
+      "package": "com.zdaedra.goopenings9x9"
+    }
+  }
+}
