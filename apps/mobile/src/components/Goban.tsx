@@ -4,13 +4,11 @@ import Svg, {
   Rect, Line, Circle, Text as SvgText, Polygon, Defs, RadialGradient,
   LinearGradient, Stop, G, Ellipse,
 } from 'react-native-svg';
-import { SIZE, GTP_COLS, colOf, rowOf, idx } from '../engine/board';
+import { GTP_COLS } from '../engine/board';
 import { useTheme } from '../theme/ThemeContext';
 
 const CELL = 24;
 const PAD = 26;
-const BOARD_PX = PAD * 2 + CELL * (SIZE - 1);
-const px = (i: number) => PAD + i * CELL;
 
 export interface GobanMark {
   at: number;
@@ -24,9 +22,17 @@ export interface GhostStone {
   label?: string | null;
 }
 
+export interface ViewRect {
+  c0: number; r0: number; c1: number; r1: number;
+}
+
 interface GobanProps {
-  /** 81-char position string. */
+  /** size*size-char position string ('.', 'b', 'w'). */
   position: string;
+  /** Board size; defaults to 9. */
+  size?: number;
+  /** Visible sub-rectangle (for large-board corner problems). */
+  view?: ViewRect;
   /** Move numbers by board index (optional). */
   numbers?: Map<number, number>;
   lastMove?: number | null;
@@ -36,74 +42,108 @@ interface GobanProps {
   disabled?: boolean;
 }
 
-function Stone({ at, color, numText, hot }: {
-  at: number; color: 'b' | 'w'; numText?: string; hot?: boolean;
-}) {
-  const { stones, board } = useTheme();
-  const s = color === 'b' ? stones.black : stones.white;
-  const cx = px(colOf(at));
-  const cy = px(rowOf(at));
-  const gradId = `stone-${color}`;
-  return (
-    <G>
-      {stones.shadowOpacity > 0 && (
-        <Ellipse
-          cx={cx + 0.8} cy={cy + 1.6} rx={11} ry={10.4}
-          fill={stones.shadow} opacity={stones.shadowOpacity}
-        />
-      )}
-      <Circle
-        cx={cx} cy={cy} r={11}
-        fill={`url(#${gradId})`}
-        stroke={s.stroke === 'none' ? undefined : s.stroke}
-        strokeWidth={s.strokeWidth}
-      />
-      {s.highlightOpacity > 0 && (
-        <Ellipse
-          cx={cx - 3.6} cy={cy - 4.2} rx={4.6} ry={3.2}
-          fill={s.highlight} opacity={s.highlightOpacity * 0.55}
-        />
-      )}
-      {numText != null && (
-        <SvgText
-          x={cx} y={cy + 3.8} textAnchor="middle"
-          fontSize={numText.length > 2 ? 8.5 : 10.5}
-          fontWeight={hot ? '800' : '600'}
-          fill={hot ? board.letter : s.text}
-        >
-          {numText}
-        </SvgText>
-      )}
-    </G>
-  );
+function hoshiPoints(size: number): [number, number][] {
+  if (size === 9) return [[2, 2], [6, 2], [4, 4], [2, 6], [6, 6]];
+  if (size === 13) return [[3, 3], [9, 3], [6, 6], [3, 9], [9, 9]];
+  if (size === 19) {
+    const pts: [number, number][] = [];
+    for (const c of [3, 9, 15]) for (const r of [3, 9, 15]) pts.push([c, r]);
+    return pts;
+  }
+  return [];
 }
 
 export default function Goban({
-  position, numbers, lastMove, marks = [], ghosts = [], onPoint, disabled,
+  position, size = 9, view, numbers, lastMove, marks = [], ghosts = [],
+  onPoint, disabled,
 }: GobanProps) {
   const { board, stones } = useTheme();
+  const layoutSize = React.useRef(1);
+
+  const v: ViewRect = view ?? { c0: 0, r0: 0, c1: size - 1, r1: size - 1 };
+  const px = (i: number) => PAD + i * CELL;
+  const colOf = (i: number) => i % size;
+  const rowOf = (i: number) => Math.floor(i / size);
+
+  // Show coordinate labels only for a full standard board (openings mode).
+  const showCoords = !view || (v.c0 === 0 && v.r0 === 0 && v.c1 === size - 1 && v.r1 === size - 1);
+
+  const minX = px(v.c0) - PAD;
+  const minY = px(v.r0) - PAD;
+  const viewW = px(v.c1) - px(v.c0) + PAD * 2;
+  const viewH = px(v.r1) - px(v.r0) + PAD * 2;
+
+  const inView = (i: number) => {
+    const c = colOf(i), r = rowOf(i);
+    return c >= v.c0 - 0 && c <= v.c1 && r >= v.r0 && r <= v.r1;
+  };
 
   const handlePress = (evt: { nativeEvent: { locationX: number; locationY: number } }) => {
     if (!onPoint || disabled) return;
     const { locationX, locationY } = evt.nativeEvent;
-    // Pressable is stretched to the rendered square; convert to grid.
-    const scale = BOARD_PX / layoutSize.current;
-    const c = Math.round((locationX * scale - PAD) / CELL);
-    const r = Math.round((locationY * scale - PAD) / CELL);
-    if (c < 0 || r < 0 || c >= SIZE || r >= SIZE) return;
-    onPoint(idx(c, r));
+    const scale = viewW / layoutSize.current;
+    const c = Math.round((locationX * scale + minX - PAD) / CELL);
+    const r = Math.round((locationY * scale * 1 + minY - PAD) / CELL);
+    if (c < v.c0 || r < v.r0 || c > v.c1 || r > v.r1) return;
+    onPoint(r * size + c);
   };
 
-  const layoutSize = React.useRef(BOARD_PX);
+  const cols = Array.from({ length: v.c1 - v.c0 + 1 }, (_, k) => v.c0 + k);
+  const rows = Array.from({ length: v.r1 - v.r0 + 1 }, (_, k) => v.r0 + k);
+  // Grid lines stop at the true board edge, run to the crop border otherwise.
+  const lineX0 = px(v.c0) - (v.c0 > 0 ? PAD * 0.55 : 0);
+  const lineX1 = px(v.c1) + (v.c1 < size - 1 ? PAD * 0.55 : 0);
+  const lineY0 = px(v.r0) - (v.r0 > 0 ? PAD * 0.55 : 0);
+  const lineY1 = px(v.r1) + (v.r1 < size - 1 ? PAD * 0.55 : 0);
+
+  const stoneR = 11;
+
+  const renderStone = (at: number, color: 'b' | 'w', numText?: string, hot?: boolean) => {
+    const s = color === 'b' ? stones.black : stones.white;
+    const cx = px(colOf(at));
+    const cy = px(rowOf(at));
+    return (
+      <G key={`s${at}`}>
+        {stones.shadowOpacity > 0 && (
+          <Ellipse
+            cx={cx + 0.8} cy={cy + 1.6} rx={stoneR} ry={stoneR - 0.6}
+            fill={stones.shadow} opacity={stones.shadowOpacity}
+          />
+        )}
+        <Circle
+          cx={cx} cy={cy} r={stoneR}
+          fill={`url(#stone-${color})`}
+          stroke={s.stroke === 'none' ? undefined : s.stroke}
+          strokeWidth={s.strokeWidth}
+        />
+        {s.highlightOpacity > 0 && (
+          <Ellipse
+            cx={cx - 3.6} cy={cy - 4.2} rx={4.6} ry={3.2}
+            fill={s.highlight} opacity={s.highlightOpacity * 0.55}
+          />
+        )}
+        {numText != null && (
+          <SvgText
+            x={cx} y={cy + 3.8} textAnchor="middle"
+            fontSize={numText.length > 2 ? 8.5 : 10.5}
+            fontWeight={hot ? '800' : '600'}
+            fill={hot ? board.letter : s.text}
+          >
+            {numText}
+          </SvgText>
+        )}
+      </G>
+    );
+  };
 
   return (
     <View style={styles.wrap}>
       <Pressable
         onPress={handlePress}
         onLayout={(e) => { layoutSize.current = e.nativeEvent.layout.width; }}
-        style={styles.square}
+        style={[styles.square, { aspectRatio: viewW / viewH }]}
       >
-        <Svg viewBox={`0 0 ${BOARD_PX} ${BOARD_PX}`} width="100%" height="100%">
+        <Svg viewBox={`${minX} ${minY} ${viewW} ${viewH}`} width="100%" height="100%">
           <Defs>
             <LinearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
               <Stop offset="0" stopColor={board.wood[0]} />
@@ -122,69 +162,75 @@ export default function Goban({
             </RadialGradient>
           </Defs>
 
-          <Rect x={0} y={0} width={BOARD_PX} height={BOARD_PX} rx={8} fill="url(#wood)" />
-          {/* Wood grain: a few soft horizontal streaks. */}
+          <Rect x={minX} y={minY} width={viewW} height={viewH} rx={8} fill="url(#wood)" />
           {[0.18, 0.34, 0.52, 0.71, 0.88].map((t, i) => (
             <Rect
-              key={i} x={0} y={BOARD_PX * t} width={BOARD_PX}
+              key={i} x={minX} y={minY + viewH * t} width={viewW}
               height={1.6 + (i % 3)} fill={board.grain} opacity={board.grainOpacity}
             />
           ))}
 
-          {Array.from({ length: SIZE }, (_, i) => (
-            <G key={i}>
-              <Line
-                x1={px(0)} y1={px(i)} x2={px(SIZE - 1)} y2={px(i)}
-                stroke={i === 0 || i === SIZE - 1 ? board.edgeLine : board.line}
-                strokeWidth={i === 0 || i === SIZE - 1 ? 1.7 : 0.9}
-              />
-              <Line
-                x1={px(i)} y1={px(0)} x2={px(i)} y2={px(SIZE - 1)}
-                stroke={i === 0 || i === SIZE - 1 ? board.edgeLine : board.line}
-                strokeWidth={i === 0 || i === SIZE - 1 ? 1.7 : 0.9}
-              />
-              <SvgText
-                x={px(i)} y={px(0) - 13} textAnchor="middle" fontSize={9}
-                fill={board.coordText}
-              >
-                {GTP_COLS[i]}
-              </SvgText>
-              <SvgText
-                x={px(0) - 15} y={px(i) + 3} textAnchor="middle" fontSize={9}
-                fill={board.coordText}
-              >
-                {String(SIZE - i)}
-              </SvgText>
-            </G>
+          {rows.map((r) => (
+            <Line
+              key={`h${r}`}
+              x1={lineX0} y1={px(r)} x2={lineX1} y2={px(r)}
+              stroke={r === 0 || r === size - 1 ? board.edgeLine : board.line}
+              strokeWidth={r === 0 || r === size - 1 ? 1.7 : 0.9}
+            />
+          ))}
+          {cols.map((c) => (
+            <Line
+              key={`v${c}`}
+              x1={px(c)} y1={lineY0} x2={px(c)} y2={lineY1}
+              stroke={c === 0 || c === size - 1 ? board.edgeLine : board.line}
+              strokeWidth={c === 0 || c === size - 1 ? 1.7 : 0.9}
+            />
           ))}
 
-          {[[2, 2], [6, 2], [4, 4], [2, 6], [6, 6]].map(([c, r]) => (
-            <Circle key={`${c}-${r}`} cx={px(c)} cy={px(r)} r={2.6} fill={board.hoshi} />
+          {showCoords && cols.map((c) => (
+            <SvgText
+              key={`ct${c}`} x={px(c)} y={px(v.r0) - 13} textAnchor="middle"
+              fontSize={9} fill={board.coordText}
+            >
+              {GTP_COLS[c]}
+            </SvgText>
           ))}
+          {showCoords && rows.map((r) => (
+            <SvgText
+              key={`rt${r}`} x={px(v.c0) - 15} y={px(r) + 3} textAnchor="middle"
+              fontSize={9} fill={board.coordText}
+            >
+              {String(size - r)}
+            </SvgText>
+          ))}
+
+          {hoshiPoints(size)
+            .filter(([c, r]) => c >= v.c0 && c <= v.c1 && r >= v.r0 && r <= v.r1)
+            .map(([c, r]) => (
+              <Circle key={`h${c}-${r}`} cx={px(c)} cy={px(r)} r={2.6} fill={board.hoshi} />
+            ))}
 
           {Array.from(position).map((cell, at) =>
-            cell === '.' ? null : (
-              <Stone
-                key={at}
-                at={at}
-                color={cell as 'b' | 'w'}
-                numText={numbers?.has(at) ? String(numbers.get(at)) : undefined}
-                hot={lastMove === at}
-              />
+            cell === '.' || !inView(at) ? null : renderStone(
+              at,
+              cell as 'b' | 'w',
+              numbers?.has(at) ? String(numbers.get(at)) : undefined,
+              lastMove === at
             )
           )}
 
-          {lastMove != null && position[lastMove] !== '.' && !numbers?.has(lastMove) && (
+          {lastMove != null && position[lastMove] !== '.' && !numbers?.has(lastMove)
+            && inView(lastMove) && (
             <Circle
               cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={4.6}
               fill="none" stroke={board.letter} strokeWidth={1.6}
             />
           )}
 
-          {ghosts.map((g) => (
+          {ghosts.filter((g) => inView(g.at)).map((g) => (
             <G key={`g${g.at}`} opacity={board.ghostOpacity}>
               <Circle
-                cx={px(colOf(g.at))} cy={px(rowOf(g.at))} r={11}
+                cx={px(colOf(g.at))} cy={px(rowOf(g.at))} r={stoneR}
                 fill={g.color === 'b' ? stones.black.fill[1] : stones.white.fill[1]}
                 stroke={g.color === 'w' ? stones.white.stroke : undefined}
                 strokeWidth={0.6}
@@ -201,7 +247,7 @@ export default function Goban({
             </G>
           ))}
 
-          {marks.map((m) => {
+          {marks.filter((m) => inView(m.at)).map((m) => {
             const cx = px(colOf(m.at));
             const cy = px(rowOf(m.at));
             const onStone = position[m.at] !== '.';
@@ -245,5 +291,5 @@ export default function Goban({
 
 const styles = StyleSheet.create({
   wrap: { width: '100%', alignItems: 'center' },
-  square: { width: '100%', maxWidth: 440, aspectRatio: 1 },
+  square: { width: '100%', maxWidth: 440 },
 });

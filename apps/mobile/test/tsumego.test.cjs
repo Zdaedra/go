@@ -64,9 +64,18 @@ const byId = new Map(db.problems.map((p) => [p.id, p]));
   assert.equal(s.status, 'solved', 'ladder solved');
 }
 
-// Every problem: hint points at a legal in-tree move; correct line solvable.
+// Every tree problem: hint points at a legal move; correct line solvable.
 {
+  let treeCount = 0;
+  let freeCount = 0;
   for (const p of db.problems) {
+    const size = p.size || 9;
+    assert.equal(p.board.length, size * size, `${p.id} board length matches size`);
+    if (!p.tree || p.tree.length === 0) {
+      freeCount++;
+      continue;
+    }
+    treeCount++;
     const hint = hintMove(p);
     assert.notEqual(hint, null, `${p.id} has a hint`);
     // Follow greedy correct path: always pick a non-wrong node.
@@ -75,11 +84,39 @@ const byId = new Map(db.problems.map((p) => [p.id, p]));
     while (s.status === 'playing' && guard++ < 30) {
       const good = s.nodes.find((n) => n.tag !== 'wrong') || s.nodes[0];
       assert.ok(good, `${p.id} has a playable node`);
-      s = playUserMove(s, sgfToIdx(good.at));
+      s = playUserMove(s, sgfToIdx(good.at, size));
       assert.notEqual(s.status, 'wrong', `${p.id} tree move accepted`);
     }
     assert.equal(s.status, 'solved', `${p.id} solvable via tree`);
   }
+  assert.ok(treeCount >= 30, `enough auto-checked problems (${treeCount})`);
+  assert.ok(freeCount >= 900, `classical positions imported (${freeCount})`);
+}
+
+// Free-solve mode: 19x19 problem accepts alternating moves and undo works.
+{
+  const p = db.problems.find((x) => (x.size || 9) === 19 && (!x.tree || !x.tree.length));
+  assert.ok(p, 'a free-mode 19x19 problem exists');
+  const { undoFreeMove, viewRect } = require('../src/engine/tsumego');
+  let s = startSession(p);
+  assert.equal(s.free, true);
+  const size = 19;
+  // Find two empty points inside the view rect and play them.
+  const v = viewRect(p);
+  const empties = [];
+  for (let r = v.r0; r <= v.r1 && empties.length < 2; r++) {
+    for (let c = v.c0; c <= v.c1 && empties.length < 2; c++) {
+      if (p.board[r * size + c] === '.') empties.push(r * size + c);
+    }
+  }
+  const firstToMove = s.toMove;
+  s = playUserMove(s, empties[0]);
+  assert.equal(s.status, 'playing');
+  assert.notEqual(s.toMove, firstToMove, 'colors alternate in free mode');
+  s = playUserMove(s, empties[1]);
+  assert.equal(s.moves.length, 2);
+  s = undoFreeMove(s);
+  assert.equal(s.moves.length, 1, 'undo removed last move');
 }
 
 console.log('tsumego tests: OK');

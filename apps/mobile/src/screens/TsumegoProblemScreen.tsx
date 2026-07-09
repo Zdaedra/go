@@ -1,11 +1,14 @@
 // One problem: interactive solving on the goban with progress recording.
+// Problems with a marked solution tree are auto-checked; problems without
+// one (most classical collection positions) run in free-solve mode where
+// the user plays both sides and self-marks the result.
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
 import Goban, { GhostStone } from '../components/Goban';
 import db from '../data/tsumego.json';
 import {
-  startSession, playUserMove, clearWrong, hintMove,
+  startSession, playUserMove, undoFreeMove, clearWrong, hintMove, viewRect,
 } from '../engine/tsumego';
 import { recordAttempt } from '../state/tsumegoProgress';
 
@@ -30,6 +33,7 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
   const [session, setSession] = useState<any>(() => startSession(problem));
   const [showHint, setShowHint] = useState(false);
   const recorded = useRef(false);
+  const view = useMemo(() => viewRect(problem), [problem]);
 
   useEffect(() => {
     setSession(startSession(problem));
@@ -53,10 +57,23 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
   }, [session.status]);
 
   const ghosts: GhostStone[] = useMemo(() => {
-    if (!showHint || session.status !== 'playing' || session.moves.length > 0) return [];
+    if (!showHint || session.free || session.status !== 'playing' || session.moves.length > 0) {
+      return [];
+    }
     const at = hintMove(problem);
     return at == null ? [] : [{ at, color: problem.to_move }];
   }, [showHint, session, problem]);
+
+  const markSelfSolved = () => {
+    if (recorded.current) return;
+    recorded.current = true;
+    recordAttempt(problem.id, true);
+    setSession((s: any) => ({ ...s, status: 'solved' }));
+  };
+
+  const statusText = session.free && session.status === 'playing'
+    ? 'Режим самопроверки: разыграй решение за обе стороны.'
+    : STATUS_TEXT[session.status];
 
   const last = session.moves.length ? session.moves[session.moves.length - 1].at : null;
   const next = pos + 1 < problems.length ? problems[pos + 1] : null;
@@ -68,10 +85,13 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
       </Text>
       <Text style={styles.meta}>
         Ход {problem.to_move === 'b' ? 'чёрных ⚫' : 'белых ⚪'}
+        {session.free ? ` · сейчас ходят ${session.toMove === 'b' ? '⚫' : '⚪'}` : ''}
       </Text>
 
       <Goban
         position={session.board}
+        size={session.size}
+        view={view}
         lastMove={last}
         ghosts={ghosts}
         onPoint={(at) => setSession((s: any) => playUserMove(s, at))}
@@ -85,17 +105,27 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
           (session.status === 'wrong' || session.status === 'refuted') && styles.bad,
         ]}
       >
-        {STATUS_TEXT[session.status]}
+        {statusText}
       </Text>
 
       <View style={styles.controls}>
         <Pressable
           style={styles.btn}
-          onPress={() => { setSession(startSession(problem)); setShowHint(false); }}
+          onPress={() => { setSession(startSession(problem)); setShowHint(false); recorded.current = false; }}
         >
           <Text style={styles.btnText}>Заново</Text>
         </Pressable>
-        {session.status === 'playing' && problem.hint && (
+        {session.free && session.status === 'playing' && (
+          <>
+            <Pressable style={styles.btn} onPress={() => setSession((s: any) => undoFreeMove(s))}>
+              <Text style={styles.btnText}>← Ход назад</Text>
+            </Pressable>
+            <Pressable style={[styles.btn, styles.btnPrimary]} onPress={markSelfSolved}>
+              <Text style={[styles.btnText, styles.btnPrimaryText]}>Отметить решённой ✓</Text>
+            </Pressable>
+          </>
+        )}
+        {!session.free && session.status === 'playing' && problem.hint && (
           <Pressable style={styles.btn} onPress={() => setShowHint(true)}>
             <Text style={styles.btnText}>Подсказка</Text>
           </Pressable>
