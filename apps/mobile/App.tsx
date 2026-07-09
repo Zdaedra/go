@@ -9,6 +9,8 @@ import { AuthProvider, useAuth } from './src/state/AuthContext';
 import PlayScreen from './src/screens/PlayScreen';
 import LearnScreen from './src/screens/LearnScreen';
 import OpeningScreen from './src/screens/OpeningScreen';
+import TsumegoListScreen from './src/screens/TsumegoListScreen';
+import TsumegoProblemScreen from './src/screens/TsumegoProblemScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import AuthScreen from './src/screens/AuthScreen';
 import PaywallScreen from './src/screens/PaywallScreen';
@@ -41,6 +43,16 @@ function LearnNavigator() {
         name="Opening"
         component={OpeningScreen}
         options={{ title: 'Дебют' }}
+      />
+      <LearnStack.Screen
+        name="TsumegoList"
+        component={TsumegoListScreen}
+        options={{ title: 'Задачи' }}
+      />
+      <LearnStack.Screen
+        name="TsumegoProblem"
+        component={TsumegoProblemScreen}
+        options={{ title: 'Задача' }}
       />
     </LearnStack.Navigator>
   );

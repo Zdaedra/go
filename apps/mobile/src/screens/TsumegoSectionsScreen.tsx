@@ -1,0 +1,104 @@
+// Problem categories with their sections and progress bars.
+
+import React from 'react';
+import { View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
+import db from '../data/tsumego.json';
+import { useProgress, sectionStats } from '../state/tsumegoProgress';
+import { useAccess } from '../state/useTrial';
+
+export default function TsumegoSectionsScreen({ navigation }: { navigation: any }) {
+  const progress = useProgress();
+  const access = useAccess();
+
+  // Same hard lock as everywhere else once the free week is over.
+  if (!access.open) {
+    return (
+      <View style={styles.lockPage}>
+        <Text style={styles.lockText}>
+          Бесплатная неделя закончилась. Подписка откроет задачи и все дебюты.
+        </Text>
+        <Pressable
+          style={styles.lockBtn}
+          onPress={() => navigation.getParent()?.navigate('Paywall')}
+        >
+          <Text style={styles.lockBtnText}>Открыть подписку</Text>
+        </Pressable>
+      </View>
+    );
+  }
+
+  return (
+    <ScrollView contentContainerStyle={styles.page}>
+      {(db.categories as any[]).map((cat) => (
+        <View key={cat.id} style={styles.category}>
+          <Text style={styles.catTitle}>{cat.title}</Text>
+          {cat.sections.map((sec: any) => {
+            const ids = (db.problems as any[])
+              .filter((p) => p.category === cat.id && p.section === sec.id)
+              .map((p) => p.id);
+            const { solved, total } = sectionStats(progress, ids);
+            return (
+              <Pressable
+                key={sec.id}
+                style={styles.row}
+                onPress={() =>
+                  navigation.navigate('TsumegoList', {
+                    categoryId: cat.id,
+                    sectionId: sec.id,
+                    title: `${cat.title}: ${sec.title}`,
+                  })
+                }
+              >
+                <View style={styles.rowMain}>
+                  <Text style={styles.secTitle}>{sec.title}</Text>
+                  <View style={styles.barTrack}>
+                    <View
+                      style={[
+                        styles.barFill,
+                        { width: `${total ? (solved / total) * 100 : 0}%` },
+                      ]}
+                    />
+                  </View>
+                </View>
+                <Text style={styles.count}>
+                  {solved}/{total}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      ))}
+      <Text style={styles.note}>
+        Стартовый набор — классические учебные формы. Большие классические
+        сборники подключаются импортом SGF (scripts/import_tsumego_sgf.py).
+      </Text>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  page: { padding: 16, gap: 18, paddingBottom: 40 },
+  category: { gap: 8 },
+  catTitle: {
+    fontSize: 12, fontWeight: '700', letterSpacing: 1.2,
+    textTransform: 'uppercase', color: '#6E6152',
+  },
+  row: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    borderWidth: 1, borderColor: '#E0D6C2', borderRadius: 10,
+    paddingVertical: 10, paddingHorizontal: 14, backgroundColor: '#F7F2E7',
+  },
+  rowMain: { flex: 1, gap: 6 },
+  secTitle: { fontSize: 16, fontWeight: '600' },
+  barTrack: { height: 5, borderRadius: 3, backgroundColor: '#E0D6C2' },
+  barFill: { height: 5, borderRadius: 3, backgroundColor: '#7B9464' },
+  count: { fontSize: 13, color: '#6E6152', fontVariant: ['tabular-nums'] },
+  note: { fontSize: 12.5, color: '#6E6152' },
+  lockPage: { flex: 1, justifyContent: 'center', padding: 24, gap: 12 },
+  lockText: { fontSize: 15, color: '#6E6152', textAlign: 'center', lineHeight: 22 },
+  lockBtn: {
+    backgroundColor: '#B23A2B', borderRadius: 10, paddingVertical: 12,
+    alignItems: 'center',
+  },
+  lockBtnText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
+});

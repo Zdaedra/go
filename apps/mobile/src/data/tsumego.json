@@ -1,0 +1,494 @@
+{
+ "board_size": 9,
+ "source": "seed: classic public-domain teaching shapes, constructed for this app",
+ "categories": [
+  {
+   "id": "capture",
+   "title": "Захват камней",
+   "sections": [
+    {
+     "id": "atari",
+     "title": "Атари и захват"
+    },
+    {
+     "id": "technique",
+     "title": "Приёмы захвата"
+    }
+   ]
+  },
+  {
+   "id": "life-death",
+   "title": "Жизнь и смерть",
+   "sections": [
+    {
+     "id": "corner",
+     "title": "Угол"
+    },
+    {
+     "id": "side",
+     "title": "Сторона"
+    }
+   ]
+  }
+ ],
+ "problems": [
+  {
+   "id": "cap-atari-1",
+   "category": "capture",
+   "section": "atari",
+   "title": "Захвати камень",
+   "to_move": "b",
+   "board": "...............................b.......bwb.......................................",
+   "tree": [
+    {
+     "at": "ef",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "hint": "У белого камня осталась одна свобода."
+  },
+  {
+   "id": "cap-atari-edge",
+   "category": "capture",
+   "section": "atari",
+   "title": "Захват на краю",
+   "to_move": "b",
+   "board": "...bwb...........................................................................",
+   "tree": [
+    {
+     "at": "eb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "hint": "Камень на краю имеет мало свобод."
+  },
+  {
+   "id": "cap-atari-corner",
+   "category": "capture",
+   "section": "atari",
+   "title": "Захват в углу",
+   "to_move": "b",
+   "board": "wb...............................................................................",
+   "tree": [
+    {
+     "at": "ab",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "hint": "В углу достаточно одного хода."
+  },
+  {
+   "id": "cap-two-stones",
+   "category": "capture",
+   "section": "atari",
+   "title": "Поймай два камня",
+   "to_move": "b",
+   "board": "...............................b.......bwb......bwb..............................",
+   "tree": [
+    {
+     "at": "eg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "hint": "У пары белых камней одна общая свобода."
+  },
+  {
+   "id": "cap-double-atari",
+   "category": "capture",
+   "section": "technique",
+   "title": "Двойное атари",
+   "to_move": "b",
+   "board": ".....................b.......bw................bw........b.......................",
+   "tree": [
+    {
+     "at": "de",
+     "by": "b",
+     "children": [
+      {
+       "at": "ed",
+       "by": "w",
+       "children": [
+        {
+         "at": "ef",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      },
+      {
+       "at": "ef",
+       "by": "w",
+       "children": [
+        {
+         "at": "ed",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ed",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "de",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ef",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "de",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "hint": "Найди пункт, который ставит в атари сразу две группы."
+  },
+  {
+   "id": "cap-ladder",
+   "category": "capture",
+   "section": "technique",
+   "title": "Лестница к краю",
+   "to_move": "b",
+   "board": "................b.......bw.......................................................",
+   "tree": [
+    {
+     "at": "hd",
+     "by": "b",
+     "children": [
+      {
+       "at": "ic",
+       "by": "w",
+       "children": [
+        {
+         "at": "id",
+         "by": "b",
+         "children": [
+          {
+           "at": "ib",
+           "by": "w",
+           "children": [
+            {
+             "at": "ia",
+             "by": "b",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ic",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "hd",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "hint": "Гони камень в сторону края доски."
+  },
+  {
+   "id": "cap-squeeze",
+   "category": "capture",
+   "section": "technique",
+   "title": "Последняя свобода",
+   "to_move": "b",
+   "board": "................................b.......bwb.......wb.......b.....................",
+   "tree": [
+    {
+     "at": "ef",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "hint": "Сожми группу до нуля свобод."
+  },
+  {
+   "id": "ld-corner-bent3-live",
+   "category": "life-death",
+   "section": "corner",
+   "title": "Согнутая тройка: живи",
+   "to_move": "b",
+   "board": "..b.......bb......bb.............................................................",
+   "tree": [
+    {
+     "at": "aa",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "aa",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ab",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "aa",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "hint": "Жизненно важный пункт — на сгибе."
+  },
+  {
+   "id": "ld-corner-bent3-kill",
+   "category": "life-death",
+   "section": "corner",
+   "title": "Согнутая тройка: убей",
+   "to_move": "b",
+   "board": "..wb......wwb.....wwb......bbb...................................................",
+   "tree": [
+    {
+     "at": "aa",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "aa",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ab",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "aa",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "hint": "Тот же пункт решает и в атаке."
+  },
+  {
+   "id": "ld-corner-straight3-live",
+   "category": "life-death",
+   "section": "corner",
+   "title": "Прямая тройка: живи",
+   "to_move": "b",
+   "board": "...b.....bbbb....................................................................",
+   "tree": [
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "aa",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ba",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ca",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ba",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "hint": "Раздели пространство на два глаза одним ходом."
+  },
+  {
+   "id": "ld-corner-straight3-kill",
+   "category": "life-death",
+   "section": "corner",
+   "title": "Прямая тройка: убей",
+   "to_move": "b",
+   "board": "...wb....wwwwb....bbbbb..........................................................",
+   "tree": [
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "aa",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ba",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ca",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ba",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "hint": "Центральный пункт пространства из трёх."
+  },
+  {
+   "id": "ld-corner-t4-kill",
+   "category": "life-death",
+   "section": "corner",
+   "title": "Т-четвёрка: убей",
+   "to_move": "b",
+   "board": "...wb....wwwbb....bbbb...........................................................",
+   "tree": [
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "aa",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ba",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ca",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ba",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "hint": "У Т-образной четвёрки один жизненно важный пункт."
+  },
+  {
+   "id": "ld-side-straight3-live",
+   "category": "life-death",
+   "section": "side",
+   "title": "Тройка на стороне: живи",
+   "to_move": "b",
+   "board": "..b...b.....bbb..................................................................",
+   "tree": [
+    {
+     "at": "ea",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "da",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ea",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "fa",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ea",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "hint": "Живи в центре пространства."
+  },
+  {
+   "id": "ld-side-straight3-kill",
+   "category": "life-death",
+   "section": "side",
+   "title": "Тройка на стороне: убей",
+   "to_move": "b",
+   "board": ".bw...wb..bbwwwbb....bbb.........................................................",
+   "tree": [
+    {
+     "at": "ea",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "da",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ea",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "fa",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ea",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "hint": "Убей тем же пунктом, которым группа жила бы."
+  }
+ ]
+}

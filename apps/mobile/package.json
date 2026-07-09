@@ -8,7 +8,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "node test/engine.test.cjs",
+    "test": "node test/engine.test.cjs && node test/tsumego.test.cjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

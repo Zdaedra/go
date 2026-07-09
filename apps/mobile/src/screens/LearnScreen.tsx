@@ -2,10 +2,11 @@
 // text, grouped by family. Tapping an opening opens its card with
 // branches and board replay.
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { SectionList, Text, View, Pressable, StyleSheet } from 'react-native';
 import { allBranches } from '../engine/identify';
 import { openingDisplayName, familyNamesRu } from '../data/names';
+import TsumegoSectionsScreen from './TsumegoSectionsScreen';
 
 export interface OpeningSummary {
   family: string;
@@ -42,6 +43,32 @@ export function buildOpeningList(): { title: string; data: OpeningSummary[] }[] 
 }
 
 export default function LearnScreen({ navigation }: { navigation: any }) {
+  const [tab, setTab] = useState<'openings' | 'problems'>('openings');
+  return (
+    <View style={styles.container}>
+      <View style={styles.tabs}>
+        {([['openings', 'Дебюты'], ['problems', 'Задачи']] as const).map(([id, label]) => (
+          <Pressable
+            key={id}
+            onPress={() => setTab(id)}
+            style={[styles.tab, tab === id && styles.tabActive]}
+          >
+            <Text style={[styles.tabText, tab === id && styles.tabTextActive]}>
+              {label}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+      {tab === 'openings' ? (
+        <OpeningList navigation={navigation} />
+      ) : (
+        <TsumegoSectionsScreen navigation={navigation} />
+      )}
+    </View>
+  );
+}
+
+function OpeningList({ navigation }: { navigation: any }) {
   const sections = useMemo(buildOpeningList, []);
   return (
     <SectionList
@@ -84,6 +111,18 @@ function branchWord(n: number): string {
 }
 
 const styles = StyleSheet.create({
+  container: { flex: 1 },
+  tabs: {
+    flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingVertical: 10,
+    backgroundColor: '#FBF8F1',
+  },
+  tab: {
+    paddingVertical: 6, paddingHorizontal: 16, borderRadius: 999,
+    borderWidth: 1, borderColor: '#C8BFA9',
+  },
+  tabActive: { backgroundColor: '#B23A2B', borderColor: '#B23A2B' },
+  tabText: { fontSize: 14, fontWeight: '600', color: '#2A2118' },
+  tabTextActive: { color: '#FFFFFF' },
   list: { paddingBottom: 32 },
   section: {
     fontSize: 12, fontWeight: '700', letterSpacing: 1.2,

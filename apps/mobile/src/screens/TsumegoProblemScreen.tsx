@@ -1,0 +1,138 @@
+// One problem: interactive solving on the goban with progress recording.
+
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
+import Goban, { GhostStone } from '../components/Goban';
+import db from '../data/tsumego.json';
+import {
+  startSession, playUserMove, clearWrong, hintMove,
+} from '../engine/tsumego';
+import { recordAttempt } from '../state/tsumegoProgress';
+
+const STATUS_TEXT: Record<string, string> = {
+  playing: 'Найди лучший ход.',
+  wrong: 'Мимо — такого хода нет в решении. Попробуй ещё.',
+  refuted: 'Не получилось: соперник опровергает этот ход.',
+  solved: 'Решено! ✓',
+};
+
+export default function TsumegoProblemScreen({ route, navigation }: { route: any; navigation: any }) {
+  const { problemId, index, categoryId, sectionId, title } = route.params;
+  const problems = useMemo(
+    () => (db.problems as any[]).filter(
+      (p) => p.category === categoryId && p.section === sectionId
+    ),
+    [categoryId, sectionId]
+  );
+  const pos = problems.findIndex((p) => p.id === problemId);
+  const problem = problems[pos];
+
+  const [session, setSession] = useState<any>(() => startSession(problem));
+  const [showHint, setShowHint] = useState(false);
+  const recorded = useRef(false);
+
+  useEffect(() => {
+    setSession(startSession(problem));
+    setShowHint(false);
+    recorded.current = false;
+  }, [problem]);
+
+  useEffect(() => {
+    if (recorded.current) return;
+    if (session.status === 'solved' || session.status === 'refuted') {
+      recorded.current = true;
+      recordAttempt(problem.id, session.status === 'solved');
+    }
+  }, [session.status, problem.id]);
+
+  // Transient "wrong" flash resets back to playing.
+  useEffect(() => {
+    if (session.status !== 'wrong') return;
+    const t = setTimeout(() => setSession((s: any) => clearWrong(s)), 900);
+    return () => clearTimeout(t);
+  }, [session.status]);
+
+  const ghosts: GhostStone[] = useMemo(() => {
+    if (!showHint || session.status !== 'playing' || session.moves.length > 0) return [];
+    const at = hintMove(problem);
+    return at == null ? [] : [{ at, color: problem.to_move }];
+  }, [showHint, session, problem]);
+
+  const last = session.moves.length ? session.moves[session.moves.length - 1].at : null;
+  const next = pos + 1 < problems.length ? problems[pos + 1] : null;
+
+  return (
+    <ScrollView contentContainerStyle={styles.page}>
+      <Text style={styles.title}>
+        {title} · №{(index ?? pos) + 1} — {problem.title}
+      </Text>
+      <Text style={styles.meta}>
+        Ход {problem.to_move === 'b' ? 'чёрных ⚫' : 'белых ⚪'}
+      </Text>
+
+      <Goban
+        position={session.board}
+        lastMove={last}
+        ghosts={ghosts}
+        onPoint={(at) => setSession((s: any) => playUserMove(s, at))}
+        disabled={session.status === 'solved' || session.status === 'refuted'}
+      />
+
+      <Text
+        style={[
+          styles.status,
+          session.status === 'solved' && styles.ok,
+          (session.status === 'wrong' || session.status === 'refuted') && styles.bad,
+        ]}
+      >
+        {STATUS_TEXT[session.status]}
+      </Text>
+
+      <View style={styles.controls}>
+        <Pressable
+          style={styles.btn}
+          onPress={() => { setSession(startSession(problem)); setShowHint(false); }}
+        >
+          <Text style={styles.btnText}>Заново</Text>
+        </Pressable>
+        {session.status === 'playing' && problem.hint && (
+          <Pressable style={styles.btn} onPress={() => setShowHint(true)}>
+            <Text style={styles.btnText}>Подсказка</Text>
+          </Pressable>
+        )}
+        {session.status === 'solved' && next && (
+          <Pressable
+            style={[styles.btn, styles.btnPrimary]}
+            onPress={() =>
+              navigation.setParams({ problemId: next.id, index: pos + 1 })
+            }
+          >
+            <Text style={[styles.btnText, styles.btnPrimaryText]}>Следующая →</Text>
+          </Pressable>
+        )}
+      </View>
+
+      {showHint && problem.hint && session.status === 'playing' && (
+        <Text style={styles.hint}>{problem.hint}</Text>
+      )}
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  page: { padding: 16, gap: 12 },
+  title: { fontSize: 18, fontWeight: '700' },
+  meta: { fontSize: 13, color: '#6E6152' },
+  status: { fontSize: 16, fontWeight: '600', minHeight: 24 },
+  ok: { color: '#4A6238' },
+  bad: { color: '#B23A2B' },
+  controls: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
+  btn: {
+    paddingVertical: 8, paddingHorizontal: 14, borderRadius: 8,
+    borderWidth: 1, borderColor: '#C8BFA9',
+  },
+  btnPrimary: { backgroundColor: '#B23A2B', borderColor: '#B23A2B' },
+  btnPrimaryText: { color: '#FFFFFF', fontWeight: '700' },
+  btnText: { fontSize: 14 },
+  hint: { fontSize: 14, color: '#8A5A2B' },
+});

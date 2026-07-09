@@ -14,8 +14,8 @@ export const PLANS: Plan[] = [
   {
     id: 'yearly',
     title: 'Год',
-    price: '$30 / год',
-    note: 'выгоднее 50% — $2.50 в месяц',
+    price: '$36 / год',
+    note: 'выгоднее 40% — $3 в месяц',
     productId: 'go9x9_pro_yearly',
   },
   {
