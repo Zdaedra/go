@@ -46,8 +46,39 @@ gives the human-readable form (columns `A`–`J` skipping `I`, rows 9–1).
 **Continuation semantics.** The `labels` (letters A, B, C, …) and
 `markers` (triangles/squares) shown at a diagram's final position mark the
 candidate *next moves* — the branch points where the opening continues into
-the variations discussed around that diagram. Downstream tooling should
-treat them as the diagram's continuation set, keyed by coordinate.
+the variations discussed around that diagram. They are merged into each
+diagram's `continuations` list, which an app can render directly on the
+final position:
+
+```json
+{
+  "to_move": "b",                     // who plays next at the final position
+  "final_position": "….b…w…",         // 81 chars row-major: '.', 'b', 'w'
+  "continuations": [
+    {
+      "label": "B",                   // letter, or null for bare markers
+      "kind": "letter",               // "letter" | "triangle" | "square"
+      "coord": "cd", "gtp": "C6",     // exact board coordinate to draw it at
+      "on": "empty",                  // "empty", or "b"/"w" when marking a stone
+      "by": "b",                      // whose move this candidate is
+      "next": {                       // diagram that develops this branch,
+        "diagram": "tengen-fig023",   //   or null for terminal candidates
+        "opening": "orthodox",
+        "family": "tengen",
+        "ply": 0,                     // position match at this ply of the target
+        "transform": "identity"       // board symmetry mapping source -> target
+      }
+    }
+  ]
+}
+```
+
+Links are found by replaying every diagram with capture logic, indexing all
+intermediate positions, and locating the diagram that passes through
+"final position + candidate move" (checking all 8 board symmetries).
+144 of the 887 empty-point candidates resolve to a follow-up diagram; the
+rest are terminal options the book mentions without a dedicated diagram —
+their coordinates are still exact.
 Continuation diagrams start numbering where the previous diagram left off
 (the first SGF move then carries an `MN[..]` property).
 

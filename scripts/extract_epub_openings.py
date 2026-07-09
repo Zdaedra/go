@@ -281,6 +281,196 @@ def extract_chapter(source: str, family: str) -> dict:
     return {"family": family, "chapter_title": chapter_title, "openings": openings}
 
 
+# --- Continuation linking -------------------------------------------------
+#
+# Letters (A, B, C, ...) and triangles/squares on empty points of a diagram's
+# final position mark candidate next moves. To let an app jump from a
+# continuation point to the diagram that develops it, we replay every diagram
+# with capture logic, index every position it passes through, then check
+# where the position "final position + move at the marked point" reappears.
+
+SYMMETRIES = {
+    "identity": lambda c, r: (c, r),
+    "rot90": lambda c, r: (BOARD_SIZE - 1 - r, c),
+    "rot180": lambda c, r: (BOARD_SIZE - 1 - c, BOARD_SIZE - 1 - r),
+    "rot270": lambda c, r: (r, BOARD_SIZE - 1 - c),
+    "flip_h": lambda c, r: (BOARD_SIZE - 1 - c, r),
+    "flip_v": lambda c, r: (c, BOARD_SIZE - 1 - r),
+    "transpose": lambda c, r: (r, c),
+    "anti_transpose": lambda c, r: (BOARD_SIZE - 1 - r, BOARD_SIZE - 1 - c),
+}
+
+
+def coord_to_idx(coord: str) -> int:
+    col, row = ord(coord[0]) - 97, ord(coord[1]) - 97
+    return row * BOARD_SIZE + col
+
+
+def neighbors(idx: int):
+    row, col = divmod(idx, BOARD_SIZE)
+    if row > 0:
+        yield idx - BOARD_SIZE
+    if row < BOARD_SIZE - 1:
+        yield idx + BOARD_SIZE
+    if col > 0:
+        yield idx - 1
+    if col < BOARD_SIZE - 1:
+        yield idx + 1
+
+
+def group_liberties(board: list[str], idx: int) -> tuple[int, list[int]]:
+    color = board[idx]
+    seen, stack, libs = {idx}, [idx], 0
+    while stack:
+        cur = stack.pop()
+        for nb in neighbors(cur):
+            if board[nb] == ".":
+                libs += 1
+            elif board[nb] == color and nb not in seen:
+                seen.add(nb)
+                stack.append(nb)
+    return libs, list(seen)
+
+
+def play(board: list[str], idx: int, color: str) -> list[str]:
+    board = board[:]
+    board[idx] = color
+    enemy = "w" if color == "b" else "b"
+    for nb in neighbors(idx):
+        if board[nb] == enemy:
+            libs, stones = group_liberties(board, nb)
+            if libs == 0:
+                for s in stones:
+                    board[s] = "."
+    return board
+
+
+def full_sequence(diagram: dict) -> list[dict]:
+    """Numbered moves plus floating numbers, colors inferred by alternation."""
+    seq = [dict(m) for m in diagram["moves"]]
+    seq += [{"n": f["n"], "coord": f["coord"], "color": None} for f in diagram["floating_numbers"]]
+    seq.sort(key=lambda m: m["n"])
+    for i, mv in enumerate(seq):
+        if mv["color"] is None:
+            if i > 0:
+                mv["color"] = "w" if seq[i - 1]["color"] == "b" else "b"
+            elif len(seq) > 1:
+                mv["color"] = "w" if seq[i + 1]["color"] == "b" else "b"
+            else:
+                mv["color"] = "b"
+    return seq
+
+
+def replay_states(diagram: dict) -> tuple[list[str], list[dict]]:
+    """Return (list of position strings, one per ply incl. start), sequence."""
+    board = ["."] * (BOARD_SIZE * BOARD_SIZE)
+    for c in diagram["setup_black"]:
+        board[coord_to_idx(c)] = "b"
+    for c in diagram["setup_white"]:
+        board[coord_to_idx(c)] = "w"
+    seq = full_sequence(diagram)
+    states = ["".join(board)]
+    for mv in seq:
+        board = play(board, coord_to_idx(mv["coord"]), mv["color"])
+        states.append("".join(board))
+    return states, seq
+
+
+def transform_position(pos: str, fn) -> str:
+    out = ["."] * (BOARD_SIZE * BOARD_SIZE)
+    for idx, stone in enumerate(pos):
+        if stone != ".":
+            row, col = divmod(idx, BOARD_SIZE)
+            tc, tr = fn(col, row)
+            out[tr * BOARD_SIZE + tc] = stone
+    return "".join(out)
+
+
+def link_continuations(index: dict) -> dict:
+    """Attach a `continuations` list to every diagram and cross-link them."""
+    # Global replay + position index across the whole book.
+    diagrams = []  # (family, opening_slug, diagram, global_order)
+    for fam in index["families"]:
+        for op in fam["openings"]:
+            for d in op["diagrams"]:
+                diagrams.append((fam["family"], op["slug"], d))
+
+    info = {}
+    position_index: dict[str, list] = {}
+    for order, (family, slug, d) in enumerate(diagrams):
+        states, seq = replay_states(d)
+        to_move = ("w" if seq[-1]["color"] == "b" else "b") if seq else (
+            "b" if len(d["setup_black"]) == len(d["setup_white"]) else "w"
+        )
+        info[d["id"]] = {"states": states, "seq": seq, "to_move": to_move,
+                         "family": family, "opening": slug, "order": order}
+        for ply, pos in enumerate(states):
+            position_index.setdefault(pos, []).append((d["id"], ply))
+
+    def find_next(source_id: str, pos: str):
+        src = info[source_id]
+        best = None
+        for name, fn in SYMMETRIES.items():
+            candidates = position_index.get(transform_position(pos, fn) if name != "identity" else pos, [])
+            for diag_id, ply in candidates:
+                if diag_id == source_id:
+                    continue
+                tgt = info[diag_id]
+                score = (
+                    0 if name == "identity" else 1,           # prefer same orientation
+                    0 if tgt["opening"] == src["opening"] else 1,
+                    ply,                                       # early in target = true continuation
+                    abs(tgt["order"] - src["order"]),
+                )
+                if best is None or score < best[0]:
+                    best = (score, diag_id, ply, name)
+        if best is None:
+            return None
+        _, diag_id, ply, name = best
+        tgt = info[diag_id]
+        return {"diagram": diag_id, "opening": tgt["opening"],
+                "family": tgt["family"], "ply": ply, "transform": name}
+
+    total = linked = 0
+    for family, slug, d in diagrams:
+        states = info[d["id"]]["states"]
+        final = states[-1]
+        to_move = info[d["id"]]["to_move"]
+        d["to_move"] = to_move
+        d["final_position"] = final
+        points = [dict(l, kind="letter") for l in d["labels"]]
+        points += [dict(m, text=None) for m in d["markers"]]
+        conts = []
+        for p in points:
+            idx = coord_to_idx(p["coord"])
+            on_stone = final[idx] != "."
+            entry = {
+                "label": p.get("text"),
+                "kind": p["kind"],
+                "coord": p["coord"],
+                "gtp": p["gtp"],
+                "on": final[idx] if on_stone else "empty",
+                "by": None,
+                "next": None,
+            }
+            if not on_stone:
+                total += 1
+                for color in (to_move, "w" if to_move == "b" else "b"):
+                    nxt = find_next(d["id"], "".join(play(list(final), idx, color)))
+                    if nxt:
+                        entry["by"] = color
+                        entry["next"] = nxt
+                        linked += 1
+                        break
+                if entry["by"] is None:
+                    entry["by"] = to_move  # candidate move for the player to move
+            conts.append(entry)
+        d["continuations"] = conts
+
+    index["continuation_stats"] = {"points_on_empty": total, "linked": linked}
+    return index
+
+
 def main() -> int:
     if len(sys.argv) < 2:
         print(__doc__)
@@ -314,6 +504,8 @@ def main() -> int:
                     diagram["sgf"] = str((target / f"{sgf_name}.sgf").relative_to(out_dir))
                     total_diagrams += 1
                     total_moves += len(diagram["moves"])
+
+    link_continuations(index)
 
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "openings.json").write_text(
