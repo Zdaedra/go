@@ -6,6 +6,7 @@ import Goban, { GobanMark } from '../components/Goban';
 import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
 import { allBranches } from '../engine/identify';
 import { openingDisplayName, familyNamesRu } from '../data/names';
+import { useAccess } from '../state/useTrial';
 
 const RESULT_RU: Record<string, string> = {
   even: 'ровно (=)',
@@ -13,8 +14,9 @@ const RESULT_RU: Record<string, string> = {
   'W+': 'перевес белых',
 };
 
-export default function OpeningScreen({ route }: { route: any }) {
+export default function OpeningScreen({ route, navigation }: { route: any; navigation: any }) {
   const { family, opening } = route.params;
+  const access = useAccess();
   const branches = useMemo(
     () => allBranches().filter((b) => b.family === family && b.opening === opening),
     [family, opening]
@@ -56,6 +58,25 @@ export default function OpeningScreen({ route }: { route: any }) {
   }, [branch, atEnd]);
 
   const name = openingDisplayName(family, opening, branch.opening_name);
+
+  // Hard lock after the free week: the card shows nothing but the paywall.
+  if (!access.open) {
+    return (
+      <View style={styles.lockPage}>
+        <Text style={styles.lockTitle}>{name}</Text>
+        <Text style={styles.lockText}>
+          Бесплатная неделя закончилась. Подписка откроет все дебюты, ветки
+          и подсказки продолжений.
+        </Text>
+        <Pressable
+          style={styles.lockBtn}
+          onPress={() => navigation.getParent()?.navigate('Paywall')}
+        >
+          <Text style={styles.lockBtnText}>Открыть подписку</Text>
+        </Pressable>
+      </View>
+    );
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.page}>
@@ -146,4 +167,12 @@ const styles = StyleSheet.create({
   info: { gap: 4 },
   infoText: { fontSize: 15 },
   infoNote: { fontSize: 13, color: '#6E6152' },
+  lockPage: { flex: 1, justifyContent: 'center', padding: 24, gap: 12 },
+  lockTitle: { fontSize: 22, fontWeight: '700', textAlign: 'center' },
+  lockText: { fontSize: 15, color: '#6E6152', textAlign: 'center', lineHeight: 22 },
+  lockBtn: {
+    backgroundColor: '#B23A2B', borderRadius: 10, paddingVertical: 12,
+    alignItems: 'center', marginTop: 8,
+  },
+  lockBtnText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
 });

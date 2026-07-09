@@ -95,6 +95,42 @@ def test_webhook_upgrades_and_unlocks():
     assert res.status_code == 401
 
 
+def test_trial_expiry_hard_lock():
+    import sqlite3
+    from datetime import datetime, timedelta, timezone
+
+    email = "expired@example.com"
+    token = sign_in(email)
+    # Age the account past the 7-day trial.
+    conn = sqlite3.connect(os.environ["DB_PATH"])
+    old = (datetime.now(timezone.utc) - timedelta(days=8)).isoformat()
+    conn.execute("UPDATE users SET created_at = ? WHERE email = ?", (old, email))
+    conn.commit()
+    conn.close()
+
+    res = client.get("/me", headers=auth(token))
+    assert res.json()["trial_active"] is False
+    res = client.post(
+        "/usage/opening-identified",
+        json={"opening_id": "tengen/curveball"},
+        headers=auth(token),
+    )
+    body = res.json()
+    assert body["allowed"] is False and body["daily_limit"] == 0
+    # Purchase unlocks it again.
+    client.post(
+        "/billing/webhook",
+        json={"event": {"app_user_id": email, "type": "INITIAL_PURCHASE"}},
+        headers={"Authorization": "Bearer rc-secret"},
+    )
+    res = client.post(
+        "/usage/opening-identified",
+        json={"opening_id": "tengen/curveball"},
+        headers=auth(token),
+    )
+    assert res.json()["allowed"] is True
+
+
 def test_progress_roundtrip():
     token = sign_in("second@example.com")
     res = client.put(

@@ -59,6 +59,23 @@ export const stoneThemes: Record<string, StoneTheme> = {
     },
     shadow: '#000000', shadowOpacity: 0.16,
   },
+  glass: {
+    id: 'glass',
+    nameRu: 'Стекло',
+    black: {
+      fill: ['#4E6E68', '#1E3532', '#0C1917'],
+      highlight: '#DFF5F0', highlightOpacity: 0.5,
+      stroke: '#0C1917', strokeWidth: 0.4,
+      text: '#E8F2EF',
+    },
+    white: {
+      fill: ['#FFFFFF', '#EAF3F1', '#C8DAD6'],
+      highlight: '#FFFFFF', highlightOpacity: 0.95,
+      stroke: '#9DB4AF', strokeWidth: 0.6,
+      text: '#1E3532',
+    },
+    shadow: '#0C1917', shadowOpacity: 0.24,
+  },
   flat: {
     id: 'flat',
     nameRu: 'Плоские',

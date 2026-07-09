@@ -13,6 +13,7 @@ import { openingDisplayName } from '../data/names';
 import { useTheme } from '../theme/ThemeContext';
 import { useAuth } from '../state/AuthContext';
 import { recordOpeningIdentified, FREE_DAILY_LIMIT } from '../state/usage';
+import { useAccess } from '../state/useTrial';
 
 interface HistoryItem {
   board: string;
@@ -20,15 +21,23 @@ interface HistoryItem {
   color: 'b' | 'w';
 }
 
+/** Show the "days left" notice during the last N days of the trial. */
+const TRIAL_NOTICE_DAYS = 3;
+
 export default function PlayScreen({ navigation }: { navigation: any }) {
   const { board: boardTheme } = useTheme();
   const auth = useAuth();
+  const access = useAccess();
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [myColor, setMyColor] = useState<'b' | 'w'>('b');
   const [showHints, setShowHints] = useState(true);
-  const [locked, setLocked] = useState(false);
+  const [limitLocked, setLimitLocked] = useState(false);
   const [usedToday, setUsedToday] = useState(0);
   const countedOpenings = useRef(new Set<string>());
+  // Trial over + free plan = hard lock: no names, no hints, no letters.
+  const locked = limitLocked || !access.open;
+  // Breadcrumb trail of branches entered while going deeper.
+  const [path, setPath] = useState<{ key: string; label: string }[]>([]);
 
   const position = history.length ? history[history.length - 1].board : EMPTY_BOARD;
   const toMove: 'b' | 'w' =
@@ -62,8 +71,8 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   // Free-tier metering: identifying a NEW opening consumes one of the
   // daily slots; over the limit the identification panel locks.
   useEffect(() => {
-    if (result.status !== 'identified' || auth.plan === 'pro') {
-      if (result.status !== 'identified') setLocked(false);
+    if (result.status !== 'identified' || auth.plan === 'pro' || !access.open) {
+      if (result.status !== 'identified') setLimitLocked(false);
       return;
     }
     const o = result.opening!;
@@ -73,15 +82,35 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       setUsedToday(usage.used);
       if (usage.allowed) {
         countedOpenings.current.add(key);
-        setLocked(false);
+        setLimitLocked(false);
       } else {
-        setLocked(true);
+        setLimitLocked(true);
         navigation.navigate('Paywall');
       }
     });
-  }, [result, auth.plan, auth.token, navigation]);
+  }, [result, auth.plan, auth.token, access.open, navigation]);
+
+  // Track the descent path: every branch we enter gets a breadcrumb, so
+  // going deep through an opening reads as "Curveball · в.1 → в.4".
+  useEffect(() => {
+    if (locked || !branch) {
+      if (history.length === 0 && path.length) setPath([]);
+      return;
+    }
+    const o = result.opening;
+    const name = o ? openingDisplayName(o.family, o.opening, o.name) : branch.branch.opening_name;
+    const key = branch.branch.branch_id;
+    const label = `${name} · в.${branch.branch.branch_no}`;
+    setPath((prev) => {
+      if (prev.some((p) => p.key === key)) return prev;
+      return [...prev, { key, label }];
+    });
+  }, [branch, result, locked, history.length, path.length]);
 
   const status = (() => {
+    if (!access.open) {
+      return 'Бесплатная неделя закончилась. Подписка откроет всю базу 🔒';
+    }
     if (locked) {
       return `Дневной лимит: ${FREE_DAILY_LIMIT} дебюта. Название скрыто 🔒`;
     }
@@ -138,9 +167,19 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         >
           {status}
         </Text>
+        {path.length > 0 && !locked && (
+          <Text style={styles.pathText} numberOfLines={2}>
+            Путь: {path.map((p) => p.label).join(' → ')}
+          </Text>
+        )}
         {marks.length > 0 && (
           <Text style={styles.statusSub}>
             Буквы на доске — варианты продолжений из базы.
+          </Text>
+        )}
+        {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
+          <Text style={styles.statusSub}>
+            Бесплатный период: осталось {access.trial.daysLeft} дн.
           </Text>
         )}
         <Text style={styles.statusSub}>
@@ -193,6 +232,7 @@ const styles = StyleSheet.create({
   status: { gap: 4, minHeight: 64 },
   statusText: { fontSize: 17, fontWeight: '700' },
   statusSub: { fontSize: 13, color: '#6E6152' },
+  pathText: { fontSize: 13, color: '#8A5A2B', fontWeight: '600' },
   controls: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
   btn: {
     paddingVertical: 8, paddingHorizontal: 14, borderRadius: 8,

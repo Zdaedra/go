@@ -36,6 +36,7 @@ SECRET = os.environ.get("APP_SECRET", "dev-secret-change-me")
 DB_PATH = os.environ.get("DB_PATH", "mobile.db")
 DEV_MODE = os.environ.get("DEV_MODE") == "1"
 FREE_DAILY_LIMIT = int(os.environ.get("FREE_DAILY_LIMIT", "3"))
+TRIAL_DAYS = int(os.environ.get("TRIAL_DAYS", "7"))
 CODE_TTL_MINUTES = 10
 TOKEN_TTL_DAYS = 30
 
@@ -147,6 +148,12 @@ def daily_used(conn: sqlite3.Connection, user_id: int) -> int:
     ).fetchone()[0]
 
 
+def trial_days_left(user: sqlite3.Row) -> int:
+    created = datetime.fromisoformat(user["created_at"])
+    elapsed = datetime.now(timezone.utc) - created
+    return max(0, TRIAL_DAYS - elapsed.days)
+
+
 # --- schemas ----------------------------------------------------------------
 
 class EmailIn(BaseModel):
@@ -215,11 +222,14 @@ def verify(body: VerifyIn):
 def me(user: sqlite3.Row = Depends(current_user)):
     with db() as conn:
         used = daily_used(conn, user["id"])
+    days_left = trial_days_left(user)
     return {
         "email": user["email"],
         "plan": user["plan"],
         "daily_used": used,
         "daily_limit": FREE_DAILY_LIMIT,
+        "trial_days_left": days_left,
+        "trial_active": days_left > 0,
     }
 
 
@@ -228,6 +238,9 @@ def opening_identified(body: UsageIn, user: sqlite3.Row = Depends(current_user))
     with db() as conn:
         if user["plan"] == "pro":
             return {"allowed": True, "daily_used": 0, "daily_limit": FREE_DAILY_LIMIT}
+        # After the free trial the free plan gets nothing at all.
+        if trial_days_left(user) <= 0:
+            return {"allowed": False, "daily_used": 0, "daily_limit": 0}
         day = date.today().isoformat()
         exists = conn.execute(
             "SELECT 1 FROM usage WHERE user_id = ? AND day = ? AND opening_id = ?",

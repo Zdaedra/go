@@ -5,10 +5,12 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { api, hasBackend } from '../api/client';
+import { TRIAL_DAYS } from './plans';
 
 export const FREE_DAILY_LIMIT = 3;
 
 const KEY = 'usage.v1';
+const TRIAL_KEY = 'trial.v1';
 
 interface UsageDay {
   date: string; // YYYY-MM-DD local
@@ -35,6 +37,34 @@ async function load(): Promise<UsageDay> {
   return { date: today(), openings: [] };
 }
 
+export interface TrialInfo {
+  /** Trial is running: free features are available. */
+  active: boolean;
+  daysLeft: number;
+}
+
+/**
+ * The 7-day free window starts on first launch (or first sign-in) and is
+ * persisted on the device. After it ends, the free plan gets NOTHING:
+ * no identifications, no hints, no opening cards — paywall only.
+ */
+export async function getTrialInfo(): Promise<TrialInfo> {
+  let startedAt: number | null = null;
+  try {
+    const raw = await AsyncStorage.getItem(TRIAL_KEY);
+    if (raw) startedAt = JSON.parse(raw).startedAt ?? null;
+  } catch {
+    startedAt = null;
+  }
+  if (!startedAt) {
+    startedAt = Date.now();
+    await AsyncStorage.setItem(TRIAL_KEY, JSON.stringify({ startedAt })).catch(() => {});
+  }
+  const elapsedDays = (Date.now() - startedAt) / 86_400_000;
+  const daysLeft = Math.max(0, Math.ceil(TRIAL_DAYS - elapsedDays));
+  return { active: elapsedDays < TRIAL_DAYS, daysLeft };
+}
+
 export interface UsageResult {
   allowed: boolean;
   used: number;
@@ -53,6 +83,10 @@ export async function recordOpeningIdentified(
 ): Promise<UsageResult> {
   if (opts.plan === 'pro') {
     return { allowed: true, used: 0, limit: Infinity, counted: false };
+  }
+  const trial = await getTrialInfo();
+  if (!trial.active) {
+    return { allowed: false, used: 0, limit: 0, counted: false };
   }
   const day = await load();
   const already = day.openings.includes(openingId);
