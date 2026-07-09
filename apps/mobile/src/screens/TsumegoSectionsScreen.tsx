@@ -6,6 +6,12 @@ import db from '../data/tsumego.json';
 import { useProgress, sectionStats } from '../state/tsumegoProgress';
 import { useAccess } from '../state/useTrial';
 
+// Only problems with a marked solution tree are shown to the user:
+// every wrong move must get instant feedback, so unmarked positions are
+// hidden until a solutions source is imported for them.
+export const visibleProblems = () =>
+  (db.problems as any[]).filter((p) => p.tree && p.tree.length > 0);
+
 export default function TsumegoSectionsScreen({ navigation }: { navigation: any }) {
   const progress = useProgress();
   const access = useAccess();
@@ -29,13 +35,17 @@ export default function TsumegoSectionsScreen({ navigation }: { navigation: any 
 
   return (
     <ScrollView contentContainerStyle={styles.page}>
-      {(db.categories as any[]).map((cat) => (
+      {(db.categories as any[]).map((cat) => {
+        const catProblems = visibleProblems().filter((p) => p.category === cat.id);
+        if (catProblems.length === 0) return null;
+        return (
         <View key={cat.id} style={styles.category}>
           <Text style={styles.catTitle}>{cat.title}</Text>
           {cat.sections.map((sec: any) => {
-            const ids = (db.problems as any[])
-              .filter((p) => p.category === cat.id && p.section === sec.id)
+            const ids = catProblems
+              .filter((p) => p.section === sec.id)
               .map((p) => p.id);
+            if (ids.length === 0) return null;
             const { solved, total } = sectionStats(progress, ids);
             return (
               <Pressable
@@ -67,7 +77,8 @@ export default function TsumegoSectionsScreen({ navigation }: { navigation: any 
             );
           })}
         </View>
-      ))}
+        );
+      })}
       <Text style={styles.note}>
         Стартовый набор — классические учебные формы. Большие классические
         сборники подключаются импортом SGF (scripts/import_tsumego_sgf.py).

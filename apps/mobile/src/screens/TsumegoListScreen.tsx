@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
-import db from '../data/tsumego.json';
 import { useProgress } from '../state/tsumegoProgress';
+import { visibleProblems } from './TsumegoSectionsScreen';
 
 export default function TsumegoListScreen({ route, navigation }: { route: any; navigation: any }) {
   const { categoryId, sectionId, title } = route.params;
   const progress = useProgress();
-  const problems = (db.problems as any[]).filter(
+  const problems = visibleProblems().filter(
     (p) => p.category === categoryId && p.section === sectionId
   );
 

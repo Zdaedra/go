@@ -6,11 +6,11 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
 import Goban, { GhostStone } from '../components/Goban';
-import db from '../data/tsumego.json';
 import {
   startSession, playUserMove, undoFreeMove, clearWrong, hintMove, viewRect,
 } from '../engine/tsumego';
 import { recordAttempt } from '../state/tsumegoProgress';
+import { visibleProblems } from './TsumegoSectionsScreen';
 
 const STATUS_TEXT: Record<string, string> = {
   playing: 'Найди лучший ход.',
@@ -22,7 +22,7 @@ const STATUS_TEXT: Record<string, string> = {
 export default function TsumegoProblemScreen({ route, navigation }: { route: any; navigation: any }) {
   const { problemId, index, categoryId, sectionId, title } = route.params;
   const problems = useMemo(
-    () => (db.problems as any[]).filter(
+    () => visibleProblems().filter(
       (p) => p.category === categoryId && p.section === sectionId
     ),
     [categoryId, sectionId]
