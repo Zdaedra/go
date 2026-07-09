@@ -7,6 +7,7 @@ import { SectionList, Text, View, Pressable, StyleSheet } from 'react-native';
 import { allBranches } from '../engine/identify';
 import { openingDisplayName, familyNamesRu } from '../data/names';
 import TsumegoSectionsScreen from './TsumegoSectionsScreen';
+import TrainingScreen from './TrainingScreen';
 
 export interface OpeningSummary {
   family: string;
@@ -43,11 +44,15 @@ export function buildOpeningList(): { title: string; data: OpeningSummary[] }[] 
 }
 
 export default function LearnScreen({ navigation }: { navigation: any }) {
-  const [tab, setTab] = useState<'openings' | 'problems'>('openings');
+  const [tab, setTab] = useState<'training' | 'openings' | 'catalog'>('training');
   return (
     <View style={styles.container}>
       <View style={styles.tabs}>
-        {([['openings', 'Дебюты'], ['problems', 'Задачи']] as const).map(([id, label]) => (
+        {([
+          ['training', 'Тренировка'],
+          ['openings', 'Дебюты'],
+          ['catalog', 'Каталог'],
+        ] as const).map(([id, label]) => (
           <Pressable
             key={id}
             onPress={() => setTab(id)}
@@ -59,11 +64,9 @@ export default function LearnScreen({ navigation }: { navigation: any }) {
           </Pressable>
         ))}
       </View>
-      {tab === 'openings' ? (
-        <OpeningList navigation={navigation} />
-      ) : (
-        <TsumegoSectionsScreen navigation={navigation} />
-      )}
+      {tab === 'training' && <TrainingScreen navigation={navigation} />}
+      {tab === 'openings' && <OpeningList navigation={navigation} />}
+      {tab === 'catalog' && <TsumegoSectionsScreen navigation={navigation} />}
     </View>
   );
 }
