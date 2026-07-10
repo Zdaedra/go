@@ -74,13 +74,33 @@ export default function SettingsScreen() {
 
       <Text style={styles.section}>Аккаунт</Text>
       <Text style={styles.accountText}>
-        {auth.email ?? 'Гостевой режим'} · тариф: {auth.plan === 'pro' ? 'подписка' : 'бесплатный'}
+        {auth.email ?? 'Гостевой режим'} · тариф: {auth.plan === 'pro' ? 'подписка (безлимит)' : 'бесплатный (7 дней)'}
       </Text>
       <View style={[styles.row, { marginBottom: 24 }]}>
         <Pressable style={styles.opt} onPress={auth.signOut}>
           <Text style={styles.optText}>Выйти</Text>
         </Pressable>
       </View>
+
+      {__DEV__ && (
+        <>
+          <Text style={styles.section}>Разработка</Text>
+          <View style={[styles.row, { marginBottom: 24 }]}>
+            <Pressable
+              style={[styles.opt, auth.plan === 'pro' && styles.optActive]}
+              onPress={() => auth.setPlan('pro')}
+            >
+              <Text style={styles.optText}>Безлимит</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.opt, auth.plan === 'free' && styles.optActive]}
+              onPress={() => auth.setPlan('free')}
+            >
+              <Text style={styles.optText}>Триал/пейвол</Text>
+            </Pressable>
+          </View>
+        </>
+      )}
     </ScrollView>
     </View>
   );

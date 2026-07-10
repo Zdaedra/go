@@ -80,7 +80,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const res = await api.verify(addr.trim().toLowerCase(), code.trim());
         persist({ email: addr.trim().toLowerCase(), token: res.token, guest: false, plan });
       },
-      continueAsGuest: () => persist({ email: null, token: null, guest: true, plan: 'free' }),
+      // Guest is unlimited for now (owner testing / pre-monetization). When
+      // the backend + RevenueCat land, real plan state comes from the server
+      // and new users get the 7-day trial then paywall.
+      continueAsGuest: () => persist({ email: null, token: null, guest: true, plan: 'pro' }),
       signOut: () => persist({ email: null, token: null, guest: false, plan: 'free' }),
       setPlan: (p: Plan) => persist({ email, token, guest, plan: p }),
     }),

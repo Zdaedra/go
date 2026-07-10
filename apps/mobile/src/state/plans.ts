@@ -2,7 +2,7 @@
 // to RevenueCat later; prices here are display copy.
 
 export interface Plan {
-  id: 'monthly' | 'yearly' | 'lifetime';
+  id: 'monthly' | 'yearly';
   title: string;
   price: string;
   note: string | null;
@@ -10,6 +10,8 @@ export interface Plan {
   productId: string;
 }
 
+// Only recurring plans — no lifetime tier (a perpetual-updates promise is
+// too large a commitment to make at this stage).
 export const PLANS: Plan[] = [
   {
     id: 'yearly',
@@ -25,13 +27,13 @@ export const PLANS: Plan[] = [
     note: null,
     productId: 'go9x9_pro_monthly',
   },
-  {
-    id: 'lifetime',
-    title: 'Навсегда',
-    price: '$50 однажды',
-    note: 'разовая покупка, все обновления базы',
-    productId: 'go9x9_pro_lifetime',
-  },
 ];
+
+// Live content counts, shown on the paywall copy. Update if the base grows.
+export const CONTENT = {
+  openings: 43,
+  branches: 229,
+  tsumego: 35, // problems currently marked/visible; grows with KataGo pass
+};
 
 export const TRIAL_DAYS = 7;

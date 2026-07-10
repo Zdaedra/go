@@ -1,12 +1,10 @@
-// Paywall: shown when the free daily limit is spent or the 7-day trial
-// has ended. Three plans; purchase flow is a placeholder until
-// RevenueCat keys are configured.
+// Paywall: shown when the 7-day free trial has ended. Recurring plans only;
+// purchase flow is a placeholder until RevenueCat keys are configured.
 
 import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet, Alert } from 'react-native';
 import { useAuth } from '../state/AuthContext';
-import { FREE_DAILY_LIMIT } from '../state/usage';
-import { PLANS, TRIAL_DAYS } from '../state/plans';
+import { PLANS, TRIAL_DAYS, CONTENT } from '../state/plans';
 import MistBackground from '../components/MistBackground';
 import PrimaryButton from '../components/PrimaryButton';
 
@@ -31,11 +29,12 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
   return (
     <View style={styles.page}>
       <MistBackground />
-      <Text style={styles.title}>Полная база дебютов</Text>
+      <Text style={styles.title}>Полная база дебютов и тренировка</Text>
       <Text style={styles.body}>
-        Первые {TRIAL_DAYS} дней — бесплатно ({FREE_DAILY_LIMIT} дебюта в день).
-        Дальше нужна подписка: 46 дебютов, 259 веток с названиями, буквы-продолжения
-        и проигрывание всех линий — без ограничений.
+        Первые {TRIAL_DAYS} дней — бесплатно, без ограничений. Дальше подписка
+        открывает всё: {CONTENT.openings} дебютов, {CONTENT.branches} веток с
+        названиями и разбором, {CONTENT.tsumego}+ задач для тренировки, подсказка
+        лучшего хода и проигрывание всех линий.
       </Text>
 
       <View style={styles.plans}>
@@ -53,7 +52,7 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
       </View>
 
       <PrimaryButton
-        label={plan.id === 'lifetime' ? `Купить навсегда — ${plan.price}` : `Оформить — ${plan.price}`}
+        label={`Оформить — ${plan.price}`}
         onPress={purchase}
         textStyle={{ fontSize: 17 }}
       />

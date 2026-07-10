@@ -14,7 +14,6 @@ import { openingDisplayName, familyNamesRu } from '../data/names';
 import branchDescriptions from '../data/descriptions.json';
 import { allBranches } from '../engine/identify';
 import { useAuth } from '../state/AuthContext';
-import { recordOpeningIdentified, FREE_DAILY_LIMIT } from '../state/usage';
 import { useAccess } from '../state/useTrial';
 import { ui, eyebrow, eyebrowAccent, cardStyle } from '../theme/uiTheme';
 import MistBackground from '../components/MistBackground';
@@ -89,10 +88,8 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [myColor, setMyColor] = useState<'b' | 'w'>('b');
   const [showHints, setShowHints] = useState(false);
-  const [limitLocked, setLimitLocked] = useState(false);
-  const [usedToday, setUsedToday] = useState(0);
-  const countedOpenings = useRef(new Set<string>());
-  const locked = limitLocked || !access.open;
+  // Access is trial/subscription only — no per-day opening quota.
+  const locked = !access.open;
   const [path, setPath] = useState<{ key: string; label: string }[]>([]);
 
   const position = history.length ? history[history.length - 1].board : EMPTY_BOARD;
@@ -183,25 +180,16 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   };
 
 
+  // Trial ended (and not subscribed): send the user to the paywall once
+  // they engage with the board, instead of silently hiding everything.
+  const paywallShown = useRef(false);
   useEffect(() => {
-    if (result.status !== 'identified' || auth.plan === 'pro' || !access.open) {
-      if (result.status !== 'identified') setLimitLocked(false);
-      return;
+    if (access.pro || access.open) { paywallShown.current = false; return; }
+    if (result.status !== 'empty' && !paywallShown.current) {
+      paywallShown.current = true;
+      navigation.navigate('Paywall');
     }
-    const o = result.opening!;
-    const key = `${o.family}/${o.opening}`;
-    if (countedOpenings.current.has(key)) return;
-    recordOpeningIdentified(key, { plan: auth.plan, token: auth.token }).then((usage) => {
-      setUsedToday(usage.used);
-      if (usage.allowed) {
-        countedOpenings.current.add(key);
-        setLimitLocked(false);
-      } else {
-        setLimitLocked(true);
-        navigation.navigate('Paywall');
-      }
-    });
-  }, [result, auth.plan, auth.token, access.open, navigation]);
+  }, [access.pro, access.open, result.status, navigation]);
 
   useEffect(() => {
     // Breadcrumb only grows once the position is unambiguous — with 15
@@ -260,7 +248,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       : null;
 
   const explainLabel = (() => {
-    if (!access.open || limitLocked) return 'Дебют';
+    if (!access.open) return 'Дебют';
     if (completed) return 'Дебют завершён ✓';
     if (result.status === 'candidates') return `Возможных дебютов: ${result.openings.length}`;
     if (result.status === 'unknown') return 'Вне базы';
@@ -270,7 +258,6 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
 
   const explainText = (() => {
     if (!access.open) return 'Бесплатная неделя закончилась — подписка откроет базу.';
-    if (limitLocked) return `Дневной лимит: ${FREE_DAILY_LIMIT} дебюта. Название скрыто.`;
     if (completed) {
       const verdict = completed.result
         ? ` Оценка: ${RESULT_RU[completed.result] ?? completed.result}.`
@@ -408,14 +395,11 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           </Text>
         )}
         {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
-          <Text style={styles.turnSub}>Бесплатных дней: {access.trial.daysLeft}</Text>
-        )}
-        {auth.plan === 'free' && usedToday > 0 && (
-          <Text style={styles.turnSub}>Дебютов сегодня: {usedToday}/{FREE_DAILY_LIMIT}</Text>
+          <Text style={styles.turnSub}>Бесплатных дней осталось: {access.trial.daysLeft}</Text>
         )}
         {locked && (
           <Pressable onPress={() => navigation.navigate('Paywall')}>
-            <Text style={[styles.turnSub, { color: ui.peach }]}>Снять лимит — подписка →</Text>
+            <Text style={[styles.turnSub, { color: ui.peach }]}>Оформить подписку →</Text>
           </Pressable>
         )}
       </View>
