@@ -35,8 +35,8 @@ export const stoneThemes: Record<string, StoneTheme> = {
       text: '#F2EFEA',
     },
     white: {
-      fill: ['#FFFFFF', '#F2F0EC', '#CFCBC4'],
-      highlight: '#FFFFFF', highlightOpacity: 0.9,
+      fill: ['#F4F3EF', '#E0DEDA', '#C9C7C2'],
+      highlight: '#FFFFFF', highlightOpacity: 0.42,
       stroke: '#B5AD98', strokeWidth: 0.4,
       text: '#1A1A1A',
     },
