@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   header: { flexDirection: 'row', gap: 8 },
   headerCell: {
     flex: 1, alignItems: 'center', paddingVertical: 10,
-    backgroundColor: 'rgba(5,7,7,0.68)', borderWidth: 1,
+    backgroundColor: 'rgba(6,6,7,0.66)', borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.08)', borderRadius: 12,
   },
   big: { fontSize: 22, fontFamily: 'Playfair', fontVariant: ['tabular-nums'], color: '#F2EFEA' },
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase', color: '#8E8B85', marginTop: 10,
   },
   domainRow: {
-    gap: 7, backgroundColor: 'rgba(5,7,7,0.68)', borderWidth: 1,
+    gap: 7, backgroundColor: 'rgba(6,6,7,0.66)', borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.08)', borderRadius: 12,
     paddingVertical: 12, paddingHorizontal: 14,
   },

@@ -245,7 +245,7 @@ export default function Goban({
               />
               <Circle
                 cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 1.5}
-                fill="none" stroke="rgba(240,200,150,0.9)" strokeWidth={2.6}
+                fill="none" stroke="rgba(235,195,150,0.62)" strokeWidth={2.6}
               />
             </G>
           )}

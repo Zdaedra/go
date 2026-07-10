@@ -7,7 +7,7 @@
 export const ui = {
   // grounds
   bg: '#121213',
-  card: 'rgba(5,7,7,0.68)',
+  card: 'rgba(6,6,7,0.66)',
   cardSolid: '#1A1715',
   hairline: 'rgba(255,255,255,0.08)',
   hairlineStrong: 'rgba(255,255,255,0.10)',
@@ -29,7 +29,7 @@ export const ui = {
   danger: '#C96F5A',
 
   // board (night-luxe)
-  woodTop: '#7A5F40',
+  woodTop: '#6F5638',
   woodMid: '#77603F',
   woodBottom: '#624B32',
   woodLine: '#4A3A26',
