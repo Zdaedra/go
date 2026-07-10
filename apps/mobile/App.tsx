@@ -27,20 +27,30 @@ const navTheme = {
   colors: {
     ...DarkTheme.colors,
     background: ui.bg,
-    card: '#161412',
+    card: ui.bg,
     text: ui.ink,
     primary: ui.accent,
     border: 'rgba(255,255,255,0.07)',
   },
 };
 
+// Approved header language: centered 17px/600 title on the shared ground,
+// no seam hairline, lavender back chevron.
+const headerOptions = {
+  headerTitleAlign: 'center' as const,
+  headerTitleStyle: { fontSize: 17, fontWeight: '600' as const, color: ui.ink },
+  headerShadowVisible: false,
+  headerTintColor: ui.accentSoft,
+  headerBackTitleVisible: false,
+};
+
 function LearnNavigator() {
   return (
-    <LearnStack.Navigator>
+    <LearnStack.Navigator screenOptions={headerOptions}>
       <LearnStack.Screen
         name="LearnList"
         component={LearnScreen}
-        options={{ title: 'Обучение: дебюты' }}
+        options={{ title: 'Обучение' }}
       />
       <LearnStack.Screen
         name="Opening"
@@ -70,6 +80,7 @@ function Tabs() {
   return (
     <Tab.Navigator
       screenOptions={{
+        ...headerOptions,
         tabBarActiveTintColor: ui.accentSoft,
         tabBarInactiveTintColor: ui.dim,
       }}
@@ -79,6 +90,8 @@ function Tabs() {
         component={PlayScreen}
         options={{
           title: 'Игра',
+          // the profile card is the header, as in the approved reference
+          headerShown: false,
           tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 18 }}>◉</Text>,
         }}
       />
@@ -108,7 +121,7 @@ function Root() {
   if (!auth.ready) return null; // splash while restoring the session
   if (!auth.signedIn) return <AuthScreen />;
   return (
-    <RootStack.Navigator>
+    <RootStack.Navigator screenOptions={headerOptions}>
       <RootStack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
       <RootStack.Screen
         name="Paywall"

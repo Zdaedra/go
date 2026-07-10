@@ -25,6 +25,12 @@ export default function PrimaryButton({
   label, onPress, disabled, dome = true, style, textStyle,
 }: Props) {
   const [dim, setDim] = useState({ w: 0, h: 0 });
+  // Unique gradient ids per instance (web: duplicate ids resolve into
+  // hidden screens whose defs don't render).
+  const uid = React.useId().replace(/[^a-zA-Z0-9]/g, '');
+  const ringId = `warmRing-${uid}`;
+  const hazeId = `domeHaze-${uid}`;
+  const arcId = `domeArc-${uid}`;
 
   return (
     <Pressable
@@ -45,32 +51,39 @@ export default function PrimaryButton({
           viewBox={`0 ${-DOME_H} ${dim.w} ${dim.h + DOME_H}`}
         >
           <Defs>
-            <LinearGradient id="warmRing" x1="0" y1="0" x2="1" y2="1">
+            <LinearGradient id={ringId} x1="0" y1="0" x2="1" y2="1">
               <Stop offset="0" stopColor="#F1A6AD" />
               <Stop offset="0.4" stopColor="#CE86A0" />
               <Stop offset="0.72" stopColor="#C98870" />
               <Stop offset="1" stopColor="#A17353" />
             </LinearGradient>
-            <LinearGradient id="domeHaze" x1="0" y1="0" x2="0" y2="1">
+            <LinearGradient id={hazeId} x1="0" y1="0" x2="0" y2="1">
               <Stop offset="0" stopColor="#3E346C" stopOpacity="0.5" />
               <Stop offset="1" stopColor="#241F3A" stopOpacity="0" />
+            </LinearGradient>
+            <LinearGradient id={arcId} x1="0" y1="0" x2="1" y2="0">
+              <Stop offset="0" stopColor="#6C61BE" stopOpacity="0" />
+              <Stop offset="0.25" stopColor="#6C61BE" stopOpacity="0.65" />
+              <Stop offset="0.5" stopColor="#7174C3" stopOpacity="0.8" />
+              <Stop offset="0.75" stopColor="#6C61BE" stopOpacity="0.65" />
+              <Stop offset="1" stopColor="#6C61BE" stopOpacity="0" />
             </LinearGradient>
           </Defs>
           {dome && dim.w > 80 && (
             <>
               <Path
                 d={`M ${dim.w * 0.11} 0 Q ${dim.w / 2} ${-2 * DOME_H} ${dim.w * 0.89} 0 Z`}
-                fill="url(#domeHaze)"
+                fill={`url(#${hazeId})`}
               />
               <Path
                 d={`M ${dim.w * 0.11} 0 Q ${dim.w / 2} ${-2 * DOME_H} ${dim.w * 0.89} 0`}
-                stroke="rgba(108,97,190,0.95)" strokeWidth={1.4} fill="none"
+                stroke={`url(#${arcId})`} strokeWidth={1.4} fill="none"
               />
             </>
           )}
           <Rect
             x={0.8} y={0.8} width={dim.w - 1.6} height={dim.h - 1.6}
-            rx={RADIUS} stroke="url(#warmRing)" strokeWidth={1.6} fill="none"
+            rx={RADIUS} stroke={`url(#${ringId})`} strokeWidth={1.6} fill="none"
           />
         </Svg>
       )}

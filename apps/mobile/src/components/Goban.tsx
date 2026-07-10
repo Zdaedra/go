@@ -134,7 +134,7 @@ export default function Goban({
       <G key={`s${at}`}>
         {stones.shadowOpacity > 0 && (
           <Ellipse
-            cx={cx + 0.8} cy={cy + 1.6} rx={stoneR} ry={stoneR - 0.6}
+            cx={cx + 1.2} cy={cy + 2.4} rx={stoneR + 0.6} ry={stoneR - 0.2}
             fill={stones.shadow} opacity={stones.shadowOpacity}
           />
         )}
@@ -156,7 +156,7 @@ export default function Goban({
             x={cx} y={cy + 3.8} textAnchor="middle"
             fontSize={numText.length > 2 ? 8.5 : 10.5}
             fontWeight={hot ? '800' : '600'}
-            fill={hot ? board.letter : s.text}
+            fill={hot ? board.letter : s.text} fontFamily="InterV"
           >
             {numText}
           </SvgText>
@@ -219,14 +219,14 @@ export default function Goban({
             <Line
               key={`h${r}`}
               x1={lineX0} y1={px(r)} x2={lineX1} y2={px(r)}
-              stroke={board.line} strokeWidth={1}
+              stroke={board.line} strokeWidth={0.8}
             />
           ))}
           {cols.map((c) => (
             <Line
               key={`v${c}`}
               x1={px(c)} y1={lineY0} x2={px(c)} y2={lineY1}
-              stroke={board.line} strokeWidth={1}
+              stroke={board.line} strokeWidth={0.8}
             />
           ))}
 
@@ -234,6 +234,7 @@ export default function Goban({
             <SvgText
               key={`ct${c}`} x={px(c)} y={woodY - 9} textAnchor="middle"
               fontSize={9.5} fill={board.coordText} letterSpacing={0.5}
+              fontFamily="InterV"
             >
               {GTP_COLS[c]}
             </SvgText>
@@ -242,13 +243,13 @@ export default function Goban({
             <G key={`rt${r}`}>
               <SvgText
                 x={woodX - 11} y={px(r) + 3.5} textAnchor="middle"
-                fontSize={9.5} fill={board.coordText}
+                fontSize={9.5} fill={board.coordText} fontFamily="InterV"
               >
                 {String(size - r)}
               </SvgText>
               <SvgText
                 x={woodX + woodW + 11} y={px(r) + 3.5} textAnchor="middle"
-                fontSize={9.5} fill={board.coordText}
+                fontSize={9.5} fill={board.coordText} fontFamily="InterV"
               >
                 {String(size - r)}
               </SvgText>
@@ -258,7 +259,7 @@ export default function Goban({
           {hoshiPoints(size)
             .filter(([c, r]) => c >= v.c0 && c <= v.c1 && r >= v.r0 && r <= v.r1)
             .map(([c, r]) => (
-              <Circle key={`h${c}-${r}`} cx={px(c)} cy={px(r)} r={2.6} fill={board.hoshi} />
+              <Circle key={`h${c}-${r}`} cx={px(c)} cy={px(r)} r={2.2} fill={board.hoshi} />
             ))}
 
           {Array.from(position).map((cell, at) =>
@@ -273,9 +274,18 @@ export default function Goban({
           {lastMove != null && position[lastMove] !== '.' && !numbers?.has(lastMove)
             && inView(lastMove) && (
             <G>
+              {/* soft radial falloff faked with fading strokes (RN SVG has no blur) */}
               <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 5}
-                fill="none" stroke="rgba(255,200,150,0.34)" strokeWidth={8}
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 3.5}
+                fill="none" stroke="rgba(255,200,150,0.28)" strokeWidth={3}
+              />
+              <Circle
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 6}
+                fill="none" stroke="rgba(255,200,150,0.16)" strokeWidth={3}
+              />
+              <Circle
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 8.5}
+                fill="none" stroke="rgba(255,200,150,0.07)" strokeWidth={3}
               />
               <Circle
                 cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 1.5}
@@ -295,7 +305,7 @@ export default function Goban({
               {g.label && (
                 <SvgText
                   x={px(colOf(g.at))} y={px(rowOf(g.at)) + 4} textAnchor="middle"
-                  fontSize={11} fontWeight="700"
+                  fontSize={11} fontWeight="700" fontFamily="InterV"
                   fill={g.color === 'b' ? stones.black.text : stones.white.text}
                 >
                   {g.label}
@@ -315,16 +325,16 @@ export default function Goban({
               return (
                 <Polygon
                   key={`m${m.at}`}
-                  points={`${cx},${cy - 7.5} ${cx - 6.7},${cy + 4.5} ${cx + 6.7},${cy + 4.5}`}
-                  fill="none" stroke={markColor} strokeWidth={1.5}
+                  points={`${cx},${cy - 5.8} ${cx - 5.2},${cy + 3.6} ${cx + 5.2},${cy + 3.6}`}
+                  fill={markColor} opacity={0.9}
                 />
               );
             }
             if (m.kind === 'square') {
               return (
                 <Rect
-                  key={`m${m.at}`} x={cx - 5.5} y={cy - 5.5} width={11} height={11}
-                  fill="none" stroke={markColor} strokeWidth={1.5}
+                  key={`m${m.at}`} x={cx - 4.5} y={cy - 4.5} width={9} height={9}
+                  fill={markColor} opacity={0.9}
                 />
               );
             }
@@ -332,13 +342,13 @@ export default function Goban({
               <G key={`m${m.at}`}>
                 {!onStone && (
                   <Circle
-                    cx={cx} cy={cy} r={9.5} fill={board.wood[1]} opacity={0.92}
+                    cx={cx} cy={cy} r={8.5} fill={board.wood[1]} opacity={0.92}
                     stroke={board.line} strokeWidth={0.8}
                   />
                 )}
                 <SvgText
-                  x={cx} y={cy + 4.5} textAnchor="middle"
-                  fontSize={13} fontWeight="800" fill={markColor}
+                  x={cx} y={cy + 4} textAnchor="middle"
+                  fontSize={12} fontWeight="800" fill={markColor} fontFamily="InterV"
                 >
                   {m.label ?? ''}
                 </SvgText>
@@ -353,5 +363,5 @@ export default function Goban({
 
 const styles = StyleSheet.create({
   wrap: { width: '100%', alignItems: 'center' },
-  square: { width: '100%', maxWidth: 440 },
+  square: { width: '100%', maxWidth: 372 },
 });

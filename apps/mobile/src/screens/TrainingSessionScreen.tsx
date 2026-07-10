@@ -11,6 +11,7 @@ import { nextProblem, recordResult, domainLabels } from '../state/trainingStats'
 import { recordAttempt } from '../state/tsumegoProgress';
 import MistBackground from '../components/MistBackground';
 import PrimaryButton from '../components/PrimaryButton';
+import HintBulb from '../components/HintBulb';
 
 const STATUS_TEXT: Record<string, string> = {
   playing: 'Найди лучший ход.',
@@ -143,7 +144,8 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
               if (at != null) setFeedback(`Подсказка: ${problem.hint}`);
             }}
           >
-            <Text style={styles.hintText}>💡 Подсказка</Text>
+            <HintBulb />
+            <Text style={styles.hintText}>Подсказка</Text>
           </Pressable>
         )}
       </View>
@@ -180,10 +182,11 @@ const styles = StyleSheet.create({
   spacer: { flex: 1 },
   topRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   domainChip: {
-    fontSize: 12.5, fontWeight: '600', color: '#F2EFEA',
+    fontSize: 11, fontWeight: '600', color: '#F2EFEA',
+    letterSpacing: 1.4, textTransform: 'uppercase',
     backgroundColor: 'rgba(255,255,255,0.05)', borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.12)', borderRadius: 999,
-    paddingVertical: 4, paddingHorizontal: 12, overflow: 'hidden',
+    paddingVertical: 5, paddingHorizontal: 13, overflow: 'hidden',
   },
   sessionMeta: { fontSize: 13, color: '#8E8B85', fontVariant: ['tabular-nums'] },
   meta: { fontSize: 13, color: '#8E8B85' },
@@ -200,6 +203,7 @@ const styles = StyleSheet.create({
   hintBtn: {
     paddingVertical: 12, paddingHorizontal: 15, borderRadius: 13,
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)',
+    flexDirection: 'row', alignItems: 'center', gap: 7,
   },
   hintText: { color: '#A79AF5', fontSize: 14 },
   ok: { color: '#C5BBF0' },

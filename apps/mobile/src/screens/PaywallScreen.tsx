@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   planTitle: { fontSize: 16, fontWeight: '700', minWidth: 84, color: '#F2EFEA' },
   planPrice: { fontSize: 17, color: '#E8E6E3', fontFamily: 'Playfair' },
   planNote: { fontSize: 12.5, color: '#F0A878', width: '100%' },
-  link: { color: '#8B7CF6', fontSize: 14, textAlign: 'center', padding: 6 },
+  link: { color: 'rgba(196,189,255,0.75)', fontSize: 14, textAlign: 'center', padding: 6 },
   devBtn: {
     marginTop: 18, borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: 8,
     paddingVertical: 8, alignItems: 'center',

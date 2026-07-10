@@ -18,6 +18,10 @@ const BANDS = [
 ];
 
 export default function MistBackground() {
+  // Unique per instance: on web all mounted SVGs share one document, and a
+  // duplicate id resolves into a hidden tab whose defs don't render.
+  const uid = React.useId().replace(/[^a-zA-Z0-9]/g, '');
+  const id = `mist-${uid}`;
   return (
     <View pointerEvents="none" style={StyleSheet.absoluteFill}>
       <Svg
@@ -26,7 +30,7 @@ export default function MistBackground() {
         preserveAspectRatio="xMidYMid slice"
       >
         <Defs>
-          <RadialGradient id="mist" cx="0.5" cy="0.5" r="0.5">
+          <RadialGradient id={id} cx="0.5" cy="0.5" r="0.5">
             <Stop offset="0" stopColor="#181A1A" stopOpacity="1" />
             <Stop offset="0.45" stopColor="#181A1A" stopOpacity="0.55" />
             <Stop offset="0.72" stopColor="#181A1A" stopOpacity="0" />
@@ -35,7 +39,7 @@ export default function MistBackground() {
         {BANDS.map((b, i) => (
           <Ellipse
             key={i} cx={b.cx} cy={b.cy} rx={b.rx} ry={b.ry}
-            fill="url(#mist)" fillOpacity={b.a}
+            fill={`url(#${id})`} fillOpacity={b.a}
           />
         ))}
       </Svg>

@@ -17,6 +17,8 @@ import { useAccess } from '../state/useTrial';
 import { useTrainingProfile } from '../state/trainingStats';
 import { ui, eyebrow, eyebrowAccent, cardStyle } from '../theme/uiTheme';
 import MistBackground from '../components/MistBackground';
+import HintBulb from '../components/HintBulb';
+import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 
 interface HistoryItem {
   board: string;
@@ -251,7 +253,8 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           style={[styles.hintBtn, showHints && styles.hintBtnOn]}
           onPress={() => setShowHints(!showHints)}
         >
-          <Text style={styles.hintText}>💡 Hint</Text>
+          <HintBulb />
+          <Text style={styles.hintText}>Hint</Text>
         </Pressable>
       </View>
 
@@ -269,7 +272,21 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
             onPress={playNextMove}
             disabled={!nextSuggestion}
           >
-            <View style={styles.bigRing} />
+            {/* violet ring warming to copper at the lower-right, as in the
+                approved main-screen reference */}
+            <Svg style={StyleSheet.absoluteFill} viewBox="0 0 82 82">
+              <Defs>
+                <LinearGradient id="bigring-play" x1="0" y1="0" x2="1" y2="1">
+                  <Stop offset="0" stopColor="#9D8CFF" />
+                  <Stop offset="0.45" stopColor="#8B7CF6" />
+                  <Stop offset="1" stopColor="#DE9660" />
+                </LinearGradient>
+              </Defs>
+              <Circle
+                cx={41} cy={41} r={40} fill="none"
+                stroke="url(#bigring-play)" strokeWidth={1.7}
+              />
+            </Svg>
             <Text style={styles.bigIcon}>›</Text>
           </Pressable>
           <Text style={styles.ctrlLabel}>Ход базы</Text>
@@ -293,7 +310,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: ui.bg },
   screen: { backgroundColor: 'transparent' },
-  page: { padding: ui.pad, gap: 12, paddingBottom: 36 },
+  page: { padding: ui.pad, gap: 12, paddingBottom: 24, paddingTop: 14 },
   card: { ...cardStyle, padding: 14 },
 
   header: { flexDirection: 'row', alignItems: 'center', gap: 13 },
@@ -342,6 +359,7 @@ const styles = StyleSheet.create({
   hintBtn: {
     paddingVertical: 13, paddingHorizontal: 16, borderRadius: 13,
     borderWidth: 1, borderColor: ui.hairlineStrong,
+    flexDirection: 'row', alignItems: 'center', gap: 7,
   },
   hintBtnOn: { borderColor: ui.accent, backgroundColor: 'rgba(139,124,246,0.10)' },
   hintText: { color: '#A79AF5', fontSize: 14.5 },
@@ -363,11 +381,6 @@ const styles = StyleSheet.create({
     alignItems: 'center', justifyContent: 'center',
   },
   bigBtnOff: { opacity: 0.55 },
-  bigRing: {
-    position: 'absolute', width: 82, height: 82, borderRadius: 41,
-    borderWidth: 1.5, borderColor: ui.accent,
-    shadowColor: ui.accent, shadowOpacity: 0.6, shadowRadius: 8, shadowOffset: { width: 0, height: 0 },
-  },
   bigIcon: { fontSize: 34, color: ui.ink, marginTop: -4 },
   ctrlLabel: {
     fontSize: 10, letterSpacing: 2.2, color: ui.label,

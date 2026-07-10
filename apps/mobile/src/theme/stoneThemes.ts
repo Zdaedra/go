@@ -30,7 +30,7 @@ export const stoneThemes: Record<string, StoneTheme> = {
     nameRu: 'Лак и слоновая кость',
     black: {
       fill: ['#7A7A7A', '#262626', '#0B0B0B'],
-      highlight: '#FFFFFF', highlightOpacity: 0.0,
+      highlight: '#FFFFFF', highlightOpacity: 0.35,
       stroke: 'none', strokeWidth: 0,
       text: '#F2EFEA',
     },

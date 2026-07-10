@@ -106,9 +106,7 @@ export default function AuthScreen() {
       {error && <Text style={styles.error}>{error}</Text>}
 
       <Pressable onPress={auth.continueAsGuest} style={styles.guest}>
-        <Text style={styles.link}>
-          Продолжить без аккаунта{hasBackend() ? '' : ' (режим разработки)'}
-        </Text>
+        <Text style={styles.link}>Продолжить без аккаунта</Text>
       </Pressable>
     </KeyboardAvoidingView>
   );
@@ -116,20 +114,24 @@ export default function AuthScreen() {
 
 const styles = StyleSheet.create({
   page: {
-    flex: 1, justifyContent: 'center', padding: 24, gap: 12,
+    flex: 1, justifyContent: 'flex-start', paddingTop: '24%',
+    padding: 24, gap: 12,
     backgroundColor: '#121213',
   },
   title: { fontSize: 28, fontWeight: '700', textAlign: 'center', color: '#F2EFEA', fontFamily: 'Playfair' },
   subtitle: { fontSize: 15, color: '#8E8B85', textAlign: 'center', marginBottom: 12 },
   form: { gap: 10 },
-  label: { fontSize: 13, fontWeight: '600', color: '#8E8B85' },
+  label: {
+    fontSize: 10.5, fontWeight: '600', color: '#8E8B85',
+    letterSpacing: 2, textTransform: 'uppercase',
+  },
   input: {
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: 10,
     paddingVertical: 10, paddingHorizontal: 14, fontSize: 16, color: '#F2EFEA',
     backgroundColor: 'rgba(255,255,255,0.03)',
   },
   codeInput: { letterSpacing: 8, textAlign: 'center', fontSize: 22 },
-  link: { color: 'rgba(157,140,255,0.8)', fontSize: 14, textAlign: 'center', padding: 6 },
+  link: { color: 'rgba(196,189,255,0.75)', fontSize: 14, textAlign: 'center', padding: 6 },
   error: { color: '#C96F5A', fontSize: 14, textAlign: 'center' },
   guest: { marginTop: 16 },
 });

@@ -79,8 +79,8 @@ export default function TsumegoSectionsScreen({ navigation }: { navigation: any 
         );
       })}
       <Text style={styles.note}>
-        Стартовый набор — классические учебные формы. Большие классические
-        сборники подключаются импортом SGF (scripts/import_tsumego_sgf.py).
+        Стартовый набор — классические учебные формы. База растёт по мере
+        разметки решений.
       </Text>
     </ScrollView>
   );

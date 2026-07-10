@@ -30,7 +30,9 @@ export default function SettingsScreen() {
     <View style={styles.screen}>
     <MistBackground />
     <ScrollView contentContainerStyle={styles.page}>
-      <Goban position={preview} />
+      <View style={styles.preview}>
+        <Goban position={preview} />
+      </View>
 
       <Text style={styles.section}>Доска</Text>
       <View style={styles.row}>
@@ -68,10 +70,7 @@ export default function SettingsScreen() {
         ))}
       </View>
 
-      <Text style={styles.note}>
-        Темы доски и камней независимы. Новые темы добавляются в
-        src/theme/boardThemes.ts и src/theme/stoneThemes.ts.
-      </Text>
+      <Text style={styles.note}>Темы доски и камней независимы.</Text>
 
       <Text style={styles.section}>Аккаунт</Text>
       <Text style={styles.accountText}>
@@ -89,7 +88,8 @@ export default function SettingsScreen() {
 
 const styles = StyleSheet.create({
   screen: { flex: 1 },
-  page: { padding: 16, gap: 12 },
+  page: { padding: 16, gap: 12, paddingBottom: 90 },
+  preview: { width: '76%', alignSelf: 'center' },
   section: {
     fontSize: 12, fontWeight: '700', letterSpacing: 1.2,
     textTransform: 'uppercase', color: '#8E8B85', marginTop: 8,

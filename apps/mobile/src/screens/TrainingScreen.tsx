@@ -79,7 +79,7 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
         return (
           <View key={d.domain} style={styles.domainRow}>
             <View style={styles.domainHead}>
-              <Text style={styles.domainName}>
+              <Text style={styles.domainName} numberOfLines={1}>
                 {d.label}
                 {d === weakest && stats.length > 1 ? '  · слабое место' : ''}
               </Text>

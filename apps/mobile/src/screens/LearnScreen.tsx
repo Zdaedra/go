@@ -119,7 +119,6 @@ const styles = StyleSheet.create({
   container: { flex: 1 },
   tabs: {
     flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingVertical: 10,
-    backgroundColor: '#100E0D',
   },
   tab: {
     paddingVertical: 6, paddingHorizontal: 16, borderRadius: 999,
@@ -128,17 +127,17 @@ const styles = StyleSheet.create({
   tabActive: { backgroundColor: 'rgba(139,124,246,0.12)', borderColor: '#8B7CF6' },
   tabText: { fontSize: 14, fontWeight: '600', color: '#F2EFEA' },
   tabTextActive: { color: '#C5BBF0' },
-  list: { paddingBottom: 32 },
+  list: { paddingBottom: 32, paddingHorizontal: 16 },
   section: {
     fontSize: 12, fontWeight: '700', letterSpacing: 1.2,
     textTransform: 'uppercase', color: '#8E8B85',
-    paddingHorizontal: 16, paddingTop: 18, paddingBottom: 6,
-    backgroundColor: '#100E0D',
+    paddingTop: 18, paddingBottom: 8,
   },
   row: {
     flexDirection: 'row', alignItems: 'center',
-    paddingHorizontal: 16, paddingVertical: 12,
-    borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: 'rgba(255,255,255,0.08)',
+    paddingHorizontal: 14, paddingVertical: 11, marginBottom: 8,
+    backgroundColor: 'rgba(6,6,7,0.40)', borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)', borderRadius: 14,
   },
   rowMain: { flex: 1, gap: 2 },
   name: { fontSize: 19, fontFamily: 'Playfair', color: '#EFECE7' },
