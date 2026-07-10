@@ -7,10 +7,11 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Goban, { GobanMark, GhostStone } from '../components/Goban';
 import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
+import { stabilizer, orbit } from '../engine/symmetry';
 import {
   identify, suggestions, continuationMarks, currentBranch,
 } from '../engine/identify';
-import { openingDisplayName, familyNamesRu } from '../data/names';
+import { openingDisplayName } from '../data/names';
 import branchDescriptions from '../data/descriptions.json';
 import { allBranches } from '../engine/identify';
 import { useAuth } from '../state/AuthContext';
@@ -110,13 +111,29 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   );
   const marks: GobanMark[] = useMemo(() => {
     if (locked) return [];
-    if (fullMarks.length) {
-      return fullMarks.map((m) => ({ at: m.at, label: m.label, kind: m.kind }));
+    const base: GobanMark[] = fullMarks.length
+      ? fullMarks.map((m) => ({ at: m.at, label: m.label, kind: m.kind }))
+      // Mid-branch positions have no diagram letters; without these dots the
+      // board looks dead even though the base knows the continuations.
+      : bookMoves.map((s) => ({ at: s.at, kind: 'dot' }));
+
+    // When the position is symmetric (e.g. a lone centre stone), each book
+    // continuation exists identically in every mirrored/rotated direction.
+    // Show them all as triangles so the openings read "in all directions" —
+    // playing a mirrored point just yields the mirrored opening.
+    const stab = stabilizer(position);
+    if (stab.length <= 1) return base;
+    const seen = new Set<number>();
+    const out: GobanMark[] = [];
+    for (const mk of base) {
+      for (const at of orbit(mk.at, stab)) {
+        if (seen.has(at)) continue;
+        seen.add(at);
+        out.push({ at, kind: 'triangle' });
+      }
     }
-    // Mid-branch positions have no diagram letters; without these dots the
-    // board looks dead even though the base knows the continuations.
-    return bookMoves.map((s) => ({ at: s.at, kind: 'dot' }));
-  }, [fullMarks, bookMoves, locked]);
+    return out;
+  }, [fullMarks, bookMoves, locked, position]);
   // Opening completed — a firmly different state from "not in the base":
   // either the last book move led off the diagrams (the book simply stops
   // there), or we sit on a final diagram that offers nothing further.
@@ -244,15 +261,9 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       : result.status === 'identified'
       ? openingDisplayName(result.opening!.family, result.opening!.opening, result.opening!.name)
       : result.status === 'candidates'
-        ? (() => {
-            // Ambiguous position: name the family and the live count instead
-            // of a single misleading name ("Sword…" read as "only Sword").
-            const fams = [...new Set(result.openings.map((o) => o.family))];
-            const fam = fams.length === 1 ? familyNamesRu[fams[0]] : null;
-            return fam
-              ? `${fam} · ${result.openings.length}`
-              : `Вариантов: ${result.openings.length}`;
-          })()
+        // Position is ambiguous — don't commit to a name (nor a family +
+        // count, which read like a title). Prompt for more stones instead.
+        ? 'Дебют пока не определён'
         : result.status === 'unknown'
           ? 'Вне базы'
           : 'Новая партия';
@@ -410,6 +421,9 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
 
         {candidateOpenings ? (
           <View style={styles.candList}>
+            <Text style={styles.candHint}>
+              Поставь ещё ход, чтобы определить дебют — или выбери его здесь:
+            </Text>
             {candidateOpenings.map((o, i) => (
               <Pressable
                 key={`${o.family}/${o.opening}-${i}`}
@@ -492,7 +506,8 @@ const styles = StyleSheet.create({
   explainText: { marginTop: 10, fontSize: 16.5, color: ui.inkSoft, lineHeight: 24 },
   turnSub: { marginTop: 8, fontSize: 12.5, color: ui.muted },
 
-  candList: { marginTop: 12, gap: 4 },
+  candList: { marginTop: 10, gap: 4 },
+  candHint: { fontSize: 13.5, lineHeight: 19, color: ui.muted, marginBottom: 6 },
   candRow: {
     flexDirection: 'row', alignItems: 'center', gap: 11,
     paddingVertical: 9, paddingHorizontal: 10, marginHorizontal: -10, borderRadius: 10,

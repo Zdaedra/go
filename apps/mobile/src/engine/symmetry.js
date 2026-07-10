@@ -43,6 +43,19 @@ function transformPosition(pos, name) {
   return out.join('');
 }
 
+/** Transforms that leave a position unchanged (its symmetry group).
+ * Always includes 'identity'. A single centre stone returns all 8. */
+function stabilizer(pos) {
+  return Object.keys(TRANSFORMS).filter((t) => transformPosition(pos, t) === pos);
+}
+
+/** All distinct board indices symmetric to `i` under a position's stabilizer. */
+function orbit(i, stab) {
+  const seen = new Set();
+  for (const t of stab) seen.add(transformIdx(t, i));
+  return [...seen];
+}
+
 /** Smallest position string over all 8 symmetries. */
 function canonical(pos) {
   let best = pos, bestName = 'identity';
@@ -67,4 +80,5 @@ function diagramIdxToUser(i, toCanonical, userTransform) {
 module.exports = {
   TRANSFORMS, INVERSE,
   transformIdx, transformPosition, canonical, diagramIdxToUser,
+  stabilizer, orbit,
 };
