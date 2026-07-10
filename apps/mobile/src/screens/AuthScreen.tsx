@@ -114,7 +114,8 @@ export default function AuthScreen() {
 
 const styles = StyleSheet.create({
   page: {
-    flex: 1, justifyContent: 'flex-start', paddingTop: '24%',
+    // centered with a slight upward bias (~21% of screen height above)
+    flex: 1, justifyContent: 'flex-start', paddingTop: 190,
     padding: 24, gap: 12,
     backgroundColor: '#121213',
   },

@@ -76,8 +76,9 @@ export default function Goban({
   const rowOf = (i: number) => Math.floor(i / size);
 
   // Coordinates live OUTSIDE the wood slab on the page ground (reference
-  // design); cropped boards label only the visible range.
-  const GUTTER = 22;
+  // design); cropped boards label only the visible range. The gutter is
+  // tight so the wood reaches the mockup's 64-device-px side margins.
+  const GUTTER = 11;
   const woodX = px(v.c0) - PAD;
   const woodY = px(v.r0) - PAD;
   const woodW = px(v.c1) - px(v.c0) + PAD * 2;
@@ -245,8 +246,8 @@ export default function Goban({
 
           {cols.map((c) => (
             <SvgText
-              key={`ct${c}`} x={px(c)} y={woodY - 9} textAnchor="middle"
-              fontSize={9.5} fill={board.coordText} letterSpacing={0.5}
+              key={`ct${c}`} x={px(c)} y={woodY - 4} textAnchor="middle"
+              fontSize={8} fill={board.coordText} letterSpacing={0.5}
               fontFamily="InterV"
             >
               {GTP_COLS[c]}
@@ -255,14 +256,14 @@ export default function Goban({
           {rows.map((r) => (
             <G key={`rt${r}`}>
               <SvgText
-                x={woodX - 11} y={px(r) + 3.5} textAnchor="middle"
-                fontSize={9.5} fill={board.coordText} fontFamily="InterV"
+                x={woodX - 5.5} y={px(r) + 3} textAnchor="middle"
+                fontSize={8} fill={board.coordText} fontFamily="InterV"
               >
                 {String(size - r)}
               </SvgText>
               <SvgText
-                x={woodX + woodW + 11} y={px(r) + 3.5} textAnchor="middle"
-                fontSize={9.5} fill={board.coordText} fontFamily="InterV"
+                x={woodX + woodW + 5.5} y={px(r) + 3} textAnchor="middle"
+                fontSize={8} fill={board.coordText} fontFamily="InterV"
               >
                 {String(size - r)}
               </SvgText>

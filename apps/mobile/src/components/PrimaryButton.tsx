@@ -67,6 +67,11 @@ export default function PrimaryButton({
               fill={`url(#${hazeId})`}
             />
           )}
+          {/* opaque plate: the haze rises BEHIND the pill, never inside it */}
+          <Rect
+            x={0.6} y={0.6} width={dim.w - 1.2} height={dim.h - 1.2}
+            rx={RADIUS} fill="#1A1720"
+          />
           <Rect
             x={0.6} y={0.6} width={dim.w - 1.2} height={dim.h - 1.2}
             rx={RADIUS} stroke={`url(#${ringId})`} strokeWidth={1.1} fill="none"

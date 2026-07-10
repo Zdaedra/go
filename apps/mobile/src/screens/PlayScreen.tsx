@@ -300,18 +300,30 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       >
         <Defs>
           <RadialGradient id="dome-play" cx="0.5" cy="0.5" r="0.5">
-            <Stop offset="0" stopColor="#7A63F1" stopOpacity="0.28" />
-            <Stop offset="0.5" stopColor="#7A63F1" stopOpacity="0.10" />
+            <Stop offset="0" stopColor="#7A63F1" stopOpacity="0.22" />
+            <Stop offset="0.5" stopColor="#7A63F1" stopOpacity="0.09" />
             <Stop offset="1" stopColor="#7A63F1" stopOpacity="0" />
           </RadialGradient>
+          <LinearGradient id="domearc-play" x1="0" y1="0" x2="1" y2="0">
+            <Stop offset="0" stopColor="#6358AF" stopOpacity="0" />
+            <Stop offset="0.5" stopColor="#6358AF" stopOpacity="0.85" />
+            <Stop offset="1" stopColor="#6358AF" stopOpacity="0" />
+          </LinearGradient>
         </Defs>
-        {/* crest sits above the ring crown, like the mockup's hill silhouette */}
-        <Circle cx={213.5} cy={96} r={130} fill="url(#dome-play)" />
+        {/* ambient centered on the button; the crest reads above the crown */}
+        <Circle cx={213.5} cy={125} r={130} fill="url(#dome-play)" />
+        {/* thin concentric arc floating above the crown, fading laterally */}
+        <Circle
+          cx={213.5} cy={125} r={57} fill="none"
+          stroke="url(#domearc-play)" strokeWidth={1.4}
+          strokeDasharray="139 219" strokeLinecap="round"
+          rotation={200} originX={213.5} originY={125}
+        />
       </Svg>
       <View style={styles.controls}>
         <View style={styles.ctrl}>
           <Pressable style={styles.sideBtn} onPress={() => setHistory([])}>
-            <Text style={styles.sideIcon}>↺</Text>
+            <Text style={styles.sideIcon}>↻</Text>
           </Pressable>
           <Text style={styles.ctrlLabel}>Заново</Text>
         </View>
@@ -342,12 +354,19 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
                 strokeDasharray="63 189" strokeLinecap="round"
                 rotation={45} originX={41} originY={41}
               />
-              {/* dome overlays the crown with dim violet */}
+              {/* crown carries the dome's dim violet cast */}
               <Circle
                 cx={41} cy={41} r={40} fill="none"
-                stroke="rgba(111,91,216,0.38)" strokeWidth={1.8}
-                strokeDasharray="55 197" strokeLinecap="round"
-                rotation={215} originX={41} originY={41}
+                stroke="rgba(90,70,122,0.55)" strokeWidth={1.9}
+                strokeDasharray="60 191" strokeLinecap="round"
+                rotation={227} originX={41} originY={41}
+              />
+              {/* bottom quadrant dies into the field completely */}
+              <Circle
+                cx={41} cy={41} r={40} fill="none"
+                stroke="rgba(18,18,19,0.85)" strokeWidth={2.6}
+                strokeDasharray="55 196" strokeLinecap="round"
+                rotation={50} originX={41} originY={41}
               />
               <Path
                 d="M 36 27 L 49 41 L 36 55"
@@ -440,7 +459,7 @@ const styles = StyleSheet.create({
   ctrl: { alignItems: 'center', gap: 9 },
   sideBtn: {
     width: 54, height: 54, borderRadius: 27, marginTop: 14,
-    backgroundColor: '#191817', borderWidth: 1, borderColor: ui.hairline,
+    backgroundColor: '#1C1C1E',
     alignItems: 'center', justifyContent: 'center',
   },
   sideIcon: { fontSize: 22, color: '#C9C6C0', marginTop: -2 },

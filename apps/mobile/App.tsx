@@ -38,9 +38,9 @@ const navTheme = {
 // no seam hairline, lavender back chevron.
 const headerOptions = {
   headerTitleAlign: 'center' as const,
-  headerTitleStyle: { fontSize: 17, fontWeight: '600' as const, color: ui.ink },
-  headerShadowVisible: false,
-  headerTintColor: ui.accentSoft,
+  headerTitleStyle: { fontSize: 15, fontWeight: '600' as const, color: ui.ink },
+  headerShadowVisible: true,
+  headerTintColor: '#B9B4C9',
   headerBackTitleVisible: false,
 };
 
