@@ -102,6 +102,20 @@ export default function Goban({
 
   const stoneR = 9.6; // 0.80 × cell, per mockup measurement
 
+  // Fine jittered vertical grain, deterministic (same LCG as the reference
+  // renderer, docs/design/screens/board.js).
+  const grainLines = React.useMemo(() => {
+    const out: { x: number; x2: number }[] = [];
+    let gx = woodX + 4;
+    let seed = 7;
+    while (gx < woodX + woodW - 4) {
+      seed = (seed * 16807) % 2147483647;
+      out.push({ x: gx, x2: gx + (seed % 3) - 1 });
+      gx += 6 + (seed % 9);
+    }
+    return out;
+  }, [woodX, woodW]);
+
   const renderStone = (at: number, color: 'b' | 'w', numText?: string, hot?: boolean) => {
     const s = color === 'b' ? stones.black : stones.white;
     const cx = px(colOf(at));
@@ -152,7 +166,7 @@ export default function Goban({
           <Defs>
             <LinearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
               <Stop offset="0" stopColor={board.wood[0]} />
-              <Stop offset="0.55" stopColor={board.wood[1]} />
+              <Stop offset="0.45" stopColor={board.wood[1]} />
               <Stop offset="1" stopColor={board.wood[2]} />
             </LinearGradient>
             <RadialGradient id="stone-b" cx="0.35" cy="0.3" r="0.9">
@@ -165,9 +179,21 @@ export default function Goban({
               <Stop offset="0.5" stopColor={stones.white.fill[1]} />
               <Stop offset="1" stopColor={stones.white.fill[2]} />
             </RadialGradient>
+            <LinearGradient id="wood-sheen" x1="0" y1="0" x2="0" y2="1">
+              <Stop offset="0" stopColor="#FFECCD" stopOpacity={0.05} />
+              <Stop offset="0.5" stopColor="#FFECCD" stopOpacity={0} />
+              <Stop offset="1" stopColor="#000000" stopOpacity={0.06} />
+            </LinearGradient>
           </Defs>
 
           <Rect x={woodX} y={woodY} width={woodW} height={woodH} rx={10} fill="url(#wood)" />
+          <Rect x={woodX} y={woodY} width={woodW} height={woodH} rx={10} fill="url(#wood-sheen)" />
+          {grainLines.map((g, i) => (
+            <Line
+              key={`gr${i}`} x1={g.x} y1={woodY + 2} x2={g.x2} y2={woodY + woodH - 2}
+              stroke="rgb(40,28,16)" strokeOpacity={0.068} strokeWidth={1}
+            />
+          ))}
           {[0.09, 0.22, 0.38, 0.47, 0.63, 0.78, 0.9].map((t, i) => (
             <Rect
               key={i} x={woodX + woodW * t} y={woodY} width={1 + (i % 3) * 1.4}
@@ -176,23 +202,21 @@ export default function Goban({
           ))}
           <Rect
             x={woodX + 1} y={woodY + 1} width={woodW - 2} height={woodH - 2} rx={9.5}
-            fill="none" stroke="rgba(45,30,12,0.28)" strokeWidth={2}
+            fill="none" stroke="rgba(45,30,12,0.33)" strokeWidth={2}
           />
 
           {rows.map((r) => (
             <Line
               key={`h${r}`}
               x1={lineX0} y1={px(r)} x2={lineX1} y2={px(r)}
-              stroke={r === 0 || r === size - 1 ? board.edgeLine : board.line}
-              strokeWidth={r === 0 || r === size - 1 ? 1.7 : 0.9}
+              stroke={board.line} strokeWidth={1}
             />
           ))}
           {cols.map((c) => (
             <Line
               key={`v${c}`}
               x1={px(c)} y1={lineY0} x2={px(c)} y2={lineY1}
-              stroke={c === 0 || c === size - 1 ? board.edgeLine : board.line}
-              strokeWidth={c === 0 || c === size - 1 ? 1.7 : 0.9}
+              stroke={board.line} strokeWidth={1}
             />
           ))}
 
