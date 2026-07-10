@@ -46,15 +46,15 @@ export default function TsumegoListScreen({ route, navigation }: { route: any; n
 
 const styles = StyleSheet.create({
   page: { padding: 16, gap: 14 },
-  title: { fontSize: 20, fontWeight: '700' },
+  title: { fontSize: 21, fontWeight: '500', color: '#EFECE7', fontFamily: 'Playfair' },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   cell: {
     width: 52, height: 52, borderRadius: 10,
-    borderWidth: 1, borderColor: '#C8BFA9',
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)',
     alignItems: 'center', justifyContent: 'center',
   },
-  cellSolved: { backgroundColor: '#E7F0DF', borderColor: '#7B9464' },
-  cellText: { fontSize: 16, fontWeight: '600' },
-  cellTextSolved: { color: '#4A6238' },
-  check: { position: 'absolute', top: 2, right: 5, fontSize: 10, color: '#4A6238' },
+  cellSolved: { backgroundColor: '#22301C', borderColor: '#7B9464' },
+  cellText: { fontSize: 16, fontWeight: '600', color: '#F2EFEA' },
+  cellTextSolved: { color: '#A9C48F' },
+  check: { position: 'absolute', top: 2, right: 5, fontSize: 10, color: '#A9C48F' },
 });

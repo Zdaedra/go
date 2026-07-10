@@ -22,6 +22,19 @@ export interface BoardTheme {
 }
 
 export const boardThemes: Record<string, BoardTheme> = {
+  nightLuxe: {
+    id: 'nightLuxe',
+    nameRu: 'Ночной лак',
+    wood: ['#9F7A4C', '#957043', '#88663C'],
+    grain: '#5E4426',
+    grainOpacity: 0.14,
+    line: '#4A3A26',
+    edgeLine: '#3A2D1C',
+    hoshi: '#241A0C',
+    coordText: '#848484',
+    letter: '#8B7CF6',
+    ghostOpacity: 0.42,
+  },
   kaya: {
     id: 'kaya',
     nameRu: 'Кайя (классика)',
@@ -89,4 +102,4 @@ export const boardThemes: Record<string, BoardTheme> = {
   },
 };
 
-export const defaultBoardTheme = 'kaya';
+export const defaultBoardTheme = 'nightLuxe';

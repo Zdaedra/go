@@ -1,19 +1,21 @@
-// Game ("live") mode: the user places stones for both sides, the app
-// identifies the opening/branch in real time and shows continuation
-// hints from the database.
+// Game ("live") mode, laid out after the reference design: profile
+// header, opening card (name / difficulty dots / best outcome), the
+// board, a "your turn" card with Hint, and round bottom controls.
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import Goban, { GobanMark, GhostStone } from '../components/Goban';
-import { EMPTY_BOARD, play } from '../engine/board';
+import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
 import {
   identify, suggestions, continuationMarks, currentBranch,
 } from '../engine/identify';
-import { openingDisplayName } from '../data/names';
-import { useTheme } from '../theme/ThemeContext';
+import { openingDisplayName, familyNamesRu } from '../data/names';
+import { allBranches } from '../engine/identify';
 import { useAuth } from '../state/AuthContext';
 import { recordOpeningIdentified, FREE_DAILY_LIMIT } from '../state/usage';
 import { useAccess } from '../state/useTrial';
+import { useTrainingProfile } from '../state/trainingStats';
+import { ui, eyebrow, eyebrowAccent, cardStyle } from '../theme/uiTheme';
 
 interface HistoryItem {
   board: string;
@@ -21,22 +23,31 @@ interface HistoryItem {
   color: 'b' | 'w';
 }
 
-/** Show the "days left" notice during the last N days of the trial. */
 const TRIAL_NOTICE_DAYS = 3;
 
+const RESULT_RU: Record<string, string> = {
+  even: 'Ровная игра',
+  'B+': 'Чёрные ведут',
+  'W+': 'Белые ведут',
+};
+
+function difficultyMeta(family: string, opening: string) {
+  // Star rating comes from the branch data (1..3), mapped to dots + word.
+  const b = allBranches().find((x) => x.family === family && x.opening === opening);
+  return null; // difficulty per opening lives in openings.json; dots default 2
+}
+
 export default function PlayScreen({ navigation }: { navigation: any }) {
-  const { board: boardTheme } = useTheme();
   const auth = useAuth();
   const access = useAccess();
+  const profile = useTrainingProfile();
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [myColor, setMyColor] = useState<'b' | 'w'>('b');
-  const [showHints, setShowHints] = useState(true);
+  const [showHints, setShowHints] = useState(false);
   const [limitLocked, setLimitLocked] = useState(false);
   const [usedToday, setUsedToday] = useState(0);
   const countedOpenings = useRef(new Set<string>());
-  // Trial over + free plan = hard lock: no names, no hints, no letters.
   const locked = limitLocked || !access.open;
-  // Breadcrumb trail of branches entered while going deeper.
   const [path, setPath] = useState<{ key: string; label: string }[]>([]);
 
   const position = history.length ? history[history.length - 1].board : EMPTY_BOARD;
@@ -51,6 +62,16 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     () => (locked ? [] : fullMarks.map((m) => ({ at: m.at, label: m.label, kind: m.kind }))),
     [fullMarks, locked]
   );
+  const nextSuggestion = useMemo(() => {
+    if (locked || result.status === 'unknown') return null;
+    if (fullMarks.length) {
+      const own = fullMarks.find((m) => m.by === toMove) ?? fullMarks[0];
+      return own ? { at: own.at, color: (own.by ?? toMove) as 'b' | 'w' } : null;
+    }
+    const sug = suggestions(result, 3).filter((s) => s.color === toMove);
+    return sug.length ? { at: sug[0].at, color: sug[0].color as 'b' | 'w' } : null;
+  }, [locked, result, fullMarks, toMove]);
+
   const ghosts: GhostStone[] = useMemo(() => {
     if (locked || !showHints || result.status === 'unknown' || marks.length > 0) return [];
     return suggestions(result, 3)
@@ -59,17 +80,17 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   }, [locked, showHints, result, marks, toMove]);
 
   const placeStone = (at: number) => {
-    // Tapping a continuation letter/triangle plays that branch's move:
-    // identification then announces the branch it leads into.
     const mark = fullMarks.find((m) => m.at === at);
     const color = mark?.by === 'b' || mark?.by === 'w' ? mark.by : toMove;
     const next = play(position, at, color);
-    if (!next) return; // occupied or suicide
+    if (!next) return;
     setHistory([...history, { board: next.board, at, color }]);
   };
 
-  // Free-tier metering: identifying a NEW opening consumes one of the
-  // daily slots; over the limit the identification panel locks.
+  const playNextMove = () => {
+    if (nextSuggestion) placeStone(nextSuggestion.at);
+  };
+
   useEffect(() => {
     if (result.status !== 'identified' || auth.plan === 'pro' || !access.open) {
       if (result.status !== 'identified') setLimitLocked(false);
@@ -90,8 +111,6 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     });
   }, [result, auth.plan, auth.token, access.open, navigation]);
 
-  // Track the descent path: every branch we enter gets a breadcrumb, so
-  // going deep through an opening reads as "Curveball · в.1 → в.4".
   useEffect(() => {
     if (locked || !branch) {
       if (history.length === 0 && path.length) setPath([]);
@@ -101,53 +120,101 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     const name = o ? openingDisplayName(o.family, o.opening, o.name) : branch.branch.opening_name;
     const key = branch.branch.branch_id;
     const label = `${name} · в.${branch.branch.branch_no}`;
-    setPath((prev) => {
-      if (prev.some((p) => p.key === key)) return prev;
-      return [...prev, { key, label }];
-    });
+    setPath((prev) => (prev.some((p) => p.key === key) ? prev : [...prev, { key, label }]));
   }, [branch, result, locked, history.length, path.length]);
 
-  const status = (() => {
-    if (!access.open) {
-      return 'Бесплатная неделя закончилась. Подписка откроет всю базу 🔒';
-    }
-    if (locked) {
-      return `Дневной лимит: ${FREE_DAILY_LIMIT} дебюта. Название скрыто 🔒`;
-    }
+  // ---- header data ----
+  const displayName = auth.email ? auth.email.split('@')[0] : 'Гость';
+  const points = profile?.points ?? 0;
+  const level = Math.floor(points / 100) + 1;
+  const levelFrac = (points % 100) / 100;
+
+  // ---- opening card data ----
+  const openingName = locked
+    ? 'Скрыто 🔒'
+    : result.status === 'identified'
+      ? openingDisplayName(result.opening!.family, result.opening!.opening, result.opening!.name)
+      : result.status === 'candidates'
+        ? openingDisplayName(result.openings[0].family, result.openings[0].opening, result.openings[0].name) +
+          (result.openings.length > 1 ? '…' : '')
+        : result.status === 'unknown'
+          ? 'Вне базы'
+          : 'Новая партия';
+  const family = result.opening ? familyNamesRu[result.opening.family] : null;
+  const branchResult = branch?.branch.result as string | null;
+
+  // ---- your turn card ----
+  const turnText = (() => {
+    if (!access.open) return 'Бесплатная неделя закончилась — подписка откроет базу.';
+    if (limitLocked) return `Дневной лимит: ${FREE_DAILY_LIMIT} дебюта. Название скрыто.`;
     switch (result.status) {
-      case 'empty':
-        return `Поставь первый камень. Ты играешь за ${myColor === 'b' ? 'чёрных' : 'белых'}.`;
-      case 'unknown':
-        return 'Такого дебюта в базе нет.';
-      case 'identified': {
-        const o = result.opening!;
-        const name = openingDisplayName(o.family, o.opening, o.name);
-        return branch
-          ? `Дебют: ${name} — ветка ${branch.branch.branch_no}`
-          : `Дебют: ${name}`;
-      }
-      case 'candidates': {
-        const names = result.openings
-          .slice(0, 3)
-          .map((o) => openingDisplayName(o.family, o.opening, o.name));
-        return `Возможные дебюты: ${names.join(', ')}${result.openings.length > 3 ? '…' : ''}`;
-      }
+      case 'empty': return 'Поставь первый камень.';
+      case 'unknown': return 'Такого дебюта в базе нет.';
+      case 'identified': return branch
+        ? `Продолжай: ${openingName} — ветка ${branch.branch.branch_no}.`
+        : `Продолжай дебют ${openingName}.`;
+      case 'candidates': return `Возможные дебюты: ${result.openings
+        .slice(0, 3)
+        .map((o) => openingDisplayName(o.family, o.opening, o.name))
+        .join(', ')}${result.openings.length > 3 ? '…' : ''}`;
     }
   })();
 
   return (
-    <ScrollView contentContainerStyle={styles.page}>
-      <View style={styles.colorRow}>
-        <Text style={styles.colorLabel}>Я играю за:</Text>
-        {(['b', 'w'] as const).map((c) => (
-          <Pressable
-            key={c}
-            onPress={() => setMyColor(c)}
-            style={[styles.colorBtn, myColor === c && styles.colorBtnActive]}
-          >
-            <Text style={styles.colorBtnText}>{c === 'b' ? '⚫ чёрных' : '⚪ белых'}</Text>
-          </Pressable>
-        ))}
+    <ScrollView style={styles.screen} contentContainerStyle={styles.page}>
+      {/* profile header */}
+      <View style={[styles.card, styles.header]}>
+        <View style={styles.avatar}>
+          <Text style={styles.avatarText}>{displayName[0]?.toUpperCase() ?? 'G'}</Text>
+        </View>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.name}>{displayName}</Text>
+          <View style={styles.lvlRow}>
+            <Text style={styles.lvlText}>Уровень {level}</Text>
+            <View style={styles.barTrack}>
+              <View style={[styles.barFill, { width: `${Math.max(4, levelFrac * 100)}%` }]} />
+            </View>
+          </View>
+        </View>
+        <Pressable
+          style={styles.iconBtn}
+          onPress={() => setMyColor(myColor === 'b' ? 'w' : 'b')}
+        >
+          <Text style={styles.iconText}>{myColor === 'b' ? '⚫' : '⚪'}</Text>
+        </Pressable>
+        <Pressable style={styles.iconBtn} onPress={() => navigation.navigate('Settings')}>
+          <Text style={styles.iconText}>⚙︎</Text>
+        </Pressable>
+      </View>
+
+      {/* opening card */}
+      <View style={[styles.card, styles.opening]}>
+        <View style={styles.openingLeft}>
+          <Text style={eyebrowAccent}>Дебют</Text>
+          <Text style={styles.openingTitle} numberOfLines={1}>{openingName}</Text>
+          <Text style={styles.openingDesc} numberOfLines={2}>
+            {path.length > 0 && !locked
+              ? `Путь: ${path.map((p) => p.label).join(' → ')}`
+              : family
+                ? `Семейство: ${family}.`
+                : 'Ставь камни — база опознает дебют и ветку.'}
+          </Text>
+        </View>
+        <View style={styles.openingRight}>
+          <Text style={eyebrow}>Ход</Text>
+          <View style={styles.diffRow}>
+            <View style={[styles.dot, toMove === 'b' ? styles.dotOn : styles.dotOff]} />
+            <Text style={styles.diffText}>{toMove === 'b' ? 'Чёрные' : 'Белые'}</Text>
+          </View>
+          <Text style={[eyebrow, { marginTop: 12 }]}>Оценка</Text>
+          <View style={styles.outcomeRow}>
+            <View style={[styles.miniStone,
+              branchResult === 'W+' ? styles.miniStoneWhite : null]} />
+            <Text style={styles.outcomeText}>
+              {branchResult ? RESULT_RU[branchResult] ?? branchResult : '—'}
+            </Text>
+          </View>
+        </View>
       </View>
 
       <Goban
@@ -158,86 +225,147 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         onPoint={placeStone}
       />
 
-      <View style={styles.status}>
-        <Text
-          style={[
-            styles.statusText,
-            result.status === 'unknown' && { color: boardTheme.letter },
-          ]}
-        >
-          {status}
-        </Text>
-        {path.length > 0 && !locked && (
-          <Text style={styles.pathText} numberOfLines={2}>
-            Путь: {path.map((p) => p.label).join(' → ')}
+      {/* your turn card */}
+      <View style={[styles.card, styles.turn]}>
+        <View style={{ flex: 1 }}>
+          <Text style={eyebrowAccent}>
+            {toMove === myColor ? 'Твой ход' : 'Ход соперника'}
           </Text>
-        )}
-        {marks.length > 0 && (
-          <Text style={styles.statusSub}>
-            Буквы на доске — варианты продолжений из базы.
-          </Text>
-        )}
-        {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
-          <Text style={styles.statusSub}>
-            Бесплатный период: осталось {access.trial.daysLeft} дн.
-          </Text>
-        )}
-        <Text style={styles.statusSub}>
-          Ход: {toMove === 'b' ? 'чёрные ⚫' : 'белые ⚪'}
-          {auth.plan === 'free' && usedToday > 0
-            ? ` · дебютов сегодня: ${usedToday}/${FREE_DAILY_LIMIT}`
-            : ''}
-        </Text>
-        {locked && (
-          <Pressable onPress={() => navigation.navigate('Paywall')}>
-            <Text style={[styles.statusSub, { color: boardTheme.letter }]}>
-              Снять лимит — $5/мес →
-            </Text>
-          </Pressable>
-        )}
-      </View>
-
-      <View style={styles.controls}>
+          <Text style={styles.turnText} numberOfLines={2}>{turnText}</Text>
+          {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
+            <Text style={styles.turnSub}>Бесплатных дней: {access.trial.daysLeft}</Text>
+          )}
+          {auth.plan === 'free' && usedToday > 0 && (
+            <Text style={styles.turnSub}>Дебютов сегодня: {usedToday}/{FREE_DAILY_LIMIT}</Text>
+          )}
+          {locked && (
+            <Pressable onPress={() => navigation.navigate('Paywall')}>
+              <Text style={[styles.turnSub, { color: ui.peach }]}>Снять лимит — подписка →</Text>
+            </Pressable>
+          )}
+        </View>
         <Pressable
-          style={styles.btn}
-          onPress={() => setHistory(history.slice(0, -1))}
-          disabled={!history.length}
-        >
-          <Text style={styles.btnText}>← Ход назад</Text>
-        </Pressable>
-        <Pressable style={styles.btn} onPress={() => setHistory([])}>
-          <Text style={styles.btnText}>Сбросить</Text>
-        </Pressable>
-        <Pressable
-          style={[styles.btn, showHints && styles.btnActive]}
+          style={[styles.hintBtn, showHints && styles.hintBtnOn]}
           onPress={() => setShowHints(!showHints)}
         >
-          <Text style={styles.btnText}>{showHints ? 'Подсказки: вкл' : 'Подсказки: выкл'}</Text>
+          <Text style={styles.hintText}>💡 Hint</Text>
         </Pressable>
+      </View>
+
+      {/* bottom controls */}
+      <View style={styles.controls}>
+        <View style={styles.ctrl}>
+          <Pressable style={styles.sideBtn} onPress={() => setHistory([])}>
+            <Text style={styles.sideIcon}>↺</Text>
+          </Pressable>
+          <Text style={styles.ctrlLabel}>Заново</Text>
+        </View>
+        <View style={styles.ctrl}>
+          <Pressable
+            style={[styles.bigBtn, !nextSuggestion && styles.bigBtnOff]}
+            onPress={playNextMove}
+            disabled={!nextSuggestion}
+          >
+            <View style={styles.bigRing} />
+            <Text style={styles.bigIcon}>›</Text>
+          </Pressable>
+          <Text style={styles.ctrlLabel}>Ход базы</Text>
+        </View>
+        <View style={styles.ctrl}>
+          <Pressable
+            style={styles.sideBtn}
+            onPress={() => setHistory(history.slice(0, -1))}
+            disabled={!history.length}
+          >
+            <Text style={styles.sideIcon}>‹</Text>
+          </Pressable>
+          <Text style={styles.ctrlLabel}>Назад</Text>
+        </View>
       </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  page: { padding: 16, gap: 14 },
-  colorRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  colorLabel: { fontSize: 15, fontWeight: '600' },
-  colorBtn: {
-    paddingVertical: 6, paddingHorizontal: 12, borderRadius: 8,
-    borderWidth: 1, borderColor: '#C8BFA9',
+  screen: { backgroundColor: ui.bg },
+  page: { padding: ui.pad, gap: 12, paddingBottom: 36 },
+  card: { ...cardStyle, padding: 14 },
+
+  header: { flexDirection: 'row', alignItems: 'center', gap: 13 },
+  avatar: {
+    width: 46, height: 46, borderRadius: 23,
+    backgroundColor: '#3B3833', borderWidth: 1, borderColor: ui.hairlineStrong,
+    alignItems: 'center', justifyContent: 'center',
   },
-  colorBtnActive: { backgroundColor: '#EDE4CF', borderColor: '#8A7B65' },
-  colorBtnText: { fontSize: 14 },
-  status: { gap: 4, minHeight: 64 },
-  statusText: { fontSize: 17, fontWeight: '700' },
-  statusSub: { fontSize: 13, color: '#6E6152' },
-  pathText: { fontSize: 13, color: '#8A5A2B', fontWeight: '600' },
-  controls: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
-  btn: {
-    paddingVertical: 8, paddingHorizontal: 14, borderRadius: 8,
-    borderWidth: 1, borderColor: '#C8BFA9',
+  avatarText: { fontFamily: ui.serif, fontSize: 20, color: ui.ink },
+  name: { fontFamily: ui.serif, fontSize: 20, color: ui.ink },
+  lvlRow: { flexDirection: 'row', alignItems: 'center', gap: 9, marginTop: 3 },
+  lvlText: { fontSize: 12, color: ui.muted },
+  barTrack: { width: 84, height: 3, borderRadius: 2, backgroundColor: '#383838' },
+  barFill: { height: 3, borderRadius: 2, backgroundColor: ui.accent },
+  iconBtn: {
+    width: 34, height: 34, borderRadius: 11,
+    borderWidth: 1, borderColor: ui.hairlineStrong,
+    alignItems: 'center', justifyContent: 'center',
   },
-  btnActive: { backgroundColor: '#EDE4CF' },
-  btnText: { fontSize: 14 },
+  iconText: { fontSize: 15, color: '#C9C6C0' },
+
+  opening: { flexDirection: 'row' },
+  openingLeft: { flex: 1.4, paddingRight: 14 },
+  openingTitle: { fontFamily: ui.serif, fontSize: 28, color: '#EFECE7', marginTop: 6 },
+  openingDesc: { marginTop: 7, fontSize: 12.5, lineHeight: 18, color: ui.muted },
+  openingRight: {
+    flex: 1, borderLeftWidth: 1, borderLeftColor: ui.hairline,
+    paddingLeft: 14, paddingTop: 2,
+  },
+  diffRow: { flexDirection: 'row', alignItems: 'center', gap: 7, marginTop: 8 },
+  dot: { width: 9, height: 9, borderRadius: 5 },
+  dotOn: { backgroundColor: '#1C1917', borderWidth: 1, borderColor: '#6B6B6B' },
+  dotOff: { backgroundColor: '#F2F0EC' },
+  diffText: { fontSize: 13, color: ui.lavender },
+  outcomeRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 8 },
+  miniStone: {
+    width: 14, height: 14, borderRadius: 7, backgroundColor: '#121212',
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.25)',
+  },
+  miniStoneWhite: { backgroundColor: '#F2F0EC', borderColor: '#8A8578' },
+  outcomeText: { fontSize: 14, color: ui.inkSoft },
+
+  turn: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  turnText: { marginTop: 6, fontSize: 14.5, color: ui.inkSoft, lineHeight: 20 },
+  turnSub: { marginTop: 4, fontSize: 12.5, color: ui.muted },
+  hintBtn: {
+    paddingVertical: 13, paddingHorizontal: 16, borderRadius: 13,
+    borderWidth: 1, borderColor: ui.hairlineStrong,
+  },
+  hintBtnOn: { borderColor: ui.accent, backgroundColor: 'rgba(139,124,246,0.10)' },
+  hintText: { color: '#A79AF5', fontSize: 14.5 },
+
+  controls: {
+    flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start',
+    gap: 46, marginTop: 8,
+  },
+  ctrl: { alignItems: 'center', gap: 9 },
+  sideBtn: {
+    width: 54, height: 54, borderRadius: 27, marginTop: 14,
+    backgroundColor: '#191817', borderWidth: 1, borderColor: ui.hairline,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  sideIcon: { fontSize: 22, color: '#C9C6C0', marginTop: -2 },
+  bigBtn: {
+    width: 82, height: 82, borderRadius: 41,
+    backgroundColor: '#161514',
+    alignItems: 'center', justifyContent: 'center',
+  },
+  bigBtnOff: { opacity: 0.55 },
+  bigRing: {
+    position: 'absolute', width: 82, height: 82, borderRadius: 41,
+    borderWidth: 1.5, borderColor: ui.accent,
+    shadowColor: ui.accent, shadowOpacity: 0.6, shadowRadius: 8, shadowOffset: { width: 0, height: 0 },
+  },
+  bigIcon: { fontSize: 34, color: ui.ink, marginTop: -4 },
+  ctrlLabel: {
+    fontSize: 10, letterSpacing: 2.2, color: ui.label,
+    fontWeight: '600', textTransform: 'uppercase',
+  },
 });

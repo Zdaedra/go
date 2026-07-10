@@ -25,6 +25,23 @@ export interface StoneTheme {
 }
 
 export const stoneThemes: Record<string, StoneTheme> = {
+  lacquer: {
+    id: 'lacquer',
+    nameRu: 'Лак и слоновая кость',
+    black: {
+      fill: ['#7A7A7A', '#262626', '#0B0B0B'],
+      highlight: '#FFFFFF', highlightOpacity: 0.0,
+      stroke: 'none', strokeWidth: 0,
+      text: '#F2EFEA',
+    },
+    white: {
+      fill: ['#FFFFFF', '#F2F0EC', '#CFCBC4'],
+      highlight: '#FFFFFF', highlightOpacity: 0.9,
+      stroke: '#B5AD98', strokeWidth: 0.4,
+      text: '#1A1A1A',
+    },
+    shadow: '#0F0903', shadowOpacity: 0.5,
+  },
   shell: {
     id: 'shell',
     nameRu: 'Сланец и ракушка',
@@ -95,4 +112,4 @@ export const stoneThemes: Record<string, StoneTheme> = {
   },
 };
 
-export const defaultStoneTheme = 'shell';
+export const defaultStoneTheme = 'lacquer';

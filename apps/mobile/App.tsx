@@ -1,9 +1,11 @@
 import React from 'react';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { useFonts } from 'expo-font';
+import { ui } from './src/theme/uiTheme';
 import { ThemeProvider } from './src/theme/ThemeContext';
 import { AuthProvider, useAuth } from './src/state/AuthContext';
 import PlayScreen from './src/screens/PlayScreen';
@@ -21,14 +23,14 @@ const LearnStack = createNativeStackNavigator();
 const RootStack = createNativeStackNavigator();
 
 const navTheme = {
-  ...DefaultTheme,
+  ...DarkTheme,
   colors: {
-    ...DefaultTheme.colors,
-    background: '#FBF8F1',
-    card: '#F3EDDF',
-    text: '#2A2118',
-    primary: '#B23A2B',
-    border: '#E0D6C2',
+    ...DarkTheme.colors,
+    background: ui.bg,
+    card: '#161412',
+    text: ui.ink,
+    primary: ui.accent,
+    border: 'rgba(255,255,255,0.07)',
   },
 };
 
@@ -68,8 +70,8 @@ function Tabs() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: '#B23A2B',
-        tabBarInactiveTintColor: '#8A7B65',
+        tabBarActiveTintColor: ui.accentSoft,
+        tabBarInactiveTintColor: ui.dim,
       }}
     >
       <Tab.Screen
@@ -118,11 +120,16 @@ function Root() {
 }
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Playfair: require('./assets/fonts/PlayfairDisplay.ttf'),
+    InterV: require('./assets/fonts/Inter.ttf'),
+  });
+  if (!fontsLoaded) return null;
   return (
     <AuthProvider>
       <ThemeProvider>
         <NavigationContainer theme={navTheme}>
-          <StatusBar style="dark" />
+          <StatusBar style="light" />
           <Root />
         </NavigationContainer>
       </ThemeProvider>

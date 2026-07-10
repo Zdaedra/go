@@ -151,18 +151,18 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
 
 const styles = StyleSheet.create({
   page: { padding: 16, gap: 12 },
-  title: { fontSize: 18, fontWeight: '700' },
-  meta: { fontSize: 13, color: '#6E6152' },
-  status: { fontSize: 16, fontWeight: '600', minHeight: 24 },
-  ok: { color: '#4A6238' },
-  bad: { color: '#B23A2B' },
+  title: { fontSize: 18, fontWeight: '600', color: '#F2EFEA' },
+  meta: { fontSize: 13, color: '#8E8B85' },
+  status: { fontSize: 16, fontWeight: '600', minHeight: 24, color: '#F2EFEA' },
+  ok: { color: '#A9C48F' },
+  bad: { color: '#C96F5A' },
   controls: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
   btn: {
     paddingVertical: 8, paddingHorizontal: 14, borderRadius: 8,
-    borderWidth: 1, borderColor: '#C8BFA9',
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)',
   },
-  btnPrimary: { backgroundColor: '#B23A2B', borderColor: '#B23A2B' },
+  btnPrimary: { backgroundColor: '#8B7CF6', borderColor: '#8B7CF6' },
   btnPrimaryText: { color: '#FFFFFF', fontWeight: '700' },
-  btnText: { fontSize: 14 },
-  hint: { fontSize: 14, color: '#8A5A2B' },
+  btnText: { fontSize: 14, color: '#F2EFEA' },
+  hint: { fontSize: 14, color: '#F0A878' },
 });

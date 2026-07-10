@@ -110,24 +110,24 @@ export default function AuthScreen() {
 const styles = StyleSheet.create({
   page: {
     flex: 1, justifyContent: 'center', padding: 24, gap: 12,
-    backgroundColor: '#FBF8F1',
+    backgroundColor: '#100E0D',
   },
-  title: { fontSize: 28, fontWeight: '700', textAlign: 'center' },
-  subtitle: { fontSize: 15, color: '#6E6152', textAlign: 'center', marginBottom: 12 },
+  title: { fontSize: 28, fontWeight: '700', textAlign: 'center', color: '#F2EFEA', fontFamily: 'Playfair' },
+  subtitle: { fontSize: 15, color: '#8E8B85', textAlign: 'center', marginBottom: 12 },
   form: { gap: 10 },
-  label: { fontSize: 13, fontWeight: '600', color: '#6E6152' },
+  label: { fontSize: 13, fontWeight: '600', color: '#8E8B85' },
   input: {
-    borderWidth: 1, borderColor: '#C8BFA9', borderRadius: 10,
-    paddingVertical: 10, paddingHorizontal: 14, fontSize: 16,
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: 10,
+    paddingVertical: 10, paddingHorizontal: 14, fontSize: 16, color: '#F2EFEA',
     backgroundColor: '#FFFFFF',
   },
   codeInput: { letterSpacing: 8, textAlign: 'center', fontSize: 22 },
   primary: {
-    backgroundColor: '#B23A2B', borderRadius: 10, paddingVertical: 12,
+    backgroundColor: '#8B7CF6', borderRadius: 10, paddingVertical: 12,
     alignItems: 'center',
   },
   primaryText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
-  link: { color: '#B23A2B', fontSize: 14, textAlign: 'center', padding: 6 },
-  error: { color: '#B23A2B', fontSize: 14, textAlign: 'center' },
+  link: { color: '#8B7CF6', fontSize: 14, textAlign: 'center', padding: 6 },
+  error: { color: '#8B7CF6', fontSize: 14, textAlign: 'center' },
   guest: { marginTop: 16 },
 });

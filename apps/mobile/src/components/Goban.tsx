@@ -68,10 +68,17 @@ export default function Goban({
   // Show coordinate labels only for a full standard board (openings mode).
   const showCoords = !view || (v.c0 === 0 && v.r0 === 0 && v.c1 === size - 1 && v.r1 === size - 1);
 
-  const minX = px(v.c0) - PAD;
-  const minY = px(v.r0) - PAD;
-  const viewW = px(v.c1) - px(v.c0) + PAD * 2;
-  const viewH = px(v.r1) - px(v.r0) + PAD * 2;
+  // Coordinates live OUTSIDE the wood slab on the page ground (reference
+  // design); the slab keeps its own padding around the grid.
+  const GUTTER = showCoords ? 22 : 0;
+  const woodX = px(v.c0) - PAD;
+  const woodY = px(v.r0) - PAD;
+  const woodW = px(v.c1) - px(v.c0) + PAD * 2;
+  const woodH = px(v.r1) - px(v.r0) + PAD * 2;
+  const minX = woodX - GUTTER;
+  const minY = woodY - GUTTER;
+  const viewW = woodW + GUTTER * 2;
+  const viewH = woodH + GUTTER * 2;
 
   const inView = (i: number) => {
     const c = colOf(i), r = rowOf(i);
@@ -162,13 +169,17 @@ export default function Goban({
             </RadialGradient>
           </Defs>
 
-          <Rect x={minX} y={minY} width={viewW} height={viewH} rx={8} fill="url(#wood)" />
-          {[0.18, 0.34, 0.52, 0.71, 0.88].map((t, i) => (
+          <Rect x={woodX} y={woodY} width={woodW} height={woodH} rx={10} fill="url(#wood)" />
+          {[0.09, 0.22, 0.38, 0.47, 0.63, 0.78, 0.9].map((t, i) => (
             <Rect
-              key={i} x={minX} y={minY + viewH * t} width={viewW}
-              height={1.6 + (i % 3)} fill={board.grain} opacity={board.grainOpacity}
+              key={i} x={woodX + woodW * t} y={woodY} width={1 + (i % 3) * 1.4}
+              height={woodH} fill={board.grain} opacity={board.grainOpacity * (0.6 + (i % 2) * 0.5)}
             />
           ))}
+          <Rect
+            x={woodX + 1.5} y={woodY + 1.5} width={woodW - 3} height={woodH - 3} rx={9}
+            fill="none" stroke="rgba(50,34,14,0.35)" strokeWidth={3}
+          />
 
           {rows.map((r) => (
             <Line
@@ -189,19 +200,27 @@ export default function Goban({
 
           {showCoords && cols.map((c) => (
             <SvgText
-              key={`ct${c}`} x={px(c)} y={px(v.r0) - 13} textAnchor="middle"
-              fontSize={9} fill={board.coordText}
+              key={`ct${c}`} x={px(c)} y={woodY - 9} textAnchor="middle"
+              fontSize={9.5} fill={board.coordText} letterSpacing={0.5}
             >
               {GTP_COLS[c]}
             </SvgText>
           ))}
           {showCoords && rows.map((r) => (
-            <SvgText
-              key={`rt${r}`} x={px(v.c0) - 15} y={px(r) + 3} textAnchor="middle"
-              fontSize={9} fill={board.coordText}
-            >
-              {String(size - r)}
-            </SvgText>
+            <G key={`rt${r}`}>
+              <SvgText
+                x={woodX - 11} y={px(r) + 3.5} textAnchor="middle"
+                fontSize={9.5} fill={board.coordText}
+              >
+                {String(size - r)}
+              </SvgText>
+              <SvgText
+                x={woodX + woodW + 11} y={px(r) + 3.5} textAnchor="middle"
+                fontSize={9.5} fill={board.coordText}
+              >
+                {String(size - r)}
+              </SvgText>
+            </G>
           ))}
 
           {hoshiPoints(size)
@@ -221,10 +240,20 @@ export default function Goban({
 
           {lastMove != null && position[lastMove] !== '.' && !numbers?.has(lastMove)
             && inView(lastMove) && (
-            <Circle
-              cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={4.6}
-              fill="none" stroke={board.letter} strokeWidth={1.6}
-            />
+            <G>
+              <Circle
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 6}
+                fill="none" stroke="rgba(222,166,108,0.28)" strokeWidth={8}
+              />
+              <Circle
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 2.5}
+                fill="none" stroke="rgba(240,214,176,0.5)" strokeWidth={3.5}
+              />
+              <Circle
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 0.8}
+                fill="none" stroke="rgba(244,224,190,0.7)" strokeWidth={1.6}
+              />
+            </G>
           )}
 
           {ghosts.filter((g) => inView(g.at)).map((g) => (
