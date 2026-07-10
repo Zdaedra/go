@@ -59,6 +59,16 @@ export default function Goban({
 }: GobanProps) {
   const { board, stones } = useTheme();
   const layoutSize = React.useRef(1);
+  // Gradient ids must be unique per instance: on web all mounted SVGs share
+  // one document, and a duplicate id can resolve into a hidden (display:none)
+  // stack screen whose defs don't render.
+  const uid = React.useId().replace(/[^a-zA-Z0-9]/g, '');
+  const gid = {
+    wood: `wood-${uid}`,
+    sheen: `sheen-${uid}`,
+    b: `stone-b-${uid}`,
+    w: `stone-w-${uid}`,
+  };
 
   const v: ViewRect = view ?? { c0: 0, r0: 0, c1: size - 1, r1: size - 1 };
   const px = (i: number) => PAD + i * CELL;
@@ -130,7 +140,7 @@ export default function Goban({
         )}
         <Circle
           cx={cx} cy={cy} r={stoneR}
-          fill={`url(#stone-${color})`}
+          fill={`url(#${color === 'b' ? gid.b : gid.w})`}
           stroke={s.stroke === 'none' ? undefined : s.stroke}
           strokeWidth={s.strokeWidth}
         />
@@ -164,30 +174,30 @@ export default function Goban({
       >
         <Svg viewBox={`${minX} ${minY} ${viewW} ${viewH}`} width="100%" height="100%">
           <Defs>
-            <LinearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+            <LinearGradient id={gid.wood} x1="0" y1="0" x2="0" y2="1">
               <Stop offset="0" stopColor={board.wood[0]} />
               <Stop offset="0.45" stopColor={board.wood[1]} />
               <Stop offset="1" stopColor={board.wood[2]} />
             </LinearGradient>
-            <RadialGradient id="stone-b" cx="0.35" cy="0.3" r="0.9">
+            <RadialGradient id={gid.b} cx="0.35" cy="0.3" r="0.9">
               <Stop offset="0" stopColor={stones.black.fill[0]} />
               <Stop offset="0.45" stopColor={stones.black.fill[1]} />
               <Stop offset="1" stopColor={stones.black.fill[2]} />
             </RadialGradient>
-            <RadialGradient id="stone-w" cx="0.35" cy="0.3" r="0.9">
+            <RadialGradient id={gid.w} cx="0.35" cy="0.3" r="0.9">
               <Stop offset="0" stopColor={stones.white.fill[0]} />
               <Stop offset="0.5" stopColor={stones.white.fill[1]} />
               <Stop offset="1" stopColor={stones.white.fill[2]} />
             </RadialGradient>
-            <LinearGradient id="wood-sheen" x1="0" y1="0" x2="0" y2="1">
+            <LinearGradient id={gid.sheen} x1="0" y1="0" x2="0" y2="1">
               <Stop offset="0" stopColor="#FFECCD" stopOpacity={0.05} />
               <Stop offset="0.5" stopColor="#FFECCD" stopOpacity={0} />
               <Stop offset="1" stopColor="#000000" stopOpacity={0.06} />
             </LinearGradient>
           </Defs>
 
-          <Rect x={woodX} y={woodY} width={woodW} height={woodH} rx={10} fill="url(#wood)" />
-          <Rect x={woodX} y={woodY} width={woodW} height={woodH} rx={10} fill="url(#wood-sheen)" />
+          <Rect x={woodX} y={woodY} width={woodW} height={woodH} rx={10} fill={`url(#${gid.wood})`} />
+          <Rect x={woodX} y={woodY} width={woodW} height={woodH} rx={10} fill={`url(#${gid.sheen})`} />
           {grainLines.map((g, i) => (
             <Line
               key={`gr${i}`} x1={g.x} y1={woodY + 2} x2={g.x2} y2={woodY + woodH - 2}
