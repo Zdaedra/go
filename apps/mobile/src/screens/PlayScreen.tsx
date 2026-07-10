@@ -16,7 +16,6 @@ import { allBranches } from '../engine/identify';
 import { useAuth } from '../state/AuthContext';
 import { recordOpeningIdentified, FREE_DAILY_LIMIT } from '../state/usage';
 import { useAccess } from '../state/useTrial';
-import { useTrainingProfile } from '../state/trainingStats';
 import { ui, eyebrow, eyebrowAccent, cardStyle } from '../theme/uiTheme';
 import MistBackground from '../components/MistBackground';
 import HintBulb from '../components/HintBulb';
@@ -87,7 +86,6 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   const insets = useSafeAreaInsets();
   const auth = useAuth();
   const access = useAccess();
-  const profile = useTrainingProfile();
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [myColor, setMyColor] = useState<'b' | 'w'>('b');
   const [showHints, setShowHints] = useState(false);
@@ -152,12 +150,12 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   }, [locked, result, fullMarks, bookMoves, toMove]);
 
   const ghosts: GhostStone[] = useMemo(() => {
-    // Hint previews full ghost stones; dots don't block it, letters do.
-    if (locked || !showHints || result.status === 'unknown' || fullMarks.length > 0) return [];
-    return bookMoves
-      .filter((s) => s.color === toMove)
-      .map((s) => ({ at: s.at, color: s.color, label: s.label }));
-  }, [locked, showHints, result, fullMarks, bookMoves, toMove]);
+    // The "best move" hint highlights the single recommended reply as a
+    // ghost stone. Until KataGo scores the position, "best" is the book's
+    // primary continuation for the side to move (nextSuggestion).
+    if (locked || !showHints || !nextSuggestion) return [];
+    return [{ at: nextSuggestion.at, color: nextSuggestion.color, label: '★' }];
+  }, [locked, showHints, nextSuggestion]);
 
   const placeStone = (at: number) => {
     const mark = fullMarks.find((m) => m.at === at);
@@ -184,9 +182,6 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     }]);
   };
 
-  const playNextMove = () => {
-    if (nextSuggestion) placeStone(nextSuggestion.at);
-  };
 
   useEffect(() => {
     if (result.status !== 'identified' || auth.plan === 'pro' || !access.open) {
@@ -224,9 +219,6 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
 
   // ---- header data ----
   const displayName = auth.email ? auth.email.split('@')[0] : 'Гость';
-  const points = profile?.points ?? 0;
-  const level = Math.floor(points / 100) + 1;
-  const levelFrac = (points % 100) / 100;
 
   // ---- opening card data ----
   const openingName = locked
@@ -295,12 +287,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         </View>
         <View style={{ flex: 1 }}>
           <Text style={styles.name}>{displayName}</Text>
-          <View style={styles.lvlRow}>
-            <Text style={styles.lvlText}>Уровень {level}</Text>
-            <View style={styles.barTrack}>
-              <View style={[styles.barFill, { width: `${Math.max(4, levelFrac * 100)}%` }]} />
-            </View>
-          </View>
+          <Text style={styles.nameSub}>Дебюты Го 9×9</Text>
         </View>
         <Pressable
           style={styles.iconBtn}
@@ -364,32 +351,28 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         onPoint={placeStone}
       />
 
-      {/* your turn card */}
+      {/* your turn / candidates card — the app's main readout, full width */}
       <View style={[styles.card, styles.turn]}>
-        <View style={{ flex: 1 }}>
-          <Text style={[eyebrowAccent, completed ? { color: ui.success } : null]}>
-            {completed ? 'Дебют завершён ✓' : toMove === myColor ? 'Твой ход' : 'Ход соперника'}
+        <Text style={[eyebrowAccent, completed ? { color: ui.success } : null]}>
+          {completed ? 'Дебют завершён ✓' : toMove === myColor ? 'Твой ход' : 'Ход соперника'}
+        </Text>
+        <Text style={styles.turnText} numberOfLines={5}>{turnText}</Text>
+        {showHints && nextSuggestion && !completed && (
+          <Text style={[styles.turnSub, { color: ui.peach }]}>
+            ★ — лучший ход по базе. Точная оценка появится с KataGo.
           </Text>
-          <Text style={styles.turnText} numberOfLines={3}>{turnText}</Text>
-          {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
-            <Text style={styles.turnSub}>Бесплатных дней: {access.trial.daysLeft}</Text>
-          )}
-          {auth.plan === 'free' && usedToday > 0 && (
-            <Text style={styles.turnSub}>Дебютов сегодня: {usedToday}/{FREE_DAILY_LIMIT}</Text>
-          )}
-          {locked && (
-            <Pressable onPress={() => navigation.navigate('Paywall')}>
-              <Text style={[styles.turnSub, { color: ui.peach }]}>Снять лимит — подписка →</Text>
-            </Pressable>
-          )}
-        </View>
-        <Pressable
-          style={[styles.hintBtn, showHints && styles.hintBtnOn]}
-          onPress={() => setShowHints(!showHints)}
-        >
-          <HintBulb />
-          <Text style={styles.hintText}>Hint</Text>
-        </Pressable>
+        )}
+        {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
+          <Text style={styles.turnSub}>Бесплатных дней: {access.trial.daysLeft}</Text>
+        )}
+        {auth.plan === 'free' && usedToday > 0 && (
+          <Text style={styles.turnSub}>Дебютов сегодня: {usedToday}/{FREE_DAILY_LIMIT}</Text>
+        )}
+        {locked && (
+          <Pressable onPress={() => navigation.navigate('Paywall')}>
+            <Text style={[styles.turnSub, { color: ui.peach }]}>Снять лимит — подписка →</Text>
+          </Pressable>
+        )}
       </View>
 
       {/* bottom controls under the violet dome glow */}
@@ -432,7 +415,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         <View style={styles.ctrl}>
           <Pressable
             style={[styles.bigBtn, !nextSuggestion && styles.bigBtnOff]}
-            onPress={playNextMove}
+            onPress={() => setShowHints((v) => !v)}
             disabled={!nextSuggestion}
           >
             {/* ring bias per the mockup sweep: salmon peak on the left,
@@ -471,13 +454,10 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
                 strokeDasharray="55 196" strokeLinecap="round"
                 rotation={50} originX={41} originY={41}
               />
-              <Path
-                d="M 36 27 L 49 41 L 36 55"
-                stroke="#E8E8E8" strokeWidth={2.4} fill="none"
-              />
             </Svg>
+            <HintBulb size={26} color={showHints ? '#EEAB94' : '#C9C6C0'} />
           </Pressable>
-          <Text style={styles.ctrlLabel}>Ход базы</Text>
+          <Text style={styles.ctrlLabel}>{showHints ? 'Скрыть' : 'Лучший ход'}</Text>
         </View>
         <View style={styles.ctrl}>
           <Pressable
@@ -510,10 +490,7 @@ const styles = StyleSheet.create({
   },
   avatarText: { fontFamily: ui.serif, fontSize: 20, color: ui.ink },
   name: { fontFamily: ui.serif, fontSize: 20, color: ui.ink },
-  lvlRow: { flexDirection: 'row', alignItems: 'center', gap: 9, marginTop: 3 },
-  lvlText: { fontSize: 12, color: ui.muted },
-  barTrack: { width: 66, height: 3, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.14)' },
-  barFill: { height: 3, borderRadius: 2, backgroundColor: ui.accent },
+  nameSub: { fontSize: 12.5, color: ui.muted, marginTop: 2 },
   iconBtn: {
     width: 34, height: 34, borderRadius: 11,
     borderWidth: 1, borderColor: ui.hairlineStrong,
@@ -542,16 +519,9 @@ const styles = StyleSheet.create({
   miniStoneWhite: { backgroundColor: '#F2F0EC', borderColor: '#8A8578' },
   outcomeText: { fontSize: 14, color: ui.inkSoft },
 
-  turn: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  turnText: { marginTop: 6, fontSize: 14.5, color: ui.inkSoft, lineHeight: 20 },
-  turnSub: { marginTop: 4, fontSize: 12.5, color: ui.muted },
-  hintBtn: {
-    paddingVertical: 13, paddingHorizontal: 16, borderRadius: 13,
-    borderWidth: 1, borderColor: ui.hairlineStrong,
-    flexDirection: 'row', alignItems: 'center', gap: 7,
-  },
-  hintBtnOn: { borderColor: ui.accent, backgroundColor: 'rgba(139,124,246,0.10)' },
-  hintText: { color: '#A79AF5', fontSize: 14.5 },
+  turn: { paddingVertical: 16, paddingHorizontal: 16 },
+  turnText: { marginTop: 8, fontSize: 16, color: ui.inkSoft, lineHeight: 23 },
+  turnSub: { marginTop: 6, fontSize: 12.5, color: ui.muted },
 
   controlsWrap: { marginTop: 8 },
   dome: { position: 'absolute', left: -16, right: -16, top: -76 },
