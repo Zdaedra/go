@@ -11,6 +11,7 @@ import {
   identify, suggestions, continuationMarks, currentBranch,
 } from '../engine/identify';
 import { openingDisplayName, familyNamesRu } from '../data/names';
+import branchDescriptions from '../data/descriptions.json';
 import { allBranches } from '../engine/identify';
 import { useAuth } from '../state/AuthContext';
 import { recordOpeningIdentified, FREE_DAILY_LIMIT } from '../state/usage';
@@ -323,11 +324,20 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
             minimumFontScale={0.55}
           >{openingName}</Text>
           <Text style={styles.openingDesc} numberOfLines={2}>
-            {path.length > 0 && !locked
-              ? `Путь: ${path.map((p) => p.label).join(' → ')}`
-              : family
+            {(() => {
+              // An identified line's blurb (its strengths/weaknesses) beats
+              // the breadcrumb; ambiguous positions keep the generic hints.
+              const desc = !locked && result.status === 'identified' && branch
+                ? (branchDescriptions as Record<string, string>)[branch.branch.branch_id]
+                : null;
+              if (desc) return desc;
+              if (path.length > 0 && !locked) {
+                return `Путь: ${path.map((p) => p.label).join(' → ')}`;
+              }
+              return family
                 ? `Семейство: ${family}.`
-                : 'Ставь камни — база опознает дебют и ветку.'}
+                : 'Ставь камни — база опознает дебют и ветку.';
+            })()}
           </Text>
         </View>
         <View style={styles.openingRight}>

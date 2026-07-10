@@ -6,6 +6,7 @@ import Goban, { GobanMark } from '../components/Goban';
 import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
 import { allBranches } from '../engine/identify';
 import { openingDisplayName, familyNamesRu } from '../data/names';
+import branchDescriptions from '../data/descriptions.json';
 import { useAccess } from '../state/useTrial';
 import MistBackground from '../components/MistBackground';
 import PrimaryButton from '../components/PrimaryButton';
@@ -128,6 +129,11 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
       </View>
 
       <View style={styles.info}>
+        {(branchDescriptions as Record<string, string>)[branch.branch_id] && (
+          <Text style={styles.infoDesc}>
+            {(branchDescriptions as Record<string, string>)[branch.branch_id]}
+          </Text>
+        )}
         <Text style={styles.infoText}>{branch.caption}</Text>
         {branch.result && (
           <Text style={styles.infoText}>
@@ -170,7 +176,8 @@ const styles = StyleSheet.create({
   btnText: { fontSize: 16, color: '#F2EFEA' },
   plyText: { fontSize: 14, minWidth: 48, textAlign: 'center', color: '#F2EFEA' },
   info: { gap: 4 },
-  infoText: { fontSize: 15, color: '#E8E6E3' },
+  infoDesc: { fontSize: 14.5, lineHeight: 20, color: '#E8E6E3', marginBottom: 2 },
+  infoText: { fontSize: 15, color: '#8E8B85' },
   infoNote: { fontSize: 13, color: '#8E8B85' },
   lockPage: { flex: 1, justifyContent: 'center', padding: 24, gap: 12 },
   lockTitle: { fontSize: 22, fontWeight: '500', textAlign: 'center', color: '#EFECE7', fontFamily: 'Playfair' },
