@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="app.css">
+</head><body>
+
+<div class="navbar"><span class="back">‹</span>Тренировка</div>
+<div class="page" style="min-height:830px; gap:14px;">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <span style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); color:#F2EFEA; font-size:11px; font-weight:600; letter-spacing:1.4px; text-transform:uppercase; padding:5px 13px; border-radius:999px;">Жизнь группы</span>
+    <span class="muted" style="font-size:12.5px;">решено 2 · +36 очков</span>
+  </div>
+  <div class="muted" style="font-size:12.5px;">Ход чёрных ⚫</div>
+  <div id="board" style="display:flex; justify-content:center;"></div>
+  
+  <div class="card" style="display:flex; align-items:center; gap:12px; padding:14px 16px; margin-top:-22px;">
+    <div style="flex:1;">
+      <div class="eyebrow accent">Твой ход</div>
+      <div class="serif" style="font-size:19px; margin-top:7px;">Найди лучший ход.</div>
+    </div>
+    <span class="btn-outline" style="border-radius:13px; padding:12px 16px; color:#A79AF5; display:inline-flex; align-items:center; gap:7px;">
+      <svg width="14" height="16" viewBox="0 0 15 17" fill="none" stroke="#A78BFA" stroke-width="1.4" stroke-linecap="round">
+        <path d="M7.5 1.2a5 5 0 0 1 5 5c0 2-1.1 3.1-2 4.1-.5.6-.8 1-.8 1.7H5.3c0-.7-.3-1.1-.8-1.7-.9-1-2-2.1-2-4.1a5 5 0 0 1 5-5z"/>
+        <path d="M5.6 14.4h3.8M6.3 16.1h2.4"/>
+      </svg>Подсказка</span>
+  </div>
+  <div style="flex:1;"></div>
+  <div style="display:flex; gap:8px; margin-bottom:56px;">
+    <span class="btn-outline">Заново</span>
+    <span class="btn-outline">Завершить</span>
+  </div>
+</div>
+<script src="board.js"></script>
+<script>
+drawGoban(document.getElementById('board'), {
+  size: 19, view: {c0:0, r0:0, c1:6, r1:5}, width: 372,
+  stones: [
+    {c:0,r:1,color:'w'},{c:1,r:1,color:'w'},{c:2,r:1,color:'w'},{c:3,r:1,color:'b'},
+    {c:0,r:2,color:'w'},{c:1,r:2,color:'b'},{c:2,r:2,color:'b'},{c:3,r:2,color:'b'},
+    {c:4,r:2,color:'b'},{c:1,r:3,color:'b'}
+  ],
+  lastMove: {c:3,r:1},
+});
+</script>
+<div class="tabbar">
+  <div class="tabitem"><span class="ticon">◉</span>Игра</div>
+  <div class="tabitem active"><span class="ticon">☰</span>Обучение</div>
+  <div class="tabitem"><span class="ticon">⚙︎</span>Настройки</div>
+</div></body></html>

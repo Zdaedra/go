@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="app.css">
+</head><body>
+
+<div class="navbar">Настройки</div>
+<div class="page">
+  <div id="board" style="display:flex; justify-content:center; padding-top:8px;"></div>
+  <div class="section-label">Доска</div>
+  <div style="display:flex; flex-wrap:wrap; gap:8px;">
+    <span class="btn-outline swatch-chip" style="background:rgba(139,124,246,0.14); border-color:#8B7CF6; display:inline-flex; align-items:center; gap:7px;"><i style="width:16px;height:16px;border-radius:5px;background:linear-gradient(180deg,#6F5638,#624B32); display:inline-block;"></i>Ночной лак</span>
+    <span class="btn-outline swatch-chip" style="display:inline-flex; align-items:center; gap:7px;"><i style="width:16px;height:16px;border-radius:5px;background:linear-gradient(180deg,#E8C476,#D2A34E); display:inline-block;"></i>Кайя</span><span class="btn-outline swatch-chip" style="display:inline-flex; align-items:center; gap:7px;"><i style="width:16px;height:16px;border-radius:5px;background:linear-gradient(180deg,#9C6B3F,#7A4E27); display:inline-block;"></i>Орех</span>
+    <span class="btn-outline swatch-chip" style="display:inline-flex; align-items:center; gap:7px;"><i style="width:16px;height:16px;border-radius:5px;background:linear-gradient(180deg,#E9DCA8,#D4C381); display:inline-block;"></i>Бамбук</span><span class="btn-outline swatch-chip" style="display:inline-flex; align-items:center; gap:7px;"><i style="width:16px;height:16px;border-radius:5px;background:linear-gradient(180deg,#F6F1E6,#EDE6D5); display:inline-block;"></i>Бумага</span>
+  </div>
+  <div class="section-label" style="margin-top:6px;">Камни</div>
+  <div style="display:flex; flex-wrap:wrap; gap:8px;">
+    <span class="btn-outline swatch-chip" style="background:rgba(139,124,246,0.14); border-color:#8B7CF6; display:inline-flex; align-items:center; gap:7px;"><i style="width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #555, #0B0B0B 70%); display:inline-block;"></i><i style="width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #FFF, #CFCBC4 80%); display:inline-block; margin-left:-4px;"></i>Лак и слоновая кость</span>
+    <span class="btn-outline swatch-chip" style="display:inline-flex; align-items:center; gap:7px;"><i style="width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #5C5C58, #0D0D0C 70%); display:inline-block;"></i><i style="width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #FFF, #D9D3C2 80%); display:inline-block; margin-left:-4px;"></i>Сланец и ракушка</span><span class="btn-outline swatch-chip" style="display:inline-flex; align-items:center; gap:7px;"><i style="width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #4E6E68, #0C1917 70%); display:inline-block;"></i><i style="width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #FFF, #C8DAD6 80%); display:inline-block; margin-left:-4px;"></i>Стекло</span>
+  </div>
+  <div class="muted" style="font-size:12.5px;">Темы доски и камней независимы.</div>
+  <div class="section-label" style="margin-top:6px;">Аккаунт</div>
+  <div style="font-size:13.5px;">alexey@example.com · тариф: подписка</div>
+  <div><span class="btn-outline">Выйти</span></div>
+</div>
+<script src="board.js"></script>
+<script>
+drawGoban(document.getElementById('board'), {
+  size: 9, width: 290,
+  stones: [{c:4,r:4,color:'b'},{c:2,r:5,color:'w'},{c:5,r:2,color:'b'},{c:6,r:5,color:'w'},{c:2,r:3,color:'b'}],
+});
+</script>
+<div class="tabbar">
+  <div class="tabitem"><span class="ticon">◉</span>Игра</div>
+  <div class="tabitem"><span class="ticon">☰</span>Обучение</div>
+  <div class="tabitem active"><span class="ticon">⚙︎</span>Настройки</div>
+</div></body></html>
