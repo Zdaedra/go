@@ -179,6 +179,34 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     }]);
   };
 
+  // Tap a candidate opening → play its line forward onto the board, in the
+  // user's current orientation, so the position resolves to that opening and
+  // its shape/description appear. Picks the fullest matched branch.
+  const showOpening = (op: { family: string; opening: string }) => {
+    const cands = (result.matches as any[]).filter(
+      (m) => m.branch.opening !== 'preamble'
+        && m.branch.family === op.family && m.branch.opening === op.opening
+    );
+    if (!cands.length) return;
+    const m = cands.reduce((a: any, b: any) =>
+      (b.branch.moves.length > a.branch.moves.length ? b : a));
+    const name = openingDisplayName(op.family, op.opening, m.branch.opening_name);
+    let board = position;
+    const added: HistoryItem[] = [];
+    for (let i = m.ply; i < m.branch.moves.length; i++) {
+      const mv = m.branch.moves[i];
+      const at = m.mapIdx(sgfToIdx(mv.coord));
+      const next = play(board, at, mv.color as 'b' | 'w');
+      if (!next) break;
+      board = next.board;
+      added.push({
+        board, at, color: mv.color as 'b' | 'w',
+        viaBook: true, openingName: name,
+        openingResult: (m.branch.result as string | null) ?? null,
+      });
+    }
+    if (added.length) setHistory([...history, ...added]);
+  };
 
   // Trial ended (and not subscribed): send the user to the paywall once
   // they engage with the board, instead of silently hiding everything.
@@ -242,9 +270,13 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       ? (branchDescriptions as Record<string, string>)[branch.branch.branch_id]
       : null;
 
-  const candidateNames: string[] | null =
+  const candidateOpenings =
     !locked && result.status === 'candidates'
-      ? result.openings.map((o) => openingDisplayName(o.family, o.opening, o.name))
+      ? result.openings.map((o) => ({
+          family: o.family,
+          opening: o.opening,
+          name: openingDisplayName(o.family, o.opening, o.name),
+        }))
       : null;
 
   const explainLabel = (() => {
@@ -376,13 +408,18 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           {explainLabel}
         </Text>
 
-        {candidateNames ? (
+        {candidateOpenings ? (
           <View style={styles.candList}>
-            {candidateNames.map((n, i) => (
-              <View key={`${n}-${i}`} style={styles.candRow}>
+            {candidateOpenings.map((o, i) => (
+              <Pressable
+                key={`${o.family}/${o.opening}-${i}`}
+                style={styles.candRow}
+                onPress={() => showOpening(o)}
+              >
                 <View style={styles.candDot} />
-                <Text style={styles.candName}>{n}</Text>
-              </View>
+                <Text style={styles.candName}>{o.name}</Text>
+                <Text style={styles.candChevron}>›</Text>
+              </Pressable>
             ))}
           </View>
         ) : (
@@ -455,10 +492,14 @@ const styles = StyleSheet.create({
   explainText: { marginTop: 10, fontSize: 16.5, color: ui.inkSoft, lineHeight: 24 },
   turnSub: { marginTop: 8, fontSize: 12.5, color: ui.muted },
 
-  candList: { marginTop: 12, gap: 10 },
-  candRow: { flexDirection: 'row', alignItems: 'center', gap: 11 },
+  candList: { marginTop: 12, gap: 4 },
+  candRow: {
+    flexDirection: 'row', alignItems: 'center', gap: 11,
+    paddingVertical: 9, paddingHorizontal: 10, marginHorizontal: -10, borderRadius: 10,
+  },
   candDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: ui.accent },
   candName: { flex: 1, fontSize: 16.5, color: ui.inkSoft },
+  candChevron: { fontSize: 20, color: ui.dim, marginTop: -2 },
 
   controls: {
     flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start',
