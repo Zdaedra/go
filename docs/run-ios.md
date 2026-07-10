@@ -47,6 +47,23 @@ npx expo run:ios --device
 сети), пересобирать через Xcode нужно только при смене нативных
 зависимостей.
 
+## Если сборка падает с «No Accounts» / «No profiles»
+
+`npx expo run:ios` и даже `xcodebuild -allowProvisioningUpdates` из
+терминала могут не видеть Apple-аккаунт, даже когда в Xcode → Settings →
+Apple Accounts всё залогинено (наблюдалось на Xcode 26.5: CLI не получает
+доступ к сессии аккаунта). Рабочий обход:
+
+1. `open ios/99.xcworkspace`
+2. В Xcode выбери устройством свой iPhone и нажми **Run** — GUI сам
+   зарегистрирует bundle ID и выпустит provisioning-профиль.
+3. Дальше JS-правки идут через `npx expo start` без пересборки;
+   Run в Xcode нужен только при смене нативных зависимостей.
+
+Если приложение запустилось с ошибкой «No bundle URL present» — Metro не
+был запущен в момент старта: запусти `npx expo start` и перезапусти
+приложение.
+
 ## Примечания
 
 - Бесплатная подпись Apple живёт 7 дней — потом просто пересобери

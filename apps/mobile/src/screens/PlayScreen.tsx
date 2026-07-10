@@ -248,7 +248,10 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           ? 'Вне базы'
           : 'Новая партия';
   const family = result.opening ? familyNamesRu[result.opening.family] : null;
-  const branchResult = completed?.result ?? (branch?.branch.result as string | null);
+  // The verdict is honest only when the line is pinned down: with many
+  // candidate openings the deepest match's result would be a guess.
+  const branchResult = completed?.result
+    ?? (result.status === 'identified' ? (branch?.branch.result as string | null) : null);
 
   // ---- your turn card ----
   const turnText = (() => {
