@@ -15,7 +15,7 @@ import OpeningScreen from './src/screens/OpeningScreen';
 import TsumegoListScreen from './src/screens/TsumegoListScreen';
 import TsumegoProblemScreen from './src/screens/TsumegoProblemScreen';
 import TrainingSessionScreen from './src/screens/TrainingSessionScreen';
-import SettingsScreen from './src/screens/SettingsScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
 import AuthScreen from './src/screens/AuthScreen';
 import PaywallScreen from './src/screens/PaywallScreen';
 
@@ -115,10 +115,11 @@ function Tabs() {
       />
       <Tab.Screen
         name="Settings"
-        component={SettingsScreen}
+        component={ProfileScreen}
         options={{
-          title: t('tab_settings'),
-          tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 18 }}>⚙︎</Text>,
+          title: t('title_profile'),
+          tabBarLabel: t('tab_profile'),
+          tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 18 }}>{'☺︎'}</Text>,
         }}
       />
     </Tab.Navigator>

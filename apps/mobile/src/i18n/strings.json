@@ -551,5 +551,229 @@
     "de": "DEV: Abo lokal aktivieren",
     "fr": "DEV : activer l’abonnement localement",
     "es": "DEV: activar suscripción localmente"
+  },
+  "tab_profile": {
+    "ru": "Профиль",
+    "en": "Profile",
+    "de": "Profil",
+    "fr": "Profil",
+    "es": "Perfil"
+  },
+  "title_profile": {
+    "ru": "Личный кабинет",
+    "en": "My account",
+    "de": "Mein Konto",
+    "fr": "Mon compte",
+    "es": "Mi cuenta"
+  },
+  "guest_name": {
+    "ru": "Гость",
+    "en": "Guest",
+    "de": "Gast",
+    "fr": "Invité",
+    "es": "Invitado"
+  },
+  "badge_pro": {
+    "ru": "Pro",
+    "en": "Pro",
+    "de": "Pro",
+    "fr": "Pro",
+    "es": "Pro"
+  },
+  "badge_trial": {
+    "ru": "Пробный · {n} дн.",
+    "en": "Trial · {n} d",
+    "de": "Test · {n} Tg.",
+    "fr": "Essai · {n} j",
+    "es": "Prueba · {n} d"
+  },
+  "badge_expired": {
+    "ru": "Доступ истёк",
+    "en": "Expired",
+    "de": "Abgelaufen",
+    "fr": "Expiré",
+    "es": "Caducado"
+  },
+  "level_prefix": {
+    "ru": "Уровень: {level}",
+    "en": "Level: {level}",
+    "de": "Niveau: {level}",
+    "fr": "Niveau : {level}",
+    "es": "Nivel: {level}"
+  },
+  "level_word": {
+    "ru": "Уровень",
+    "en": "Level",
+    "de": "Niveau",
+    "fr": "Niveau",
+    "es": "Nivel"
+  },
+  "sec_subscription": {
+    "ru": "Подписка",
+    "en": "Subscription",
+    "de": "Abo",
+    "fr": "Abonnement",
+    "es": "Suscripción"
+  },
+  "sec_progress": {
+    "ru": "Прогресс",
+    "en": "Progress",
+    "de": "Fortschritt",
+    "fr": "Progression",
+    "es": "Progreso"
+  },
+  "sub_pro_active": {
+    "ru": "Подписка активна",
+    "en": "Subscription active",
+    "de": "Abo aktiv",
+    "fr": "Abonnement actif",
+    "es": "Suscripción activa"
+  },
+  "sub_trial_active": {
+    "ru": "Пробный период — осталось дней: {n}",
+    "en": "Free trial — {n} days left",
+    "de": "Testphase — noch {n} Tage",
+    "fr": "Essai gratuit — {n} jours restants",
+    "es": "Prueba gratis — quedan {n} días"
+  },
+  "sub_expired": {
+    "ru": "Доступ истёк",
+    "en": "Access expired",
+    "de": "Zugang abgelaufen",
+    "fr": "Accès expiré",
+    "es": "Acceso caducado"
+  },
+  "sub_pro_hint": {
+    "ru": "Спасибо за поддержку — открыт весь контент.",
+    "en": "Thanks for your support — everything is unlocked.",
+    "de": "Danke für deine Unterstützung — alles ist freigeschaltet.",
+    "fr": "Merci de ton soutien — tout est débloqué.",
+    "es": "Gracias por tu apoyo: todo está desbloqueado."
+  },
+  "sub_trial_hint": {
+    "ru": "Полный доступ ко всей базе и тренировке.",
+    "en": "Full access to the whole database and training.",
+    "de": "Voller Zugriff auf die gesamte Datenbank und das Training.",
+    "fr": "Accès complet à toute la base et à l’entraînement.",
+    "es": "Acceso completo a toda la base y al entrenamiento."
+  },
+  "manage_sub": {
+    "ru": "Управлять подпиской",
+    "en": "Manage subscription",
+    "de": "Abo verwalten",
+    "fr": "Gérer l’abonnement",
+    "es": "Gestionar suscripción"
+  },
+  "restore_ok": {
+    "ru": "Подписка восстановлена.",
+    "en": "Subscription restored.",
+    "de": "Abo wiederhergestellt.",
+    "fr": "Abonnement restauré.",
+    "es": "Suscripción restaurada."
+  },
+  "progress_solved": {
+    "ru": "Решено",
+    "en": "Solved",
+    "de": "Gelöst",
+    "fr": "Résolus",
+    "es": "Resueltos"
+  },
+  "progress_points": {
+    "ru": "Очки",
+    "en": "Points",
+    "de": "Punkte",
+    "fr": "Points",
+    "es": "Puntos"
+  },
+  "progress_tsumego": {
+    "ru": "Всего задач",
+    "en": "Total problems",
+    "de": "Aufgaben gesamt",
+    "fr": "Problèmes au total",
+    "es": "Problemas en total"
+  },
+  "progress_openings": {
+    "ru": "Дебютов",
+    "en": "Openings",
+    "de": "Eröffnungen",
+    "fr": "Ouvertures",
+    "es": "Aperturas"
+  },
+  "progress_branches": {
+    "ru": "Разборов",
+    "en": "Analyses",
+    "de": "Analysen",
+    "fr": "Analyses",
+    "es": "Análisis"
+  },
+  "domains_heading": {
+    "ru": "Сила по темам",
+    "en": "Strength by topic",
+    "de": "Stärke nach Thema",
+    "fr": "Force par thème",
+    "es": "Fuerza por tema"
+  },
+  "progress_empty": {
+    "ru": "Начни тренировку, чтобы увидеть силу по темам.",
+    "en": "Start training to see your strength by topic.",
+    "de": "Starte das Training, um deine Stärke nach Thema zu sehen.",
+    "fr": "Commence l’entraînement pour voir ta force par thème.",
+    "es": "Empieza a entrenar para ver tu fuerza por tema."
+  },
+  "sign_in_cta": {
+    "ru": "Войти или зарегистрироваться",
+    "en": "Sign in or register",
+    "de": "Anmelden oder registrieren",
+    "fr": "Se connecter ou s’inscrire",
+    "es": "Iniciar sesión o registrarse"
+  },
+  "terms": {
+    "ru": "Условия использования",
+    "en": "Terms of Use",
+    "de": "Nutzungsbedingungen",
+    "fr": "Conditions d’utilisation",
+    "es": "Términos de uso"
+  },
+  "privacy": {
+    "ru": "Политика конфиденциальности",
+    "en": "Privacy Policy",
+    "de": "Datenschutzerklärung",
+    "fr": "Politique de confidentialité",
+    "es": "Política de privacidad"
+  },
+  "delete_account": {
+    "ru": "Удалить аккаунт",
+    "en": "Delete account",
+    "de": "Konto löschen",
+    "fr": "Supprimer le compte",
+    "es": "Eliminar cuenta"
+  },
+  "delete_confirm_title": {
+    "ru": "Удалить аккаунт?",
+    "en": "Delete account?",
+    "de": "Konto löschen?",
+    "fr": "Supprimer le compte ?",
+    "es": "¿Eliminar cuenta?"
+  },
+  "delete_confirm_body": {
+    "ru": "Это выйдет из аккаунта и очистит данные на этом устройстве. Отменить нельзя.",
+    "en": "This signs you out and clears your data on this device. It can’t be undone.",
+    "de": "Damit wirst du abgemeldet und deine Daten auf diesem Gerät werden gelöscht. Das lässt sich nicht rückgängig machen.",
+    "fr": "Cela te déconnecte et efface tes données sur cet appareil. Action irréversible.",
+    "es": "Esto cierra tu sesión y borra tus datos en este dispositivo. No se puede deshacer."
+  },
+  "delete_cancel": {
+    "ru": "Отмена",
+    "en": "Cancel",
+    "de": "Abbrechen",
+    "fr": "Annuler",
+    "es": "Cancelar"
+  },
+  "version": {
+    "ru": "Версия {v}",
+    "en": "Version {v}",
+    "de": "Version {v}",
+    "fr": "Version {v}",
+    "es": "Versión {v}"
   }
 }
