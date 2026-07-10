@@ -76,7 +76,7 @@ export default function SettingsScreen() {
       <Text style={styles.accountText}>
         {auth.email ?? 'Гостевой режим'} · тариф: {auth.plan === 'pro' ? 'подписка' : 'бесплатный'}
       </Text>
-      <View style={styles.row}>
+      <View style={[styles.row, { marginBottom: 24 }]}>
         <Pressable style={styles.opt} onPress={auth.signOut}>
           <Text style={styles.optText}>Выйти</Text>
         </Pressable>

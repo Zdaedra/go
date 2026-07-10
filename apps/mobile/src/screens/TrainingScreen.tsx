@@ -83,7 +83,7 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
                 {d.label}
                 {d === weakest && stats.length > 1 ? '  · слабое место' : ''}
               </Text>
-              <Text style={styles.domainMeta}>
+              <Text style={styles.domainMeta} numberOfLines={1}>
                 {d.rating} · {d.level} · {d.solved}/{d.total}
               </Text>
             </View>
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   },
   domainHead: { flexDirection: 'row', justifyContent: 'space-between', gap: 8 },
   domainName: { fontSize: 15, fontWeight: '600', flexShrink: 1, color: '#F2EFEA' },
-  domainMeta: { fontSize: 12.5, color: '#8E8B85', fontVariant: ['tabular-nums'] },
+  domainMeta: { fontSize: 12, color: '#8E8B85', fontVariant: ['tabular-nums'], flexShrink: 0 },
   barTrack: { height: 4, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.08)' },
   barFill: { height: 4, borderRadius: 2, backgroundColor: '#6F63DC' },
   barWeak: { backgroundColor: '#F0A878' },

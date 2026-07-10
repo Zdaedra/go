@@ -44,16 +44,13 @@ function MiniStone({ color, size = 16 }: { color: 'b' | 'w'; size?: number }) {
   );
 }
 
-/** Thin-stroked gear, as in the mockup's header buttons. */
+/** Thin-stroked cog (Feather "settings"), as in the mockup's header. */
 function GearIcon() {
-  const ticks = Array.from({ length: 8 }, (_, i) => {
-    const a = (i * Math.PI) / 4;
-    return `M ${12 + 6.4 * Math.sin(a)} ${12 - 6.4 * Math.cos(a)} L ${12 + 9.4 * Math.sin(a)} ${12 - 9.4 * Math.cos(a)}`;
-  }).join(' ');
   return (
-    <Svg width={19} height={19} viewBox="0 0 24 24" fill="none">
-      <Circle cx={12} cy={12} r={4.1} stroke="rgba(255,255,255,0.85)" strokeWidth={1.5} />
-      <Path d={ticks} stroke="rgba(255,255,255,0.85)" strokeWidth={1.5} strokeLinecap="round" />
+    <Svg width={19} height={19} viewBox="0 0 24 24" fill="none"
+      stroke="#C9C7C4" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+      <Circle cx={12} cy={12} r={3} />
+      <Path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
     </Svg>
   );
 }
@@ -246,12 +243,12 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         <View style={styles.openingRight}>
           <Text style={eyebrow}>Ход</Text>
           <View style={styles.diffRow}>
-            <MiniStone color={toMove} size={13} />
+            <MiniStone color={toMove} size={14} />
             <Text style={styles.diffText}>{toMove === 'b' ? 'Чёрные' : 'Белые'}</Text>
           </View>
           <Text style={[eyebrow, { marginTop: 12 }]}>Оценка</Text>
           <View style={styles.outcomeRow}>
-            <MiniStone color={branchResult === 'W+' ? 'w' : 'b'} size={16} />
+            <MiniStone color={branchResult === 'W+' ? 'w' : 'b'} size={14} />
             <Text style={styles.outcomeText}>
               {branchResult ? RESULT_RU[branchResult] ?? branchResult : '—'}
             </Text>
@@ -299,16 +296,17 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       <View style={styles.controlsWrap}>
       <Svg
         pointerEvents="none" style={styles.dome}
-        width="100%" height={120} viewBox="0 0 427 120" preserveAspectRatio="none"
+        width="100%" height={230} viewBox="0 0 427 230"
       >
         <Defs>
-          <RadialGradient id="dome-play" cx="0.5" cy="1" r="1">
-            <Stop offset="0" stopColor="#7A63F1" stopOpacity="0.20" />
-            <Stop offset="0.55" stopColor="#7A63F1" stopOpacity="0.08" />
+          <RadialGradient id="dome-play" cx="0.5" cy="0.5" r="0.5">
+            <Stop offset="0" stopColor="#7A63F1" stopOpacity="0.28" />
+            <Stop offset="0.5" stopColor="#7A63F1" stopOpacity="0.10" />
             <Stop offset="1" stopColor="#7A63F1" stopOpacity="0" />
           </RadialGradient>
         </Defs>
-        <Ellipse cx={213.5} cy={120} rx={250} ry={110} fill="url(#dome-play)" />
+        {/* crest sits above the ring crown, like the mockup's hill silhouette */}
+        <Circle cx={213.5} cy={96} r={130} fill="url(#dome-play)" />
       </Svg>
       <View style={styles.controls}>
         <View style={styles.ctrl}>
@@ -323,19 +321,33 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
             onPress={playNextMove}
             disabled={!nextSuggestion}
           >
-            {/* rose-copper ring, violet only at the upper-left quarter (the
-                violet impression in the mockup comes from the dome haze) */}
+            {/* ring bias per the mockup sweep: salmon peak on the left,
+                copper right, violet dimmed at top, bottom fading out */}
             <Svg style={StyleSheet.absoluteFill} viewBox="0 0 82 82">
               <Defs>
-                <LinearGradient id="bigring-play" x1="0" y1="0" x2="1" y2="1">
-                  <Stop offset="0" stopColor="#6F5BD8" />
-                  <Stop offset="0.42" stopColor="#E0A57D" />
-                  <Stop offset="1" stopColor="#C58A6A" />
+                <LinearGradient id="bigring-play" x1="1" y1="0.2" x2="0" y2="0.8">
+                  <Stop offset="0" stopColor="#AC7858" />
+                  <Stop offset="0.5" stopColor="#C58A6A" />
+                  <Stop offset="1" stopColor="#EEAB94" />
                 </LinearGradient>
               </Defs>
               <Circle
                 cx={41} cy={41} r={40} fill="none"
                 stroke="url(#bigring-play)" strokeWidth={1.6}
+              />
+              {/* bottom quadrant fades toward the field */}
+              <Circle
+                cx={41} cy={41} r={40} fill="none"
+                stroke="rgba(18,18,19,0.62)" strokeWidth={2.4}
+                strokeDasharray="63 189" strokeLinecap="round"
+                rotation={45} originX={41} originY={41}
+              />
+              {/* dome overlays the crown with dim violet */}
+              <Circle
+                cx={41} cy={41} r={40} fill="none"
+                stroke="rgba(111,91,216,0.38)" strokeWidth={1.8}
+                strokeDasharray="55 197" strokeLinecap="round"
+                rotation={215} originX={41} originY={41}
               />
               <Path
                 d="M 36 27 L 49 41 L 36 55"
@@ -420,7 +432,7 @@ const styles = StyleSheet.create({
   hintText: { color: '#A79AF5', fontSize: 14.5 },
 
   controlsWrap: { marginTop: 8 },
-  dome: { position: 'absolute', left: -16, right: -16, bottom: -24 },
+  dome: { position: 'absolute', left: -16, right: -16, top: -76 },
   controls: {
     flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start',
     gap: 46,
@@ -437,10 +449,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#161514',
     alignItems: 'center', justifyContent: 'center',
   },
-  bigBtnOff: { opacity: 0.55 },
+  bigBtnOff: { opacity: 0.82 },
   bigIcon: { fontSize: 34, color: ui.ink, marginTop: -4 },
   ctrlLabel: {
-    fontSize: 10, letterSpacing: 2.2, color: ui.label,
+    fontSize: 10, letterSpacing: 2.2, color: '#A9ABA8',
     fontWeight: '600', textTransform: 'uppercase',
   },
 });

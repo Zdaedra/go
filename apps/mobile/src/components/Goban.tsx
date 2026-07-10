@@ -104,11 +104,12 @@ export default function Goban({
 
   const cols = Array.from({ length: v.c1 - v.c0 + 1 }, (_, k) => v.c0 + k);
   const rows = Array.from({ length: v.r1 - v.r0 + 1 }, (_, k) => v.r0 + k);
-  // Grid lines stop at the true board edge, run to the crop border otherwise.
-  const lineX0 = px(v.c0) - (v.c0 > 0 ? PAD * 0.55 : 0);
-  const lineX1 = px(v.c1) + (v.c1 < size - 1 ? PAD * 0.55 : 0);
-  const lineY0 = px(v.r0) - (v.r0 > 0 ? PAD * 0.55 : 0);
-  const lineY1 = px(v.r1) + (v.r1 < size - 1 ? PAD * 0.55 : 0);
+  // Grid lines stop at the true board edge; on cropped views they run all
+  // the way to the wood edge so the board reads as continuing beyond.
+  const lineX0 = px(v.c0) - (v.c0 > 0 ? PAD : 0);
+  const lineX1 = px(v.c1) + (v.c1 < size - 1 ? PAD : 0);
+  const lineY0 = px(v.r0) - (v.r0 > 0 ? PAD : 0);
+  const lineY1 = px(v.r1) + (v.r1 < size - 1 ? PAD : 0);
 
   const stoneR = 9.6; // 0.80 × cell, per mockup measurement
 
