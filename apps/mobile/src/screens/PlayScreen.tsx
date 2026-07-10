@@ -16,6 +16,7 @@ import { recordOpeningIdentified, FREE_DAILY_LIMIT } from '../state/usage';
 import { useAccess } from '../state/useTrial';
 import { useTrainingProfile } from '../state/trainingStats';
 import { ui, eyebrow, eyebrowAccent, cardStyle } from '../theme/uiTheme';
+import MistBackground from '../components/MistBackground';
 
 interface HistoryItem {
   board: string;
@@ -161,6 +162,8 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   })();
 
   return (
+    <View style={styles.root}>
+    <MistBackground />
     <ScrollView style={styles.screen} contentContainerStyle={styles.page}>
       {/* profile header */}
       <View style={[styles.card, styles.header]}>
@@ -283,11 +286,13 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         </View>
       </View>
     </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: { backgroundColor: ui.bg },
+  root: { flex: 1, backgroundColor: ui.bg },
+  screen: { backgroundColor: 'transparent' },
   page: { padding: ui.pad, gap: 12, paddingBottom: 36 },
   card: { ...cardStyle, padding: 14 },
 

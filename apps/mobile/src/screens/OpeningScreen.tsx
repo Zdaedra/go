@@ -7,6 +7,8 @@ import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
 import { allBranches } from '../engine/identify';
 import { openingDisplayName, familyNamesRu } from '../data/names';
 import { useAccess } from '../state/useTrial';
+import MistBackground from '../components/MistBackground';
+import PrimaryButton from '../components/PrimaryButton';
 
 const RESULT_RU: Record<string, string> = {
   even: 'ровно (=)',
@@ -63,22 +65,23 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
   if (!access.open) {
     return (
       <View style={styles.lockPage}>
+        <MistBackground />
         <Text style={styles.lockTitle}>{name}</Text>
         <Text style={styles.lockText}>
           Бесплатная неделя закончилась. Подписка откроет все дебюты, ветки
           и подсказки продолжений.
         </Text>
-        <Pressable
-          style={styles.lockBtn}
+        <PrimaryButton
+          label="Открыть подписку"
           onPress={() => navigation.getParent()?.navigate('Paywall')}
-        >
-          <Text style={styles.lockBtnText}>Открыть подписку</Text>
-        </Pressable>
+        />
       </View>
     );
   }
 
   return (
+    <View style={styles.screen}>
+    <MistBackground />
     <ScrollView contentContainerStyle={styles.page}>
       <Text style={styles.title}>{name}</Text>
       <Text style={styles.meta}>
@@ -143,10 +146,12 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
         )}
       </View>
     </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: { flex: 1 },
   page: { padding: 16, gap: 12 },
   title: { fontSize: 24, fontWeight: '500', color: '#EFECE7', fontFamily: 'Playfair' },
   meta: { fontSize: 13, color: '#8E8B85' },
@@ -170,12 +175,4 @@ const styles = StyleSheet.create({
   lockPage: { flex: 1, justifyContent: 'center', padding: 24, gap: 12 },
   lockTitle: { fontSize: 22, fontWeight: '500', textAlign: 'center', color: '#EFECE7', fontFamily: 'Playfair' },
   lockText: { fontSize: 15, color: '#8E8B85', textAlign: 'center', lineHeight: 22 },
-  lockBtn: {
-    borderRadius: 10, paddingVertical: 12,
-    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#7C6EE0',
-    shadowColor: '#7C6EE0', shadowOpacity: 0.28, shadowRadius: 14,
-    shadowOffset: { width: 0, height: 6 }, elevation: 5,
-    alignItems: 'center', marginTop: 8,
-  },
-  lockBtnText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
 });

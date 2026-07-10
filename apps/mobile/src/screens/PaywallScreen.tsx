@@ -7,6 +7,8 @@ import { View, Text, Pressable, StyleSheet, Alert } from 'react-native';
 import { useAuth } from '../state/AuthContext';
 import { FREE_DAILY_LIMIT } from '../state/usage';
 import { PLANS, TRIAL_DAYS } from '../state/plans';
+import MistBackground from '../components/MistBackground';
+import PrimaryButton from '../components/PrimaryButton';
 
 export default function PaywallScreen({ navigation }: { navigation: any }) {
   const auth = useAuth();
@@ -28,6 +30,7 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
 
   return (
     <View style={styles.page}>
+      <MistBackground />
       <Text style={styles.title}>Полная база дебютов</Text>
       <Text style={styles.body}>
         Первые {TRIAL_DAYS} дней — бесплатно ({FREE_DAILY_LIMIT} дебюта в день).
@@ -49,11 +52,11 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
         ))}
       </View>
 
-      <Pressable style={styles.primary} onPress={purchase}>
-        <Text style={styles.primaryText}>
-          {plan.id === 'lifetime' ? `Купить навсегда — ${plan.price}` : `Оформить — ${plan.price}`}
-        </Text>
-      </Pressable>
+      <PrimaryButton
+        label={plan.id === 'lifetime' ? `Купить навсегда — ${plan.price}` : `Оформить — ${plan.price}`}
+        onPress={purchase}
+        textStyle={{ fontSize: 17 }}
+      />
       <Pressable onPress={restore}>
         <Text style={styles.link}>Восстановить покупку</Text>
       </Pressable>
@@ -76,7 +79,7 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
 const styles = StyleSheet.create({
   page: {
     flex: 1, justifyContent: 'center', padding: 24, gap: 14,
-    backgroundColor: '#100E0D',
+    backgroundColor: '#121213',
   },
   title: { fontSize: 26, fontWeight: '500', textAlign: 'center', color: '#EFECE7', fontFamily: 'Playfair' },
   body: { fontSize: 15, color: '#F2EFEA', textAlign: 'center', lineHeight: 22 },
@@ -90,13 +93,6 @@ const styles = StyleSheet.create({
   planTitle: { fontSize: 16, fontWeight: '700', minWidth: 84, color: '#F2EFEA' },
   planPrice: { fontSize: 17, color: '#E8E6E3', fontFamily: 'Playfair' },
   planNote: { fontSize: 12.5, color: '#F0A878', width: '100%' },
-  primary: {
-    borderRadius: 10, paddingVertical: 14, alignItems: 'center', marginTop: 10,
-    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#7C6EE0',
-    shadowColor: '#7C6EE0', shadowOpacity: 0.28, shadowRadius: 14,
-    shadowOffset: { width: 0, height: 6 }, elevation: 5,
-  },
-  primaryText: { color: '#FFFFFF', fontSize: 17, fontWeight: '700' },
   link: { color: '#8B7CF6', fontSize: 14, textAlign: 'center', padding: 6 },
   devBtn: {
     marginTop: 18, borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: 8,

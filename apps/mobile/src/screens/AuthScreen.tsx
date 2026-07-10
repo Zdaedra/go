@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import { useAuth } from '../state/AuthContext';
 import { hasBackend } from '../api/client';
+import MistBackground from '../components/MistBackground';
+import PrimaryButton from '../components/PrimaryButton';
 
 export default function AuthScreen() {
   const auth = useAuth();
@@ -55,6 +57,7 @@ export default function AuthScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       style={styles.page}
     >
+      <MistBackground />
       <Text style={styles.title}>Дебюты Го 9×9</Text>
       <Text style={styles.subtitle}>
         Ставь камни — приложение назовёт дебют, ветку и покажет продолжения.
@@ -68,13 +71,15 @@ export default function AuthScreen() {
             value={email}
             onChangeText={setEmail}
             placeholder="you@example.com"
+            placeholderTextColor="#7E7B75"
             autoCapitalize="none"
             keyboardType="email-address"
             autoComplete="email"
           />
-          <Pressable style={styles.primary} onPress={submitEmail} disabled={busy}>
-            <Text style={styles.primaryText}>{busy ? 'Отправляем…' : 'Получить код'}</Text>
-          </Pressable>
+          <PrimaryButton
+            label={busy ? 'Отправляем…' : 'Получить код'}
+            onPress={submitEmail} disabled={busy}
+          />
         </View>
       ) : (
         <View style={styles.form}>
@@ -84,12 +89,14 @@ export default function AuthScreen() {
             value={code}
             onChangeText={setCode}
             placeholder="000000"
+            placeholderTextColor="#7E7B75"
             keyboardType="number-pad"
             maxLength={6}
           />
-          <Pressable style={styles.primary} onPress={submitCode} disabled={busy}>
-            <Text style={styles.primaryText}>{busy ? 'Проверяем…' : 'Войти'}</Text>
-          </Pressable>
+          <PrimaryButton
+            label={busy ? 'Проверяем…' : 'Войти'}
+            onPress={submitCode} disabled={busy}
+          />
           <Pressable onPress={() => { setStep('email'); setCode(''); }}>
             <Text style={styles.link}>Другой email</Text>
           </Pressable>
@@ -110,7 +117,7 @@ export default function AuthScreen() {
 const styles = StyleSheet.create({
   page: {
     flex: 1, justifyContent: 'center', padding: 24, gap: 12,
-    backgroundColor: '#100E0D',
+    backgroundColor: '#121213',
   },
   title: { fontSize: 28, fontWeight: '700', textAlign: 'center', color: '#F2EFEA', fontFamily: 'Playfair' },
   subtitle: { fontSize: 15, color: '#8E8B85', textAlign: 'center', marginBottom: 12 },
@@ -119,17 +126,10 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)', borderRadius: 10,
     paddingVertical: 10, paddingHorizontal: 14, fontSize: 16, color: '#F2EFEA',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'rgba(255,255,255,0.03)',
   },
   codeInput: { letterSpacing: 8, textAlign: 'center', fontSize: 22 },
-  primary: {
-    borderRadius: 10, paddingVertical: 12, alignItems: 'center',
-    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#7C6EE0',
-    shadowColor: '#7C6EE0', shadowOpacity: 0.28, shadowRadius: 14,
-    shadowOffset: { width: 0, height: 6 }, elevation: 5,
-  },
-  primaryText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
   link: { color: 'rgba(157,140,255,0.8)', fontSize: 14, textAlign: 'center', padding: 6 },
-  error: { color: '#8B7CF6', fontSize: 14, textAlign: 'center' },
+  error: { color: '#C96F5A', fontSize: 14, textAlign: 'center' },
   guest: { marginTop: 16 },
 });

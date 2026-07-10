@@ -5,6 +5,7 @@ import { View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
 import db from '../data/tsumego.json';
 import { useProgress, sectionStats } from '../state/tsumegoProgress';
 import { useAccess } from '../state/useTrial';
+import PrimaryButton from '../components/PrimaryButton';
 
 // Only problems with a marked solution tree are shown to the user:
 // every wrong move must get instant feedback, so unmarked positions are
@@ -23,12 +24,10 @@ export default function TsumegoSectionsScreen({ navigation }: { navigation: any 
         <Text style={styles.lockText}>
           Бесплатная неделя закончилась. Подписка откроет задачи и все дебюты.
         </Text>
-        <Pressable
-          style={styles.lockBtn}
+        <PrimaryButton
+          label="Открыть подписку"
           onPress={() => navigation.getParent()?.navigate('Paywall')}
-        >
-          <Text style={styles.lockBtnText}>Открыть подписку</Text>
-        </Pressable>
+        />
       </View>
     );
   }
@@ -107,12 +106,4 @@ const styles = StyleSheet.create({
   note: { fontSize: 12.5, color: '#8E8B85' },
   lockPage: { flex: 1, justifyContent: 'center', padding: 24, gap: 12 },
   lockText: { fontSize: 15, color: '#8E8B85', textAlign: 'center', lineHeight: 22 },
-  lockBtn: {
-    borderRadius: 10, paddingVertical: 12,
-    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#7C6EE0',
-    shadowColor: '#7C6EE0', shadowOpacity: 0.28, shadowRadius: 14,
-    shadowOffset: { width: 0, height: 6 }, elevation: 5,
-    alignItems: 'center',
-  },
-  lockBtnText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
 });

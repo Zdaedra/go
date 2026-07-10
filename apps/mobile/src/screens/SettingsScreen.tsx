@@ -8,6 +8,7 @@ import { useTheme } from '../theme/ThemeContext';
 import { useAuth } from '../state/AuthContext';
 import Goban from '../components/Goban';
 import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
+import MistBackground from '../components/MistBackground';
 
 function previewPosition(): string {
   let board = EMPTY_BOARD;
@@ -26,6 +27,8 @@ export default function SettingsScreen() {
   const preview = React.useMemo(previewPosition, []);
 
   return (
+    <View style={styles.screen}>
+    <MistBackground />
     <ScrollView contentContainerStyle={styles.page}>
       <Goban position={preview} />
 
@@ -80,10 +83,12 @@ export default function SettingsScreen() {
         </Pressable>
       </View>
     </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: { flex: 1 },
   page: { padding: 16, gap: 12 },
   section: {
     fontSize: 12, fontWeight: '700', letterSpacing: 1.2,
@@ -95,7 +100,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8, paddingHorizontal: 12, borderRadius: 10,
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)',
   },
-  optActive: { backgroundColor: '#262036', borderColor: '#7E7B75' },
+  optActive: { backgroundColor: 'rgba(139,124,246,0.14)', borderColor: '#8B7CF6' },
   optText: { fontSize: 14, color: '#F2EFEA' },
   swatch: { width: 22, height: 22, borderRadius: 5 },
   stonePair: { flexDirection: 'row', gap: 2 },

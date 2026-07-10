@@ -9,6 +9,8 @@ import {
 } from '../engine/tsumego';
 import { nextProblem, recordResult, domainLabels } from '../state/trainingStats';
 import { recordAttempt } from '../state/tsumegoProgress';
+import MistBackground from '../components/MistBackground';
+import PrimaryButton from '../components/PrimaryButton';
 
 const STATUS_TEXT: Record<string, string> = {
   playing: 'Найди лучший ход.',
@@ -79,14 +81,13 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
   if (exhausted) {
     return (
       <View style={styles.donePage}>
+        <MistBackground />
         <Text style={styles.doneTitle}>Все задачи пройдены 🎉</Text>
         <Text style={styles.doneText}>
           Ты прошёл всю доступную базу. Новые задачи появятся с обновлением
           разметки.
         </Text>
-        <Pressable style={styles.nextBtn} onPress={() => navigation.goBack()}>
-          <Text style={styles.nextText}>К статистике</Text>
-        </Pressable>
+        <PrimaryButton label="К статистике" dome={false} onPress={() => navigation.goBack()} />
       </View>
     );
   }
@@ -97,6 +98,8 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
   const terminal = session.status === 'solved' || session.status === 'refuted';
 
   return (
+    <View style={styles.screen}>
+    <MistBackground />
     <ScrollView contentContainerStyle={styles.page}>
       <View style={styles.topRow}>
         <Text style={styles.domainChip}>{domainLabels[problem.domain] ?? problem.domain}</Text>
@@ -148,9 +151,10 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
       <View style={styles.spacer} />
       <View style={styles.controls}>
         {terminal ? (
-          <Pressable style={styles.nextBtn} onPress={serveNext}>
-            <Text style={styles.nextText}>Следующая →</Text>
-          </Pressable>
+          <PrimaryButton
+            label="Следующая →" dome={false}
+            onPress={serveNext} style={styles.nextBtn}
+          />
         ) : (
           <>
             <Pressable
@@ -166,10 +170,12 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
         )}
       </View>
     </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: { flex: 1 },
   page: { padding: 16, gap: 12, flexGrow: 1 },
   spacer: { flex: 1 },
   topRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
@@ -205,14 +211,7 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)',
   },
   btnText: { fontSize: 14, color: '#F2EFEA' },
-  nextBtn: {
-    borderRadius: 10, paddingVertical: 12, paddingHorizontal: 22,
-    alignItems: 'center',
-    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#7C6EE0',
-    shadowColor: '#7C6EE0', shadowOpacity: 0.28, shadowRadius: 14,
-    shadowOffset: { width: 0, height: 6 }, elevation: 5,
-  },
-  nextText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
+  nextBtn: { paddingVertical: 12, paddingHorizontal: 22, marginTop: 0 },
   donePage: { flex: 1, justifyContent: 'center', padding: 24, gap: 12 },
   doneTitle: { fontSize: 22, fontWeight: '500', textAlign: 'center', color: '#EFECE7', fontFamily: 'Playfair' },
   doneText: { fontSize: 15, color: '#8E8B85', textAlign: 'center', lineHeight: 22 },

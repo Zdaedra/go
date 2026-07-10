@@ -8,6 +8,7 @@ import { allBranches } from '../engine/identify';
 import { openingDisplayName, familyNamesRu } from '../data/names';
 import TsumegoSectionsScreen from './TsumegoSectionsScreen';
 import TrainingScreen from './TrainingScreen';
+import MistBackground from '../components/MistBackground';
 
 export interface OpeningSummary {
   family: string;
@@ -47,6 +48,7 @@ export default function LearnScreen({ navigation }: { navigation: any }) {
   const [tab, setTab] = useState<'training' | 'openings' | 'catalog'>('training');
   return (
     <View style={styles.container}>
+      <MistBackground />
       <View style={styles.tabs}>
         {([
           ['training', 'Тренировка'],

@@ -8,6 +8,7 @@ import {
 } from '../state/trainingStats';
 import { levelLabel } from '../engine/adaptive';
 import { useAccess } from '../state/useTrial';
+import PrimaryButton from '../components/PrimaryButton';
 
 const BAR_MIN = 800;
 const BAR_MAX = 2200;
@@ -22,12 +23,10 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
         <Text style={styles.lockText}>
           Бесплатная неделя закончилась. Подписка откроет тренировку и задачи.
         </Text>
-        <Pressable
-          style={styles.playBtn}
+        <PrimaryButton
+          label="Открыть подписку"
           onPress={() => navigation.getParent()?.navigate('Paywall')}
-        >
-          <Text style={styles.playText}>Открыть подписку</Text>
-        </Pressable>
+        />
       </View>
     );
   }
@@ -63,12 +62,12 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
         </View>
       </View>
 
-      <Pressable
-        style={styles.playBtn}
+      <PrimaryButton
+        label="▶ Играть"
         onPress={() => navigation.navigate('TrainingSession')}
-      >
-        <Text style={styles.playText}>▶ Играть</Text>
-      </Pressable>
+        style={styles.playBtn}
+        textStyle={styles.playText}
+      />
       <Text style={styles.playNote}>
         Тренажёр сам подбирает задачи: держит сложность в твоей зоне роста,
         чередует навыки и возвращает ошибки для повторения.
@@ -114,13 +113,8 @@ const styles = StyleSheet.create({
   },
   big: { fontSize: 22, fontFamily: 'Playfair', fontVariant: ['tabular-nums'], color: '#F2EFEA' },
   small: { fontSize: 12, color: '#8E8B85' },
-  playBtn: {
-    borderRadius: 12, paddingVertical: 16, alignItems: 'center', marginTop: 6,
-    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#7C6EE0',
-    shadowColor: '#7C6EE0', shadowOpacity: 0.28, shadowRadius: 14,
-    shadowOffset: { width: 0, height: 6 }, elevation: 5,
-  },
-  playText: { color: '#FFFFFF', fontSize: 18, fontWeight: '800' },
+  playBtn: { paddingVertical: 16 },
+  playText: { fontSize: 18, fontWeight: '800' },
   playNote: { fontSize: 13, color: '#8E8B85', textAlign: 'center' },
   section: {
     fontSize: 12, fontWeight: '700', letterSpacing: 1.2,
