@@ -25,8 +25,8 @@ export const boardThemes: Record<string, BoardTheme> = {
   nightLuxe: {
     id: 'nightLuxe',
     nameRu: 'Ночной лак',
-    wood: ['#9F7A4C', '#957043', '#88663C'],
-    grain: '#5E4426',
+    wood: ['#96744A', '#8C6C42', '#7E603A'],
+    grain: '#54401F',
     grainOpacity: 0.14,
     line: '#4A3A26',
     edgeLine: '#3A2D1C',

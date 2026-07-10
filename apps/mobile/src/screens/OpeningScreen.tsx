@@ -172,9 +172,9 @@ const styles = StyleSheet.create({
   lockText: { fontSize: 15, color: '#8E8B85', textAlign: 'center', lineHeight: 22 },
   lockBtn: {
     borderRadius: 10, paddingVertical: 12,
-    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#8B7CF6',
-    shadowColor: '#8B7CF6', shadowOpacity: 0.5, shadowRadius: 10,
-    shadowOffset: { width: 0, height: 3 }, elevation: 5,
+    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#7C6EE0',
+    shadowColor: '#7C6EE0', shadowOpacity: 0.28, shadowRadius: 14,
+    shadowOffset: { width: 0, height: 6 }, elevation: 5,
     alignItems: 'center', marginTop: 8,
   },
   lockBtnText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },

@@ -124,12 +124,12 @@ const styles = StyleSheet.create({
   codeInput: { letterSpacing: 8, textAlign: 'center', fontSize: 22 },
   primary: {
     borderRadius: 10, paddingVertical: 12, alignItems: 'center',
-    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#8B7CF6',
-    shadowColor: '#8B7CF6', shadowOpacity: 0.5, shadowRadius: 10,
-    shadowOffset: { width: 0, height: 3 }, elevation: 5,
+    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#7C6EE0',
+    shadowColor: '#7C6EE0', shadowOpacity: 0.28, shadowRadius: 14,
+    shadowOffset: { width: 0, height: 6 }, elevation: 5,
   },
   primaryText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
-  link: { color: '#8B7CF6', fontSize: 14, textAlign: 'center', padding: 6 },
+  link: { color: 'rgba(157,140,255,0.8)', fontSize: 14, textAlign: 'center', padding: 6 },
   error: { color: '#8B7CF6', fontSize: 14, textAlign: 'center' },
   guest: { marginTop: 16 },
 });

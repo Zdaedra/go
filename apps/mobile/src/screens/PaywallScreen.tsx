@@ -58,7 +58,7 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
         <Text style={styles.link}>Восстановить покупку</Text>
       </Pressable>
       <Pressable onPress={() => navigation.goBack()}>
-        <Text style={styles.link}>Не сейчас</Text>
+        <Text style={[styles.link, { color: '#8E8B85' }]}>Не сейчас</Text>
       </Pressable>
 
       {__DEV__ && (
@@ -88,13 +88,13 @@ const styles = StyleSheet.create({
   },
   planActive: { borderColor: '#8B7CF6', backgroundColor: 'rgba(139,124,246,0.10)' },
   planTitle: { fontSize: 16, fontWeight: '700', minWidth: 84, color: '#F2EFEA' },
-  planPrice: { fontSize: 16, color: '#E8E6E3' },
+  planPrice: { fontSize: 17, color: '#E8E6E3', fontFamily: 'Playfair' },
   planNote: { fontSize: 12.5, color: '#F0A878', width: '100%' },
   primary: {
     borderRadius: 10, paddingVertical: 14, alignItems: 'center', marginTop: 10,
-    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#8B7CF6',
-    shadowColor: '#8B7CF6', shadowOpacity: 0.5, shadowRadius: 10,
-    shadowOffset: { width: 0, height: 3 }, elevation: 5,
+    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#7C6EE0',
+    shadowColor: '#7C6EE0', shadowOpacity: 0.28, shadowRadius: 14,
+    shadowOffset: { width: 0, height: 6 }, elevation: 5,
   },
   primaryText: { color: '#FFFFFF', fontSize: 17, fontWeight: '700' },
   link: { color: '#8B7CF6', fontSize: 14, textAlign: 'center', padding: 6 },

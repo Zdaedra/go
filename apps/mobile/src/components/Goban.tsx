@@ -65,12 +65,9 @@ export default function Goban({
   const colOf = (i: number) => i % size;
   const rowOf = (i: number) => Math.floor(i / size);
 
-  // Show coordinate labels only for a full standard board (openings mode).
-  const showCoords = !view || (v.c0 === 0 && v.r0 === 0 && v.c1 === size - 1 && v.r1 === size - 1);
-
   // Coordinates live OUTSIDE the wood slab on the page ground (reference
-  // design); the slab keeps its own padding around the grid.
-  const GUTTER = showCoords ? 22 : 0;
+  // design); cropped boards label only the visible range.
+  const GUTTER = 22;
   const woodX = px(v.c0) - PAD;
   const woodY = px(v.r0) - PAD;
   const woodW = px(v.c1) - px(v.c0) + PAD * 2;
@@ -177,8 +174,8 @@ export default function Goban({
             />
           ))}
           <Rect
-            x={woodX + 1.5} y={woodY + 1.5} width={woodW - 3} height={woodH - 3} rx={9}
-            fill="none" stroke="rgba(50,34,14,0.35)" strokeWidth={3}
+            x={woodX + 1} y={woodY + 1} width={woodW - 2} height={woodH - 2} rx={9.5}
+            fill="none" stroke="rgba(45,30,12,0.28)" strokeWidth={2}
           />
 
           {rows.map((r) => (
@@ -198,7 +195,7 @@ export default function Goban({
             />
           ))}
 
-          {showCoords && cols.map((c) => (
+          {cols.map((c) => (
             <SvgText
               key={`ct${c}`} x={px(c)} y={woodY - 9} textAnchor="middle"
               fontSize={9.5} fill={board.coordText} letterSpacing={0.5}
@@ -206,7 +203,7 @@ export default function Goban({
               {GTP_COLS[c]}
             </SvgText>
           ))}
-          {showCoords && rows.map((r) => (
+          {rows.map((r) => (
             <G key={`rt${r}`}>
               <SvgText
                 x={woodX - 11} y={px(r) + 3.5} textAnchor="middle"
@@ -242,16 +239,16 @@ export default function Goban({
             && inView(lastMove) && (
             <G>
               <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 6}
-                fill="none" stroke="rgba(222,166,108,0.28)" strokeWidth={8}
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 8}
+                fill="none" stroke="rgba(238,205,160,0.14)" strokeWidth={12}
               />
               <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 2.5}
-                fill="none" stroke="rgba(240,214,176,0.5)" strokeWidth={3.5}
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 3.5}
+                fill="none" stroke="rgba(238,205,160,0.30)" strokeWidth={5}
               />
               <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 0.8}
-                fill="none" stroke="rgba(244,224,190,0.7)" strokeWidth={1.6}
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 1.2}
+                fill="none" stroke="rgba(240,214,176,0.5)" strokeWidth={2}
               />
             </G>
           )}
@@ -302,7 +299,12 @@ export default function Goban({
             }
             return (
               <G key={`m${m.at}`}>
-                {!onStone && <Circle cx={cx} cy={cy} r={9.5} fill={board.wood[1]} />}
+                {!onStone && (
+                  <Circle
+                    cx={cx} cy={cy} r={9.5} fill={board.wood[1]} opacity={0.92}
+                    stroke={board.line} strokeWidth={0.8}
+                  />
+                )}
                 <SvgText
                   x={cx} y={cy + 4.5} textAnchor="middle"
                   fontSize={13} fontWeight="800" fill={markColor}
