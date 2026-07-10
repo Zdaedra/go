@@ -145,6 +145,7 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
         )}
       </View>
 
+      <View style={styles.spacer} />
       <View style={styles.controls}>
         {terminal ? (
           <Pressable style={styles.nextBtn} onPress={serveNext}>
@@ -169,7 +170,8 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
 }
 
 const styles = StyleSheet.create({
-  page: { padding: 16, gap: 12 },
+  page: { padding: 16, gap: 12, flexGrow: 1 },
+  spacer: { flex: 1 },
   topRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   domainChip: {
     fontSize: 12.5, fontWeight: '600', color: '#F2EFEA',
@@ -182,7 +184,7 @@ const styles = StyleSheet.create({
   status: { fontSize: 17, fontFamily: 'Playfair', minHeight: 24, color: '#EFECE7', marginTop: 6 },
   turnCard: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
-    backgroundColor: 'rgba(5,7,7,0.45)', borderWidth: 1,
+    backgroundColor: 'rgba(5,7,7,0.68)', borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.08)', borderRadius: 16, padding: 14,
   },
   turnEyebrow: {

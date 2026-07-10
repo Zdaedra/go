@@ -100,7 +100,7 @@ export default function Goban({
   const lineY0 = px(v.r0) - (v.r0 > 0 ? PAD * 0.55 : 0);
   const lineY1 = px(v.r1) + (v.r1 < size - 1 ? PAD * 0.55 : 0);
 
-  const stoneR = 10.2;
+  const stoneR = 9.6; // 0.80 × cell, per mockup measurement
 
   const renderStone = (at: number, color: 'b' | 'w', numText?: string, hot?: boolean) => {
     const s = color === 'b' ? stones.black : stones.white;
@@ -241,11 +241,11 @@ export default function Goban({
             <G>
               <Circle
                 cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 5}
-                fill="none" stroke="rgba(255,200,150,0.30)" strokeWidth={8}
+                fill="none" stroke="rgba(255,200,150,0.34)" strokeWidth={8}
               />
               <Circle
                 cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 1.5}
-                fill="none" stroke="rgba(243,222,190,0.85)" strokeWidth={2.6}
+                fill="none" stroke="rgba(240,200,150,0.9)" strokeWidth={2.6}
               />
             </G>
           )}
