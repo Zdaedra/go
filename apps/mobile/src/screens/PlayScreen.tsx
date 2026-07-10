@@ -240,14 +240,35 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         : result.status === 'unknown'
           ? 'Вне базы'
           : 'Новая партия';
-  const family = result.opening ? familyNamesRu[result.opening.family] : null;
   // The verdict is honest only when the line is pinned down: with many
   // candidate openings the deepest match's result would be a guess.
   const branchResult = completed?.result
     ?? (result.status === 'identified' ? (branch?.branch.result as string | null) : null);
 
   // ---- your turn card ----
-  const turnText = (() => {
+  // Label above the explanation card, and the explanation body itself.
+  // Candidates are rendered as a list (one opening per row) rather than a
+  // comma sentence, so the box grows cleanly with however many there are.
+  const identifiedDesc =
+    !locked && result.status === 'identified' && branch
+      ? (branchDescriptions as Record<string, string>)[branch.branch.branch_id]
+      : null;
+
+  const candidateNames: string[] | null =
+    !locked && result.status === 'candidates'
+      ? result.openings.map((o) => openingDisplayName(o.family, o.opening, o.name))
+      : null;
+
+  const explainLabel = (() => {
+    if (!access.open || limitLocked) return 'Дебют';
+    if (completed) return 'Дебют завершён ✓';
+    if (result.status === 'candidates') return `Возможных дебютов: ${result.openings.length}`;
+    if (result.status === 'unknown') return 'Вне базы';
+    if (result.status === 'empty') return 'Начало';
+    return toMove === myColor ? 'Твой ход' : 'Ход соперника';
+  })();
+
+  const explainText = (() => {
     if (!access.open) return 'Бесплатная неделя закончилась — подписка откроет базу.';
     if (limitLocked) return `Дневной лимит: ${FREE_DAILY_LIMIT} дебюта. Название скрыто.`;
     if (completed) {
@@ -257,19 +278,15 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       return `Дебют пройден полностью${completed.name ? ` — ${completed.name}` : ''}.${verdict}`;
     }
     switch (result.status) {
-      case 'empty': return 'Поставь первый камень.';
+      case 'empty': return 'Поставь первый камень — база опознает дебют и ветку.';
       case 'unknown': return 'Такого дебюта в базе нет. «Назад» вернёт в книжную линию.';
-      case 'identified': return branch
-        ? `Продолжай: ${openingName} — ветка ${branch.branch.branch_no}.`
-        : `Продолжай дебют ${openingName}.`;
-      case 'candidates': {
-        const names = result.openings
-          .map((o) => openingDisplayName(o.family, o.opening, o.name));
-        const shown = names.slice(0, 6);
-        const rest = names.length - shown.length;
-        return `Возможных дебютов: ${names.length} — ${shown.join(', ')}${
-          rest > 0 ? ` и ещё ${rest}` : ''}.`;
-      }
+      case 'identified':
+        return identifiedDesc
+          ?? (branch
+            ? `Продолжай: ${openingName} — ветка ${branch.branch.branch_no}.`
+            : `Продолжай дебют ${openingName}.`);
+      case 'candidates':
+        return null; // rendered as a list below
     }
   })();
 
@@ -300,32 +317,16 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         </Pressable>
       </View>
 
-      {/* opening card */}
+      {/* opening name card — name + whose move + verdict, no prose here */}
       <View style={[styles.card, styles.opening]}>
         <View style={styles.openingLeft}>
           <Text style={eyebrowAccent}>Дебют</Text>
           <Text
             style={styles.openingTitle}
-            numberOfLines={1}
+            numberOfLines={2}
             adjustsFontSizeToFit
-            minimumFontScale={0.55}
+            minimumFontScale={0.5}
           >{openingName}</Text>
-          <Text style={styles.openingDesc} numberOfLines={2}>
-            {(() => {
-              // An identified line's blurb (its strengths/weaknesses) beats
-              // the breadcrumb; ambiguous positions keep the generic hints.
-              const desc = !locked && result.status === 'identified' && branch
-                ? (branchDescriptions as Record<string, string>)[branch.branch.branch_id]
-                : null;
-              if (desc) return desc;
-              if (path.length > 0 && !locked) {
-                return `Путь: ${path.map((p) => p.label).join(' → ')}`;
-              }
-              return family
-                ? `Семейство: ${family}.`
-                : 'Ставь камни — база опознает дебют и ветку.';
-            })()}
-          </Text>
         </View>
         <View style={styles.openingRight}>
           <Text style={eyebrow}>Ход</Text>
@@ -351,12 +352,56 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         onPoint={placeStone}
       />
 
-      {/* your turn / candidates card — the app's main readout, full width */}
-      <View style={[styles.card, styles.turn]}>
+      {/* game controls, directly under the board */}
+      <View style={styles.controls}>
+        <View style={styles.ctrl}>
+          <Pressable style={styles.sideBtn} onPress={() => setHistory([])}>
+            <Text style={styles.sideIcon}>↻</Text>
+          </Pressable>
+          <Text style={styles.ctrlLabel}>Заново</Text>
+        </View>
+        <View style={styles.ctrl}>
+          <Pressable
+            style={[styles.bigBtn, showHints && styles.bigBtnOn, !nextSuggestion && styles.bigBtnOff]}
+            onPress={() => setShowHints((v) => !v)}
+            disabled={!nextSuggestion}
+          >
+            <HintBulb size={24} color={showHints ? '#EEAB94' : '#C9C6C0'} />
+          </Pressable>
+          <Text style={styles.ctrlLabel}>{showHints ? 'Скрыть' : 'Лучший ход'}</Text>
+        </View>
+        <View style={styles.ctrl}>
+          <Pressable
+            style={styles.sideBtn}
+            onPress={() => setHistory(history.slice(0, -1))}
+            disabled={!history.length}
+          >
+            <Text style={styles.sideIcon}>‹</Text>
+          </Pressable>
+          <Text style={styles.ctrlLabel}>Назад</Text>
+        </View>
+      </View>
+
+      {/* explanation zone — the app's main readout. Height follows content:
+          a single blurb, or one row per candidate opening. */}
+      <View style={[styles.card, styles.explain]}>
         <Text style={[eyebrowAccent, completed ? { color: ui.success } : null]}>
-          {completed ? 'Дебют завершён ✓' : toMove === myColor ? 'Твой ход' : 'Ход соперника'}
+          {explainLabel}
         </Text>
-        <Text style={styles.turnText} numberOfLines={5}>{turnText}</Text>
+
+        {candidateNames ? (
+          <View style={styles.candList}>
+            {candidateNames.map((n, i) => (
+              <View key={`${n}-${i}`} style={styles.candRow}>
+                <View style={styles.candDot} />
+                <Text style={styles.candName}>{n}</Text>
+              </View>
+            ))}
+          </View>
+        ) : (
+          <Text style={styles.explainText}>{explainText}</Text>
+        )}
+
         {showHints && nextSuggestion && !completed && (
           <Text style={[styles.turnSub, { color: ui.peach }]}>
             ★ — лучший ход по базе. Точная оценка появится с KataGo.
@@ -373,103 +418,6 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
             <Text style={[styles.turnSub, { color: ui.peach }]}>Снять лимит — подписка →</Text>
           </Pressable>
         )}
-      </View>
-
-      {/* bottom controls under the violet dome glow */}
-      <View style={styles.controlsWrap}>
-      <Svg
-        pointerEvents="none" style={styles.dome}
-        width="100%" height={230} viewBox="0 0 427 230"
-      >
-        <Defs>
-          <RadialGradient id="dome-play" cx="0.5" cy="0.5" r="0.5">
-            <Stop offset="0" stopColor="#7A63F1" stopOpacity="0.22" />
-            <Stop offset="0.5" stopColor="#7A63F1" stopOpacity="0.09" />
-            <Stop offset="1" stopColor="#7A63F1" stopOpacity="0" />
-          </RadialGradient>
-          <LinearGradient id="domearc-play" x1="0" y1="0" x2="1" y2="0">
-            <Stop offset="0" stopColor="#6D6FB2" stopOpacity="0" />
-            <Stop offset="0.25" stopColor="#6D6FB2" stopOpacity="0.9" />
-            <Stop offset="0.5" stopColor="#8B84D6" stopOpacity="1" />
-            <Stop offset="0.75" stopColor="#6D6FB2" stopOpacity="0.9" />
-            <Stop offset="1" stopColor="#6D6FB2" stopOpacity="0" />
-          </LinearGradient>
-        </Defs>
-        {/* ambient lives in the upper dome only — neutral below the button */}
-        <Circle cx={213.5} cy={84} r={120} fill="url(#dome-play)" />
-        {/* wide flat arc above the crown, brighter periwinkle shoulders */}
-        <Circle
-          cx={213.5} cy={125} r={100} fill="none"
-          stroke="url(#domearc-play)" strokeWidth={1.6}
-          strokeDasharray="220 408" strokeLinecap="round"
-          rotation={207} originX={213.5} originY={125}
-        />
-      </Svg>
-      <View style={styles.controls}>
-        <View style={styles.ctrl}>
-          <Pressable style={styles.sideBtn} onPress={() => setHistory([])}>
-            <Text style={styles.sideIcon}>↻</Text>
-          </Pressable>
-          <Text style={styles.ctrlLabel}>Заново</Text>
-        </View>
-        <View style={styles.ctrl}>
-          <Pressable
-            style={[styles.bigBtn, !nextSuggestion && styles.bigBtnOff]}
-            onPress={() => setShowHints((v) => !v)}
-            disabled={!nextSuggestion}
-          >
-            {/* ring bias per the mockup sweep: salmon peak on the left,
-                copper right, violet dimmed at top, bottom fading out */}
-            <Svg style={StyleSheet.absoluteFill} viewBox="0 0 82 82">
-              <Defs>
-                <LinearGradient id="bigring-play" x1="1" y1="0.75" x2="0" y2="0.25">
-                  <Stop offset="0" stopColor="#8A614C" />
-                  <Stop offset="0.55" stopColor="#C58A6A" />
-                  <Stop offset="1" stopColor="#EEAB94" />
-                </LinearGradient>
-              </Defs>
-              <Circle
-                cx={41} cy={41} r={40} fill="none"
-                stroke="url(#bigring-play)" strokeWidth={1.6}
-              />
-              {/* bottom quadrant fades toward the field */}
-              <Circle
-                cx={41} cy={41} r={40} fill="none"
-                stroke="rgba(18,18,19,0.62)" strokeWidth={2.4}
-                strokeDasharray="63 189" strokeLinecap="round"
-                rotation={45} originX={41} originY={41}
-              />
-              {/* the ring's own crown is rose — the violet lives only in the
-                  separate dome arc above */}
-              <Circle
-                cx={41} cy={41} r={40} fill="none"
-                stroke="rgba(206,134,160,0.8)" strokeWidth={1.7}
-                strokeDasharray="60 191" strokeLinecap="round"
-                rotation={227} originX={41} originY={41}
-              />
-              {/* bottom quadrant dies into the field completely */}
-              <Circle
-                cx={41} cy={41} r={40} fill="none"
-                stroke="rgba(18,18,19,0.85)" strokeWidth={2.6}
-                strokeDasharray="55 196" strokeLinecap="round"
-                rotation={50} originX={41} originY={41}
-              />
-            </Svg>
-            <HintBulb size={26} color={showHints ? '#EEAB94' : '#C9C6C0'} />
-          </Pressable>
-          <Text style={styles.ctrlLabel}>{showHints ? 'Скрыть' : 'Лучший ход'}</Text>
-        </View>
-        <View style={styles.ctrl}>
-          <Pressable
-            style={styles.sideBtn}
-            onPress={() => setHistory(history.slice(0, -1))}
-            disabled={!history.length}
-          >
-            <Text style={styles.sideIcon}>‹</Text>
-          </Pressable>
-          <Text style={styles.ctrlLabel}>Назад</Text>
-        </View>
-      </View>
       </View>
     </ScrollView>
     </View>
@@ -498,10 +446,9 @@ const styles = StyleSheet.create({
   },
   iconText: { fontSize: 15, color: '#C9C6C0' },
 
-  opening: { flexDirection: 'row' },
-  openingLeft: { flex: 1.4, paddingRight: 14 },
-  openingTitle: { fontFamily: ui.serif, fontSize: 28, color: '#EFECE7', marginTop: 6 },
-  openingDesc: { marginTop: 7, fontSize: 12.5, lineHeight: 18, color: ui.muted },
+  opening: { flexDirection: 'row', alignItems: 'center' },
+  openingLeft: { flex: 1.4, paddingRight: 14, justifyContent: 'center' },
+  openingTitle: { fontFamily: ui.serif, fontSize: 27, color: '#EFECE7', marginTop: 6 },
   openingRight: {
     flex: 1, borderLeftWidth: 1, borderLeftColor: ui.hairline,
     paddingLeft: 14, paddingTop: 2,
@@ -519,30 +466,35 @@ const styles = StyleSheet.create({
   miniStoneWhite: { backgroundColor: '#F2F0EC', borderColor: '#8A8578' },
   outcomeText: { fontSize: 14, color: ui.inkSoft },
 
-  turn: { paddingVertical: 16, paddingHorizontal: 16 },
-  turnText: { marginTop: 8, fontSize: 16, color: ui.inkSoft, lineHeight: 23 },
-  turnSub: { marginTop: 6, fontSize: 12.5, color: ui.muted },
+  // explanation zone — the big readout under the controls
+  explain: { paddingVertical: 18, paddingHorizontal: 16 },
+  explainText: { marginTop: 10, fontSize: 16.5, color: ui.inkSoft, lineHeight: 24 },
+  turnSub: { marginTop: 8, fontSize: 12.5, color: ui.muted },
 
-  controlsWrap: { marginTop: 8 },
-  dome: { position: 'absolute', left: -16, right: -16, top: -76 },
+  candList: { marginTop: 12, gap: 10 },
+  candRow: { flexDirection: 'row', alignItems: 'center', gap: 11 },
+  candDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: ui.accent },
+  candName: { flex: 1, fontSize: 16.5, color: ui.inkSoft },
+
   controls: {
     flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start',
-    gap: 46,
+    gap: 46, marginTop: 4,
   },
   ctrl: { alignItems: 'center', gap: 9 },
   sideBtn: {
-    width: 54, height: 54, borderRadius: 27, marginTop: 14,
+    width: 54, height: 54, borderRadius: 27, marginTop: 12,
     backgroundColor: '#1C1C1E',
     alignItems: 'center', justifyContent: 'center',
   },
   sideIcon: { fontSize: 22, color: '#C9C6C0', marginTop: -2 },
   bigBtn: {
-    width: 82, height: 82, borderRadius: 41,
+    width: 78, height: 78, borderRadius: 39,
     backgroundColor: '#161514',
+    borderWidth: 1, borderColor: ui.hairlineStrong,
     alignItems: 'center', justifyContent: 'center',
   },
-  bigBtnOff: { opacity: 0.82 },
-  bigIcon: { fontSize: 34, color: ui.ink, marginTop: -4 },
+  bigBtnOn: { borderColor: 'rgba(238,171,148,0.7)', backgroundColor: 'rgba(238,171,148,0.08)' },
+  bigBtnOff: { opacity: 0.5 },
   ctrlLabel: {
     fontSize: 10, letterSpacing: 2.2, color: '#8A8A8A',
     fontWeight: '600', textTransform: 'uppercase',
