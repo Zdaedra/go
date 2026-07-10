@@ -32,7 +32,7 @@ export const boardThemes: Record<string, BoardTheme> = {
     edgeLine: '#3A2D1C',
     hoshi: '#241A0C',
     coordText: '#848484',
-    letter: '#8B7CF6',
+    letter: '#7C6EE0',
     ghostOpacity: 0.42,
   },
   kaya: {

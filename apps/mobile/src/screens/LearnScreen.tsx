@@ -123,9 +123,9 @@ const styles = StyleSheet.create({
     paddingVertical: 6, paddingHorizontal: 16, borderRadius: 999,
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)',
   },
-  tabActive: { backgroundColor: '#8B7CF6', borderColor: '#8B7CF6' },
+  tabActive: { backgroundColor: 'rgba(139,124,246,0.12)', borderColor: '#8B7CF6' },
   tabText: { fontSize: 14, fontWeight: '600', color: '#F2EFEA' },
-  tabTextActive: { color: '#FFFFFF' },
+  tabTextActive: { color: '#C5BBF0' },
   list: { paddingBottom: 32 },
   section: {
     fontSize: 12, fontWeight: '700', letterSpacing: 1.2,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: 'rgba(255,255,255,0.08)',
   },
   rowMain: { flex: 1, gap: 2 },
-  name: { fontSize: 16, fontWeight: '600', color: '#F2EFEA' },
+  name: { fontSize: 19, fontFamily: 'Playfair', color: '#EFECE7' },
   meta: { fontSize: 13, color: '#8E8B85' },
   chevron: { fontSize: 22, color: '#7E7B75' },
 });

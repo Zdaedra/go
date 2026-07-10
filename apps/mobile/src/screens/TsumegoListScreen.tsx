@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)',
     alignItems: 'center', justifyContent: 'center',
   },
-  cellSolved: { backgroundColor: '#22301C', borderColor: '#7B9464' },
+  cellSolved: { backgroundColor: 'rgba(139,124,246,0.12)', borderColor: '#8B7CF6' },
   cellText: { fontSize: 16, fontWeight: '600', color: '#F2EFEA' },
-  cellTextSolved: { color: '#A9C48F' },
-  check: { position: 'absolute', top: 2, right: 5, fontSize: 10, color: '#A9C48F' },
+  cellTextSolved: { color: '#C5BBF0' },
+  check: { position: 'absolute', top: 2, right: 5, fontSize: 10, color: '#C5BBF0' },
 });

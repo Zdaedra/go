@@ -123,8 +123,10 @@ const styles = StyleSheet.create({
   },
   codeInput: { letterSpacing: 8, textAlign: 'center', fontSize: 22 },
   primary: {
-    backgroundColor: '#8B7CF6', borderRadius: 10, paddingVertical: 12,
-    alignItems: 'center',
+    borderRadius: 10, paddingVertical: 12, alignItems: 'center',
+    backgroundColor: '#1A1720', borderWidth: 1.5, borderColor: '#8B7CF6',
+    shadowColor: '#8B7CF6', shadowOpacity: 0.5, shadowRadius: 10,
+    shadowOffset: { width: 0, height: 3 }, elevation: 5,
   },
   primaryText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
   link: { color: '#8B7CF6', fontSize: 14, textAlign: 'center', padding: 6 },
