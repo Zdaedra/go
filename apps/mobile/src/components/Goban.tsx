@@ -122,8 +122,9 @@ export default function Goban({
         />
         {s.highlightOpacity > 0 && (
           <Ellipse
-            cx={cx - 3.6} cy={cy - 4.2} rx={4.6} ry={3.2}
-            fill={s.highlight} opacity={s.highlightOpacity * 0.55}
+            cx={cx - 2.2} cy={cy - 3.4} rx={5.4} ry={1.7}
+            rotation={-30} originX={cx - 2.2} originY={cy - 3.4}
+            fill={s.highlight} opacity={s.highlightOpacity * 0.62}
           />
         )}
         {numText != null && (
@@ -239,12 +240,12 @@ export default function Goban({
             && inView(lastMove) && (
             <G>
               <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 2.5}
-                fill="none" stroke="rgba(201,168,126,0.30)" strokeWidth={3.5}
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 5}
+                fill="none" stroke="rgba(255,200,150,0.30)" strokeWidth={8}
               />
               <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 1}
-                fill="none" stroke="rgba(201,168,126,0.45)" strokeWidth={1.6}
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 1.5}
+                fill="none" stroke="rgba(243,222,190,0.85)" strokeWidth={2.6}
               />
             </G>
           )}
