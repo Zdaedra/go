@@ -6,10 +6,10 @@
 
 export const ui = {
   // grounds
-  bg: '#100E0D',
-  card: 'rgba(255,255,255,0.03)',
+  bg: '#121213',
+  card: 'rgba(5,7,7,0.45)',
   cardSolid: '#1A1715',
-  hairline: 'rgba(255,255,255,0.065)',
+  hairline: 'rgba(255,255,255,0.08)',
   hairlineStrong: 'rgba(255,255,255,0.10)',
 
   // text

@@ -100,7 +100,7 @@ export default function Goban({
   const lineY0 = px(v.r0) - (v.r0 > 0 ? PAD * 0.55 : 0);
   const lineY1 = px(v.r1) + (v.r1 < size - 1 ? PAD * 0.55 : 0);
 
-  const stoneR = 11.3;
+  const stoneR = 10.2;
 
   const renderStone = (at: number, color: 'b' | 'w', numText?: string, hot?: boolean) => {
     const s = color === 'b' ? stones.black : stones.white;
@@ -239,16 +239,12 @@ export default function Goban({
             && inView(lastMove) && (
             <G>
               <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 8}
-                fill="none" stroke="rgba(238,205,160,0.14)" strokeWidth={12}
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 2.5}
+                fill="none" stroke="rgba(201,168,126,0.30)" strokeWidth={3.5}
               />
               <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 3.5}
-                fill="none" stroke="rgba(238,205,160,0.30)" strokeWidth={5}
-              />
-              <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 1.2}
-                fill="none" stroke="rgba(240,214,176,0.5)" strokeWidth={2}
+                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 1}
+                fill="none" stroke="rgba(201,168,126,0.45)" strokeWidth={1.6}
               />
             </G>
           )}
