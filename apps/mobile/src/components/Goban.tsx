@@ -100,7 +100,7 @@ export default function Goban({
   const lineY0 = px(v.r0) - (v.r0 > 0 ? PAD * 0.55 : 0);
   const lineY1 = px(v.r1) + (v.r1 < size - 1 ? PAD * 0.55 : 0);
 
-  const stoneR = 11;
+  const stoneR = 11.3;
 
   const renderStone = (at: number, color: 'b' | 'w', numText?: string, hot?: boolean) => {
     const s = color === 'b' ? stones.black : stones.white;

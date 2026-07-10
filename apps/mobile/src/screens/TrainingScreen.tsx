@@ -126,7 +126,11 @@ const styles = StyleSheet.create({
     fontSize: 12, fontWeight: '700', letterSpacing: 1.2,
     textTransform: 'uppercase', color: '#8E8B85', marginTop: 10,
   },
-  domainRow: { gap: 5 },
+  domainRow: {
+    gap: 7, backgroundColor: 'rgba(255,255,255,0.03)', borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.065)', borderRadius: 12,
+    paddingVertical: 12, paddingHorizontal: 14,
+  },
   domainHead: { flexDirection: 'row', justifyContent: 'space-between', gap: 8 },
   domainName: { fontSize: 15, fontWeight: '600', flexShrink: 1, color: '#F2EFEA' },
   domainMeta: { fontSize: 12.5, color: '#8E8B85', fontVariant: ['tabular-nums'] },

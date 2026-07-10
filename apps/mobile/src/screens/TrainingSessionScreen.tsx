@@ -117,16 +117,33 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
         disabled={terminal}
       />
 
-      <Text
-        style={[
-          styles.status,
-          session.status === 'solved' && styles.ok,
-          (session.status === 'wrong' || session.status === 'refuted') && styles.bad,
-        ]}
-      >
-        {STATUS_TEXT[session.status]}
-      </Text>
-      {feedback && <Text style={styles.feedback}>{feedback}</Text>}
+      <View style={styles.turnCard}>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.turnEyebrow}>Твой ход</Text>
+          <Text
+            style={[
+              styles.status,
+              session.status === 'solved' && styles.ok,
+              (session.status === 'wrong' || session.status === 'refuted') && styles.bad,
+            ]}
+          >
+            {STATUS_TEXT[session.status]}
+          </Text>
+          {feedback && <Text style={styles.feedback}>{feedback}</Text>}
+        </View>
+        {!terminal && problem.hint && (
+          <Pressable
+            style={styles.hintBtn}
+            onPress={() => {
+              hadMistake.current = true;
+              const at = hintMove(problem);
+              if (at != null) setFeedback(`Подсказка: ${problem.hint}`);
+            }}
+          >
+            <Text style={styles.hintText}>💡 Подсказка</Text>
+          </Pressable>
+        )}
+      </View>
 
       <View style={styles.controls}>
         {terminal ? (
@@ -141,18 +158,6 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
             >
               <Text style={styles.btnText}>Заново</Text>
             </Pressable>
-            {problem.hint && (
-              <Pressable
-                style={styles.btn}
-                onPress={() => {
-                  hadMistake.current = true;
-                  const at = hintMove(problem);
-                  if (at != null) setFeedback(`Подсказка: ${problem.hint}`);
-                }}
-              >
-                <Text style={styles.btnText}>Подсказка</Text>
-              </Pressable>
-            )}
             <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
               <Text style={styles.btnText}>Завершить</Text>
             </Pressable>
@@ -174,7 +179,21 @@ const styles = StyleSheet.create({
   },
   sessionMeta: { fontSize: 13, color: '#8E8B85', fontVariant: ['tabular-nums'] },
   meta: { fontSize: 13, color: '#8E8B85' },
-  status: { fontSize: 17, fontFamily: 'Playfair', minHeight: 24, color: '#EFECE7' },
+  status: { fontSize: 17, fontFamily: 'Playfair', minHeight: 24, color: '#EFECE7', marginTop: 6 },
+  turnCard: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    backgroundColor: 'rgba(255,255,255,0.03)', borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.065)', borderRadius: 16, padding: 14,
+  },
+  turnEyebrow: {
+    fontSize: 10, fontWeight: '600', letterSpacing: 2.2,
+    textTransform: 'uppercase', color: '#9D8CFF',
+  },
+  hintBtn: {
+    paddingVertical: 12, paddingHorizontal: 15, borderRadius: 13,
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)',
+  },
+  hintText: { color: '#A79AF5', fontSize: 14 },
   ok: { color: '#C5BBF0' },
   bad: { color: '#C96F5A' },
   feedback: { fontSize: 14, color: '#F0A878', fontWeight: '600' },
