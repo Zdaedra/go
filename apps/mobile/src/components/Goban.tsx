@@ -288,22 +288,20 @@ export default function Goban({
           {lastMove != null && position[lastMove] !== '.' && !numbers?.has(lastMove)
             && inView(lastMove) && (
             <G>
-              {/* soft radial falloff faked with fading strokes (RN SVG has no blur) */}
-              <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 3.5}
-                fill="none" stroke="rgba(255,200,150,0.28)" strokeWidth={3}
-              />
-              <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 6}
-                fill="none" stroke="rgba(255,200,150,0.16)" strokeWidth={3}
-              />
-              <Circle
-                cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 8.5}
-                fill="none" stroke="rgba(255,200,150,0.07)" strokeWidth={3}
-              />
+              {/* smooth gaussian-like falloff faked with many fading strokes */}
+              {[
+                { dr: 3, a: 0.26 }, { dr: 5, a: 0.19 }, { dr: 6.8, a: 0.13 },
+                { dr: 8.4, a: 0.08 }, { dr: 9.8, a: 0.04 }, { dr: 11, a: 0.02 },
+              ].map(({ dr, a }) => (
+                <Circle
+                  key={`halo${dr}`}
+                  cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + dr}
+                  fill="none" stroke={`rgba(232,205,160,${a})`} strokeWidth={2.4}
+                />
+              ))}
               <Circle
                 cx={px(colOf(lastMove))} cy={px(rowOf(lastMove))} r={stoneR + 1.5}
-                fill="none" stroke="rgba(235,200,165,0.62)" strokeWidth={2.6}
+                fill="none" stroke="rgba(232,217,190,0.55)" strokeWidth={2.6}
               />
             </G>
           )}

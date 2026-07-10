@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   },
   turnEyebrow: {
     fontSize: 10, fontWeight: '600', letterSpacing: 2.2,
-    textTransform: 'uppercase', color: '#9D8CFF',
+    textTransform: 'uppercase', color: '#A3A0F0',
   },
   hintBtn: {
     paddingVertical: 12, paddingHorizontal: 15, borderRadius: 13,

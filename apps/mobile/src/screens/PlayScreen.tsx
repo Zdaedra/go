@@ -305,19 +305,21 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
             <Stop offset="1" stopColor="#7A63F1" stopOpacity="0" />
           </RadialGradient>
           <LinearGradient id="domearc-play" x1="0" y1="0" x2="1" y2="0">
-            <Stop offset="0" stopColor="#6358AF" stopOpacity="0" />
-            <Stop offset="0.5" stopColor="#6358AF" stopOpacity="0.85" />
-            <Stop offset="1" stopColor="#6358AF" stopOpacity="0" />
+            <Stop offset="0" stopColor="#6D6FB2" stopOpacity="0" />
+            <Stop offset="0.25" stopColor="#6D6FB2" stopOpacity="0.9" />
+            <Stop offset="0.5" stopColor="#8B84D6" stopOpacity="1" />
+            <Stop offset="0.75" stopColor="#6D6FB2" stopOpacity="0.9" />
+            <Stop offset="1" stopColor="#6D6FB2" stopOpacity="0" />
           </LinearGradient>
         </Defs>
-        {/* ambient centered on the button; the crest reads above the crown */}
-        <Circle cx={213.5} cy={125} r={130} fill="url(#dome-play)" />
-        {/* thin concentric arc floating above the crown, fading laterally */}
+        {/* ambient lives in the upper dome only — neutral below the button */}
+        <Circle cx={213.5} cy={84} r={120} fill="url(#dome-play)" />
+        {/* wide flat arc above the crown, brighter periwinkle shoulders */}
         <Circle
-          cx={213.5} cy={125} r={57} fill="none"
-          stroke="url(#domearc-play)" strokeWidth={1.4}
-          strokeDasharray="139 219" strokeLinecap="round"
-          rotation={200} originX={213.5} originY={125}
+          cx={213.5} cy={125} r={100} fill="none"
+          stroke="url(#domearc-play)" strokeWidth={1.6}
+          strokeDasharray="220 408" strokeLinecap="round"
+          rotation={207} originX={213.5} originY={125}
         />
       </Svg>
       <View style={styles.controls}>
@@ -337,9 +339,9 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
                 copper right, violet dimmed at top, bottom fading out */}
             <Svg style={StyleSheet.absoluteFill} viewBox="0 0 82 82">
               <Defs>
-                <LinearGradient id="bigring-play" x1="1" y1="0.2" x2="0" y2="0.8">
-                  <Stop offset="0" stopColor="#AC7858" />
-                  <Stop offset="0.5" stopColor="#C58A6A" />
+                <LinearGradient id="bigring-play" x1="1" y1="0.75" x2="0" y2="0.25">
+                  <Stop offset="0" stopColor="#8A614C" />
+                  <Stop offset="0.55" stopColor="#C58A6A" />
                   <Stop offset="1" stopColor="#EEAB94" />
                 </LinearGradient>
               </Defs>
@@ -354,10 +356,11 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
                 strokeDasharray="63 189" strokeLinecap="round"
                 rotation={45} originX={41} originY={41}
               />
-              {/* crown carries the dome's dim violet cast */}
+              {/* the ring's own crown is rose — the violet lives only in the
+                  separate dome arc above */}
               <Circle
                 cx={41} cy={41} r={40} fill="none"
-                stroke="rgba(90,70,122,0.55)" strokeWidth={1.9}
+                stroke="rgba(206,134,160,0.8)" strokeWidth={1.7}
                 strokeDasharray="60 191" strokeLinecap="round"
                 rotation={227} originX={41} originY={41}
               />
@@ -430,7 +433,7 @@ const styles = StyleSheet.create({
   dot: { width: 9, height: 9, borderRadius: 5 },
   dotOn: { backgroundColor: '#1C1917', borderWidth: 1, borderColor: '#6B6B6B' },
   dotOff: { backgroundColor: '#F2F0EC' },
-  diffText: { fontSize: 13, color: '#8F7BF2' },
+  diffText: { fontSize: 13, color: '#B0B1E0' },
   outcomeRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 8 },
   miniStone: {
     width: 14, height: 14, borderRadius: 7, backgroundColor: '#121212',
@@ -471,7 +474,7 @@ const styles = StyleSheet.create({
   bigBtnOff: { opacity: 0.82 },
   bigIcon: { fontSize: 34, color: ui.ink, marginTop: -4 },
   ctrlLabel: {
-    fontSize: 10, letterSpacing: 2.2, color: '#A9ABA8',
+    fontSize: 10, letterSpacing: 2.2, color: '#8A8A8A',
     fontWeight: '600', textTransform: 'uppercase',
   },
 });

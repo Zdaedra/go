@@ -55,7 +55,9 @@ export const eyebrow = {
   color: ui.label,
 };
 
-export const eyebrowAccent = { ...eyebrow, color: ui.accentSoft };
+// Text-on-dark accent is a step dustier than the fill accent (panel
+// measurement: the mockup's label lilac is #A5A7FE-family, not #9D8CFF).
+export const eyebrowAccent = { ...eyebrow, color: '#A3A0F0' };
 
 export const cardStyle = {
   backgroundColor: ui.card,
