@@ -112,18 +112,30 @@ export default function Goban({
 
   const stoneR = 9.6; // 0.80 × cell, per mockup measurement
 
-  // Fine jittered vertical grain, deterministic (same LCG as the reference
-  // renderer, docs/design/screens/board.js).
-  const grainLines = React.useMemo(() => {
-    const out: { x: number; x2: number }[] = [];
+  // Deterministic wood texture: fine jittered grain lines (same LCG as the
+  // reference renderer) plus irregular wide planks — varied widths and
+  // opacities so the striations read organic, not metronomic.
+  const { grainLines, planks } = React.useMemo(() => {
+    const lines: { x: number; x2: number }[] = [];
     let gx = woodX + 4;
     let seed = 7;
     while (gx < woodX + woodW - 4) {
       seed = (seed * 16807) % 2147483647;
-      out.push({ x: gx, x2: gx + (seed % 3) - 1 });
+      lines.push({ x: gx, x2: gx + (seed % 3) - 1 });
       gx += 6 + (seed % 9);
     }
-    return out;
+    const bands: { x: number; w: number; o: number }[] = [];
+    let bx = woodX + 2;
+    let s2 = 42;
+    while (bx < woodX + woodW - 8) {
+      s2 = (s2 * 16807) % 2147483647;
+      const w = 6 + (s2 % 33);
+      s2 = (s2 * 16807) % 2147483647;
+      bands.push({ x: bx, w, o: 0.03 + (s2 % 8) * 0.009 });
+      s2 = (s2 * 16807) % 2147483647;
+      bx += w + 10 + (s2 % 26);
+    }
+    return { grainLines: lines, planks: bands };
   }, [woodX, woodW]);
 
   const renderStone = (at: number, color: 'b' | 'w', numText?: string, hot?: boolean) => {
@@ -204,15 +216,15 @@ export default function Goban({
               stroke="rgb(40,28,16)" strokeOpacity={0.068} strokeWidth={1}
             />
           ))}
-          {[0.09, 0.22, 0.38, 0.47, 0.63, 0.78, 0.9].map((t, i) => (
+          {planks.map((p, i) => (
             <Rect
-              key={i} x={woodX + woodW * t} y={woodY} width={1 + (i % 3) * 1.4}
-              height={woodH} fill={board.grain} opacity={board.grainOpacity * (0.6 + (i % 2) * 0.5)}
+              key={i} x={p.x} y={woodY} width={p.w}
+              height={woodH} fill={board.grain} opacity={p.o}
             />
           ))}
           <Rect
             x={woodX + 1} y={woodY + 1} width={woodW - 2} height={woodH - 2} rx={9.5}
-            fill="none" stroke="rgba(45,30,12,0.33)" strokeWidth={2}
+            fill="none" stroke="rgba(45,30,12,0.24)" strokeWidth={2}
           />
 
           {rows.map((r) => (
@@ -363,5 +375,5 @@ export default function Goban({
 
 const styles = StyleSheet.create({
   wrap: { width: '100%', alignItems: 'center' },
-  square: { width: '100%', maxWidth: 372 },
+  square: { width: '100%', maxWidth: 480 },
 });

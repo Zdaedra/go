@@ -31,7 +31,7 @@ export const boardThemes: Record<string, BoardTheme> = {
     line: 'rgba(46,32,16,0.85)',
     edgeLine: 'rgba(46,32,16,0.85)',
     hoshi: '#241A0C',
-    coordText: '#848484',
+    coordText: '#7E7A73',
     letter: '#7C6EE0',
     ghostOpacity: 0.42,
   },

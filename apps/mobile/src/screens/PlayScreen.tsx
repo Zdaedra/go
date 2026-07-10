@@ -18,7 +18,45 @@ import { useTrainingProfile } from '../state/trainingStats';
 import { ui, eyebrow, eyebrowAccent, cardStyle } from '../theme/uiTheme';
 import MistBackground from '../components/MistBackground';
 import HintBulb from '../components/HintBulb';
-import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
+import Svg, {
+  Circle, Defs, LinearGradient, RadialGradient, Stop, Path, Ellipse,
+} from 'react-native-svg';
+
+/** Glossy mini-stone (info values, color toggle) — matches the mockup's
+    specular black stone next to BEST OUTCOME. */
+function MiniStone({ color, size = 16 }: { color: 'b' | 'w'; size?: number }) {
+  const id = React.useId().replace(/[^a-zA-Z0-9]/g, '');
+  return (
+    <Svg width={size} height={size} viewBox="0 0 22 22">
+      <Defs>
+        <RadialGradient id={`ms-${id}`} cx="0.35" cy="0.3" r="0.9">
+          <Stop offset="0" stopColor={color === 'b' ? '#5A5A5A' : '#FFFFFF'} />
+          <Stop offset="0.5" stopColor={color === 'b' ? '#1B1B1B' : '#E9E7E1'} />
+          <Stop offset="1" stopColor={color === 'b' ? '#0B0B0B' : '#C9C7C2'} />
+        </RadialGradient>
+      </Defs>
+      <Circle
+        cx={11} cy={11} r={10} fill={`url(#ms-${id})`}
+        stroke="rgba(255,255,255,0.30)" strokeWidth={0.9}
+      />
+      <Ellipse cx={7.5} cy={6.5} rx={3.4} ry={1.6} fill="#FFFFFF" opacity={color === 'b' ? 0.35 : 0.7} />
+    </Svg>
+  );
+}
+
+/** Thin-stroked gear, as in the mockup's header buttons. */
+function GearIcon() {
+  const ticks = Array.from({ length: 8 }, (_, i) => {
+    const a = (i * Math.PI) / 4;
+    return `M ${12 + 6.4 * Math.sin(a)} ${12 - 6.4 * Math.cos(a)} L ${12 + 9.4 * Math.sin(a)} ${12 - 9.4 * Math.cos(a)}`;
+  }).join(' ');
+  return (
+    <Svg width={19} height={19} viewBox="0 0 24 24" fill="none">
+      <Circle cx={12} cy={12} r={4.1} stroke="rgba(255,255,255,0.85)" strokeWidth={1.5} />
+      <Path d={ticks} stroke="rgba(255,255,255,0.85)" strokeWidth={1.5} strokeLinecap="round" />
+    </Svg>
+  );
+}
 
 interface HistoryItem {
   board: string;
@@ -185,10 +223,10 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           style={styles.iconBtn}
           onPress={() => setMyColor(myColor === 'b' ? 'w' : 'b')}
         >
-          <Text style={styles.iconText}>{myColor === 'b' ? '⚫' : '⚪'}</Text>
+          <MiniStone color={myColor} size={17} />
         </Pressable>
         <Pressable style={styles.iconBtn} onPress={() => navigation.navigate('Settings')}>
-          <Text style={styles.iconText}>⚙︎</Text>
+          <GearIcon />
         </Pressable>
       </View>
 
@@ -208,13 +246,12 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         <View style={styles.openingRight}>
           <Text style={eyebrow}>Ход</Text>
           <View style={styles.diffRow}>
-            <View style={[styles.dot, toMove === 'b' ? styles.dotOn : styles.dotOff]} />
+            <MiniStone color={toMove} size={13} />
             <Text style={styles.diffText}>{toMove === 'b' ? 'Чёрные' : 'Белые'}</Text>
           </View>
           <Text style={[eyebrow, { marginTop: 12 }]}>Оценка</Text>
           <View style={styles.outcomeRow}>
-            <View style={[styles.miniStone,
-              branchResult === 'W+' ? styles.miniStoneWhite : null]} />
+            <MiniStone color={branchResult === 'W+' ? 'w' : 'b'} size={16} />
             <Text style={styles.outcomeText}>
               {branchResult ? RESULT_RU[branchResult] ?? branchResult : '—'}
             </Text>
@@ -258,7 +295,21 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         </Pressable>
       </View>
 
-      {/* bottom controls */}
+      {/* bottom controls under the violet dome glow */}
+      <View style={styles.controlsWrap}>
+      <Svg
+        pointerEvents="none" style={styles.dome}
+        width="100%" height={120} viewBox="0 0 427 120" preserveAspectRatio="none"
+      >
+        <Defs>
+          <RadialGradient id="dome-play" cx="0.5" cy="1" r="1">
+            <Stop offset="0" stopColor="#7A63F1" stopOpacity="0.20" />
+            <Stop offset="0.55" stopColor="#7A63F1" stopOpacity="0.08" />
+            <Stop offset="1" stopColor="#7A63F1" stopOpacity="0" />
+          </RadialGradient>
+        </Defs>
+        <Ellipse cx={213.5} cy={120} rx={250} ry={110} fill="url(#dome-play)" />
+      </Svg>
       <View style={styles.controls}>
         <View style={styles.ctrl}>
           <Pressable style={styles.sideBtn} onPress={() => setHistory([])}>
@@ -272,22 +323,25 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
             onPress={playNextMove}
             disabled={!nextSuggestion}
           >
-            {/* violet ring warming to copper at the lower-right, as in the
-                approved main-screen reference */}
+            {/* rose-copper ring, violet only at the upper-left quarter (the
+                violet impression in the mockup comes from the dome haze) */}
             <Svg style={StyleSheet.absoluteFill} viewBox="0 0 82 82">
               <Defs>
                 <LinearGradient id="bigring-play" x1="0" y1="0" x2="1" y2="1">
-                  <Stop offset="0" stopColor="#9D8CFF" />
-                  <Stop offset="0.45" stopColor="#8B7CF6" />
-                  <Stop offset="1" stopColor="#DE9660" />
+                  <Stop offset="0" stopColor="#6F5BD8" />
+                  <Stop offset="0.42" stopColor="#E0A57D" />
+                  <Stop offset="1" stopColor="#C58A6A" />
                 </LinearGradient>
               </Defs>
               <Circle
                 cx={41} cy={41} r={40} fill="none"
-                stroke="url(#bigring-play)" strokeWidth={1.7}
+                stroke="url(#bigring-play)" strokeWidth={1.6}
+              />
+              <Path
+                d="M 36 27 L 49 41 L 36 55"
+                stroke="#E8E8E8" strokeWidth={2.4} fill="none"
               />
             </Svg>
-            <Text style={styles.bigIcon}>›</Text>
           </Pressable>
           <Text style={styles.ctrlLabel}>Ход базы</Text>
         </View>
@@ -301,6 +355,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           </Pressable>
           <Text style={styles.ctrlLabel}>Назад</Text>
         </View>
+      </View>
       </View>
     </ScrollView>
     </View>
@@ -323,7 +378,7 @@ const styles = StyleSheet.create({
   name: { fontFamily: ui.serif, fontSize: 20, color: ui.ink },
   lvlRow: { flexDirection: 'row', alignItems: 'center', gap: 9, marginTop: 3 },
   lvlText: { fontSize: 12, color: ui.muted },
-  barTrack: { width: 84, height: 3, borderRadius: 2, backgroundColor: '#383838' },
+  barTrack: { width: 66, height: 3, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.14)' },
   barFill: { height: 3, borderRadius: 2, backgroundColor: ui.accent },
   iconBtn: {
     width: 34, height: 34, borderRadius: 11,
@@ -344,7 +399,7 @@ const styles = StyleSheet.create({
   dot: { width: 9, height: 9, borderRadius: 5 },
   dotOn: { backgroundColor: '#1C1917', borderWidth: 1, borderColor: '#6B6B6B' },
   dotOff: { backgroundColor: '#F2F0EC' },
-  diffText: { fontSize: 13, color: ui.lavender },
+  diffText: { fontSize: 13, color: '#8F7BF2' },
   outcomeRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 8 },
   miniStone: {
     width: 14, height: 14, borderRadius: 7, backgroundColor: '#121212',
@@ -364,9 +419,11 @@ const styles = StyleSheet.create({
   hintBtnOn: { borderColor: ui.accent, backgroundColor: 'rgba(139,124,246,0.10)' },
   hintText: { color: '#A79AF5', fontSize: 14.5 },
 
+  controlsWrap: { marginTop: 8 },
+  dome: { position: 'absolute', left: -16, right: -16, bottom: -24 },
   controls: {
     flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start',
-    gap: 46, marginTop: 8,
+    gap: 46,
   },
   ctrl: { alignItems: 'center', gap: 9 },
   sideBtn: {

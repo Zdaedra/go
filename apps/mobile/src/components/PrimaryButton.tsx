@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react';
 import { Pressable, Text, StyleSheet, StyleProp, ViewStyle, TextStyle } from 'react-native';
-import Svg, { Defs, LinearGradient, Stop, Rect, Path } from 'react-native-svg';
+import Svg, { Defs, LinearGradient, RadialGradient, Stop, Rect, Ellipse } from 'react-native-svg';
 
 const DOME_H = 14;
 const RADIUS = 12;
@@ -30,7 +30,6 @@ export default function PrimaryButton({
   const uid = React.useId().replace(/[^a-zA-Z0-9]/g, '');
   const ringId = `warmRing-${uid}`;
   const hazeId = `domeHaze-${uid}`;
-  const arcId = `domeArc-${uid}`;
 
   return (
     <Pressable
@@ -52,38 +51,25 @@ export default function PrimaryButton({
         >
           <Defs>
             <LinearGradient id={ringId} x1="0" y1="0" x2="1" y2="1">
-              <Stop offset="0" stopColor="#F1A6AD" />
-              <Stop offset="0.4" stopColor="#CE86A0" />
-              <Stop offset="0.72" stopColor="#C98870" />
+              <Stop offset="0" stopColor="#E0A57D" />
+              <Stop offset="0.45" stopColor="#D08F74" />
               <Stop offset="1" stopColor="#A17353" />
             </LinearGradient>
-            <LinearGradient id={hazeId} x1="0" y1="0" x2="0" y2="1">
-              <Stop offset="0" stopColor="#3E346C" stopOpacity="0.5" />
-              <Stop offset="1" stopColor="#241F3A" stopOpacity="0" />
-            </LinearGradient>
-            <LinearGradient id={arcId} x1="0" y1="0" x2="1" y2="0">
-              <Stop offset="0" stopColor="#6C61BE" stopOpacity="0" />
-              <Stop offset="0.25" stopColor="#6C61BE" stopOpacity="0.65" />
-              <Stop offset="0.5" stopColor="#7174C3" stopOpacity="0.8" />
-              <Stop offset="0.75" stopColor="#6C61BE" stopOpacity="0.65" />
-              <Stop offset="1" stopColor="#6C61BE" stopOpacity="0" />
-            </LinearGradient>
+            <RadialGradient id={hazeId} cx="0.5" cy="1" r="1">
+              <Stop offset="0" stopColor="#8B7CF6" stopOpacity="0.20" />
+              <Stop offset="0.55" stopColor="#8B7CF6" stopOpacity="0.08" />
+              <Stop offset="1" stopColor="#8B7CF6" stopOpacity="0" />
+            </RadialGradient>
           </Defs>
           {dome && dim.w > 80 && (
-            <>
-              <Path
-                d={`M ${dim.w * 0.11} 0 Q ${dim.w / 2} ${-2 * DOME_H} ${dim.w * 0.89} 0 Z`}
-                fill={`url(#${hazeId})`}
-              />
-              <Path
-                d={`M ${dim.w * 0.11} 0 Q ${dim.w / 2} ${-2 * DOME_H} ${dim.w * 0.89} 0`}
-                stroke={`url(#${arcId})`} strokeWidth={1.4} fill="none"
-              />
-            </>
+            <Ellipse
+              cx={dim.w / 2} cy={2} rx={dim.w * 0.44} ry={DOME_H * 2}
+              fill={`url(#${hazeId})`}
+            />
           )}
           <Rect
-            x={0.8} y={0.8} width={dim.w - 1.6} height={dim.h - 1.6}
-            rx={RADIUS} stroke={`url(#${ringId})`} strokeWidth={1.6} fill="none"
+            x={0.6} y={0.6} width={dim.w - 1.2} height={dim.h - 1.2}
+            rx={RADIUS} stroke={`url(#${ringId})`} strokeWidth={1.1} fill="none"
           />
         </Svg>
       )}
