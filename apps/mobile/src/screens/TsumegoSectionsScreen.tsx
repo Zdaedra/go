@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)', borderRadius: 10,
-    paddingVertical: 10, paddingHorizontal: 14, backgroundColor: 'rgba(6,6,7,0.66)',
+    paddingVertical: 10, paddingHorizontal: 14, backgroundColor: 'rgba(6,6,7,0.40)',
   },
   rowMain: { flex: 1, gap: 6 },
   secTitle: { fontSize: 18, fontFamily: 'Playfair', color: '#EFECE7' },

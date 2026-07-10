@@ -7,7 +7,7 @@
 export const ui = {
   // grounds
   bg: '#121213',
-  card: 'rgba(6,6,7,0.66)',
+  card: 'rgba(6,6,7,0.40)',
   cardSolid: '#1A1715',
   hairline: 'rgba(255,255,255,0.08)',
   hairlineStrong: 'rgba(255,255,255,0.10)',

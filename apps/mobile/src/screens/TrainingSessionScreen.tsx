@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   status: { fontSize: 17, fontFamily: 'Playfair', minHeight: 24, color: '#EFECE7', marginTop: 6 },
   turnCard: {
     flexDirection: 'row', alignItems: 'center', gap: 12,
-    backgroundColor: 'rgba(6,6,7,0.66)', borderWidth: 1,
+    backgroundColor: 'rgba(6,6,7,0.40)', borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.08)', borderRadius: 16, padding: 14,
   },
   turnEyebrow: {
