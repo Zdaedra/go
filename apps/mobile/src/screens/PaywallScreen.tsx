@@ -4,37 +4,39 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet, Alert } from 'react-native';
 import { useAuth } from '../state/AuthContext';
+import { useT } from '../i18n';
 import { PLANS, TRIAL_DAYS, CONTENT } from '../state/plans';
 import MistBackground from '../components/MistBackground';
 import PrimaryButton from '../components/PrimaryButton';
 
 export default function PaywallScreen({ navigation }: { navigation: any }) {
   const auth = useAuth();
+  const t = useT();
   const [planId, setPlanId] = useState(PLANS[0].id);
   const plan = PLANS.find((p) => p.id === planId)!;
+  const planTitle = (id: string) => t(id === 'yearly' ? 'plan_year' : 'plan_month');
 
   const purchase = () => {
     // TODO: RevenueCat purchase flow (Purchases.purchasePackage(plan.productId)).
-    Alert.alert(
-      'Скоро',
-      `Оплата (${plan.price}) подключается через RevenueCat. В тестовой сборке подписку можно включить кнопкой ниже.`,
-    );
+    Alert.alert(t('soon_title'), t('soon_body', { price: plan.price }));
   };
 
   const restore = () => {
     // TODO: Purchases.restorePurchases()
-    Alert.alert('Восстановление', 'Покупок не найдено.');
+    Alert.alert(t('restore_title'), t('restore_body'));
   };
 
   return (
     <View style={styles.page}>
       <MistBackground />
-      <Text style={styles.title}>Полная база дебютов и тренировка</Text>
+      <Text style={styles.title}>{t('paywall_title')}</Text>
       <Text style={styles.body}>
-        Первые {TRIAL_DAYS} дней — бесплатно, без ограничений. Дальше подписка
-        открывает всё: {CONTENT.openings} дебютов, {CONTENT.branches} веток с
-        названиями и разбором, {CONTENT.tsumego}+ задач для тренировки, подсказка
-        лучшего хода и проигрывание всех линий.
+        {t('paywall_body', {
+          days: TRIAL_DAYS,
+          openings: CONTENT.openings,
+          branches: CONTENT.branches,
+          tsumego: CONTENT.tsumego,
+        })}
       </Text>
 
       <View style={styles.plans}>
@@ -44,23 +46,23 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
             onPress={() => setPlanId(p.id)}
             style={[styles.plan, planId === p.id && styles.planActive]}
           >
-            <Text style={styles.planTitle}>{p.title}</Text>
+            <Text style={styles.planTitle}>{planTitle(p.id)}</Text>
             <Text style={styles.planPrice}>{p.price}</Text>
-            {p.note && <Text style={styles.planNote}>{p.note}</Text>}
+            {p.id === 'yearly' && <Text style={styles.planNote}>{t('year_note')}</Text>}
           </Pressable>
         ))}
       </View>
 
       <PrimaryButton
-        label={`Оформить — ${plan.price}`}
+        label={t('purchase', { price: plan.price })}
         onPress={purchase}
         textStyle={{ fontSize: 17 }}
       />
       <Pressable onPress={restore}>
-        <Text style={styles.link}>Восстановить покупку</Text>
+        <Text style={styles.link}>{t('restore')}</Text>
       </Pressable>
       <Pressable onPress={() => navigation.goBack()}>
-        <Text style={[styles.link, { color: '#8E8B85' }]}>Не сейчас</Text>
+        <Text style={[styles.link, { color: '#8E8B85' }]}>{t('not_now')}</Text>
       </Pressable>
 
       {__DEV__ && (
@@ -68,7 +70,7 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
           style={styles.devBtn}
           onPress={() => { auth.setPlan('pro'); navigation.goBack(); }}
         >
-          <Text style={styles.devBtnText}>DEV: включить подписку локально</Text>
+          <Text style={styles.devBtnText}>{t('dev_unlock')}</Text>
         </Pressable>
       )}
     </View>

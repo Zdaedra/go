@@ -13,7 +13,7 @@ import {
 } from '../engine/identify';
 import { openingDisplayName } from '../data/names';
 import branchDescriptions from '../data/descriptions.json';
-import { allBranches } from '../engine/identify';
+import { useT } from '../i18n';
 import { useAuth } from '../state/AuthContext';
 import { useAccess } from '../state/useTrial';
 import { ui, eyebrow, eyebrowAccent, cardStyle } from '../theme/uiTheme';
@@ -70,20 +70,17 @@ interface HistoryItem {
 
 const TRIAL_NOTICE_DAYS = 3;
 
-const RESULT_RU: Record<string, string> = {
-  even: 'Ровная игра',
-  'B+': 'Чёрные ведут',
-  'W+': 'Белые ведут',
+const RESULT_KEY: Record<string, string> = {
+  even: 'result_even',
+  'B+': 'result_black',
+  'W+': 'result_white',
 };
-
-function difficultyMeta(family: string, opening: string) {
-  // Star rating comes from the branch data (1..3), mapped to dots + word.
-  const b = allBranches().find((x) => x.family === family && x.opening === opening);
-  return null; // difficulty per opening lives in openings.json; dots default 2
-}
 
 export default function PlayScreen({ navigation }: { navigation: any }) {
   const insets = useSafeAreaInsets();
+  const t = useT();
+  const resultRu = (r: string | null | undefined) =>
+    r ? (RESULT_KEY[r] ? t(RESULT_KEY[r]) : r) : '';
   const auth = useAuth();
   const access = useAccess();
   const [history, setHistory] = useState<HistoryItem[]>([]);
@@ -255,7 +252,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
 
   // ---- opening card data ----
   const openingName = locked
-    ? 'Скрыто 🔒'
+    ? t('opening_hidden')
     : completed?.name
       ? completed.name
       : result.status === 'identified'
@@ -263,10 +260,10 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       : result.status === 'candidates'
         // Position is ambiguous — don't commit to a name (nor a family +
         // count, which read like a title). Prompt for more stones instead.
-        ? 'Дебют пока не определён'
+        ? t('opening_undetermined')
         : result.status === 'unknown'
-          ? 'Вне базы'
-          : 'Новая партия';
+          ? t('out_of_base')
+          : t('new_game');
   // The verdict is honest only when the line is pinned down: with many
   // candidate openings the deepest match's result would be a guess.
   const branchResult = completed?.result
@@ -291,30 +288,28 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       : null;
 
   const explainLabel = (() => {
-    if (!access.open) return 'Дебют';
-    if (completed) return 'Дебют завершён ✓';
-    if (result.status === 'candidates') return `Возможных дебютов: ${result.openings.length}`;
-    if (result.status === 'unknown') return 'Вне базы';
-    if (result.status === 'empty') return 'Начало';
-    return toMove === myColor ? 'Твой ход' : 'Ход соперника';
+    if (!access.open) return t('title_opening');
+    if (completed) return t('opening_done');
+    if (result.status === 'candidates') return t('candidates_label', { n: result.openings.length });
+    if (result.status === 'unknown') return t('out_of_base');
+    if (result.status === 'empty') return t('start');
+    return toMove === myColor ? t('your_move') : t('opponent_move');
   })();
 
   const explainText = (() => {
-    if (!access.open) return 'Бесплатная неделя закончилась — подписка откроет базу.';
+    if (!access.open) return t('trial_over');
     if (completed) {
-      const verdict = completed.result
-        ? ` Оценка: ${RESULT_RU[completed.result] ?? completed.result}.`
-        : '';
-      return `Дебют пройден полностью${completed.name ? ` — ${completed.name}` : ''}.${verdict}`;
+      const verdict = completed.result ? t('eval_suffix', { v: resultRu(completed.result) }) : '';
+      return t('completed_full', { name: completed.name ?? '' }) + verdict;
     }
     switch (result.status) {
-      case 'empty': return 'Поставь первый камень — база опознает дебют и ветку.';
-      case 'unknown': return 'Такого дебюта в базе нет. «Назад» вернёт в книжную линию.';
+      case 'empty': return t('place_first');
+      case 'unknown': return t('not_in_base');
       case 'identified':
         return identifiedDesc
           ?? (branch
-            ? `Продолжай: ${openingName} — ветка ${branch.branch.branch_no}.`
-            : `Продолжай дебют ${openingName}.`);
+            ? t('continue_line', { name: openingName, n: branch.branch.branch_no })
+            : t('continue_opening', { name: openingName }));
       case 'candidates':
         return null; // rendered as a list below
     }
@@ -334,7 +329,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         </View>
         <View style={{ flex: 1 }}>
           <Text style={styles.name}>{displayName}</Text>
-          <Text style={styles.nameSub}>Дебюты Го 9×9</Text>
+          <Text style={styles.nameSub}>{t('app_subtitle')}</Text>
         </View>
         <Pressable
           style={styles.iconBtn}
@@ -350,7 +345,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       {/* opening name card — name + whose move + verdict, no prose here */}
       <View style={[styles.card, styles.opening]}>
         <View style={styles.openingLeft}>
-          <Text style={eyebrowAccent}>Дебют</Text>
+          <Text style={eyebrowAccent}>{t('title_opening')}</Text>
           <Text
             style={styles.openingTitle}
             numberOfLines={2}
@@ -359,16 +354,16 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           >{openingName}</Text>
         </View>
         <View style={styles.openingRight}>
-          <Text style={eyebrow}>Ход</Text>
+          <Text style={eyebrow}>{t('move')}</Text>
           <View style={styles.diffRow}>
             <MiniStone color={toMove} size={14} />
-            <Text style={styles.diffText}>{toMove === 'b' ? 'Чёрные' : 'Белые'}</Text>
+            <Text style={styles.diffText}>{toMove === 'b' ? t('black') : t('white')}</Text>
           </View>
-          <Text style={[eyebrow, { marginTop: 12 }]}>Оценка</Text>
+          <Text style={[eyebrow, { marginTop: 12 }]}>{t('eval')}</Text>
           <View style={styles.outcomeRow}>
             <MiniStone color={branchResult === 'W+' ? 'w' : 'b'} size={14} />
             <Text style={styles.outcomeText}>
-              {branchResult ? RESULT_RU[branchResult] ?? branchResult : '—'}
+              {branchResult ? resultRu(branchResult) : '—'}
             </Text>
           </View>
         </View>
@@ -388,7 +383,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           <Pressable style={styles.sideBtn} onPress={() => setHistory([])}>
             <Text style={styles.sideIcon}>↻</Text>
           </Pressable>
-          <Text style={styles.ctrlLabel}>Заново</Text>
+          <Text style={styles.ctrlLabel}>{t('restart')}</Text>
         </View>
         <View style={styles.ctrl}>
           <Pressable
@@ -398,7 +393,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           >
             <HintBulb size={24} color={showHints ? '#EEAB94' : '#C9C6C0'} />
           </Pressable>
-          <Text style={styles.ctrlLabel}>{showHints ? 'Скрыть' : 'Лучший ход'}</Text>
+          <Text style={styles.ctrlLabel}>{showHints ? t('hide') : t('best_move')}</Text>
         </View>
         <View style={styles.ctrl}>
           <Pressable
@@ -408,7 +403,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
           >
             <Text style={styles.sideIcon}>‹</Text>
           </Pressable>
-          <Text style={styles.ctrlLabel}>Назад</Text>
+          <Text style={styles.ctrlLabel}>{t('back')}</Text>
         </View>
       </View>
 
@@ -421,9 +416,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
 
         {candidateOpenings ? (
           <View style={styles.candList}>
-            <Text style={styles.candHint}>
-              Поставь ещё ход, чтобы определить дебют — или выбери его здесь:
-            </Text>
+            <Text style={styles.candHint}>{t('candidates_hint')}</Text>
             {candidateOpenings.map((o, i) => (
               <Pressable
                 key={`${o.family}/${o.opening}-${i}`}
@@ -441,16 +434,14 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         )}
 
         {showHints && nextSuggestion && !completed && (
-          <Text style={[styles.turnSub, { color: ui.peach }]}>
-            ★ — лучший ход по базе. Точная оценка появится с KataGo.
-          </Text>
+          <Text style={[styles.turnSub, { color: ui.peach }]}>{t('best_move_note')}</Text>
         )}
         {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
-          <Text style={styles.turnSub}>Бесплатных дней осталось: {access.trial.daysLeft}</Text>
+          <Text style={styles.turnSub}>{t('trial_days_left', { n: access.trial.daysLeft })}</Text>
         )}
         {locked && (
           <Pressable onPress={() => navigation.navigate('Paywall')}>
-            <Text style={[styles.turnSub, { color: ui.peach }]}>Оформить подписку →</Text>
+            <Text style={[styles.turnSub, { color: ui.peach }]}>{t('subscribe_cta')}</Text>
           </Pressable>
         )}
       </View>

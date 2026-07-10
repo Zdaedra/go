@@ -1,0 +1,555 @@
+{
+  "tab_play": {
+    "ru": "Игра",
+    "en": "Play",
+    "de": "Spiel",
+    "fr": "Jouer",
+    "es": "Jugar"
+  },
+  "tab_learn": {
+    "ru": "Обучение",
+    "en": "Learn",
+    "de": "Lernen",
+    "fr": "Apprendre",
+    "es": "Aprender"
+  },
+  "tab_settings": {
+    "ru": "Настройки",
+    "en": "Settings",
+    "de": "Einstellungen",
+    "fr": "Paramètres",
+    "es": "Ajustes"
+  },
+  "title_opening": {
+    "ru": "Дебют",
+    "en": "Opening",
+    "de": "Eröffnung",
+    "fr": "Ouverture",
+    "es": "Apertura"
+  },
+  "title_tsumego_list": {
+    "ru": "Задачи",
+    "en": "Problems",
+    "de": "Aufgaben",
+    "fr": "Problèmes",
+    "es": "Problemas"
+  },
+  "title_tsumego": {
+    "ru": "Задача",
+    "en": "Problem",
+    "de": "Aufgabe",
+    "fr": "Problème",
+    "es": "Problema"
+  },
+  "title_training": {
+    "ru": "Тренировка",
+    "en": "Training",
+    "de": "Training",
+    "fr": "Entraînement",
+    "es": "Entrenamiento"
+  },
+  "title_paywall": {
+    "ru": "Подписка",
+    "en": "Subscription",
+    "de": "Abo",
+    "fr": "Abonnement",
+    "es": "Suscripción"
+  },
+  "app_subtitle": {
+    "ru": "Дебюты Go",
+    "en": "Go Openings",
+    "de": "Go-Eröffnungen",
+    "fr": "Ouvertures de go",
+    "es": "Aperturas de Go"
+  },
+  "move": {
+    "ru": "Ход",
+    "en": "Move",
+    "de": "Zug",
+    "fr": "Coup",
+    "es": "Jugada"
+  },
+  "eval": {
+    "ru": "Оценка",
+    "en": "Evaluation",
+    "de": "Bewertung",
+    "fr": "Évaluation",
+    "es": "Evaluación"
+  },
+  "black": {
+    "ru": "Чёрные",
+    "en": "Black",
+    "de": "Schwarz",
+    "fr": "Noirs",
+    "es": "Negras"
+  },
+  "white": {
+    "ru": "Белые",
+    "en": "White",
+    "de": "Weiß",
+    "fr": "Blancs",
+    "es": "Blancas"
+  },
+  "result_even": {
+    "ru": "Ровная игра",
+    "en": "Even game",
+    "de": "Ausgeglichenes Spiel",
+    "fr": "Partie équilibrée",
+    "es": "Partida igualada"
+  },
+  "result_black": {
+    "ru": "Чёрные ведут",
+    "en": "Black is ahead",
+    "de": "Schwarz führt",
+    "fr": "Les Noirs mènent",
+    "es": "Las negras van por delante"
+  },
+  "result_white": {
+    "ru": "Белые ведут",
+    "en": "White is ahead",
+    "de": "Weiß führt",
+    "fr": "Les Blancs mènent",
+    "es": "Las blancas van por delante"
+  },
+  "opening_hidden": {
+    "ru": "Скрыто 🔒",
+    "en": "Hidden 🔒",
+    "de": "Verborgen 🔒",
+    "fr": "Masqué 🔒",
+    "es": "Oculto 🔒"
+  },
+  "opening_undetermined": {
+    "ru": "Дебют пока не определён",
+    "en": "Opening not determined yet",
+    "de": "Eröffnung noch nicht bestimmt",
+    "fr": "Ouverture pas encore déterminée",
+    "es": "Apertura aún sin determinar"
+  },
+  "out_of_base": {
+    "ru": "Вне базы",
+    "en": "Out of book",
+    "de": "Nicht im Buch",
+    "fr": "Hors base",
+    "es": "Fuera de la base"
+  },
+  "new_game": {
+    "ru": "Новая партия",
+    "en": "New game",
+    "de": "Neue Partie",
+    "fr": "Nouvelle partie",
+    "es": "Nueva partida"
+  },
+  "opening_done": {
+    "ru": "Дебют завершён ✓",
+    "en": "Opening complete ✓",
+    "de": "Eröffnung abgeschlossen ✓",
+    "fr": "Ouverture terminée ✓",
+    "es": "Apertura completada ✓"
+  },
+  "your_move": {
+    "ru": "Твой ход",
+    "en": "Your move",
+    "de": "Du bist am Zug",
+    "fr": "À toi de jouer",
+    "es": "Tu turno"
+  },
+  "opponent_move": {
+    "ru": "Ход соперника",
+    "en": "Opponent’s move",
+    "de": "Zug des Gegners",
+    "fr": "Coup de l’adversaire",
+    "es": "Jugada del rival"
+  },
+  "start": {
+    "ru": "Начало",
+    "en": "Start",
+    "de": "Start",
+    "fr": "Début",
+    "es": "Inicio"
+  },
+  "restart": {
+    "ru": "Заново",
+    "en": "Restart",
+    "de": "Neu starten",
+    "fr": "Recommencer",
+    "es": "Reiniciar"
+  },
+  "back": {
+    "ru": "Назад",
+    "en": "Back",
+    "de": "Zurück",
+    "fr": "Retour",
+    "es": "Atrás"
+  },
+  "best_move": {
+    "ru": "Лучший ход",
+    "en": "Best move",
+    "de": "Bester Zug",
+    "fr": "Meilleur coup",
+    "es": "Mejor jugada"
+  },
+  "hide": {
+    "ru": "Скрыть",
+    "en": "Hide",
+    "de": "Ausblenden",
+    "fr": "Masquer",
+    "es": "Ocultar"
+  },
+  "candidates_label": {
+    "ru": "Возможных дебютов: {n}",
+    "en": "Possible openings: {n}",
+    "de": "Mögliche Eröffnungen: {n}",
+    "fr": "Ouvertures possibles : {n}",
+    "es": "Aperturas posibles: {n}"
+  },
+  "candidates_hint": {
+    "ru": "Поставь ещё ход, чтобы определить дебют — или выбери его здесь:",
+    "en": "Play one more move to identify the opening — or choose it here:",
+    "de": "Setze noch einen Stein, um die Eröffnung zu bestimmen – oder wähle sie hier aus:",
+    "fr": "Joue encore un coup pour déterminer l’ouverture — ou choisis-la ici :",
+    "es": "Haz otra jugada para determinar la apertura, o elígela aquí:"
+  },
+  "place_first": {
+    "ru": "Поставь первый камень — база опознает дебют и ветку.",
+    "en": "Place the first stone — the database will identify the opening and branch.",
+    "de": "Setze den ersten Stein – die Datenbank erkennt Eröffnung und Variante.",
+    "fr": "Place la première pierre — la base reconnaîtra l’ouverture et la variante.",
+    "es": "Coloca la primera piedra: la base identificará la apertura y la variante."
+  },
+  "not_in_base": {
+    "ru": "Такого дебюта в базе нет. «Назад» вернёт в книжную линию.",
+    "en": "This opening isn’t in the database. «Back» returns to the book line.",
+    "de": "Diese Eröffnung ist nicht in der Datenbank. «Zurück» bringt dich zur Buchlinie zurück.",
+    "fr": "Cette ouverture n’est pas dans la base. «Retour» te ramènera à la ligne du livre.",
+    "es": "Esa apertura no está en la base. «Atrás» te devolverá a la línea del libro."
+  },
+  "continue_opening": {
+    "ru": "Продолжай дебют {name}.",
+    "en": "Continue the {name} opening.",
+    "de": "Spiele die Eröffnung {name} weiter.",
+    "fr": "Continue l’ouverture {name}.",
+    "es": "Continúa la apertura {name}."
+  },
+  "continue_line": {
+    "ru": "Продолжай: {name} — ветка {n}.",
+    "en": "Continue: {name} — branch {n}.",
+    "de": "Weiter: {name} — Variante {n}.",
+    "fr": "Continue : {name} — variante {n}.",
+    "es": "Continúa: {name} — variante {n}."
+  },
+  "completed_full": {
+    "ru": "Дебют пройден полностью — {name}.",
+    "en": "Opening completed in full — {name}.",
+    "de": "Eröffnung vollständig abgeschlossen — {name}.",
+    "fr": "Ouverture entièrement terminée — {name}.",
+    "es": "Apertura completada por completo — {name}."
+  },
+  "eval_suffix": {
+    "ru": " Оценка: {v}.",
+    "en": " Evaluation: {v}.",
+    "de": " Bewertung: {v}.",
+    "fr": " Évaluation : {v}.",
+    "es": " Evaluación: {v}."
+  },
+  "best_move_note": {
+    "ru": "★ — лучший ход по базе. Точная оценка появится с KataGo.",
+    "en": "★ — best move according to the database. The exact evaluation will appear with KataGo.",
+    "de": "★ — bester Zug laut Datenbank. Die genaue Bewertung erscheint mit KataGo.",
+    "fr": "★ — meilleur coup selon la base. L’évaluation précise arrivera avec KataGo.",
+    "es": "★ — mejor jugada según la base. La evaluación exacta aparecerá con KataGo."
+  },
+  "trial_days_left": {
+    "ru": "Бесплатных дней осталось: {n}",
+    "en": "Free days left: {n}",
+    "de": "Kostenlose Tage übrig: {n}",
+    "fr": "Jours gratuits restants : {n}",
+    "es": "Días gratis restantes: {n}"
+  },
+  "subscribe_cta": {
+    "ru": "Оформить подписку →",
+    "en": "Subscribe →",
+    "de": "Abo abschließen →",
+    "fr": "S’abonner →",
+    "es": "Suscribirse →"
+  },
+  "trial_over": {
+    "ru": "Бесплатная неделя закончилась — подписка откроет базу.",
+    "en": "Your free week is over — a subscription unlocks the database.",
+    "de": "Deine kostenlose Woche ist vorbei — ein Abo schaltet die Datenbank frei.",
+    "fr": "Votre semaine gratuite est terminée — l’abonnement débloque la base.",
+    "es": "Tu semana gratis ha terminado — la suscripción desbloquea la base."
+  },
+  "section_board": {
+    "ru": "Доска",
+    "en": "Board",
+    "de": "Brett",
+    "fr": "Plateau",
+    "es": "Tablero"
+  },
+  "section_stones": {
+    "ru": "Камни",
+    "en": "Stones",
+    "de": "Steine",
+    "fr": "Pierres",
+    "es": "Piedras"
+  },
+  "themes_note": {
+    "ru": "Темы доски и камней независимы.",
+    "en": "Board and stone themes are independent.",
+    "de": "Brett- und Stein-Designs sind unabhängig voneinander.",
+    "fr": "Les thèmes du plateau et des pierres sont indépendants.",
+    "es": "Los temas del tablero y de las piedras son independientes."
+  },
+  "section_account": {
+    "ru": "Аккаунт",
+    "en": "Account",
+    "de": "Konto",
+    "fr": "Compte",
+    "es": "Cuenta"
+  },
+  "guest_mode": {
+    "ru": "Гостевой режим",
+    "en": "Guest mode",
+    "de": "Gastmodus",
+    "fr": "Mode invité",
+    "es": "Modo invitado"
+  },
+  "plan_pro": {
+    "ru": "подписка (безлимит)",
+    "en": "subscription (unlimited)",
+    "de": "Abo (unbegrenzt)",
+    "fr": "abonnement (illimité)",
+    "es": "suscripción (ilimitada)"
+  },
+  "plan_free": {
+    "ru": "бесплатный (7 дней)",
+    "en": "free (7 days)",
+    "de": "kostenlos (7 Tage)",
+    "fr": "gratuit (7 jours)",
+    "es": "gratis (7 días)"
+  },
+  "plan_label": {
+    "ru": "тариф",
+    "en": "plan",
+    "de": "Tarif",
+    "fr": "offre",
+    "es": "plan"
+  },
+  "sign_out": {
+    "ru": "Выйти",
+    "en": "Sign out",
+    "de": "Abmelden",
+    "fr": "Se déconnecter",
+    "es": "Cerrar sesión"
+  },
+  "section_dev": {
+    "ru": "Разработка",
+    "en": "Development",
+    "de": "Entwicklung",
+    "fr": "Développement",
+    "es": "Desarrollo"
+  },
+  "unlimited": {
+    "ru": "Безлимит",
+    "en": "Unlimited",
+    "de": "Unbegrenzt",
+    "fr": "Illimité",
+    "es": "Ilimitado"
+  },
+  "trial_paywall": {
+    "ru": "Триал/пейвол",
+    "en": "Trial/paywall",
+    "de": "Testphase/Paywall",
+    "fr": "Essai/paywall",
+    "es": "Prueba/paywall"
+  },
+  "section_language": {
+    "ru": "Язык",
+    "en": "Language",
+    "de": "Sprache",
+    "fr": "Langue",
+    "es": "Idioma"
+  },
+  "auth_subtitle": {
+    "ru": "Ставь камни — приложение назовёт дебют, ветку и покажет продолжения.",
+    "en": "Place stones — the app will name the opening and branch, and show continuations.",
+    "de": "Setze Steine — die App nennt Eröffnung und Variante und zeigt Fortsetzungen.",
+    "fr": "Posez des pierres — l’app nomme l’ouverture et la variante, puis affiche les suites.",
+    "es": "Coloca piedras: la app identificará la apertura y la variante, y mostrará continuaciones."
+  },
+  "email": {
+    "ru": "Email",
+    "en": "Email",
+    "de": "E-Mail",
+    "fr": "E-mail",
+    "es": "Email"
+  },
+  "get_code": {
+    "ru": "Получить код",
+    "en": "Get code",
+    "de": "Code anfordern",
+    "fr": "Obtenir le code",
+    "es": "Obtener código"
+  },
+  "sending": {
+    "ru": "Отправляем…",
+    "en": "Sending…",
+    "de": "Wird gesendet…",
+    "fr": "Envoi…",
+    "es": "Enviando…"
+  },
+  "code_label": {
+    "ru": "Код из письма ({email})",
+    "en": "Code from email ({email})",
+    "de": "Code aus der E-Mail ({email})",
+    "fr": "Code reçu par e-mail ({email})",
+    "es": "Código del email ({email})"
+  },
+  "sign_in": {
+    "ru": "Войти",
+    "en": "Sign in",
+    "de": "Anmelden",
+    "fr": "Se connecter",
+    "es": "Iniciar sesión"
+  },
+  "verifying": {
+    "ru": "Проверяем…",
+    "en": "Verifying…",
+    "de": "Wird geprüft…",
+    "fr": "Vérification…",
+    "es": "Verificando…"
+  },
+  "other_email": {
+    "ru": "Другой email",
+    "en": "Different email",
+    "de": "Andere E-Mail",
+    "fr": "Autre e-mail",
+    "es": "Otro email"
+  },
+  "continue_guest": {
+    "ru": "Продолжить без аккаунта",
+    "en": "Continue without an account",
+    "de": "Ohne Konto fortfahren",
+    "fr": "Continuer sans compte",
+    "es": "Continuar sin cuenta"
+  },
+  "err_email": {
+    "ru": "Похоже, это не email. Проверь адрес.",
+    "en": "That doesn’t look like an email. Check the address.",
+    "de": "Das sieht nicht nach einer E-Mail-Adresse aus. Prüfe die Adresse.",
+    "fr": "Cela ne ressemble pas à un e-mail. Vérifiez l’adresse.",
+    "es": "No parece un email. Comprueba la dirección."
+  },
+  "err_no_backend": {
+    "ru": "Сервер не настроен. Войди как гость (режим разработки).",
+    "en": "Server isn’t configured. Sign in as a guest (development mode).",
+    "de": "Der Server ist nicht eingerichtet. Melde dich als Gast an (Entwicklungsmodus).",
+    "fr": "Le serveur n’est pas configuré. Connectez-vous en invité (mode développement).",
+    "es": "El servidor no está configurado. Entra como invitado (modo de desarrollo)."
+  },
+  "err_send": {
+    "ru": "Не удалось отправить код. Проверь сеть и попробуй ещё раз.",
+    "en": "Couldn’t send the code. Check your connection and try again.",
+    "de": "Der Code konnte nicht gesendet werden. Prüfe die Verbindung und versuche es erneut.",
+    "fr": "Impossible d’envoyer le code. Vérifiez la connexion et réessayez.",
+    "es": "No se pudo enviar el código. Comprueba la conexión e inténtalo de nuevo."
+  },
+  "err_code": {
+    "ru": "Код не подошёл. Проверь письмо и попробуй ещё раз.",
+    "en": "That code didn’t work. Check the email and try again.",
+    "de": "Der Code passt nicht. Prüfe die E-Mail und versuche es erneut.",
+    "fr": "Ce code ne fonctionne pas. Vérifiez l’e-mail et réessayez.",
+    "es": "Ese código no es válido. Revisa el email e inténtalo de nuevo."
+  },
+  "paywall_title": {
+    "ru": "Полная база дебютов и тренировка",
+    "en": "Full openings database and training",
+    "de": "Vollständige Eröffnungsdatenbank und Training",
+    "fr": "Base complète d’ouvertures et entraînement",
+    "es": "Base completa de aperturas y entrenamiento"
+  },
+  "paywall_body": {
+    "ru": "Первые {days} дней — бесплатно, без ограничений. Дальше подписка открывает всё: {openings} дебютов, {branches} веток с названиями и разбором, {tsumego}+ задач для тренировки, подсказка лучшего хода и проигрывание всех линий.",
+    "en": "The first {days} days are free, with no limits. After that, a subscription unlocks everything: {openings} openings, {branches} branches with names and analysis, {tsumego}+ training problems, best-move hints, and playback of all lines.",
+    "de": "Die ersten {days} Tage sind kostenlos und unbegrenzt. Danach schaltet ein Abo alles frei: {openings} Eröffnungen, {branches} Varianten mit Namen und Analyse, {tsumego}+ Aufgaben zum Trainieren, Hinweise zum besten Zug und Wiedergabe aller Linien.",
+    "fr": "Les {days} premiers jours sont gratuits, sans limite. Ensuite, l’abonnement débloque tout : {openings} ouvertures, {branches} variantes avec noms et analyse, {tsumego}+ problèmes d’entraînement, indice du meilleur coup et lecture de toutes les lignes.",
+    "es": "Los primeros {days} días son gratis y sin límites. Después, la suscripción desbloquea todo: {openings} aperturas, {branches} variantes con nombres y análisis, {tsumego}+ problemas de entrenamiento, pista del mejor movimiento y reproducción de todas las líneas."
+  },
+  "plan_year": {
+    "ru": "Год",
+    "en": "Year",
+    "de": "Jahr",
+    "fr": "Année",
+    "es": "Año"
+  },
+  "plan_month": {
+    "ru": "Месяц",
+    "en": "Month",
+    "de": "Monat",
+    "fr": "Mois",
+    "es": "Mes"
+  },
+  "year_note": {
+    "ru": "выгоднее 40% — $3 в месяц",
+    "en": "40% better value — $3 per month",
+    "de": "40% günstiger — $3 pro Monat",
+    "fr": "40 % plus avantageux — $3 par mois",
+    "es": "40% más barato — $3 al mes"
+  },
+  "purchase": {
+    "ru": "Оформить — {price}",
+    "en": "Subscribe — {price}",
+    "de": "Abonnieren — {price}",
+    "fr": "S’abonner — {price}",
+    "es": "Suscribirse — {price}"
+  },
+  "restore": {
+    "ru": "Восстановить покупку",
+    "en": "Restore purchase",
+    "de": "Kauf wiederherstellen",
+    "fr": "Restaurer l’achat",
+    "es": "Restaurar compra"
+  },
+  "not_now": {
+    "ru": "Не сейчас",
+    "en": "Not now",
+    "de": "Nicht jetzt",
+    "fr": "Pas maintenant",
+    "es": "Ahora no"
+  },
+  "soon_title": {
+    "ru": "Скоро",
+    "en": "Coming soon",
+    "de": "Demnächst",
+    "fr": "Bientôt",
+    "es": "Próximamente"
+  },
+  "soon_body": {
+    "ru": "Оплата ({price}) подключается через RevenueCat. В тестовой сборке подписку можно включить кнопкой ниже.",
+    "en": "Payment ({price}) is being connected through RevenueCat. In the test build, you can enable the subscription with the button below.",
+    "de": "Die Zahlung ({price}) wird über RevenueCat angebunden. In der Testversion kannst du das Abo mit der Schaltfläche unten aktivieren.",
+    "fr": "Le paiement ({price}) sera activé via RevenueCat. Dans la version de test, vous pouvez activer l’abonnement avec le bouton ci-dessous.",
+    "es": "El pago ({price}) se conectará a través de RevenueCat. En la versión de prueba, puedes activar la suscripción con el botón de abajo."
+  },
+  "restore_title": {
+    "ru": "Восстановление",
+    "en": "Restore",
+    "de": "Wiederherstellen",
+    "fr": "Restauration",
+    "es": "Restaurar"
+  },
+  "restore_body": {
+    "ru": "Покупок не найдено.",
+    "en": "No purchases found.",
+    "de": "Keine Käufe gefunden.",
+    "fr": "Aucun achat trouvé.",
+    "es": "No se encontraron compras."
+  },
+  "dev_unlock": {
+    "ru": "DEV: включить подписку локально",
+    "en": "DEV: enable subscription locally",
+    "de": "DEV: Abo lokal aktivieren",
+    "fr": "DEV : activer l’abonnement localement",
+    "es": "DEV: activar suscripción localmente"
+  }
+}

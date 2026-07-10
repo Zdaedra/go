@@ -7,12 +7,14 @@ import {
   View, Text, TextInput, Pressable, StyleSheet, KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { useAuth } from '../state/AuthContext';
+import { useT } from '../i18n';
 import { hasBackend } from '../api/client';
 import MistBackground from '../components/MistBackground';
 import PrimaryButton from '../components/PrimaryButton';
 
 export default function AuthScreen() {
   const auth = useAuth();
+  const t = useT();
   const [step, setStep] = useState<'email' | 'code'>('email');
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
@@ -22,11 +24,11 @@ export default function AuthScreen() {
   const submitEmail = async () => {
     setError(null);
     if (!/^\S+@\S+\.\S+$/.test(email.trim())) {
-      setError('Похоже, это не email. Проверь адрес.');
+      setError(t('err_email'));
       return;
     }
     if (!hasBackend()) {
-      setError('Сервер не настроен. Войди как гость (режим разработки).');
+      setError(t('err_no_backend'));
       return;
     }
     setBusy(true);
@@ -34,7 +36,7 @@ export default function AuthScreen() {
       await auth.requestCode(email);
       setStep('code');
     } catch {
-      setError('Не удалось отправить код. Проверь сеть и попробуй ещё раз.');
+      setError(t('err_send'));
     } finally {
       setBusy(false);
     }
@@ -46,7 +48,7 @@ export default function AuthScreen() {
     try {
       await auth.verify(email, code);
     } catch {
-      setError('Код не подошёл. Проверь письмо и попробуй ещё раз.');
+      setError(t('err_code'));
     } finally {
       setBusy(false);
     }
@@ -58,14 +60,12 @@ export default function AuthScreen() {
       style={styles.page}
     >
       <MistBackground />
-      <Text style={styles.title}>Дебюты Го 9×9</Text>
-      <Text style={styles.subtitle}>
-        Ставь камни — приложение назовёт дебют, ветку и покажет продолжения.
-      </Text>
+      <Text style={styles.title}>{t('app_subtitle')}</Text>
+      <Text style={styles.subtitle}>{t('auth_subtitle')}</Text>
 
       {step === 'email' ? (
         <View style={styles.form}>
-          <Text style={styles.label}>Email</Text>
+          <Text style={styles.label}>{t('email')}</Text>
           <TextInput
             style={styles.input}
             value={email}
@@ -77,13 +77,13 @@ export default function AuthScreen() {
             autoComplete="email"
           />
           <PrimaryButton
-            label={busy ? 'Отправляем…' : 'Получить код'}
+            label={busy ? t('sending') : t('get_code')}
             onPress={submitEmail} disabled={busy}
           />
         </View>
       ) : (
         <View style={styles.form}>
-          <Text style={styles.label}>Код из письма ({email})</Text>
+          <Text style={styles.label}>{t('code_label', { email })}</Text>
           <TextInput
             style={[styles.input, styles.codeInput]}
             value={code}
@@ -94,11 +94,11 @@ export default function AuthScreen() {
             maxLength={6}
           />
           <PrimaryButton
-            label={busy ? 'Проверяем…' : 'Войти'}
+            label={busy ? t('verifying') : t('sign_in')}
             onPress={submitCode} disabled={busy}
           />
           <Pressable onPress={() => { setStep('email'); setCode(''); }}>
-            <Text style={styles.link}>Другой email</Text>
+            <Text style={styles.link}>{t('other_email')}</Text>
           </Pressable>
         </View>
       )}
@@ -106,7 +106,7 @@ export default function AuthScreen() {
       {error && <Text style={styles.error}>{error}</Text>}
 
       <Pressable onPress={auth.continueAsGuest} style={styles.guest}>
-        <Text style={styles.link}>Продолжить без аккаунта</Text>
+        <Text style={styles.link}>{t('continue_guest')}</Text>
       </Pressable>
     </KeyboardAvoidingView>
   );

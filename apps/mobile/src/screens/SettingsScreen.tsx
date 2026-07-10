@@ -6,6 +6,7 @@ import { boardThemes } from '../theme/boardThemes';
 import { stoneThemes } from '../theme/stoneThemes';
 import { useTheme } from '../theme/ThemeContext';
 import { useAuth } from '../state/AuthContext';
+import { useI18n, LANGS, LANG_LABELS, Lang } from '../i18n';
 import Goban from '../components/Goban';
 import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
 import MistBackground from '../components/MistBackground';
@@ -24,6 +25,7 @@ function previewPosition(): string {
 export default function SettingsScreen() {
   const { board, stones, setBoardTheme, setStoneTheme } = useTheme();
   const auth = useAuth();
+  const { t, override, setLang } = useI18n();
   const preview = React.useMemo(previewPosition, []);
 
   return (
@@ -34,7 +36,26 @@ export default function SettingsScreen() {
         <Goban position={preview} />
       </View>
 
-      <Text style={styles.section}>Доска</Text>
+      <Text style={styles.section}>{t('section_language')}</Text>
+      <View style={styles.row}>
+        <Pressable
+          style={[styles.opt, override === null && styles.optActive]}
+          onPress={() => setLang(null)}
+        >
+          <Text style={styles.optText}>Auto</Text>
+        </Pressable>
+        {LANGS.map((l: Lang) => (
+          <Pressable
+            key={l}
+            style={[styles.opt, override === l && styles.optActive]}
+            onPress={() => setLang(l)}
+          >
+            <Text style={styles.optText}>{LANG_LABELS[l]}</Text>
+          </Pressable>
+        ))}
+      </View>
+
+      <Text style={styles.section}>{t('section_board')}</Text>
       <View style={styles.row}>
         {Object.values(boardThemes).map((t) => (
           <Pressable
@@ -48,7 +69,7 @@ export default function SettingsScreen() {
         ))}
       </View>
 
-      <Text style={styles.section}>Камни</Text>
+      <Text style={styles.section}>{t('section_stones')}</Text>
       <View style={styles.row}>
         {Object.values(stoneThemes).map((t) => (
           <Pressable
@@ -70,33 +91,33 @@ export default function SettingsScreen() {
         ))}
       </View>
 
-      <Text style={styles.note}>Темы доски и камней независимы.</Text>
+      <Text style={styles.note}>{t('themes_note')}</Text>
 
-      <Text style={styles.section}>Аккаунт</Text>
+      <Text style={styles.section}>{t('section_account')}</Text>
       <Text style={styles.accountText}>
-        {auth.email ?? 'Гостевой режим'} · тариф: {auth.plan === 'pro' ? 'подписка (безлимит)' : 'бесплатный (7 дней)'}
+        {auth.email ?? t('guest_mode')} · {t('plan_label')}: {auth.plan === 'pro' ? t('plan_pro') : t('plan_free')}
       </Text>
       <View style={[styles.row, { marginBottom: 24 }]}>
         <Pressable style={styles.opt} onPress={auth.signOut}>
-          <Text style={styles.optText}>Выйти</Text>
+          <Text style={styles.optText}>{t('sign_out')}</Text>
         </Pressable>
       </View>
 
       {__DEV__ && (
         <>
-          <Text style={styles.section}>Разработка</Text>
+          <Text style={styles.section}>{t('section_dev')}</Text>
           <View style={[styles.row, { marginBottom: 24 }]}>
             <Pressable
               style={[styles.opt, auth.plan === 'pro' && styles.optActive]}
               onPress={() => auth.setPlan('pro')}
             >
-              <Text style={styles.optText}>Безлимит</Text>
+              <Text style={styles.optText}>{t('unlimited')}</Text>
             </Pressable>
             <Pressable
               style={[styles.opt, auth.plan === 'free' && styles.optActive]}
               onPress={() => auth.setPlan('free')}
             >
-              <Text style={styles.optText}>Триал/пейвол</Text>
+              <Text style={styles.optText}>{t('trial_paywall')}</Text>
             </Pressable>
           </View>
         </>

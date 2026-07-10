@@ -8,6 +8,7 @@ import { useFonts } from 'expo-font';
 import { ui } from './src/theme/uiTheme';
 import { ThemeProvider } from './src/theme/ThemeContext';
 import { AuthProvider, useAuth } from './src/state/AuthContext';
+import { I18nProvider, useT } from './src/i18n';
 import PlayScreen from './src/screens/PlayScreen';
 import LearnScreen from './src/screens/LearnScreen';
 import OpeningScreen from './src/screens/OpeningScreen';
@@ -51,38 +52,40 @@ const headerOptions = {
 };
 
 function LearnNavigator() {
+  const t = useT();
   return (
     <LearnStack.Navigator screenOptions={headerOptions}>
       <LearnStack.Screen
         name="LearnList"
         component={LearnScreen}
-        options={{ title: 'Обучение' }}
+        options={{ title: t('tab_learn') }}
       />
       <LearnStack.Screen
         name="Opening"
         component={OpeningScreen}
-        options={{ title: 'Дебют' }}
+        options={{ title: t('title_opening') }}
       />
       <LearnStack.Screen
         name="TsumegoList"
         component={TsumegoListScreen}
-        options={{ title: 'Задачи' }}
+        options={{ title: t('title_tsumego_list') }}
       />
       <LearnStack.Screen
         name="TsumegoProblem"
         component={TsumegoProblemScreen}
-        options={{ title: 'Задача' }}
+        options={{ title: t('title_tsumego') }}
       />
       <LearnStack.Screen
         name="TrainingSession"
         component={TrainingSessionScreen}
-        options={{ title: 'Тренировка' }}
+        options={{ title: t('title_training') }}
       />
     </LearnStack.Navigator>
   );
 }
 
 function Tabs() {
+  const t = useT();
   return (
     <Tab.Navigator
       screenOptions={{
@@ -95,7 +98,7 @@ function Tabs() {
         name="Play"
         component={PlayScreen}
         options={{
-          title: 'Игра',
+          title: t('tab_play'),
           // the profile card is the header, as in the approved reference
           headerShown: false,
           tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 18 }}>◉</Text>,
@@ -105,7 +108,7 @@ function Tabs() {
         name="Learn"
         component={LearnNavigator}
         options={{
-          title: 'Обучение',
+          title: t('tab_learn'),
           headerShown: false,
           tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 18 }}>☰</Text>,
         }}
@@ -114,7 +117,7 @@ function Tabs() {
         name="Settings"
         component={SettingsScreen}
         options={{
-          title: 'Настройки',
+          title: t('tab_settings'),
           tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 18 }}>⚙︎</Text>,
         }}
       />
@@ -124,6 +127,7 @@ function Tabs() {
 
 function Root() {
   const auth = useAuth();
+  const t = useT();
   if (!auth.ready) return null; // splash while restoring the session
   if (!auth.signedIn) return <AuthScreen />;
   return (
@@ -132,7 +136,7 @@ function Root() {
       <RootStack.Screen
         name="Paywall"
         component={PaywallScreen}
-        options={{ presentation: 'modal', title: 'Подписка' }}
+        options={{ presentation: 'modal', title: t('title_paywall') }}
       />
     </RootStack.Navigator>
   );
@@ -145,13 +149,15 @@ export default function App() {
   });
   if (!fontsLoaded) return null;
   return (
-    <AuthProvider>
-      <ThemeProvider>
-        <NavigationContainer theme={navTheme}>
-          <StatusBar style="light" />
-          <Root />
-        </NavigationContainer>
-      </ThemeProvider>
-    </AuthProvider>
+    <I18nProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <NavigationContainer theme={navTheme}>
+            <StatusBar style="light" />
+            <Root />
+          </NavigationContainer>
+        </ThemeProvider>
+      </AuthProvider>
+    </I18nProvider>
   );
 }
