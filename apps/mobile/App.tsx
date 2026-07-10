@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Text } from 'react-native';
+import { Text, TextInput } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { ui } from './src/theme/uiTheme';
@@ -17,6 +17,12 @@ import TrainingSessionScreen from './src/screens/TrainingSessionScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import AuthScreen from './src/screens/AuthScreen';
 import PaywallScreen from './src/screens/PaywallScreen';
+
+// The layout is measured against the reference at multiplier 1.0; iOS
+// Dynamic Type may still nudge text up to +15%, beyond that it breaks
+// the cards (titles and opening lists stop fitting).
+(Text as any).defaultProps = { ...(Text as any).defaultProps, maxFontSizeMultiplier: 1.15 };
+(TextInput as any).defaultProps = { ...(TextInput as any).defaultProps, maxFontSizeMultiplier: 1.15 };
 
 const Tab = createBottomTabNavigator();
 const LearnStack = createNativeStackNavigator();

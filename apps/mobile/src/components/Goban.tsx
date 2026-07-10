@@ -342,6 +342,16 @@ export default function Goban({
                 />
               );
             }
+            if (m.kind === 'dot') {
+              // Book continuation from a mid-branch position — the small
+              // violet dot from the reference screen, not a letter.
+              return (
+                <Circle
+                  key={`m${m.at}`} cx={cx} cy={cy} r={4.4}
+                  fill="#8B7CF6" opacity={0.95}
+                />
+              );
+            }
             if (m.kind === 'square') {
               return (
                 <Rect

@@ -4,6 +4,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Goban, { GobanMark, GhostStone } from '../components/Goban';
 import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
 import {
@@ -59,6 +60,12 @@ interface HistoryItem {
   board: string;
   at: number;
   color: 'b' | 'w';
+  // Set when the move was a book continuation played from a recognized
+  // position: if the resulting position falls off the diagram index, that
+  // means the opening was COMPLETED, not that the player left the book.
+  viaBook?: boolean;
+  openingName?: string;
+  openingResult?: string | null;
 }
 
 const TRIAL_NOTICE_DAYS = 3;
@@ -76,6 +83,7 @@ function difficultyMeta(family: string, opening: string) {
 }
 
 export default function PlayScreen({ navigation }: { navigation: any }) {
+  const insets = useSafeAreaInsets();
   const auth = useAuth();
   const access = useAccess();
   const profile = useTrainingProfile();
@@ -96,33 +104,83 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   const branch = useMemo(() => currentBranch(result), [result]);
 
   const fullMarks = useMemo(() => continuationMarks(result), [result]);
-  const marks: GobanMark[] = useMemo(
-    () => (locked ? [] : fullMarks.map((m) => ({ at: m.at, label: m.label, kind: m.kind }))),
-    [fullMarks, locked]
+  // Every book move from the current position, used both for the on-board
+  // dots and to pick the right stone color when the user taps one.
+  const bookMoves = useMemo(
+    () => (result.status === 'unknown' || result.status === 'empty'
+      ? []
+      : suggestions(result, 99)),
+    [result]
   );
+  const marks: GobanMark[] = useMemo(() => {
+    if (locked) return [];
+    if (fullMarks.length) {
+      return fullMarks.map((m) => ({ at: m.at, label: m.label, kind: m.kind }));
+    }
+    // Mid-branch positions have no diagram letters; without these dots the
+    // board looks dead even though the base knows the continuations.
+    return bookMoves.map((s) => ({ at: s.at, kind: 'dot' }));
+  }, [fullMarks, bookMoves, locked]);
+  // Opening completed — a firmly different state from "not in the base":
+  // either the last book move led off the diagrams (the book simply stops
+  // there), or we sit on a final diagram that offers nothing further.
+  const lastMove = history.length ? history[history.length - 1] : null;
+  const completed = useMemo(() => {
+    if (locked) return null;
+    if (result.status === 'unknown' && lastMove?.viaBook) {
+      return { name: lastMove.openingName ?? null, result: lastMove.openingResult ?? null };
+    }
+    if ((result.status === 'identified' || result.status === 'candidates') &&
+        branch && !fullMarks.length && !bookMoves.length) {
+      const name = result.opening
+        ? openingDisplayName(result.opening.family, result.opening.opening, result.opening.name)
+        : openingDisplayName(branch.branch.family, branch.branch.opening, branch.branch.opening_name);
+      return { name, result: (branch.branch.result as string | null) ?? null };
+    }
+    return null;
+  }, [locked, result, lastMove, branch, fullMarks, bookMoves]);
+
   const nextSuggestion = useMemo(() => {
     if (locked || result.status === 'unknown') return null;
     if (fullMarks.length) {
       const own = fullMarks.find((m) => m.by === toMove) ?? fullMarks[0];
       return own ? { at: own.at, color: (own.by ?? toMove) as 'b' | 'w' } : null;
     }
-    const sug = suggestions(result, 3).filter((s) => s.color === toMove);
+    const sug = bookMoves.filter((s) => s.color === toMove);
     return sug.length ? { at: sug[0].at, color: sug[0].color as 'b' | 'w' } : null;
-  }, [locked, result, fullMarks, toMove]);
+  }, [locked, result, fullMarks, bookMoves, toMove]);
 
   const ghosts: GhostStone[] = useMemo(() => {
-    if (locked || !showHints || result.status === 'unknown' || marks.length > 0) return [];
-    return suggestions(result, 3)
+    // Hint previews full ghost stones; dots don't block it, letters do.
+    if (locked || !showHints || result.status === 'unknown' || fullMarks.length > 0) return [];
+    return bookMoves
       .filter((s) => s.color === toMove)
       .map((s) => ({ at: s.at, color: s.color, label: s.label }));
-  }, [locked, showHints, result, marks, toMove]);
+  }, [locked, showHints, result, fullMarks, bookMoves, toMove]);
 
   const placeStone = (at: number) => {
     const mark = fullMarks.find((m) => m.at === at);
-    const color = mark?.by === 'b' || mark?.by === 'w' ? mark.by : toMove;
+    const book = bookMoves.find((s) => s.at === at);
+    const color =
+      mark?.by === 'b' || mark?.by === 'w' ? mark.by
+      : book ? (book.color as 'b' | 'w')
+      : toMove;
     const next = play(position, at, color);
     if (!next) return;
-    setHistory([...history, { board: next.board, at, color }]);
+    // Snapshot the opening we were in, so that a book move leading off the
+    // diagram index reads as "opening completed", not "not in the base".
+    const viaBook = Boolean(mark || book);
+    const snapName = branch
+      ? openingDisplayName(branch.branch.family, branch.branch.opening, branch.branch.opening_name)
+      : result.openings.length
+        ? openingDisplayName(result.openings[0].family, result.openings[0].opening, result.openings[0].name)
+        : undefined;
+    setHistory([...history, {
+      board: next.board, at, color,
+      viaBook,
+      openingName: viaBook ? snapName : undefined,
+      openingResult: viaBook ? (branch?.branch.result as string | null) ?? null : undefined,
+    }]);
   };
 
   const playNextMove = () => {
@@ -150,7 +208,9 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   }, [result, auth.plan, auth.token, access.open, navigation]);
 
   useEffect(() => {
-    if (locked || !branch) {
+    // Breadcrumb only grows once the position is unambiguous — with 15
+    // candidates on the board, "Путь: Sword · в.1" would be a guess.
+    if (locked || !branch || result.status !== 'identified') {
       if (history.length === 0 && path.length) setPath([]);
       return;
     }
@@ -170,38 +230,60 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   // ---- opening card data ----
   const openingName = locked
     ? 'Скрыто 🔒'
-    : result.status === 'identified'
+    : completed?.name
+      ? completed.name
+      : result.status === 'identified'
       ? openingDisplayName(result.opening!.family, result.opening!.opening, result.opening!.name)
       : result.status === 'candidates'
-        ? openingDisplayName(result.openings[0].family, result.openings[0].opening, result.openings[0].name) +
-          (result.openings.length > 1 ? '…' : '')
+        ? (() => {
+            // Ambiguous position: name the family and the live count instead
+            // of a single misleading name ("Sword…" read as "only Sword").
+            const fams = [...new Set(result.openings.map((o) => o.family))];
+            const fam = fams.length === 1 ? familyNamesRu[fams[0]] : null;
+            return fam
+              ? `${fam} · ${result.openings.length}`
+              : `Вариантов: ${result.openings.length}`;
+          })()
         : result.status === 'unknown'
           ? 'Вне базы'
           : 'Новая партия';
   const family = result.opening ? familyNamesRu[result.opening.family] : null;
-  const branchResult = branch?.branch.result as string | null;
+  const branchResult = completed?.result ?? (branch?.branch.result as string | null);
 
   // ---- your turn card ----
   const turnText = (() => {
     if (!access.open) return 'Бесплатная неделя закончилась — подписка откроет базу.';
     if (limitLocked) return `Дневной лимит: ${FREE_DAILY_LIMIT} дебюта. Название скрыто.`;
+    if (completed) {
+      const verdict = completed.result
+        ? ` Оценка: ${RESULT_RU[completed.result] ?? completed.result}.`
+        : '';
+      return `Дебют пройден полностью${completed.name ? ` — ${completed.name}` : ''}.${verdict}`;
+    }
     switch (result.status) {
       case 'empty': return 'Поставь первый камень.';
-      case 'unknown': return 'Такого дебюта в базе нет.';
+      case 'unknown': return 'Такого дебюта в базе нет. «Назад» вернёт в книжную линию.';
       case 'identified': return branch
         ? `Продолжай: ${openingName} — ветка ${branch.branch.branch_no}.`
         : `Продолжай дебют ${openingName}.`;
-      case 'candidates': return `Возможные дебюты: ${result.openings
-        .slice(0, 3)
-        .map((o) => openingDisplayName(o.family, o.opening, o.name))
-        .join(', ')}${result.openings.length > 3 ? '…' : ''}`;
+      case 'candidates': {
+        const names = result.openings
+          .map((o) => openingDisplayName(o.family, o.opening, o.name));
+        const shown = names.slice(0, 6);
+        const rest = names.length - shown.length;
+        return `Возможных дебютов: ${names.length} — ${shown.join(', ')}${
+          rest > 0 ? ` и ещё ${rest}` : ''}.`;
+      }
     }
   })();
 
   return (
     <View style={styles.root}>
     <MistBackground />
-    <ScrollView style={styles.screen} contentContainerStyle={styles.page}>
+    <ScrollView
+      style={styles.screen}
+      contentContainerStyle={[styles.page, { paddingTop: insets.top + 8 }]}
+    >
       {/* profile header */}
       <View style={[styles.card, styles.header]}>
         <View style={styles.avatar}>
@@ -231,7 +313,12 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       <View style={[styles.card, styles.opening]}>
         <View style={styles.openingLeft}>
           <Text style={eyebrowAccent}>Дебют</Text>
-          <Text style={styles.openingTitle} numberOfLines={1}>{openingName}</Text>
+          <Text
+            style={styles.openingTitle}
+            numberOfLines={1}
+            adjustsFontSizeToFit
+            minimumFontScale={0.55}
+          >{openingName}</Text>
           <Text style={styles.openingDesc} numberOfLines={2}>
             {path.length > 0 && !locked
               ? `Путь: ${path.map((p) => p.label).join(' → ')}`
@@ -267,10 +354,10 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       {/* your turn card */}
       <View style={[styles.card, styles.turn]}>
         <View style={{ flex: 1 }}>
-          <Text style={eyebrowAccent}>
-            {toMove === myColor ? 'Твой ход' : 'Ход соперника'}
+          <Text style={[eyebrowAccent, completed ? { color: ui.success } : null]}>
+            {completed ? 'Дебют завершён ✓' : toMove === myColor ? 'Твой ход' : 'Ход соперника'}
           </Text>
-          <Text style={styles.turnText} numberOfLines={2}>{turnText}</Text>
+          <Text style={styles.turnText} numberOfLines={3}>{turnText}</Text>
           {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
             <Text style={styles.turnSub}>Бесплатных дней: {access.trial.daysLeft}</Text>
           )}
