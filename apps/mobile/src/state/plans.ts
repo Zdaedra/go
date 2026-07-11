@@ -33,7 +33,7 @@ export const PLANS: Plan[] = [
 export const CONTENT = {
   openings: 43,
   branches: 229,
-  tsumego: 35, // problems currently marked/visible; grows with KataGo pass
+  tsumego: 1038, // KataGo-marked problems in the adaptive pool
 };
 
 export const TRIAL_DAYS = 7;

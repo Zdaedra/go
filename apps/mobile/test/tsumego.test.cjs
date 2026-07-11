@@ -89,8 +89,8 @@ const byId = new Map(db.problems.map((p) => [p.id, p]));
     }
     assert.equal(s.status, 'solved', `${p.id} solvable via tree`);
   }
-  assert.ok(treeCount >= 30, `enough auto-checked problems (${treeCount})`);
-  assert.ok(freeCount >= 900, `classical positions imported (${freeCount})`);
+  assert.ok(treeCount >= 900, `most problems auto-marked & solvable (${treeCount})`);
+  assert.ok(db.problems.length >= 1000, `full classical corpus present (${db.problems.length})`);
 }
 
 // Free-solve mode: 19x19 problem accepts alternating moves and undo works.
