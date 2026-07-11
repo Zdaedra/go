@@ -5,19 +5,21 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import Goban, { GobanMark } from '../components/Goban';
 import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
 import { allBranches } from '../engine/identify';
-import { openingDisplayName, familyNamesRu } from '../data/names';
+import { openingDisplayName, familyNameKeys } from '../data/names';
 import branchDescriptions from '../data/descriptions.json';
 import { useAccess } from '../state/useTrial';
 import MistBackground from '../components/MistBackground';
 import PrimaryButton from '../components/PrimaryButton';
+import { useI18n } from '../i18n';
 
-const RESULT_RU: Record<string, string> = {
-  even: 'ровно (=)',
-  'B+': 'перевес чёрных',
-  'W+': 'перевес белых',
+const RESULT_KEY: Record<string, string> = {
+  even: 'res_even_short',
+  'B+': 'res_black_adv',
+  'W+': 'res_white_adv',
 };
 
 export default function OpeningScreen({ route, navigation }: { route: any; navigation: any }) {
+  const { t, lang } = useI18n();
   const { family, opening } = route.params;
   const access = useAccess();
   const branches = useMemo(
@@ -60,7 +62,7 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
       .map((c: any) => ({ at: sgfToIdx(c.coord), label: c.label, kind: c.kind }));
   }, [branch, atEnd]);
 
-  const name = openingDisplayName(family, opening, branch.opening_name);
+  const name = openingDisplayName(family, opening, branch.opening_name, lang);
 
   // Hard lock after the free week: the card shows nothing but the paywall.
   if (!access.open) {
@@ -68,12 +70,9 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
       <View style={styles.lockPage}>
         <MistBackground />
         <Text style={styles.lockTitle}>{name}</Text>
-        <Text style={styles.lockText}>
-          Бесплатная неделя закончилась. Подписка откроет все дебюты, ветки
-          и подсказки продолжений.
-        </Text>
+        <Text style={styles.lockText}>{t('openings_locked')}</Text>
         <PrimaryButton
-          label="Открыть подписку"
+          label={t('open_subscription')}
           onPress={() => navigation.getParent()?.navigate('Paywall')}
         />
       </View>
@@ -86,7 +85,7 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
     <ScrollView contentContainerStyle={styles.page}>
       <Text style={styles.title}>{name}</Text>
       <Text style={styles.meta}>
-        {familyNamesRu[family] ?? family} · {branches.length} вет.
+        {t(familyNameKeys[family] ?? family)} · {t('branches_abbr', { n: branches.length })}
       </Text>
 
       <View style={styles.branchRow}>
@@ -96,7 +95,7 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
             onPress={() => { setBranchIdx(i); setPly(Number.MAX_SAFE_INTEGER); }}
             style={[styles.branchBtn, i === branchIdx && styles.branchBtnActive]}
           >
-            <Text style={styles.branchBtnText}>ветка {b.branch_no}</Text>
+            <Text style={styles.branchBtnText}>{t('branch_n', { n: b.branch_no })}</Text>
           </Pressable>
         ))}
       </View>
@@ -137,17 +136,17 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
         <Text style={styles.infoText}>{branch.caption}</Text>
         {branch.result && (
           <Text style={styles.infoText}>
-            Оценка: {RESULT_RU[branch.result] ?? branch.result}
+            {t('eval')}: {branch.result in RESULT_KEY ? t(RESULT_KEY[branch.result]) : branch.result}
           </Text>
         )}
         {!branch.line && (
           <Text style={styles.infoNote}>
-            Ветка-продолжение: показана от позиции диаграммы.
+            {t('opening_branch_note')}
           </Text>
         )}
         {atEnd && marks.length > 0 && (
           <Text style={styles.infoNote}>
-            Буквы и треугольники — варианты следующих ходов.
+            {t('opening_marks_note')}
           </Text>
         )}
       </View>

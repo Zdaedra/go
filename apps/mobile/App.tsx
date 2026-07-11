@@ -59,7 +59,8 @@ function LearnNavigator() {
       <LearnStack.Screen
         name="LearnList"
         component={LearnScreen}
-        options={{ title: t('tab_learn') }}
+        // Хаб рисует собственную крупную шапку (референс-макет «Обучение»).
+        options={{ title: t('tab_learn'), headerShown: false }}
       />
       <LearnStack.Screen
         name="Opening"

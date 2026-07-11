@@ -4,790 +4,2119 @@
     "en": "Openings",
     "de": "Eröffnungen",
     "fr": "Ouvertures",
-    "es": "Aperturas"
+    "es": "Aperturas",
+    "ko": "포석"
   },
   "tab_learn": {
     "ru": "Обучение",
     "en": "Learn",
     "de": "Lernen",
     "fr": "Apprendre",
-    "es": "Aprender"
+    "es": "Aprender",
+    "ko": "학습"
   },
   "tab_settings": {
     "ru": "Настройки",
     "en": "Settings",
     "de": "Einstellungen",
     "fr": "Paramètres",
-    "es": "Ajustes"
+    "es": "Ajustes",
+    "ko": "설정"
   },
   "title_opening": {
     "ru": "Дебют",
     "en": "Opening",
     "de": "Eröffnung",
     "fr": "Ouverture",
-    "es": "Apertura"
+    "es": "Apertura",
+    "ko": "포석"
   },
   "title_tsumego_list": {
     "ru": "Задачи",
     "en": "Problems",
     "de": "Aufgaben",
     "fr": "Problèmes",
-    "es": "Problemas"
+    "es": "Problemas",
+    "ko": "문제"
   },
   "title_tsumego": {
     "ru": "Задача",
     "en": "Problem",
     "de": "Aufgabe",
     "fr": "Problème",
-    "es": "Problema"
+    "es": "Problema",
+    "ko": "문제"
   },
   "title_training": {
     "ru": "Тренировка",
     "en": "Training",
     "de": "Training",
     "fr": "Entraînement",
-    "es": "Entrenamiento"
+    "es": "Entrenamiento",
+    "ko": "트레이닝"
   },
   "title_paywall": {
     "ru": "Подписка",
     "en": "Subscription",
     "de": "Abo",
     "fr": "Abonnement",
-    "es": "Suscripción"
+    "es": "Suscripción",
+    "ko": "구독"
   },
   "app_subtitle": {
     "ru": "Дебюты Go",
     "en": "Go Openings",
     "de": "Go-Eröffnungen",
     "fr": "Ouvertures de go",
-    "es": "Aperturas de Go"
+    "es": "Aperturas de Go",
+    "ko": "바둑 포석"
   },
   "move": {
     "ru": "Ход",
     "en": "Move",
     "de": "Zug",
     "fr": "Coup",
-    "es": "Jugada"
+    "es": "Jugada",
+    "ko": "차례"
   },
   "eval": {
     "ru": "Оценка",
     "en": "Evaluation",
     "de": "Bewertung",
     "fr": "Évaluation",
-    "es": "Evaluación"
+    "es": "Evaluación",
+    "ko": "형세"
   },
   "black": {
     "ru": "Чёрные",
     "en": "Black",
     "de": "Schwarz",
     "fr": "Noirs",
-    "es": "Negras"
+    "es": "Negras",
+    "ko": "흑"
   },
   "white": {
     "ru": "Белые",
     "en": "White",
     "de": "Weiß",
     "fr": "Blancs",
-    "es": "Blancas"
+    "es": "Blancas",
+    "ko": "백"
   },
   "result_even": {
     "ru": "Ровная игра",
     "en": "Even game",
     "de": "Ausgeglichenes Spiel",
     "fr": "Partie équilibrée",
-    "es": "Partida igualada"
+    "es": "Partida igualada",
+    "ko": "호각"
   },
   "result_black": {
     "ru": "Чёрные ведут",
     "en": "Black is ahead",
     "de": "Schwarz führt",
     "fr": "Les Noirs mènent",
-    "es": "Las negras van por delante"
+    "es": "Las negras van por delante",
+    "ko": "흑 우세"
   },
   "result_white": {
     "ru": "Белые ведут",
     "en": "White is ahead",
     "de": "Weiß führt",
     "fr": "Les Blancs mènent",
-    "es": "Las blancas van por delante"
+    "es": "Las blancas van por delante",
+    "ko": "백 우세"
   },
   "opening_hidden": {
     "ru": "Скрыто 🔒",
     "en": "Hidden 🔒",
     "de": "Verborgen 🔒",
     "fr": "Masqué 🔒",
-    "es": "Oculto 🔒"
+    "es": "Oculto 🔒",
+    "ko": "잠김 🔒"
   },
   "opening_undetermined": {
     "ru": "Дебют пока не определён",
     "en": "Opening not determined yet",
     "de": "Eröffnung noch nicht bestimmt",
     "fr": "Ouverture pas encore déterminée",
-    "es": "Apertura aún sin determinar"
+    "es": "Apertura aún sin determinar",
+    "ko": "포석 아직 미정"
   },
   "out_of_base": {
     "ru": "Вне базы",
     "en": "Out of book",
     "de": "Nicht im Buch",
     "fr": "Hors base",
-    "es": "Fuera de la base"
+    "es": "Fuera de la base",
+    "ko": "정석 밖"
   },
   "new_game": {
     "ru": "Новая партия",
     "en": "New game",
     "de": "Neue Partie",
     "fr": "Nouvelle partie",
-    "es": "Nueva partida"
+    "es": "Nueva partida",
+    "ko": "새 대국"
   },
   "opening_done": {
     "ru": "Дебют завершён ✓",
     "en": "Opening complete ✓",
     "de": "Eröffnung abgeschlossen ✓",
     "fr": "Ouverture terminée ✓",
-    "es": "Apertura completada ✓"
+    "es": "Apertura completada ✓",
+    "ko": "포석 완료 ✓"
   },
   "your_move": {
     "ru": "Твой ход",
     "en": "Your move",
     "de": "Du bist am Zug",
     "fr": "À toi de jouer",
-    "es": "Tu turno"
+    "es": "Tu turno",
+    "ko": "내 차례"
   },
   "opponent_move": {
     "ru": "Ход соперника",
     "en": "Opponent’s move",
     "de": "Zug des Gegners",
     "fr": "Coup de l’adversaire",
-    "es": "Jugada del rival"
+    "es": "Jugada del rival",
+    "ko": "상대 차례"
   },
   "start": {
     "ru": "Начало",
     "en": "Start",
     "de": "Start",
     "fr": "Début",
-    "es": "Inicio"
+    "es": "Inicio",
+    "ko": "처음"
   },
   "restart": {
     "ru": "Новая партия",
     "en": "New game",
     "de": "Neue Partie",
     "fr": "Nouvelle partie",
-    "es": "Nueva partida"
+    "es": "Nueva partida",
+    "ko": "새 대국"
   },
   "back": {
     "ru": "Назад",
     "en": "Back",
     "de": "Zurück",
     "fr": "Retour",
-    "es": "Atrás"
+    "es": "Atrás",
+    "ko": "뒤로"
   },
   "best_move": {
     "ru": "Лучший ход",
     "en": "Best move",
     "de": "Bester Zug",
     "fr": "Meilleur coup",
-    "es": "Mejor jugada"
+    "es": "Mejor jugada",
+    "ko": "최선의 수"
   },
   "hide": {
     "ru": "Скрыть",
     "en": "Hide",
     "de": "Ausblenden",
     "fr": "Masquer",
-    "es": "Ocultar"
+    "es": "Ocultar",
+    "ko": "숨기기"
   },
   "candidates_label": {
     "ru": "Возможных дебютов: {n}",
     "en": "Possible openings: {n}",
     "de": "Mögliche Eröffnungen: {n}",
     "fr": "Ouvertures possibles : {n}",
-    "es": "Aperturas posibles: {n}"
+    "es": "Aperturas posibles: {n}",
+    "ko": "가능한 포석: {n}"
   },
   "candidates_hint": {
     "ru": "Поставь ещё ход, чтобы определить дебют — или выбери его здесь:",
     "en": "Play one more move to identify the opening — or choose it here:",
     "de": "Setze noch einen Stein, um die Eröffnung zu bestimmen – oder wähle sie hier aus:",
     "fr": "Joue encore un coup pour déterminer l’ouverture — ou choisis-la ici :",
-    "es": "Haz otra jugada para determinar la apertura, o elígela aquí:"
+    "es": "Haz otra jugada para determinar la apertura, o elígela aquí:",
+    "ko": "한 수 더 두면 포석이 정해져요 — 아니면 여기서 선택하세요."
   },
   "place_first": {
     "ru": "Сделай ход, чтобы определить дебют.",
     "en": "Make a move to identify the opening.",
     "de": "Mach einen Zug, um die Eröffnung zu bestimmen.",
     "fr": "Joue un coup pour identifier l’ouverture.",
-    "es": "Haz una jugada para identificar la apertura."
+    "es": "Haz una jugada para identificar la apertura.",
+    "ko": "돌을 놓아 포석을 확인해 보세요."
   },
   "not_in_base": {
     "ru": "Такого дебюта в базе нет. «Назад» вернёт в книжную линию.",
     "en": "This opening isn’t in the database. «Back» returns to the book line.",
     "de": "Diese Eröffnung ist nicht in der Datenbank. «Zurück» bringt dich zur Buchlinie zurück.",
     "fr": "Cette ouverture n’est pas dans la base. «Retour» te ramènera à la ligne du livre.",
-    "es": "Esa apertura no está en la base. «Atrás» te devolverá a la línea del libro."
+    "es": "Esa apertura no está en la base. «Atrás» te devolverá a la línea del libro.",
+    "ko": "이 포석은 정석에 없어요. ‘뒤로’를 누르면 정석 변화로 돌아갑니다."
   },
   "continue_opening": {
     "ru": "Продолжай дебют {name}.",
     "en": "Continue the {name} opening.",
     "de": "Spiele die Eröffnung {name} weiter.",
     "fr": "Continue l’ouverture {name}.",
-    "es": "Continúa la apertura {name}."
+    "es": "Continúa la apertura {name}.",
+    "ko": "{name} 포석을 이어 가세요."
   },
   "continue_line": {
     "ru": "Продолжай: {name} — ветка {n}.",
     "en": "Continue: {name} — branch {n}.",
     "de": "Weiter: {name} — Variante {n}.",
     "fr": "Continue : {name} — variante {n}.",
-    "es": "Continúa: {name} — variante {n}."
+    "es": "Continúa: {name} — variante {n}.",
+    "ko": "{name} — 갈래 {n}을(를) 이어 가세요."
   },
   "completed_full": {
     "ru": "Дебют пройден полностью — {name}.",
     "en": "Opening completed in full — {name}.",
     "de": "Eröffnung vollständig abgeschlossen — {name}.",
     "fr": "Ouverture entièrement terminée — {name}.",
-    "es": "Apertura completada por completo — {name}."
+    "es": "Apertura completada por completo — {name}.",
+    "ko": "포석을 끝까지 완료했어요 — {name}."
   },
   "eval_suffix": {
     "ru": " Оценка: {v}.",
     "en": " Evaluation: {v}.",
     "de": " Bewertung: {v}.",
     "fr": " Évaluation : {v}.",
-    "es": " Evaluación: {v}."
+    "es": " Evaluación: {v}.",
+    "ko": " 형세: {v}."
   },
   "best_move_note": {
     "ru": "★ — лучший ход по базе. Точная оценка появится с KataGo.",
     "en": "★ — best move according to the database. The exact evaluation will appear with KataGo.",
     "de": "★ — bester Zug laut Datenbank. Die genaue Bewertung erscheint mit KataGo.",
     "fr": "★ — meilleur coup selon la base. L’évaluation précise arrivera avec KataGo.",
-    "es": "★ — mejor jugada según la base. La evaluación exacta aparecerá con KataGo."
+    "es": "★ — mejor jugada según la base. La evaluación exacta aparecerá con KataGo.",
+    "ko": "★ — 데이터베이스 기준 최선의 수. 정확한 평가는 KataGo와 함께 제공됩니다."
+  },
+  "marks_legend": {
+    "ru": "A B C — основные ветки\n△ — дополнительные ветки\n• — финальная точка",
+    "en": "A B C — main branches\n△ — side branches\n• — final point",
+    "de": "A B C — Hauptvarianten\n△ — Nebenvarianten\n• — Endpunkt",
+    "fr": "A B C — variantes principales\n△ — variantes secondaires\n• — point final",
+    "es": "A B C — variantes principales\n△ — variantes secundarias\n• — punto final",
+    "ko": "A B C — 주요 갈래\n△ — 보조 갈래\n• — 마지막 지점"
   },
   "trial_days_left": {
     "ru": "Бесплатных дней осталось: {n}",
     "en": "Free days left: {n}",
     "de": "Kostenlose Tage übrig: {n}",
     "fr": "Jours gratuits restants : {n}",
-    "es": "Días gratis restantes: {n}"
+    "es": "Días gratis restantes: {n}",
+    "ko": "무료 남은 날: {n}일"
   },
   "subscribe_cta": {
     "ru": "Оформить подписку →",
     "en": "Subscribe →",
     "de": "Abo abschließen →",
     "fr": "S’abonner →",
-    "es": "Suscribirse →"
+    "es": "Suscribirse →",
+    "ko": "구독하기 →"
   },
   "trial_over": {
     "ru": "Бесплатная неделя закончилась — подписка откроет базу.",
     "en": "Your free week is over — a subscription unlocks the database.",
     "de": "Deine kostenlose Woche ist vorbei — ein Abo schaltet die Datenbank frei.",
     "fr": "Votre semaine gratuite est terminée — l’abonnement débloque la base.",
-    "es": "Tu semana gratis ha terminado — la suscripción desbloquea la base."
+    "es": "Tu semana gratis ha terminado — la suscripción desbloquea la base.",
+    "ko": "무료 일주일이 끝났어요 — 구독하면 데이터베이스가 열립니다."
   },
   "section_board": {
     "ru": "Доска",
     "en": "Board",
     "de": "Brett",
     "fr": "Plateau",
-    "es": "Tablero"
+    "es": "Tablero",
+    "ko": "바둑판"
   },
   "section_stones": {
     "ru": "Камни",
     "en": "Stones",
     "de": "Steine",
     "fr": "Pierres",
-    "es": "Piedras"
+    "es": "Piedras",
+    "ko": "돌"
   },
   "themes_note": {
     "ru": "Темы доски и камней независимы.",
     "en": "Board and stone themes are independent.",
     "de": "Brett- und Stein-Designs sind unabhängig voneinander.",
     "fr": "Les thèmes du plateau et des pierres sont indépendants.",
-    "es": "Los temas del tablero y de las piedras son independientes."
+    "es": "Los temas del tablero y de las piedras son independientes.",
+    "ko": "바둑판과 돌 테마는 따로 설정할 수 있어요."
   },
   "section_account": {
     "ru": "Аккаунт",
     "en": "Account",
     "de": "Konto",
     "fr": "Compte",
-    "es": "Cuenta"
+    "es": "Cuenta",
+    "ko": "계정"
   },
   "guest_mode": {
     "ru": "Гостевой режим",
     "en": "Guest mode",
     "de": "Gastmodus",
     "fr": "Mode invité",
-    "es": "Modo invitado"
+    "es": "Modo invitado",
+    "ko": "게스트 모드"
   },
   "plan_pro": {
     "ru": "подписка (безлимит)",
     "en": "subscription (unlimited)",
     "de": "Abo (unbegrenzt)",
     "fr": "abonnement (illimité)",
-    "es": "suscripción (ilimitada)"
+    "es": "suscripción (ilimitada)",
+    "ko": "구독 (무제한)"
   },
   "plan_free": {
     "ru": "бесплатный (7 дней)",
     "en": "free (7 days)",
     "de": "kostenlos (7 Tage)",
     "fr": "gratuit (7 jours)",
-    "es": "gratis (7 días)"
+    "es": "gratis (7 días)",
+    "ko": "무료 (7일)"
   },
   "plan_label": {
     "ru": "тариф",
     "en": "plan",
     "de": "Tarif",
     "fr": "offre",
-    "es": "plan"
+    "es": "plan",
+    "ko": "요금제"
   },
   "sign_out": {
     "ru": "Выйти",
     "en": "Sign out",
     "de": "Abmelden",
     "fr": "Se déconnecter",
-    "es": "Cerrar sesión"
+    "es": "Cerrar sesión",
+    "ko": "로그아웃"
   },
   "section_dev": {
     "ru": "Разработка",
     "en": "Development",
     "de": "Entwicklung",
     "fr": "Développement",
-    "es": "Desarrollo"
+    "es": "Desarrollo",
+    "ko": "개발"
   },
   "unlimited": {
     "ru": "Безлимит",
     "en": "Unlimited",
     "de": "Unbegrenzt",
     "fr": "Illimité",
-    "es": "Ilimitado"
+    "es": "Ilimitado",
+    "ko": "무제한"
   },
   "trial_paywall": {
     "ru": "Триал/пейвол",
     "en": "Trial/paywall",
     "de": "Testphase/Paywall",
     "fr": "Essai/paywall",
-    "es": "Prueba/paywall"
+    "es": "Prueba/paywall",
+    "ko": "체험/구독"
   },
   "section_language": {
     "ru": "Язык",
     "en": "Language",
     "de": "Sprache",
     "fr": "Langue",
-    "es": "Idioma"
+    "es": "Idioma",
+    "ko": "언어"
   },
   "auth_subtitle": {
     "ru": "Ставь камни — приложение назовёт дебют, ветку и покажет продолжения.",
     "en": "Place stones — the app will name the opening and branch, and show continuations.",
     "de": "Setze Steine — die App nennt Eröffnung und Variante und zeigt Fortsetzungen.",
     "fr": "Posez des pierres — l’app nomme l’ouverture et la variante, puis affiche les suites.",
-    "es": "Coloca piedras: la app identificará la apertura y la variante, y mostrará continuaciones."
+    "es": "Coloca piedras: la app identificará la apertura y la variante, y mostrará continuaciones.",
+    "ko": "돌을 놓으면 앱이 포석과 갈래를 알려주고 다음 수를 보여줍니다."
   },
   "email": {
     "ru": "Email",
     "en": "Email",
     "de": "E-Mail",
     "fr": "E-mail",
-    "es": "Email"
+    "es": "Email",
+    "ko": "이메일"
   },
   "get_code": {
     "ru": "Получить код",
     "en": "Get code",
     "de": "Code anfordern",
     "fr": "Obtenir le code",
-    "es": "Obtener código"
+    "es": "Obtener código",
+    "ko": "코드 받기"
   },
   "sending": {
     "ru": "Отправляем…",
     "en": "Sending…",
     "de": "Wird gesendet…",
     "fr": "Envoi…",
-    "es": "Enviando…"
+    "es": "Enviando…",
+    "ko": "전송 중…"
   },
   "code_label": {
     "ru": "Код из письма ({email})",
     "en": "Code from email ({email})",
     "de": "Code aus der E-Mail ({email})",
     "fr": "Code reçu par e-mail ({email})",
-    "es": "Código del email ({email})"
+    "es": "Código del email ({email})",
+    "ko": "메일로 받은 코드 ({email})"
   },
   "sign_in": {
     "ru": "Войти",
     "en": "Sign in",
     "de": "Anmelden",
     "fr": "Se connecter",
-    "es": "Iniciar sesión"
+    "es": "Iniciar sesión",
+    "ko": "로그인"
   },
   "verifying": {
     "ru": "Проверяем…",
     "en": "Verifying…",
     "de": "Wird geprüft…",
     "fr": "Vérification…",
-    "es": "Verificando…"
+    "es": "Verificando…",
+    "ko": "확인 중…"
   },
   "other_email": {
     "ru": "Другой email",
     "en": "Different email",
     "de": "Andere E-Mail",
     "fr": "Autre e-mail",
-    "es": "Otro email"
+    "es": "Otro email",
+    "ko": "다른 이메일"
   },
   "continue_guest": {
     "ru": "Продолжить без аккаунта",
     "en": "Continue without an account",
     "de": "Ohne Konto fortfahren",
     "fr": "Continuer sans compte",
-    "es": "Continuar sin cuenta"
+    "es": "Continuar sin cuenta",
+    "ko": "계정 없이 계속하기"
   },
   "err_email": {
     "ru": "Похоже, это не email. Проверь адрес.",
     "en": "That doesn’t look like an email. Check the address.",
     "de": "Das sieht nicht nach einer E-Mail-Adresse aus. Prüfe die Adresse.",
     "fr": "Cela ne ressemble pas à un e-mail. Vérifiez l’adresse.",
-    "es": "No parece un email. Comprueba la dirección."
+    "es": "No parece un email. Comprueba la dirección.",
+    "ko": "이메일 주소가 아닌 것 같아요. 다시 확인해 주세요."
   },
   "err_no_backend": {
     "ru": "Сервер не настроен. Войди как гость (режим разработки).",
     "en": "Server isn’t configured. Sign in as a guest (development mode).",
     "de": "Der Server ist nicht eingerichtet. Melde dich als Gast an (Entwicklungsmodus).",
     "fr": "Le serveur n’est pas configuré. Connectez-vous en invité (mode développement).",
-    "es": "El servidor no está configurado. Entra como invitado (modo de desarrollo)."
+    "es": "El servidor no está configurado. Entra como invitado (modo de desarrollo).",
+    "ko": "서버가 설정되지 않았어요. 게스트로 로그인하세요 (개발 모드)."
   },
   "err_send": {
     "ru": "Не удалось отправить код. Проверь сеть и попробуй ещё раз.",
     "en": "Couldn’t send the code. Check your connection and try again.",
     "de": "Der Code konnte nicht gesendet werden. Prüfe die Verbindung und versuche es erneut.",
     "fr": "Impossible d’envoyer le code. Vérifiez la connexion et réessayez.",
-    "es": "No se pudo enviar el código. Comprueba la conexión e inténtalo de nuevo."
+    "es": "No se pudo enviar el código. Comprueba la conexión e inténtalo de nuevo.",
+    "ko": "코드를 보내지 못했어요. 네트워크를 확인하고 다시 시도해 주세요."
   },
   "err_code": {
     "ru": "Код не подошёл. Проверь письмо и попробуй ещё раз.",
     "en": "That code didn’t work. Check the email and try again.",
     "de": "Der Code passt nicht. Prüfe die E-Mail und versuche es erneut.",
     "fr": "Ce code ne fonctionne pas. Vérifiez l’e-mail et réessayez.",
-    "es": "Ese código no es válido. Revisa el email e inténtalo de nuevo."
+    "es": "Ese código no es válido. Revisa el email e inténtalo de nuevo.",
+    "ko": "코드가 맞지 않아요. 메일을 확인하고 다시 시도해 주세요."
   },
   "paywall_title": {
     "ru": "Полная база дебютов и тренировка",
     "en": "Full openings database and training",
     "de": "Vollständige Eröffnungsdatenbank und Training",
     "fr": "Base complète d’ouvertures et entraînement",
-    "es": "Base completa de aperturas y entrenamiento"
+    "es": "Base completa de aperturas y entrenamiento",
+    "ko": "전체 포석 데이터베이스와 트레이닝"
   },
   "paywall_body": {
     "ru": "Первые {days} дней — бесплатно, без ограничений. Дальше подписка открывает всё: {openings} дебютов, {branches} веток с названиями и разбором, {tsumego}+ задач для тренировки, подсказка лучшего хода и проигрывание всех линий.",
     "en": "The first {days} days are free, with no limits. After that, a subscription unlocks everything: {openings} openings, {branches} branches with names and analysis, {tsumego}+ training problems, best-move hints, and playback of all lines.",
     "de": "Die ersten {days} Tage sind kostenlos und unbegrenzt. Danach schaltet ein Abo alles frei: {openings} Eröffnungen, {branches} Varianten mit Namen und Analyse, {tsumego}+ Aufgaben zum Trainieren, Hinweise zum besten Zug und Wiedergabe aller Linien.",
     "fr": "Les {days} premiers jours sont gratuits, sans limite. Ensuite, l’abonnement débloque tout : {openings} ouvertures, {branches} variantes avec noms et analyse, {tsumego}+ problèmes d’entraînement, indice du meilleur coup et lecture de toutes les lignes.",
-    "es": "Los primeros {days} días son gratis y sin límites. Después, la suscripción desbloquea todo: {openings} aperturas, {branches} variantes con nombres y análisis, {tsumego}+ problemas de entrenamiento, pista del mejor movimiento y reproducción de todas las líneas."
+    "es": "Los primeros {days} días son gratis y sin límites. Después, la suscripción desbloquea todo: {openings} aperturas, {branches} variantes con nombres y análisis, {tsumego}+ problemas de entrenamiento, pista del mejor movimiento y reproducción de todas las líneas.",
+    "ko": "처음 {days}일은 제한 없이 무료입니다. 이후에는 구독으로 모두 열려요: {openings}개 포석, 이름과 해설이 있는 {branches}개 갈래, {tsumego}+개 훈련 문제, 최선의 수 힌트와 모든 변화 재생."
   },
   "plan_year": {
     "ru": "Год",
     "en": "Year",
     "de": "Jahr",
     "fr": "Année",
-    "es": "Año"
+    "es": "Año",
+    "ko": "연간"
   },
   "plan_month": {
     "ru": "Месяц",
     "en": "Month",
     "de": "Monat",
     "fr": "Mois",
-    "es": "Mes"
+    "es": "Mes",
+    "ko": "월간"
   },
   "year_note": {
     "ru": "выгоднее 40% — $3 в месяц",
     "en": "40% better value — $3 per month",
     "de": "40% günstiger — $3 pro Monat",
     "fr": "40 % plus avantageux — $3 par mois",
-    "es": "40% más barato — $3 al mes"
+    "es": "40% más barato — $3 al mes",
+    "ko": "40% 더 저렴 — 월 $3"
   },
   "purchase": {
     "ru": "Оформить — {price}",
     "en": "Subscribe — {price}",
     "de": "Abonnieren — {price}",
     "fr": "S’abonner — {price}",
-    "es": "Suscribirse — {price}"
+    "es": "Suscribirse — {price}",
+    "ko": "구독하기 — {price}"
   },
   "restore": {
     "ru": "Восстановить покупку",
     "en": "Restore purchase",
     "de": "Kauf wiederherstellen",
     "fr": "Restaurer l’achat",
-    "es": "Restaurar compra"
+    "es": "Restaurar compra",
+    "ko": "구매 복원"
   },
   "not_now": {
     "ru": "Не сейчас",
     "en": "Not now",
     "de": "Nicht jetzt",
     "fr": "Pas maintenant",
-    "es": "Ahora no"
+    "es": "Ahora no",
+    "ko": "나중에"
   },
   "soon_title": {
     "ru": "Скоро",
     "en": "Coming soon",
     "de": "Demnächst",
     "fr": "Bientôt",
-    "es": "Próximamente"
+    "es": "Próximamente",
+    "ko": "곧 제공"
   },
   "soon_body": {
     "ru": "Оплата ({price}) подключается через RevenueCat. В тестовой сборке подписку можно включить кнопкой ниже.",
     "en": "Payment ({price}) is being connected through RevenueCat. In the test build, you can enable the subscription with the button below.",
     "de": "Die Zahlung ({price}) wird über RevenueCat angebunden. In der Testversion kannst du das Abo mit der Schaltfläche unten aktivieren.",
     "fr": "Le paiement ({price}) sera activé via RevenueCat. Dans la version de test, vous pouvez activer l’abonnement avec le bouton ci-dessous.",
-    "es": "El pago ({price}) se conectará a través de RevenueCat. En la versión de prueba, puedes activar la suscripción con el botón de abajo."
+    "es": "El pago ({price}) se conectará a través de RevenueCat. En la versión de prueba, puedes activar la suscripción con el botón de abajo.",
+    "ko": "결제({price})는 RevenueCat으로 연결됩니다. 테스트 빌드에서는 아래 버튼으로 구독을 임시로 켤 수 있어요."
   },
   "restore_title": {
     "ru": "Восстановление",
     "en": "Restore",
     "de": "Wiederherstellen",
     "fr": "Restauration",
-    "es": "Restaurar"
+    "es": "Restaurar",
+    "ko": "복원"
   },
   "restore_body": {
     "ru": "Покупок не найдено.",
     "en": "No purchases found.",
     "de": "Keine Käufe gefunden.",
     "fr": "Aucun achat trouvé.",
-    "es": "No se encontraron compras."
+    "es": "No se encontraron compras.",
+    "ko": "구매 내역이 없습니다."
   },
   "dev_unlock": {
     "ru": "DEV: включить подписку локально",
     "en": "DEV: enable subscription locally",
     "de": "DEV: Abo lokal aktivieren",
     "fr": "DEV : activer l’abonnement localement",
-    "es": "DEV: activar suscripción localmente"
+    "es": "DEV: activar suscripción localmente",
+    "ko": "DEV: 로컬에서 구독 활성화"
   },
   "tab_profile": {
     "ru": "Профиль",
     "en": "Profile",
     "de": "Profil",
     "fr": "Profil",
-    "es": "Perfil"
+    "es": "Perfil",
+    "ko": "프로필"
   },
   "title_profile": {
     "ru": "Личный кабинет",
     "en": "My account",
     "de": "Mein Konto",
     "fr": "Mon compte",
-    "es": "Mi cuenta"
+    "es": "Mi cuenta",
+    "ko": "내 계정"
   },
   "guest_name": {
     "ru": "Гость",
     "en": "Guest",
     "de": "Gast",
     "fr": "Invité",
-    "es": "Invitado"
+    "es": "Invitado",
+    "ko": "게스트"
   },
   "badge_pro": {
     "ru": "Pro",
     "en": "Pro",
     "de": "Pro",
     "fr": "Pro",
-    "es": "Pro"
+    "es": "Pro",
+    "ko": "Pro"
   },
   "badge_trial": {
     "ru": "Пробный · {n} дн.",
     "en": "Trial · {n} d",
     "de": "Test · {n} Tg.",
     "fr": "Essai · {n} j",
-    "es": "Prueba · {n} d"
+    "es": "Prueba · {n} d",
+    "ko": "체험 · {n}일"
   },
   "badge_expired": {
     "ru": "Доступ истёк",
     "en": "Expired",
     "de": "Abgelaufen",
     "fr": "Expiré",
-    "es": "Caducado"
+    "es": "Caducado",
+    "ko": "이용 만료"
   },
   "level_prefix": {
     "ru": "Уровень: {level}",
     "en": "Level: {level}",
     "de": "Niveau: {level}",
     "fr": "Niveau : {level}",
-    "es": "Nivel: {level}"
+    "es": "Nivel: {level}",
+    "ko": "수준: {level}"
   },
   "level_word": {
     "ru": "Уровень",
     "en": "Level",
     "de": "Niveau",
     "fr": "Niveau",
-    "es": "Nivel"
+    "es": "Nivel",
+    "ko": "수준"
   },
   "sec_subscription": {
     "ru": "Подписка",
     "en": "Subscription",
     "de": "Abo",
     "fr": "Abonnement",
-    "es": "Suscripción"
+    "es": "Suscripción",
+    "ko": "구독"
   },
   "sec_progress": {
     "ru": "Прогресс",
     "en": "Progress",
     "de": "Fortschritt",
     "fr": "Progression",
-    "es": "Progreso"
+    "es": "Progreso",
+    "ko": "진행 상황"
   },
   "sub_pro_active": {
     "ru": "Подписка активна",
     "en": "Subscription active",
     "de": "Abo aktiv",
     "fr": "Abonnement actif",
-    "es": "Suscripción activa"
+    "es": "Suscripción activa",
+    "ko": "구독 이용 중"
   },
   "sub_trial_active": {
     "ru": "Пробный период — осталось дней: {n}",
     "en": "Free trial — {n} days left",
     "de": "Testphase — noch {n} Tage",
     "fr": "Essai gratuit — {n} jours restants",
-    "es": "Prueba gratis — quedan {n} días"
+    "es": "Prueba gratis — quedan {n} días",
+    "ko": "체험 기간 — {n}일 남음"
   },
   "sub_expired": {
     "ru": "Доступ истёк",
     "en": "Access expired",
     "de": "Zugang abgelaufen",
     "fr": "Accès expiré",
-    "es": "Acceso caducado"
+    "es": "Acceso caducado",
+    "ko": "이용이 만료되었어요"
   },
   "sub_pro_hint": {
     "ru": "Спасибо за поддержку — открыт весь контент.",
     "en": "Thanks for your support — everything is unlocked.",
     "de": "Danke für deine Unterstützung — alles ist freigeschaltet.",
     "fr": "Merci de ton soutien — tout est débloqué.",
-    "es": "Gracias por tu apoyo: todo está desbloqueado."
+    "es": "Gracias por tu apoyo: todo está desbloqueado.",
+    "ko": "응원해 주셔서 감사합니다 — 모든 콘텐츠가 열려 있어요."
   },
   "sub_trial_hint": {
     "ru": "Полный доступ ко всей базе и тренировке.",
     "en": "Full access to the whole database and training.",
     "de": "Voller Zugriff auf die gesamte Datenbank und das Training.",
     "fr": "Accès complet à toute la base et à l’entraînement.",
-    "es": "Acceso completo a toda la base y al entrenamiento."
+    "es": "Acceso completo a toda la base y al entrenamiento.",
+    "ko": "전체 기보와 트레이닝을 자유롭게 이용하세요."
   },
   "manage_sub": {
     "ru": "Управлять подпиской",
     "en": "Manage subscription",
     "de": "Abo verwalten",
     "fr": "Gérer l’abonnement",
-    "es": "Gestionar suscripción"
+    "es": "Gestionar suscripción",
+    "ko": "구독 관리"
   },
   "restore_ok": {
     "ru": "Подписка восстановлена.",
     "en": "Subscription restored.",
     "de": "Abo wiederhergestellt.",
     "fr": "Abonnement restauré.",
-    "es": "Suscripción restaurada."
+    "es": "Suscripción restaurada.",
+    "ko": "구독이 복원되었습니다."
   },
   "progress_solved": {
     "ru": "Решено",
     "en": "Solved",
     "de": "Gelöst",
     "fr": "Résolus",
-    "es": "Resueltos"
+    "es": "Resueltos",
+    "ko": "해결"
   },
   "progress_points": {
     "ru": "Очки",
     "en": "Points",
     "de": "Punkte",
     "fr": "Points",
-    "es": "Puntos"
+    "es": "Puntos",
+    "ko": "포인트"
   },
   "progress_tsumego": {
     "ru": "Всего задач",
     "en": "Total problems",
     "de": "Aufgaben gesamt",
     "fr": "Problèmes au total",
-    "es": "Problemas en total"
+    "es": "Problemas en total",
+    "ko": "전체 문제"
   },
   "progress_openings": {
     "ru": "Дебютов",
     "en": "Openings",
     "de": "Eröffnungen",
     "fr": "Ouvertures",
-    "es": "Aperturas"
+    "es": "Aperturas",
+    "ko": "포석"
   },
   "progress_branches": {
     "ru": "Разборов",
     "en": "Analyses",
     "de": "Analysen",
     "fr": "Analyses",
-    "es": "Análisis"
+    "es": "Análisis",
+    "ko": "분석"
   },
   "domains_heading": {
     "ru": "Сила по темам",
     "en": "Strength by topic",
-    "de": "Stärke nach Thema",
+    "de": "Stärke nach Themen",
     "fr": "Force par thème",
-    "es": "Fuerza por tema"
+    "es": "Fuerza por tema",
+    "ko": "주제별 실력"
   },
   "progress_empty": {
     "ru": "Начни тренировку, чтобы увидеть силу по темам.",
     "en": "Start training to see your strength by topic.",
     "de": "Starte das Training, um deine Stärke nach Thema zu sehen.",
     "fr": "Commence l’entraînement pour voir ta force par thème.",
-    "es": "Empieza a entrenar para ver tu fuerza por tema."
+    "es": "Empieza a entrenar para ver tu fuerza por tema.",
+    "ko": "트레이닝을 시작하면 주제별 실력이 표시됩니다."
   },
   "sign_in_cta": {
     "ru": "Войти или зарегистрироваться",
     "en": "Sign in or register",
     "de": "Anmelden oder registrieren",
     "fr": "Se connecter ou s’inscrire",
-    "es": "Iniciar sesión o registrarse"
+    "es": "Iniciar sesión o registrarse",
+    "ko": "로그인 또는 가입"
   },
   "terms": {
     "ru": "Условия использования",
     "en": "Terms of Use",
     "de": "Nutzungsbedingungen",
     "fr": "Conditions d’utilisation",
-    "es": "Términos de uso"
+    "es": "Términos de uso",
+    "ko": "이용 약관"
   },
   "privacy": {
     "ru": "Политика конфиденциальности",
     "en": "Privacy Policy",
     "de": "Datenschutzerklärung",
     "fr": "Politique de confidentialité",
-    "es": "Política de privacidad"
+    "es": "Política de privacidad",
+    "ko": "개인정보 처리방침"
   },
   "delete_account": {
     "ru": "Удалить аккаунт",
     "en": "Delete account",
     "de": "Konto löschen",
     "fr": "Supprimer le compte",
-    "es": "Eliminar cuenta"
+    "es": "Eliminar cuenta",
+    "ko": "계정 삭제"
   },
   "delete_confirm_title": {
     "ru": "Удалить аккаунт?",
     "en": "Delete account?",
     "de": "Konto löschen?",
     "fr": "Supprimer le compte ?",
-    "es": "¿Eliminar cuenta?"
+    "es": "¿Eliminar cuenta?",
+    "ko": "계정을 삭제할까요?"
   },
   "delete_confirm_body": {
     "ru": "Это выйдет из аккаунта и очистит данные на этом устройстве. Отменить нельзя.",
     "en": "This signs you out and clears your data on this device. It can’t be undone.",
     "de": "Damit wirst du abgemeldet und deine Daten auf diesem Gerät werden gelöscht. Das lässt sich nicht rückgängig machen.",
     "fr": "Cela te déconnecte et efface tes données sur cet appareil. Action irréversible.",
-    "es": "Esto cierra tu sesión y borra tus datos en este dispositivo. No se puede deshacer."
+    "es": "Esto cierra tu sesión y borra tus datos en este dispositivo. No se puede deshacer.",
+    "ko": "로그아웃되고 이 기기의 데이터가 삭제됩니다."
   },
   "delete_cancel": {
     "ru": "Отмена",
     "en": "Cancel",
     "de": "Abbrechen",
     "fr": "Annuler",
-    "es": "Cancelar"
+    "es": "Cancelar",
+    "ko": "취소"
   },
   "version": {
     "ru": "Версия {v}",
     "en": "Version {v}",
     "de": "Version {v}",
     "fr": "Version {v}",
-    "es": "Versión {v}"
+    "es": "Versión {v}",
+    "ko": "버전 {v}"
   },
   "best_move_eval": {
     "ru": "★ — лучший ход KataGo · {side}: {p}%, {lead} очк.",
     "en": "★ — KataGo best move · {side}: {p}%, {lead} pts",
     "de": "★ — bester KataGo-Zug · {side}: {p}%, {lead} Pkt.",
     "fr": "★ — meilleur coup KataGo · {side} : {p}%, {lead} pts",
-    "es": "★ — mejor jugada de KataGo · {side}: {p}%, {lead} pts"
+    "es": "★ — mejor jugada de KataGo · {side}: {p}%, {lead} pts",
+    "ko": "★ — KataGo 최선의 수 · {side}: {p}%, {lead}집"
   },
   "opening_placeholder": {
     "ru": "Сделай первые ходы — здесь появится название дебюта.",
     "en": "Make the first moves — the opening's name will appear here.",
     "de": "Mach die ersten Züge – hier erscheint der Name der Eröffnung.",
     "fr": "Joue les premiers coups — le nom de l’ouverture apparaîtra ici.",
-    "es": "Haz las primeras jugadas: aquí aparecerá el nombre de la apertura."
+    "es": "Haz las primeras jugadas: aquí aparecerá el nombre de la apertura.",
+    "ko": "첫 수를 두면 여기에 포석 이름이 나타납니다."
+  },
+  "tab_catalog": {
+    "ru": "Каталог",
+    "en": "Catalog",
+    "es": "Catálogo",
+    "fr": "Catalogue",
+    "de": "Katalog",
+    "ko": "카탈로그"
+  },
+  "branch_one": {
+    "ru": "ветка",
+    "en": "branch",
+    "es": "rama",
+    "fr": "branche",
+    "de": "Zweig",
+    "ko": "갈래"
+  },
+  "branch_few": {
+    "ru": "ветки",
+    "en": "branches",
+    "es": "ramas",
+    "fr": "branches",
+    "de": "Zweige",
+    "ko": "갈래"
+  },
+  "branch_many": {
+    "ru": "веток",
+    "en": "branches",
+    "es": "ramas",
+    "fr": "branches",
+    "de": "Zweige",
+    "ko": "갈래"
+  },
+  "branches_abbr": {
+    "ru": "{n} вет.",
+    "en": "{n} br.",
+    "es": "{n} ram.",
+    "fr": "{n} br.",
+    "de": "{n} Zw.",
+    "ko": "{n}갈래"
+  },
+  "branch_n": {
+    "ru": "ветка {n}",
+    "en": "branch {n}",
+    "es": "rama {n}",
+    "fr": "branche {n}",
+    "de": "Zweig {n}",
+    "ko": "갈래 {n}"
+  },
+  "branch_abbr": {
+    "ru": "в.{n}",
+    "en": "br.{n}",
+    "es": "r.{n}",
+    "fr": "br.{n}",
+    "de": "Zw.{n}",
+    "ko": "갈래{n}"
+  },
+  "res_even_short": {
+    "ru": "ровно (=)",
+    "en": "even (=)",
+    "es": "igualado (=)",
+    "fr": "égal (=)",
+    "de": "ausgeglichen (=)",
+    "ko": "호각 (=)"
+  },
+  "res_black_adv": {
+    "ru": "перевес чёрных",
+    "en": "Black is better",
+    "es": "ventaja de negras",
+    "fr": "avantage noir",
+    "de": "Schwarz steht besser",
+    "ko": "흑 우세"
+  },
+  "res_white_adv": {
+    "ru": "перевес белых",
+    "en": "White is better",
+    "es": "ventaja de blancas",
+    "fr": "avantage blanc",
+    "de": "Weiß steht besser",
+    "ko": "백 우세"
+  },
+  "opening_branch_note": {
+    "ru": "Ветка-продолжение: показана от позиции диаграммы.",
+    "en": "Continuation branch: shown from the diagram position.",
+    "es": "Rama de continuación: se muestra desde la posición del diagrama.",
+    "fr": "Branche de continuation : affichée depuis la position du diagramme.",
+    "de": "Fortsetzungszweig: ab der Diagrammstellung gezeigt.",
+    "ko": "이어지는 갈래: 참고도 장면부터 표시됩니다."
+  },
+  "opening_marks_note": {
+    "ru": "Буквы и треугольники — варианты следующих ходов.",
+    "en": "Letters and triangles are options for the next move.",
+    "es": "Letras y triángulos: opciones para la siguiente jugada.",
+    "fr": "Lettres et triangles : options pour le prochain coup.",
+    "de": "Buchstaben und Dreiecke sind Optionen für den nächsten Zug.",
+    "ko": "글자와 세모는 다음 수의 선택지입니다."
+  },
+  "openings_locked": {
+    "ru": "Бесплатная неделя закончилась. Подписка откроет все дебюты, ветки и подсказки продолжений.",
+    "en": "Your free week is over. A subscription unlocks every opening, branch, and continuation hint.",
+    "es": "Tu semana gratis terminó. La suscripción desbloquea todas las aperturas, ramas y pistas.",
+    "fr": "Ta semaine gratuite est terminée. L’abonnement débloque toutes les ouvertures, branches et suggestions.",
+    "de": "Deine Gratis-Woche ist vorbei. Das Abo schaltet alle Eröffnungen, Zweige und Hinweise frei.",
+    "ko": "무료 일주일이 끝났어요. 구독하면 모든 포석, 갈래, 이어지는 수 힌트가 열립니다."
+  },
+  "tsumego_locked": {
+    "ru": "Бесплатная неделя закончилась. Подписка откроет задачи и все дебюты.",
+    "en": "Your free week is over. A subscription unlocks the problems and every opening.",
+    "es": "Tu semana gratis terminó. La suscripción desbloquea los problemas y todas las aperturas.",
+    "fr": "Ta semaine gratuite est terminée. L’abonnement débloque les problèmes et toutes les ouvertures.",
+    "de": "Deine Gratis-Woche ist vorbei. Das Abo schaltet die Aufgaben und alle Eröffnungen frei.",
+    "ko": "무료 일주일이 끝났어요. 구독하면 문제와 모든 포석이 열립니다."
+  },
+  "training_locked": {
+    "ru": "Бесплатная неделя закончилась. Подписка откроет тренировку и задачи.",
+    "en": "Your free week is over. A subscription unlocks training and the problems.",
+    "es": "Tu semana gratis terminó. La suscripción desbloquea el entrenamiento y los problemas.",
+    "fr": "Ta semaine gratuite est terminée. L’abonnement débloque l’entraînement et les problèmes.",
+    "de": "Deine Gratis-Woche ist vorbei. Das Abo schaltet das Training und die Aufgaben frei.",
+    "ko": "무료 일주일이 끝났어요. 구독하면 트레이닝과 문제가 열립니다."
+  },
+  "open_subscription": {
+    "ru": "Открыть подписку",
+    "en": "Open subscription",
+    "es": "Ver suscripción",
+    "fr": "Voir l’abonnement",
+    "de": "Abo ansehen",
+    "ko": "구독 보기"
+  },
+  "sections_note": {
+    "ru": "Стартовый набор — классические учебные формы. База растёт по мере разметки решений.",
+    "en": "The starter set is classic training shapes. The base grows as solutions get marked.",
+    "es": "El set inicial son formas clásicas de estudio. La base crece a medida que se marcan soluciones.",
+    "fr": "Le set de départ : des formes classiques d’étude. La base grandit au fil du balisage des solutions.",
+    "de": "Das Startset sind klassische Übungsformen. Die Basis wächst mit markierten Lösungen.",
+    "ko": "기본 세트는 고전 학습 형태입니다. 풀이가 정리되는 대로 문제가 늘어납니다."
+  },
+  "free_mode_note": {
+    "ru": "Режим самопроверки: разыграй решение за обе стороны.",
+    "en": "Self-check mode: play out the solution for both sides.",
+    "es": "Modo de autoevaluación: juega la solución por ambos bandos.",
+    "fr": "Mode auto-vérification : jouez la solution pour les deux camps.",
+    "de": "Selbstprüfmodus: Spiele die Lösung für beide Seiten aus.",
+    "ko": "셀프 체크 모드: 양쪽 수순을 직접 놓아 보세요."
+  },
+  "move_of_black": {
+    "ru": "Ход чёрных ⚫",
+    "en": "Black to play ⚫",
+    "es": "Juegan negras ⚫",
+    "fr": "Trait aux noirs ⚫",
+    "de": "Schwarz am Zug ⚫",
+    "ko": "흑 차례 ⚫"
+  },
+  "move_of_white": {
+    "ru": "Ход белых ⚪",
+    "en": "White to play ⚪",
+    "es": "Juegan blancas ⚪",
+    "fr": "Trait aux blancs ⚪",
+    "de": "Weiß am Zug ⚪",
+    "ko": "백 차례 ⚪"
+  },
+  "free_now_moves": {
+    "ru": "сейчас ходят {stone}",
+    "en": "now playing {stone}",
+    "es": "ahora juega {stone}",
+    "fr": "au trait : {stone}",
+    "de": "am Zug: {stone}",
+    "ko": "지금 {stone} 차례"
+  },
+  "btn_again": {
+    "ru": "Заново",
+    "en": "Restart",
+    "es": "Reiniciar",
+    "fr": "Recommencer",
+    "de": "Neu starten",
+    "ko": "다시"
+  },
+  "btn_undo_move": {
+    "ru": "← Ход назад",
+    "en": "← Undo move",
+    "es": "← Deshacer",
+    "fr": "← Annuler le coup",
+    "de": "← Zug zurück",
+    "ko": "← 한 수 무르기"
+  },
+  "btn_mark_solved": {
+    "ru": "Отметить решённой ✓",
+    "en": "Mark as solved ✓",
+    "es": "Marcar resuelta ✓",
+    "fr": "Marquer résolue ✓",
+    "de": "Als gelöst markieren ✓",
+    "ko": "해결로 표시 ✓"
+  },
+  "btn_hint": {
+    "ru": "Подсказка",
+    "en": "Hint",
+    "es": "Pista",
+    "fr": "Indice",
+    "de": "Hinweis",
+    "ko": "힌트"
+  },
+  "btn_next_problem": {
+    "ru": "Следующая →",
+    "en": "Next →",
+    "es": "Siguiente →",
+    "fr": "Suivante →",
+    "de": "Nächste →",
+    "ko": "다음 →"
+  },
+  "status_wrong_retry": {
+    "ru": "Мимо — такого хода нет в решении. Попробуй ещё.",
+    "en": "Miss — that move is not in the solution. Try again.",
+    "es": "Fallo: esa jugada no está en la solución. Inténtalo otra vez.",
+    "fr": "Raté — ce coup n’est pas dans la solution. Réessayez.",
+    "de": "Daneben — dieser Zug ist nicht in der Lösung. Versuch es nochmal.",
+    "ko": "아쉽네요 — 정답 수순에 없는 수예요. 다시 시도해 보세요."
+  },
+  "goal_capture": {
+    "ru": "Поймай камни соперника.",
+    "en": "Capture the opponent’s stones.",
+    "es": "Captura las piedras del rival.",
+    "fr": "Capturez les pierres adverses.",
+    "de": "Fange die gegnerischen Steine.",
+    "ko": "상대 돌을 잡으세요."
+  },
+  "goal_ld_live": {
+    "ru": "Спаси группу — она должна жить.",
+    "en": "Save the group — it must live.",
+    "es": "Salva el grupo: debe vivir.",
+    "fr": "Sauvez le groupe — il doit vivre.",
+    "de": "Rette die Gruppe — sie muss leben.",
+    "ko": "내 그룹을 살리세요."
+  },
+  "goal_ld_kill": {
+    "ru": "Убей группу соперника.",
+    "en": "Kill the opponent’s group.",
+    "es": "Mata el grupo del rival.",
+    "fr": "Tuez le groupe adverse.",
+    "de": "Töte die gegnerische Gruppe.",
+    "ko": "상대 그룹을 잡으세요."
+  },
+  "goal_ko": {
+    "ru": "Реши задачу через ко.",
+    "en": "Solve the problem through a ko.",
+    "es": "Resuelve el problema mediante un ko.",
+    "fr": "Résolvez le problème par un ko.",
+    "de": "Löse die Aufgabe über ein Ko.",
+    "ko": "패를 이용해 문제를 푸세요."
+  },
+  "goal_race": {
+    "ru": "Выиграй гонку свобод.",
+    "en": "Win the capturing race.",
+    "es": "Gana la carrera de libertades.",
+    "fr": "Gagnez le semeai.",
+    "de": "Gewinne das Wettrennen (Semeai).",
+    "ko": "수상전에서 이기세요."
+  },
+  "goal_connect": {
+    "ru": "Соедини свои камни.",
+    "en": "Connect your stones.",
+    "es": "Conecta tus piedras.",
+    "fr": "Reliez vos pierres.",
+    "de": "Verbinde deine Steine.",
+    "ko": "내 돌을 연결하세요."
+  },
+  "goal_default": {
+    "ru": "Найди лучший ход.",
+    "en": "Find the best move.",
+    "es": "Encuentra la mejor jugada.",
+    "fr": "Trouvez le meilleur coup.",
+    "de": "Finde den besten Zug.",
+    "ko": "최선의 수를 찾으세요."
+  },
+  "rung_h0": {
+    "ru": "Вопрос",
+    "en": "Question",
+    "es": "Pregunta",
+    "fr": "Question",
+    "de": "Frage",
+    "ko": "질문"
+  },
+  "rung_h1": {
+    "ru": "Что важно",
+    "en": "What matters",
+    "es": "Qué importa",
+    "fr": "L’essentiel",
+    "de": "Worauf achten",
+    "ko": "핵심 위치"
+  },
+  "rung_h2": {
+    "ru": "Идея",
+    "en": "Idea",
+    "es": "Idea",
+    "fr": "Idée",
+    "de": "Idee",
+    "ko": "아이디어"
+  },
+  "rung_h3": {
+    "ru": "Кандидаты",
+    "en": "Candidates",
+    "es": "Candidatas",
+    "fr": "Candidats",
+    "de": "Kandidaten",
+    "ko": "후보수"
+  },
+  "rung_h4": {
+    "ru": "Показать ход",
+    "en": "Show the move",
+    "es": "Mostrar jugada",
+    "fr": "Montrer le coup",
+    "de": "Zug zeigen",
+    "ko": "수 보여주기"
+  },
+  "hint_zone": {
+    "ru": "Смотри на подсвеченную зону.",
+    "en": "Look at the highlighted area.",
+    "es": "Mira la zona resaltada.",
+    "fr": "Regarde la zone en surbrillance.",
+    "de": "Schau auf den markierten Bereich.",
+    "ko": "강조된 구역을 보세요."
+  },
+  "hint_no_candidates": {
+    "ru": "Кандидатов не будет — читай сам. {q}",
+    "en": "No candidates here — read it out yourself. {q}",
+    "es": "No habrá candidatas: léelo tú mismo. {q}",
+    "fr": "Pas de candidats ici — lis par toi-même. {q}",
+    "de": "Keine Kandidaten — lies selbst. {q}",
+    "ko": "후보수는 없어요 — 직접 수읽기 하세요. {q}"
+  },
+  "hint_candidates": {
+    "ru": "Один из этих пунктов — верный. Какой ответ соперника ты ждёшь?",
+    "en": "One of these points is correct. What reply do you expect?",
+    "es": "Uno de estos puntos es el correcto. ¿Qué respuesta esperas?",
+    "fr": "L’un de ces points est le bon. Quelle réponse attends-tu ?",
+    "de": "Einer dieser Punkte ist richtig. Welche Antwort erwartest du?",
+    "ko": "이 중 하나가 정답입니다. 상대의 응수는 무엇일까요?"
+  },
+  "hint_move_label": {
+    "ru": "Подсвеченный ход",
+    "en": "The highlighted move",
+    "es": "La jugada resaltada",
+    "fr": "Le coup en surbrillance",
+    "de": "Der markierte Zug",
+    "ko": "강조된 수"
+  },
+  "fb_calibration": {
+    "ru": "калибровка {step}/{total}",
+    "en": "calibration {step}/{total}",
+    "es": "calibración {step}/{total}",
+    "fr": "calibrage {step}/{total}",
+    "de": "Kalibrierung {step}/{total}",
+    "ko": "실력 측정 {step}/{total}"
+  },
+  "fb_rating_delta": {
+    "ru": "рейтинг {delta} → {rating}",
+    "en": "rating {delta} → {rating}",
+    "es": "rating {delta} → {rating}",
+    "fr": "classement {delta} → {rating}",
+    "de": "Wertung {delta} → {rating}",
+    "ko": "레이팅 {delta} → {rating}"
+  },
+  "fb_rating": {
+    "ru": "рейтинг {rating}",
+    "en": "rating {rating}",
+    "es": "rating {rating}",
+    "fr": "classement {rating}",
+    "de": "Wertung {rating}",
+    "ko": "레이팅 {rating}"
+  },
+  "fb_solved": {
+    "ru": "+{points} очков · {rate}",
+    "en": "+{points} pts · {rate}",
+    "es": "+{points} pts · {rate}",
+    "fr": "+{points} pts · {rate}",
+    "de": "+{points} Pkt. · {rate}",
+    "ko": "+{points}점 · {rate}"
+  },
+  "fb_reproduced": {
+    "ru": "Разбор пройден, +{points} очков · задача скоро вернётся",
+    "en": "Walkthrough done, +{points} pts · this problem will come back soon",
+    "es": "Repaso completado, +{points} pts · el problema volverá pronto",
+    "fr": "Analyse terminée, +{points} pts · le problème reviendra bientôt",
+    "de": "Analyse geschafft, +{points} Pkt. · die Aufgabe kommt bald wieder",
+    "ko": "풀이 복기 완료, +{points}점 · 이 문제는 곧 다시 나옵니다"
+  },
+  "fb_failed": {
+    "ru": "{rate} · задача вернётся позже",
+    "en": "{rate} · this problem will return later",
+    "es": "{rate} · el problema volverá más tarde",
+    "fr": "{rate} · le problème reviendra plus tard",
+    "de": "{rate} · die Aufgabe kommt später wieder",
+    "ko": "{rate} · 이 문제는 나중에 다시 나옵니다"
+  },
+  "training_done": {
+    "ru": "Все задачи пройдены 🎉",
+    "en": "All problems cleared 🎉",
+    "es": "¡Todos los problemas resueltos! 🎉",
+    "fr": "Tous les problèmes terminés 🎉",
+    "de": "Alle Aufgaben geschafft 🎉",
+    "ko": "모든 문제를 끝냈어요 🎉"
+  },
+  "to_stats": {
+    "ru": "К статистике",
+    "en": "To stats",
+    "es": "A las estadísticas",
+    "fr": "Vers les stats",
+    "de": "Zur Statistik",
+    "ko": "통계 보기"
+  },
+  "walk_intro": {
+    "ru": "Разбор. {goal} Листай ходы тапом.",
+    "en": "Walkthrough. {goal} Tap to step through the moves.",
+    "es": "Repaso. {goal} Toca para avanzar por las jugadas.",
+    "fr": "Analyse. {goal} Tape pour faire défiler les coups.",
+    "de": "Analyse. {goal} Tippe dich durch die Züge.",
+    "ko": "풀이 복기. {goal} 화면을 탭하며 수순을 넘기세요."
+  },
+  "walk_done": {
+    "ru": "Линия показана. Теперь воспроизведи её сам — с начала.",
+    "en": "The line is shown. Now reproduce it yourself — from the start.",
+    "es": "La línea está mostrada. Ahora reprodúcela tú mismo desde el inicio.",
+    "fr": "La séquence est montrée. Reproduis-la toi-même depuis le début.",
+    "de": "Die Folge wurde gezeigt. Spiele sie jetzt selbst nach — von Anfang an.",
+    "ko": "수순을 모두 봤어요. 이제 처음부터 직접 재현해 보세요."
+  },
+  "walk_step": {
+    "ru": "Ход {n} из {m}.",
+    "en": "Move {n} of {m}.",
+    "es": "Jugada {n} de {m}.",
+    "fr": "Coup {n} sur {m}.",
+    "de": "Zug {n} von {m}.",
+    "ko": "{m}수 중 {n}수."
+  },
+  "status_wrong": {
+    "ru": "Мимо — такого хода нет в решении.",
+    "en": "Miss — that move is not in the solution.",
+    "es": "Fallo: esa jugada no está en la solución.",
+    "fr": "Raté — ce coup n’est pas dans la solution.",
+    "de": "Daneben — dieser Zug ist nicht in der Lösung.",
+    "ko": "아쉽네요 — 정답 수순에 없는 수예요."
+  },
+  "status_refuted": {
+    "ru": "Не получилось: соперник опровергает этот ход.",
+    "en": "It fails: the opponent refutes that move.",
+    "es": "No funciona: el rival refuta esa jugada.",
+    "fr": "Ça ne marche pas : l’adversaire réfute ce coup.",
+    "de": "Klappt nicht: der Gegner widerlegt den Zug.",
+    "ko": "안 됩니다: 상대가 이 수를 반박해요."
+  },
+  "status_reproduced": {
+    "ru": "Воспроизведено! ✓",
+    "en": "Reproduced! ✓",
+    "es": "¡Reproducido! ✓",
+    "fr": "Reproduit ! ✓",
+    "de": "Nachgespielt! ✓",
+    "ko": "재현 완료! ✓"
+  },
+  "status_solved": {
+    "ru": "Решено! ✓",
+    "en": "Solved! ✓",
+    "es": "¡Resuelto! ✓",
+    "fr": "Résolu ! ✓",
+    "de": "Gelöst! ✓",
+    "ko": "정답! ✓"
+  },
+  "status_reproduce": {
+    "ru": "Твоя очередь: повтори решение с начала.",
+    "en": "Your turn: repeat the solution from the start.",
+    "es": "Tu turno: repite la solución desde el inicio.",
+    "fr": "À toi : rejoue la solution depuis le début.",
+    "de": "Du bist dran: Wiederhole die Lösung von Anfang an.",
+    "ko": "이제 직접: 처음부터 풀이를 재현해 보세요."
+  },
+  "to_move_black": {
+    "ru": "Ходят чёрные ⚫.",
+    "en": "Black to play ⚫.",
+    "es": "Juegan negras ⚫.",
+    "fr": "Trait aux noirs ⚫.",
+    "de": "Schwarz am Zug ⚫.",
+    "ko": "흑 차례 ⚫."
+  },
+  "to_move_white": {
+    "ru": "Ходят белые ⚪.",
+    "en": "White to play ⚪.",
+    "es": "Juegan blancas ⚪.",
+    "fr": "Trait aux blancs ⚪.",
+    "de": "Weiß am Zug ⚪.",
+    "ko": "백 차례 ⚪."
+  },
+  "chip_calibration": {
+    "ru": "Калибровка {step}/{total}",
+    "en": "Calibration {step}/{total}",
+    "es": "Calibración {step}/{total}",
+    "fr": "Calibrage {step}/{total}",
+    "de": "Kalibrierung {step}/{total}",
+    "ko": "실력 측정 {step}/{total}"
+  },
+  "meta_solved": {
+    "ru": "решено {n} · +{p}",
+    "en": "solved {n} · +{p}",
+    "es": "resueltas {n} · +{p}",
+    "fr": "résolus {n} · +{p}",
+    "de": "gelöst {n} · +{p}",
+    "ko": "해결 {n} · +{p}"
+  },
+  "eyebrow_walk": {
+    "ru": "Разбор",
+    "en": "Walkthrough",
+    "es": "Repaso",
+    "fr": "Analyse",
+    "de": "Analyse",
+    "ko": "풀이 복기"
+  },
+  "eyebrow_reproduce": {
+    "ru": "Воспроизведение",
+    "en": "Reproduce",
+    "es": "Reproducción",
+    "fr": "Reproduction",
+    "de": "Nachspielen",
+    "ko": "재현"
+  },
+  "placement_hint_warn": {
+    "ru": "Калибровка: подсказки «Что важно» и дальше засчитают задачу как нерешённую.",
+    "en": "Calibration: hints from “What matters” onward count the problem as unsolved.",
+    "es": "Calibración: desde «Qué importa» en adelante, la pista cuenta el problema como no resuelto.",
+    "fr": "Calibrage : à partir de « L’essentiel », l’indice compte le problème comme non résolu.",
+    "de": "Kalibrierung: Hinweise ab „Worauf achten“ werten die Aufgabe als ungelöst.",
+    "ko": "실력 측정 중: «핵심 위치» 이후 힌트를 쓰면 문제는 미해결로 기록됩니다."
+  },
+  "btn_more_hint": {
+    "ru": "Ещё намёк",
+    "en": "Another hint",
+    "es": "Otra pista",
+    "fr": "Encore un indice",
+    "de": "Noch ein Hinweis",
+    "ko": "힌트 더 보기"
+  },
+  "btn_walkthrough": {
+    "ru": "Разобрать решение",
+    "en": "Walk through the solution",
+    "es": "Ver la solución",
+    "fr": "Analyser la solution",
+    "de": "Lösung durchgehen",
+    "ko": "풀이 보기"
+  },
+  "btn_reproduce_now": {
+    "ru": "Теперь сам",
+    "en": "Your turn",
+    "es": "Ahora tú",
+    "fr": "À toi",
+    "de": "Jetzt du",
+    "ko": "이제 직접"
+  },
+  "btn_onward": {
+    "ru": "Дальше →",
+    "en": "Onward →",
+    "es": "Adelante →",
+    "fr": "Continuer →",
+    "de": "Weiter →",
+    "ko": "계속 →"
+  },
+  "btn_next_move": {
+    "ru": "Следующий ход",
+    "en": "Next move",
+    "es": "Siguiente jugada",
+    "fr": "Coup suivant",
+    "de": "Nächster Zug",
+    "ko": "다음 수"
+  },
+  "btn_retry": {
+    "ru": "Ещё раз",
+    "en": "Try again",
+    "es": "Otra vez",
+    "fr": "Réessayer",
+    "de": "Nochmal",
+    "ko": "다시 시도"
+  },
+  "btn_cant": {
+    "ru": "Не могу",
+    "en": "I’m stuck",
+    "es": "No puedo",
+    "fr": "Je bloque",
+    "de": "Ich hänge",
+    "ko": "모르겠어요"
+  },
+  "btn_skip": {
+    "ru": "Пропустить →",
+    "en": "Skip →",
+    "es": "Saltar →",
+    "fr": "Passer →",
+    "de": "Überspringen →",
+    "ko": "건너뛰기 →"
+  },
+  "btn_finish": {
+    "ru": "Завершить",
+    "en": "Finish",
+    "es": "Terminar",
+    "fr": "Terminer",
+    "de": "Beenden",
+    "ko": "끝내기"
+  },
+  "rel_warmup": {
+    "ru": "Разминка",
+    "en": "Warm-up",
+    "es": "Calentamiento",
+    "fr": "Échauffement",
+    "de": "Aufwärmen",
+    "ko": "몸풀기"
+  },
+  "rel_comfy": {
+    "ru": "Комфортная",
+    "en": "Comfortable",
+    "es": "Cómoda",
+    "fr": "Confortable",
+    "de": "Angenehm",
+    "ko": "무난함"
+  },
+  "rel_right": {
+    "ru": "В самый раз",
+    "en": "Just right",
+    "es": "A tu medida",
+    "fr": "Juste bien",
+    "de": "Genau richtig",
+    "ko": "딱 맞음"
+  },
+  "rel_hard": {
+    "ru": "Сложная",
+    "en": "Hard",
+    "es": "Difícil",
+    "fr": "Difficile",
+    "de": "Schwer",
+    "ko": "어려움"
+  },
+  "rel_challenge": {
+    "ru": "Испытание",
+    "en": "Challenge",
+    "es": "Desafío",
+    "fr": "Défi",
+    "de": "Herausforderung",
+    "ko": "도전"
+  },
+  "level_novice": {
+    "ru": "новичок",
+    "en": "novice",
+    "es": "novato",
+    "fr": "novice",
+    "de": "Neuling",
+    "ko": "입문"
+  },
+  "level_beginner": {
+    "ru": "начинающий",
+    "en": "beginner",
+    "es": "principiante",
+    "fr": "débutant",
+    "de": "Anfänger",
+    "ko": "초보"
+  },
+  "level_confident": {
+    "ru": "уверенный",
+    "en": "solid",
+    "es": "sólido",
+    "fr": "solide",
+    "de": "solide",
+    "ko": "탄탄함"
+  },
+  "level_strong": {
+    "ru": "сильный",
+    "en": "strong",
+    "es": "fuerte",
+    "fr": "fort",
+    "de": "stark",
+    "ko": "강함"
+  },
+  "level_very_strong": {
+    "ru": "очень сильный",
+    "en": "very strong",
+    "es": "muy fuerte",
+    "fr": "très fort",
+    "de": "sehr stark",
+    "ko": "매우 강함"
+  },
+  "level_master": {
+    "ru": "мастер",
+    "en": "master",
+    "es": "maestro",
+    "fr": "maître",
+    "de": "Meister",
+    "ko": "고수"
+  },
+  "domain_capture": {
+    "ru": "Захват камней",
+    "en": "Capturing stones",
+    "es": "Captura de piedras",
+    "fr": "Capture de pierres",
+    "de": "Steine fangen",
+    "ko": "돌 잡기"
+  },
+  "domain_ld_live": {
+    "ru": "Жизнь группы",
+    "en": "Making life",
+    "es": "Vida del grupo",
+    "fr": "Vie du groupe",
+    "de": "Leben der Gruppe",
+    "ko": "그룹 살리기"
+  },
+  "domain_ld_kill": {
+    "ru": "Убийство группы",
+    "en": "Killing groups",
+    "es": "Matar el grupo",
+    "fr": "Tuer le groupe",
+    "de": "Gruppen töten",
+    "ko": "그룹 잡기"
+  },
+  "domain_ko": {
+    "ru": "Ко",
+    "en": "Ko",
+    "es": "Ko",
+    "fr": "Ko",
+    "de": "Ko",
+    "ko": "패"
+  },
+  "domain_race": {
+    "ru": "Гонка захвата",
+    "en": "Capturing race",
+    "es": "Carrera de capturas",
+    "fr": "Course aux libertés",
+    "de": "Wettrennen (Semeai)",
+    "ko": "수상전"
+  },
+  "domain_connect": {
+    "ru": "Соединение",
+    "en": "Connection",
+    "es": "Conexión",
+    "fr": "Connexion",
+    "de": "Verbindung",
+    "ko": "연결"
+  },
+  "stat_points": {
+    "ru": "очков",
+    "en": "points",
+    "es": "puntos",
+    "fr": "points",
+    "de": "Punkte",
+    "ko": "포인트"
+  },
+  "stat_solved": {
+    "ru": "решено",
+    "en": "solved",
+    "es": "resueltas",
+    "fr": "résolus",
+    "de": "gelöst",
+    "ko": "해결"
+  },
+  "stat_accuracy": {
+    "ru": "точность",
+    "en": "accuracy",
+    "es": "precisión",
+    "fr": "précision",
+    "de": "Genauigkeit",
+    "ko": "정확도"
+  },
+  "play_cta": {
+    "ru": "Играть",
+    "en": "Play",
+    "es": "Jugar",
+    "fr": "Jouer",
+    "de": "Spielen",
+    "ko": "시작하기"
+  },
+  "play_note": {
+    "ru": "Тренажёр подбирает задачи под твой уровень и помогает расти",
+    "en": "The trainer picks problems for your level and helps you grow",
+    "es": "El entrenador elige problemas según tu nivel y te ayuda a crecer",
+    "fr": "L’entraîneur choisit des problèmes à ton niveau et t’aide à progresser",
+    "de": "Der Trainer wählt Aufgaben für dein Niveau und lässt dich wachsen",
+    "ko": "트레이너가 내 수준에 맞는 문제를 골라 실력을 키워 줍니다"
+  },
+  "star_title": {
+    "ru": "Твоя звезда навыков",
+    "en": "Your skill star",
+    "es": "Tu estrella de habilidades",
+    "fr": "Votre étoile de compétences",
+    "de": "Dein Fähigkeiten-Stern",
+    "ko": "나의 실력 별"
+  },
+  "star_info_title": {
+    "ru": "Звезда навыков",
+    "en": "Skill star",
+    "es": "Estrella de habilidades",
+    "fr": "Étoile de compétences",
+    "de": "Fähigkeiten-Stern",
+    "ko": "실력 별"
+  },
+  "star_info_body": {
+    "ru": "Каждый луч — навык. Заполненная фигура — твоя текущая освоенность по недавним задачам, пунктир — потолок. Число под навыком — решено задач из имеющихся в базе.",
+    "en": "Each ray is a skill. The filled shape is your current mastery from recent problems; the dashed line is the ceiling. The number under a skill is problems solved out of those in the base.",
+    "es": "Cada rayo es una habilidad. La figura rellena es tu dominio actual según problemas recientes; la línea punteada, el techo. El número bajo cada habilidad: problemas resueltos de los disponibles.",
+    "fr": "Chaque rayon est une compétence. La forme pleine montre ta maîtrise actuelle d’après les problèmes récents ; la ligne en pointillé, ton plafond. Le nombre sous chaque compétence indique les problèmes résolus sur ceux de la base.",
+    "de": "Jeder Strahl ist eine Fähigkeit. Die gefüllte Form ist dein aktueller Stand nach den letzten Aufgaben, die gestrichelte Linie das Maximum. Die Zahl darunter: gelöste Aufgaben von allen in der Basis.",
+    "ko": "각 축은 하나의 실력입니다. 채워진 도형은 최근 문제 기준 현재 숙련도, 점선은 상한선입니다. 실력 아래 숫자는 문제집에서 해결한 문제 수예요."
+  },
+  "legend_current": {
+    "ru": "текущий уровень",
+    "en": "current level",
+    "es": "nivel actual",
+    "fr": "niveau actuel",
+    "de": "aktuelles Niveau",
+    "ko": "현재 수준"
+  },
+  "legend_potential": {
+    "ru": "потенциал",
+    "en": "potential",
+    "es": "potencial",
+    "fr": "potentiel",
+    "de": "Potenzial",
+    "ko": "잠재력"
+  },
+  "progress_title": {
+    "ru": "Прогресс",
+    "en": "Progress",
+    "es": "Progreso",
+    "fr": "Progression",
+    "de": "Fortschritt",
+    "ko": "진행 상황"
+  },
+  "filter_all_skills": {
+    "ru": "Все навыки",
+    "en": "All skills",
+    "es": "Todas",
+    "fr": "Toutes",
+    "de": "Alle",
+    "ko": "전체"
+  },
+  "pool_note": {
+    "ru": "В тренировке {n} проверяемых задач; база растёт по мере разметки решений.",
+    "en": "{n} auto-checked problems in training; the base grows as solutions get marked.",
+    "es": "{n} problemas verificables en el entrenamiento; la base crece al marcar soluciones.",
+    "fr": "{n} problèmes vérifiés à l’entraînement ; la base grandit au fil du balisage.",
+    "de": "{n} geprüfte Aufgaben im Training; die Basis wächst mit markierten Lösungen.",
+    "ko": "트레이닝에는 자동 채점 문제가 {n}개 있으며, 풀이가 정리되는 대로 늘어납니다."
+  },
+  "overall_rating": {
+    "ru": "общий рейтинг",
+    "en": "overall rating",
+    "es": "rating general",
+    "fr": "classement global",
+    "de": "Gesamtwertung",
+    "ko": "종합 레이팅"
+  },
+  "family_tengen": {
+    "ru": "Тэнгэн",
+    "en": "Tengen",
+    "es": "Tengen",
+    "fr": "Tengen",
+    "de": "Tengen",
+    "ko": "천원"
+  },
+  "family_hoshi": {
+    "ru": "Хоси",
+    "en": "Hoshi",
+    "es": "Hoshi",
+    "fr": "Hoshi",
+    "de": "Hoshi",
+    "ko": "화점"
+  },
+  "family_takamoku": {
+    "ru": "Такамоку",
+    "en": "Takamoku",
+    "es": "Takamoku",
+    "fr": "Takamoku",
+    "de": "Takamoku",
+    "ko": "고목"
+  },
+  "family_territorial": {
+    "ru": "Территориальные",
+    "en": "Territorial",
+    "es": "Territoriales",
+    "fr": "Territoriales",
+    "de": "Territorial",
+    "ko": "실리형"
+  },
+  "btheme_night_lacquer": {
+    "ru": "Ночной лак",
+    "en": "Night lacquer",
+    "es": "Laca nocturna",
+    "fr": "Laque de nuit",
+    "de": "Nachtlack",
+    "ko": "밤의 옻칠"
+  },
+  "btheme_kaya": {
+    "ru": "Кайя (классика)",
+    "en": "Kaya (classic)",
+    "es": "Kaya (clásica)",
+    "fr": "Kaya (classique)",
+    "de": "Kaya (klassisch)",
+    "ko": "카야 (클래식)"
+  },
+  "btheme_dark": {
+    "ru": "Тёмная",
+    "en": "Dark",
+    "es": "Oscura",
+    "fr": "Sombre",
+    "de": "Dunkel",
+    "ko": "다크"
+  },
+  "btheme_walnut": {
+    "ru": "Орех",
+    "en": "Walnut",
+    "es": "Nogal",
+    "fr": "Noyer",
+    "de": "Nussbaum",
+    "ko": "호두나무"
+  },
+  "btheme_bamboo": {
+    "ru": "Бамбук",
+    "en": "Bamboo",
+    "es": "Bambú",
+    "fr": "Bambou",
+    "de": "Bambus",
+    "ko": "대나무"
+  },
+  "btheme_paper": {
+    "ru": "Бумага",
+    "en": "Paper",
+    "es": "Papel",
+    "fr": "Papier",
+    "de": "Papier",
+    "ko": "종이"
+  },
+  "stheme_lacquer_ivory": {
+    "ru": "Лак и слоновая кость",
+    "en": "Lacquer & ivory",
+    "es": "Laca y marfil",
+    "fr": "Laque et ivoire",
+    "de": "Lack & Elfenbein",
+    "ko": "옻칠과 상아"
+  },
+  "stheme_slate_shell": {
+    "ru": "Сланец и ракушка",
+    "en": "Slate & shell",
+    "es": "Pizarra y concha",
+    "fr": "Ardoise et coquillage",
+    "de": "Schiefer & Muschel",
+    "ko": "점판암과 조개"
+  },
+  "stheme_matte": {
+    "ru": "Матовые",
+    "en": "Matte",
+    "es": "Mates",
+    "fr": "Mates",
+    "de": "Matt",
+    "ko": "무광"
+  },
+  "stheme_glass": {
+    "ru": "Стекло",
+    "en": "Glass",
+    "es": "Cristal",
+    "fr": "Verre",
+    "de": "Glas",
+    "ko": "유리"
+  },
+  "stheme_flat": {
+    "ru": "Плоские",
+    "en": "Flat",
+    "es": "Planas",
+    "fr": "Plates",
+    "de": "Flach",
+    "ko": "플랫"
+  },
+  "per_year": {
+    "ru": "год",
+    "en": "year",
+    "es": "año",
+    "fr": "an",
+    "de": "Jahr",
+    "ko": "년"
+  },
+  "per_month": {
+    "ru": "месяц",
+    "en": "month",
+    "es": "mes",
+    "fr": "mois",
+    "de": "Monat",
+    "ko": "월"
+  },
+  "cat_capture": {
+    "ru": "Захват камней",
+    "en": "Capturing stones",
+    "es": "Captura de piedras",
+    "fr": "Capture de pierres",
+    "de": "Steine fangen",
+    "ko": "돌 잡기"
+  },
+  "cat_life_death": {
+    "ru": "Жизнь и смерть",
+    "en": "Life & death",
+    "es": "Vida y muerte",
+    "fr": "Vie et mort",
+    "de": "Leben und Tod",
+    "ko": "사활"
+  },
+  "cat_gokyo_shumyo": {
+    "ru": "Классика: Гокё Сюмё (1812)",
+    "en": "Classic: Gokyo Shumyo (1812)",
+    "es": "Clásico: Gokyo Shumyo (1812)",
+    "fr": "Classique : Gokyo Shumyo (1812)",
+    "de": "Klassiker: Gokyo Shumyo (1812)",
+    "ko": "고전: 고쿄 슈묘 (1812)"
+  },
+  "cat_xuanxuan_qijing": {
+    "ru": "Классика: Сюаньсюань Цицзин (1349)",
+    "en": "Classic: Xuanxuan Qijing (1349)",
+    "es": "Clásico: Xuanxuan Qijing (1349)",
+    "fr": "Classique : Xuanxuan Qijing (1349)",
+    "de": "Klassiker: Xuanxuan Qijing (1349)",
+    "ko": "고전: 현현기경 (1349)"
+  },
+  "cat_igo_hatsuyoron": {
+    "ru": "Классика: Иго Хацуёрон (1713)",
+    "en": "Classic: Igo Hatsuyoron (1713)",
+    "es": "Clásico: Igo Hatsuyoron (1713)",
+    "fr": "Classique : Igo Hatsuyōron (1713)",
+    "de": "Klassiker: Igo Hatsuyōron (1713)",
+    "ko": "고전: 이고 하쓰요론 (1713)"
+  },
+  "sec_capture_atari": {
+    "ru": "Атари и захват",
+    "en": "Atari and capture",
+    "es": "Atari y captura",
+    "fr": "Atari et capture",
+    "de": "Atari und Fang",
+    "ko": "단수와 따냄"
+  },
+  "sec_capture_technique": {
+    "ru": "Приёмы захвата",
+    "en": "Capturing techniques",
+    "es": "Técnicas de captura",
+    "fr": "Techniques de capture",
+    "de": "Fangtechniken",
+    "ko": "돌 잡는 기술"
+  },
+  "sec_life_death_corner": {
+    "ru": "Угол",
+    "en": "Corner",
+    "es": "Esquina",
+    "fr": "Coin",
+    "de": "Ecke",
+    "ko": "귀"
+  },
+  "sec_life_death_side": {
+    "ru": "Сторона",
+    "en": "Side",
+    "es": "Lado",
+    "fr": "Bord",
+    "de": "Rand",
+    "ko": "변"
+  },
+  "sec_gokyo_shumyo_living": {
+    "ru": "Жизнь",
+    "en": "Living",
+    "es": "Vivir",
+    "fr": "Vivre",
+    "de": "Leben",
+    "ko": "삶"
+  },
+  "sec_gokyo_shumyo_killing": {
+    "ru": "Убийство",
+    "en": "Killing",
+    "es": "Matar",
+    "fr": "Tuer",
+    "de": "Töten",
+    "ko": "죽임"
+  },
+  "sec_gokyo_shumyo_ko": {
+    "ru": "Ко",
+    "en": "Ko",
+    "es": "Ko",
+    "fr": "Ko",
+    "de": "Ko",
+    "ko": "패"
+  },
+  "sec_gokyo_shumyo_capturing_race": {
+    "ru": "Гонка захвата",
+    "en": "Capturing race",
+    "es": "Carrera de capturas",
+    "fr": "Course aux libertés",
+    "de": "Wettrennen",
+    "ko": "수상전"
+  },
+  "sec_gokyo_shumyo_oiotoshi": {
+    "ru": "Ойотоси",
+    "en": "Oiotoshi",
+    "es": "Oiotoshi",
+    "fr": "Oiotoshi",
+    "de": "Oiotoshi",
+    "ko": "오이오토시"
+  },
+  "sec_gokyo_shumyo_connecting": {
+    "ru": "Соединение",
+    "en": "Connecting",
+    "es": "Conexión",
+    "fr": "Connexion",
+    "de": "Verbinden",
+    "ko": "연결"
+  },
+  "sec_gokyo_shumyo_various": {
+    "ru": "Разное",
+    "en": "Various",
+    "es": "Variados",
+    "fr": "Divers",
+    "de": "Verschiedenes",
+    "ko": "기타"
+  },
+  "sec_xuanxuan_qijing_p1_50": {
+    "ru": "Задачи 1–50",
+    "en": "Problems 1–50",
+    "es": "Problemas 1–50",
+    "fr": "Problèmes 1–50",
+    "de": "Aufgaben 1–50",
+    "ko": "문제 1–50"
+  },
+  "sec_xuanxuan_qijing_p51_100": {
+    "ru": "Задачи 51–100",
+    "en": "Problems 51–100",
+    "es": "Problemas 51–100",
+    "fr": "Problèmes 51–100",
+    "de": "Aufgaben 51–100",
+    "ko": "문제 51–100"
+  },
+  "sec_xuanxuan_qijing_p101_150": {
+    "ru": "Задачи 101–150",
+    "en": "Problems 101–150",
+    "es": "Problemas 101–150",
+    "fr": "Problèmes 101–150",
+    "de": "Aufgaben 101–150",
+    "ko": "문제 101–150"
+  },
+  "sec_xuanxuan_qijing_p151_200": {
+    "ru": "Задачи 151–200",
+    "en": "Problems 151–200",
+    "es": "Problemas 151–200",
+    "fr": "Problèmes 151–200",
+    "de": "Aufgaben 151–200",
+    "ko": "문제 151–200"
+  },
+  "sec_xuanxuan_qijing_p201_250": {
+    "ru": "Задачи 201–250",
+    "en": "Problems 201–250",
+    "es": "Problemas 201–250",
+    "fr": "Problèmes 201–250",
+    "de": "Aufgaben 201–250",
+    "ko": "문제 201–250"
+  },
+  "sec_xuanxuan_qijing_p251_300": {
+    "ru": "Задачи 251–300",
+    "en": "Problems 251–300",
+    "es": "Problemas 251–300",
+    "fr": "Problèmes 251–300",
+    "de": "Aufgaben 251–300",
+    "ko": "문제 251–300"
+  },
+  "sec_xuanxuan_qijing_p301_343": {
+    "ru": "Задачи 301–343",
+    "en": "Problems 301–343",
+    "es": "Problemas 301–343",
+    "fr": "Problèmes 301–343",
+    "de": "Aufgaben 301–343",
+    "ko": "문제 301–343"
+  },
+  "sec_igo_hatsuyoron_p1_50": {
+    "ru": "Задачи 1–50",
+    "en": "Problems 1–50",
+    "es": "Problemas 1–50",
+    "fr": "Problèmes 1–50",
+    "de": "Aufgaben 1–50",
+    "ko": "문제 1–50"
+  },
+  "sec_igo_hatsuyoron_p51_100": {
+    "ru": "Задачи 51–100",
+    "en": "Problems 51–100",
+    "es": "Problemas 51–100",
+    "fr": "Problèmes 51–100",
+    "de": "Aufgaben 51–100",
+    "ko": "문제 51–100"
+  },
+  "sec_igo_hatsuyoron_p101_150": {
+    "ru": "Задачи 101–150",
+    "en": "Problems 101–150",
+    "es": "Problemas 101–150",
+    "fr": "Problèmes 101–150",
+    "de": "Aufgaben 101–150",
+    "ko": "문제 101–150"
+  },
+  "sec_igo_hatsuyoron_p151_174": {
+    "ru": "Задачи 151–174",
+    "en": "Problems 151–174",
+    "es": "Problemas 151–174",
+    "fr": "Problèmes 151–174",
+    "de": "Aufgaben 151–174",
+    "ko": "문제 151–174"
+  },
+  "training_done_domain": {
+    "ru": "Все задачи темы «{domain}» пройдены 🎉",
+    "en": "All “{domain}” problems cleared 🎉",
+    "es": "¡Todos los problemas de «{domain}» resueltos! 🎉",
+    "fr": "Tous les problèmes « {domain} » terminés 🎉",
+    "de": "Alle „{domain}“-Aufgaben geschafft 🎉",
+    "ko": "«{domain}» 문제를 모두 끝냈어요 🎉"
   }
 }

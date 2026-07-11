@@ -4,9 +4,12 @@ import React from 'react';
 import { View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
 import { useProgress } from '../state/tsumegoProgress';
 import { visibleProblems } from './TsumegoSectionsScreen';
+import { useT } from '../i18n';
+import { categoryKey, sectionKey } from '../data/catalog';
 
 export default function TsumegoListScreen({ route, navigation }: { route: any; navigation: any }) {
-  const { categoryId, sectionId, title } = route.params;
+  const { categoryId, sectionId } = route.params;
+  const t = useT();
   const progress = useProgress();
   const problems = visibleProblems().filter(
     (p) => p.category === categoryId && p.section === sectionId
@@ -14,7 +17,7 @@ export default function TsumegoListScreen({ route, navigation }: { route: any; n
 
   return (
     <ScrollView contentContainerStyle={styles.page}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{t(categoryKey(categoryId))}: {t(sectionKey(categoryId, sectionId))}</Text>
       <View style={styles.grid}>
         {problems.map((p, i) => {
           const st = progress[p.id];
@@ -28,7 +31,6 @@ export default function TsumegoListScreen({ route, navigation }: { route: any; n
                   index: i,
                   categoryId,
                   sectionId,
-                  title,
                 })
               }
             >

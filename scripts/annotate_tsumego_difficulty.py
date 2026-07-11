@@ -19,12 +19,17 @@ Usage: python3 scripts/annotate_tsumego_difficulty.py
 import json
 from pathlib import Path
 
+# Шкала v2 (перецентровка 2026-07-11, ТЗ-Р Р5): медиана базы ≈ 1500,
+# сиды подняты к низу классики — дыра 1200–1500 закрыта; placement берёт
+# границы из фактических перцентилей, не из хардкода.
+SCALE_VERSION = "v2-2026-07-11"
+
 BASE = {
-    "capture": 850,
-    "life-death": 1050,
-    "gokyo-shumyo": 1500,
-    "xuanxuan-qijing": 1750,
-    "igo-hatsuyoron": 2100,
+    "capture": 1050,
+    "life-death": 1150,
+    "gokyo-shumyo": 1140,
+    "xuanxuan-qijing": 1390,
+    "igo-hatsuyoron": 1740,
 }
 
 SECTION_TWEAK = {
@@ -89,14 +94,30 @@ def domain_of(problem):
     return "ld-live"
 
 
+def stones_in_view(problem):
+    """Камни в пределах view (термин размера позиции). Для задач без view —
+    вся доска (сиды 9×9)."""
+    v = problem.get("view")
+    size = problem.get("size") or 9
+    n = 0
+    for i, ch in enumerate(problem["board"]):
+        if ch == ".":
+            continue
+        if v:
+            c, r = i % size, i // size
+            if not (v["c0"] <= c <= v["c1"] and v["r0"] <= r <= v["r1"]):
+                continue
+        n += 1
+    return n
+
+
 def difficulty_of(problem):
     base = BASE.get(problem["category"], 1200)
     base += SECTION_TWEAK.get(problem["section"], 0)
     depth = main_line_depth(problem.get("tree"))
     if depth:
         base += (depth - 1) * 60
-    stones = sum(1 for ch in problem["board"] if ch != ".")
-    base += max(0, stones - 8) * 8
+    base += max(0, stones_in_view(problem) - 8) * 8
     return max(800, min(2500, base))
 
 
@@ -105,9 +126,13 @@ def main():
                  Path("apps/mobile/src/data/tsumego.json")]:
         db = json.loads(path.read_text(encoding="utf-8"))
         for p in db["problems"]:
-            p["domain"] = domain_of(p)
+            # Домены xuanxuan/hatsuyoron размечает Р1-классификатор
+            # (redomain_tsumego.py) — их не перетирать дефолтом.
+            if "domain_legacy" not in p:
+                p["domain"] = domain_of(p)
             p["difficulty"] = difficulty_of(p)
         db["domains"] = DOMAIN_LABELS
+        db["scaleVersion"] = SCALE_VERSION
         path.write_text(json.dumps(db, ensure_ascii=False, indent=1),
                         encoding="utf-8")
     marked = [p for p in db["problems"] if p.get("tree")]
@@ -116,6 +141,18 @@ def main():
         by_domain.setdefault(p["domain"], []).append(p["difficulty"])
     for d, vals in sorted(by_domain.items()):
         print(f"{d:10s} marked={len(vals):3d} difficulty {min(vals)}–{max(vals)}")
+    ds = sorted(p["difficulty"] for p in db["problems"])
+    pct = lambda q: ds[int(q * len(ds))]  # noqa: E731
+    # Placement-границы приложение читает из данных, не из хардкода (Д6).
+    meta = {
+        "scaleVersion": SCALE_VERSION,
+        "min": ds[0], "p10": pct(.10), "median": pct(.50),
+        "p90": pct(.90), "max": ds[-1],
+    }
+    Path("apps/mobile/src/data/scaleMeta.json").write_text(
+        json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"шкала {SCALE_VERSION}: min {ds[0]} p10 {pct(.10)} медиана {pct(.50)} "
+          f"p90 {pct(.90)} max {ds[-1]}  -> scaleMeta.json")
     print(f"annotated {len(db['problems'])} problems")
 
 

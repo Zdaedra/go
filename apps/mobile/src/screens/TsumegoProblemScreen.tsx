@@ -12,16 +12,19 @@ import {
 import { recordAttempt } from '../state/tsumegoProgress';
 import { soundForMove } from '../sound/stones';
 import { visibleProblems } from './TsumegoSectionsScreen';
+import { useI18n } from '../i18n';
+import { categoryKey, sectionKey, displayProblemTitle } from '../data/catalog';
 
 const STATUS_TEXT: Record<string, string> = {
-  playing: 'Найди лучший ход.',
-  wrong: 'Мимо — такого хода нет в решении. Попробуй ещё.',
-  refuted: 'Не получилось: соперник опровергает этот ход.',
-  solved: 'Решено! ✓',
+  playing: 'goal_default',
+  wrong: 'status_wrong_retry',
+  refuted: 'status_refuted',
+  solved: 'status_solved',
 };
 
 export default function TsumegoProblemScreen({ route, navigation }: { route: any; navigation: any }) {
-  const { problemId, index, categoryId, sectionId, title } = route.params;
+  const { t, lang } = useI18n();
+  const { problemId, index, categoryId, sectionId } = route.params;
   const problems = useMemo(
     () => visibleProblems().filter(
       (p) => p.category === categoryId && p.section === sectionId
@@ -73,8 +76,8 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
   };
 
   const statusText = session.free && session.status === 'playing'
-    ? 'Режим самопроверки: разыграй решение за обе стороны.'
-    : STATUS_TEXT[session.status];
+    ? t('free_mode_note')
+    : t(STATUS_TEXT[session.status]);
 
   const last = session.wrongAt != null
     ? session.wrongAt
@@ -84,11 +87,12 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
   return (
     <ScrollView contentContainerStyle={styles.page}>
       <Text style={styles.title}>
-        {title} · №{(index ?? pos) + 1} — {problem.title}
+        {t(categoryKey(categoryId))}: {t(sectionKey(categoryId, sectionId))} · №{(index ?? pos) + 1}
+        {displayProblemTitle(problem.title, lang) ? ` — ${displayProblemTitle(problem.title, lang)}` : ''}
       </Text>
       <Text style={styles.meta}>
-        Ход {problem.to_move === 'b' ? 'чёрных ⚫' : 'белых ⚪'}
-        {session.free ? ` · сейчас ходят ${session.toMove === 'b' ? '⚫' : '⚪'}` : ''}
+        {t(problem.to_move === 'b' ? 'move_of_black' : 'move_of_white')}
+        {session.free ? ` · ${t('free_now_moves', { stone: session.toMove === 'b' ? '⚫' : '⚪' })}` : ''}
       </Text>
 
       <Goban
@@ -122,21 +126,21 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
           style={styles.btn}
           onPress={() => { setSession(startSession(problem)); setShowHint(false); recorded.current = false; }}
         >
-          <Text style={styles.btnText}>Заново</Text>
+          <Text style={styles.btnText}>{t('btn_again')}</Text>
         </Pressable>
         {session.free && session.status === 'playing' && (
           <>
             <Pressable style={styles.btn} onPress={() => setSession((s: any) => undoFreeMove(s))}>
-              <Text style={styles.btnText}>← Ход назад</Text>
+              <Text style={styles.btnText}>{t('btn_undo_move')}</Text>
             </Pressable>
             <Pressable style={[styles.btn, styles.btnPrimary]} onPress={markSelfSolved}>
-              <Text style={[styles.btnText, styles.btnPrimaryText]}>Отметить решённой ✓</Text>
+              <Text style={[styles.btnText, styles.btnPrimaryText]}>{t('btn_mark_solved')}</Text>
             </Pressable>
           </>
         )}
         {!session.free && session.status === 'playing' && problem.hint && (
           <Pressable style={styles.btn} onPress={() => setShowHint(true)}>
-            <Text style={styles.btnText}>Подсказка</Text>
+            <Text style={styles.btnText}>{t('btn_hint')}</Text>
           </Pressable>
         )}
         {session.status === 'solved' && next && (
@@ -146,7 +150,7 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
               navigation.setParams({ problemId: next.id, index: pos + 1 })
             }
           >
-            <Text style={[styles.btnText, styles.btnPrimaryText]}>Следующая →</Text>
+            <Text style={[styles.btnText, styles.btnPrimaryText]}>{t('btn_next_problem')}</Text>
           </Pressable>
         )}
       </View>

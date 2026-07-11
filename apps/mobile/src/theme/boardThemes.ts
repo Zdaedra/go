@@ -5,7 +5,7 @@
 
 export interface BoardTheme {
   id: string;
-  nameRu: string;
+  nameKey: string; // i18n-ключ имени темы
   /** Background gradient stops, top to bottom. */
   wood: [string, string, string];
   /** Subtle horizontal grain streak color (drawn at low opacity). */
@@ -24,7 +24,7 @@ export interface BoardTheme {
 export const boardThemes: Record<string, BoardTheme> = {
   nightLuxe: {
     id: 'nightLuxe',
-    nameRu: 'Ночной лак',
+    nameKey: 'btheme_night_lacquer',
     wood: ['#6F5638', '#77603F', '#624B32'],
     grain: '#54401F',
     grainOpacity: 0.12,
@@ -37,7 +37,7 @@ export const boardThemes: Record<string, BoardTheme> = {
   },
   kaya: {
     id: 'kaya',
-    nameRu: 'Кайя (классика)',
+    nameKey: 'btheme_kaya',
     wood: ['#E8C476', '#DDB05C', '#D2A34E'],
     grain: '#B98E3F',
     grainOpacity: 0.18,
@@ -50,7 +50,7 @@ export const boardThemes: Record<string, BoardTheme> = {
   },
   night: {
     id: 'night',
-    nameRu: 'Тёмная',
+    nameKey: 'btheme_dark',
     wood: ['#4B4238', '#3E362D', '#332C24'],
     grain: '#2A241D',
     grainOpacity: 0.3,
@@ -63,7 +63,7 @@ export const boardThemes: Record<string, BoardTheme> = {
   },
   walnut: {
     id: 'walnut',
-    nameRu: 'Орех',
+    nameKey: 'btheme_walnut',
     wood: ['#9C6B3F', '#8A5A2F', '#7A4E27'],
     grain: '#5F3D1E',
     grainOpacity: 0.28,
@@ -76,7 +76,7 @@ export const boardThemes: Record<string, BoardTheme> = {
   },
   bamboo: {
     id: 'bamboo',
-    nameRu: 'Бамбук',
+    nameKey: 'btheme_bamboo',
     wood: ['#E9DCA8', '#DFD094', '#D4C381'],
     grain: '#B9A75F',
     grainOpacity: 0.3,
@@ -89,7 +89,7 @@ export const boardThemes: Record<string, BoardTheme> = {
   },
   paper: {
     id: 'paper',
-    nameRu: 'Бумага',
+    nameKey: 'btheme_paper',
     wood: ['#F6F1E6', '#F2ECDE', '#EDE6D5'],
     grain: '#E0D6C2',
     grainOpacity: 0.35,

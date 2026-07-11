@@ -14,11 +14,13 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
   const t = useT();
   const [planId, setPlanId] = useState(PLANS[0].id);
   const plan = PLANS.find((p) => p.id === planId)!;
+  const priceLabel = (p: { id: string; price: string }) =>
+    `${p.price} / ${t(p.id === 'yearly' ? 'per_year' : 'per_month')}`;
   const planTitle = (id: string) => t(id === 'yearly' ? 'plan_year' : 'plan_month');
 
   const purchase = () => {
     // TODO: RevenueCat purchase flow (Purchases.purchasePackage(plan.productId)).
-    Alert.alert(t('soon_title'), t('soon_body', { price: plan.price }));
+    Alert.alert(t('soon_title'), t('soon_body', { price: priceLabel(plan) }));
   };
 
   const restore = () => {
@@ -47,14 +49,14 @@ export default function PaywallScreen({ navigation }: { navigation: any }) {
             style={[styles.plan, planId === p.id && styles.planActive]}
           >
             <Text style={styles.planTitle}>{planTitle(p.id)}</Text>
-            <Text style={styles.planPrice}>{p.price}</Text>
+            <Text style={styles.planPrice}>{priceLabel(p)}</Text>
             {p.id === 'yearly' && <Text style={styles.planNote}>{t('year_note')}</Text>}
           </Pressable>
         ))}
       </View>
 
       <PrimaryButton
-        label={t('purchase', { price: plan.price })}
+        label={t('purchase', { price: priceLabel(plan) })}
         onPress={purchase}
         textStyle={{ fontSize: 17 }}
       />

@@ -222,7 +222,10 @@ def mark_problem(engine, problem):
     region = problem_region(problem)
     solver = "B" if problem["to_move"] == "b" else "W"
     root_res = engine.query(stones, [], solver, allow_gtp=region)
-    cands = best_moves(root_res, 1 + WRONG_BRANCHES + 1)
+    # Wider candidate window (engine.root_cands) surfaces more losing-but-
+    # plausible root moves — the decoy pool for problems that got none at
+    # the default width.
+    cands = best_moves(root_res, getattr(engine, "root_cands", 1 + WRONG_BRANCHES + 1))
     if not cands or cands[0]["gtp"].lower() == "pass":
         return None
     best = cands[0]
@@ -274,7 +277,23 @@ def mark_problem(engine, problem):
     return tree
 
 
+def visits_of(marked_by):
+    """Visits a tree was marked with: new dict format or legacy
+    'katago-visits200' string. 0 when unknown/absent."""
+    if isinstance(marked_by, dict):
+        return int(marked_by.get("visits") or 0)
+    if isinstance(marked_by, str):
+        digits = "".join(ch for ch in marked_by if ch.isdigit())
+        return int(digits) if digits else 0
+    return 0
+
+
 def merge(db_paths, marked_dir):
+    # View windows were originally computed from the setup stones alone; a
+    # merged tree can run past them (escapes toward the centre), leaving its
+    # moves invisible/untappable in the app. Recompute views after merging.
+    from fix_tsumego_views import recompute_view
+
     trees = {}
     for f in sorted(Path(marked_dir).glob("*.json")):
         data = json.loads(f.read_text(encoding="utf-8"))
@@ -285,10 +304,15 @@ def merge(db_paths, marked_dir):
         updated = 0
         for p in db["problems"]:
             hit = trees.get(p["id"])
-            if hit and not p.get("tree"):
+            # Adopt a checkpoint when the problem has no tree yet, or when
+            # the checkpoint comes from a deeper run (decoy re-mining).
+            if hit and (not p.get("tree")
+                        or visits_of(hit.get("marked_by")) > visits_of(p.get("marked_by"))):
                 p["tree"] = hit["tree"]
                 p["marked_by"] = hit.get("marked_by", "katago")
                 updated += 1
+            if p.get("tree"):
+                recompute_view(p)
         Path(path).write_text(json.dumps(db, ensure_ascii=False, indent=1),
                               encoding="utf-8")
         print(f"{path}: merged {updated} trees")
@@ -305,6 +329,12 @@ def main():
     ap.add_argument("--prefix", default="")
     ap.add_argument("--merge", action="store_true")
     ap.add_argument("--data", default="data/tsumego/problems.json")
+    ap.add_argument("--root-cands", type=int, default=1 + WRONG_BRANCHES + 1,
+                    help="root candidates to consider (wider => more decoys)")
+    ap.add_argument("--redo-no-decoys", action="store_true",
+                    help="re-mark 19x19 problems whose tree has no wrong "
+                         "branches (overwrites their checkpoints); resumes "
+                         "past checkpoints already made at >= --visits")
     args = ap.parse_args()
 
     marked_dir = Path("data/tsumego/marked")
@@ -319,14 +349,33 @@ def main():
         ap.error("--katago, --model and --config are required (or use --merge)")
 
     db = json.loads(Path(args.data).read_text(encoding="utf-8"))
-    todo = [p for p in db["problems"]
-            if not p.get("tree") and p["id"].startswith(args.prefix)
-            and not (marked_dir / f"{p['id']}.json").exists()]
+    if args.redo_no_decoys:
+        # Deeper re-mining pass: 19x19 problems whose tree carries zero
+        # wrong branches (H3 has no decoys there). Hand-made 9x9 seeds are
+        # excluded — the 19x19 engine would corrupt them. Resume: skip
+        # problems whose checkpoint was already made at >= this visit depth.
+        def redone(p):
+            f = marked_dir / f"{p['id']}.json"
+            if not f.exists():
+                return False
+            mb = json.loads(f.read_text(encoding="utf-8")).get("marked_by")
+            return visits_of(mb) >= args.visits
+        todo = [p for p in db["problems"]
+                if p.get("size") == SIZE and p["id"].startswith(args.prefix)
+                and p.get("tree")
+                and not any(n.get("tag") == "wrong" for n in p["tree"])
+                and not redone(p)]
+    else:
+        todo = [p for p in db["problems"]
+                if not p.get("tree") and p["id"].startswith(args.prefix)
+                and not (marked_dir / f"{p['id']}.json").exists()]
     todo = todo[: args.limit]
-    print(f"marking {len(todo)} problems, visits={args.visits}")
+    print(f"marking {len(todo)} problems, visits={args.visits}, "
+          f"wrong_margin={args.wrong_margin}, root_cands={args.root_cands}")
 
     engine = Engine(args.katago, args.model, args.config, args.visits)
     engine.wrong_margin = args.wrong_margin
+    engine.root_cands = args.root_cands
     done = failed = 0
     try:
         for p in todo:
@@ -336,7 +385,14 @@ def main():
                 print(f"engine error at {p['id']}: {e}")
                 break
             out = {"id": p["id"], "tree": tree or [],
-                   "marked_by": f"katago-visits{args.visits}"}
+                   "marked_by": {
+                       "engine": "katago",
+                       "model": Path(args.model).name,
+                       "visits": args.visits,
+                       "wrongMargin": args.wrong_margin,
+                       "rootCands": args.root_cands,
+                       "date": __import__("datetime").date.today().isoformat(),
+                   }}
             (marked_dir / f"{p['id']}.json").write_text(
                 json.dumps(out, ensure_ascii=False), encoding="utf-8")
             if tree:

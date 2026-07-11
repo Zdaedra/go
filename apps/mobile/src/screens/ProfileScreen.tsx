@@ -19,7 +19,7 @@ import { stoneThemes } from '../theme/stoneThemes';
 import {
   useTrainingProfile, domainStats, trainingPool,
 } from '../state/trainingStats';
-import { levelLabel, START_RATING } from '../engine/adaptive';
+import { levelLabel, DEFAULT_RATING as START_RATING } from '../state/trainingStats';
 import MistBackground from '../components/MistBackground';
 import PrimaryButton from '../components/PrimaryButton';
 
@@ -39,7 +39,7 @@ export default function ProfileScreen({ navigation }: { navigation: any }) {
   const pool = React.useMemo(() => trainingPool(), []);
   const stats = profile ? domainStats(profile) : [];
   const solvedCount = profile
-    ? Object.values(profile.problems).filter((p) => p.solved).length
+    ? Object.values(profile.problems as Record<string, any>).filter((p: any) => p.solved).length
     : 0;
   const points = profile?.points ?? 0;
   // Overall level = mean Elo across domains that have been practised.
@@ -49,7 +49,7 @@ export default function ProfileScreen({ navigation }: { navigation: any }) {
     : START_RATING;
 
   const displayName = auth.email ?? t('guest_name');
-  const initial = (auth.email?.[0] ?? 'Г').toUpperCase();
+  const initial = (auth.email?.[0] ?? t('guest_name')[0]).toUpperCase();
 
   const badge =
     sub.status === 'pro' ? t('badge_pro')
@@ -101,7 +101,7 @@ export default function ProfileScreen({ navigation }: { navigation: any }) {
                 <Text style={[styles.badgeText, { color: badgeColor }]}>{badge}</Text>
               </View>
               <Text style={styles.level}>
-                {t('level_prefix', { level: levelLabel(overall) })}
+                {t('level_prefix', { level: t(levelLabel(overall)) })}
               </Text>
             </View>
           </View>
@@ -152,7 +152,7 @@ export default function ProfileScreen({ navigation }: { navigation: any }) {
         <View style={styles.statRow}>
           <Stat value={String(CONTENT.openings)} label={t('progress_openings')} />
           <Stat value={String(CONTENT.branches)} label={t('progress_branches')} />
-          <Stat value={levelLabel(overall)} label={t('level_word')} />
+          <Stat value={t(levelLabel(overall))} label={t('level_word')} />
         </View>
 
         {practised.length > 0 && (
@@ -191,7 +191,7 @@ export default function ProfileScreen({ navigation }: { navigation: any }) {
               style={[styles.opt, board.id === th.id && styles.optActive]}
             >
               <View style={[styles.swatch, { backgroundColor: th.wood[1] }]} />
-              <Text style={styles.optText}>{th.nameRu}</Text>
+              <Text style={styles.optText}>{t(th.nameKey)}</Text>
             </Pressable>
           ))}
         </View>
@@ -210,7 +210,7 @@ export default function ProfileScreen({ navigation }: { navigation: any }) {
                   { backgroundColor: th.white.fill[1], borderWidth: 1, borderColor: '#A9A28E' },
                 ]} />
               </View>
-              <Text style={styles.optText}>{th.nameRu}</Text>
+              <Text style={styles.optText}>{t(th.nameKey)}</Text>
             </Pressable>
           ))}
         </View>

@@ -57,36 +57,36 @@ export default function SettingsScreen() {
 
       <Text style={styles.section}>{t('section_board')}</Text>
       <View style={styles.row}>
-        {Object.values(boardThemes).map((t) => (
+        {Object.values(boardThemes).map((th) => (
           <Pressable
-            key={t.id}
-            onPress={() => setBoardTheme(t.id)}
-            style={[styles.opt, board.id === t.id && styles.optActive]}
+            key={th.id}
+            onPress={() => setBoardTheme(th.id)}
+            style={[styles.opt, board.id === th.id && styles.optActive]}
           >
-            <View style={[styles.swatch, { backgroundColor: t.wood[1] }]} />
-            <Text style={styles.optText}>{t.nameRu}</Text>
+            <View style={[styles.swatch, { backgroundColor: th.wood[1] }]} />
+            <Text style={styles.optText}>{t(th.nameKey)}</Text>
           </Pressable>
         ))}
       </View>
 
       <Text style={styles.section}>{t('section_stones')}</Text>
       <View style={styles.row}>
-        {Object.values(stoneThemes).map((t) => (
+        {Object.values(stoneThemes).map((th) => (
           <Pressable
-            key={t.id}
-            onPress={() => setStoneTheme(t.id)}
-            style={[styles.opt, stones.id === t.id && styles.optActive]}
+            key={th.id}
+            onPress={() => setStoneTheme(th.id)}
+            style={[styles.opt, stones.id === th.id && styles.optActive]}
           >
             <View style={styles.stonePair}>
-              <View style={[styles.stone, { backgroundColor: t.black.fill[1] }]} />
+              <View style={[styles.stone, { backgroundColor: th.black.fill[1] }]} />
               <View
                 style={[
                   styles.stone,
-                  { backgroundColor: t.white.fill[1], borderWidth: 1, borderColor: '#A9A28E' },
+                  { backgroundColor: th.white.fill[1], borderWidth: 1, borderColor: '#A9A28E' },
                 ]}
               />
             </View>
-            <Text style={styles.optText}>{t.nameRu}</Text>
+            <Text style={styles.optText}>{t(th.nameKey)}</Text>
           </Pressable>
         ))}
       </View>

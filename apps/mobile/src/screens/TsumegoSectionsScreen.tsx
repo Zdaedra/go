@@ -6,6 +6,8 @@ import db from '../data/tsumego.json';
 import { useProgress, sectionStats } from '../state/tsumegoProgress';
 import { useAccess } from '../state/useTrial';
 import PrimaryButton from '../components/PrimaryButton';
+import { useT } from '../i18n';
+import { categoryKey, sectionKey } from '../data/catalog';
 
 // Only problems with a marked solution tree are shown to the user:
 // every wrong move must get instant feedback, so unmarked positions are
@@ -14,6 +16,7 @@ export const visibleProblems = () =>
   (db.problems as any[]).filter((p) => p.tree && p.tree.length > 0);
 
 export default function TsumegoSectionsScreen({ navigation }: { navigation: any }) {
+  const t = useT();
   const progress = useProgress();
   const access = useAccess();
 
@@ -21,11 +24,9 @@ export default function TsumegoSectionsScreen({ navigation }: { navigation: any 
   if (!access.open) {
     return (
       <View style={styles.lockPage}>
-        <Text style={styles.lockText}>
-          Бесплатная неделя закончилась. Подписка откроет задачи и все дебюты.
-        </Text>
+        <Text style={styles.lockText}>{t('tsumego_locked')}</Text>
         <PrimaryButton
-          label="Открыть подписку"
+          label={t('open_subscription')}
           onPress={() => navigation.getParent()?.navigate('Paywall')}
         />
       </View>
@@ -39,7 +40,7 @@ export default function TsumegoSectionsScreen({ navigation }: { navigation: any 
         if (catProblems.length === 0) return null;
         return (
         <View key={cat.id} style={styles.category}>
-          <Text style={styles.catTitle}>{cat.title}</Text>
+          <Text style={styles.catTitle}>{t(categoryKey(cat.id))}</Text>
           {cat.sections.map((sec: any) => {
             const ids = catProblems
               .filter((p) => p.section === sec.id)
@@ -54,12 +55,11 @@ export default function TsumegoSectionsScreen({ navigation }: { navigation: any 
                   navigation.navigate('TsumegoList', {
                     categoryId: cat.id,
                     sectionId: sec.id,
-                    title: `${cat.title}: ${sec.title}`,
                   })
                 }
               >
                 <View style={styles.rowMain}>
-                  <Text style={styles.secTitle}>{sec.title}</Text>
+                  <Text style={styles.secTitle}>{t(sectionKey(cat.id, sec.id))}</Text>
                   <View style={styles.barTrack}>
                     <View
                       style={[
@@ -78,10 +78,7 @@ export default function TsumegoSectionsScreen({ navigation }: { navigation: any 
         </View>
         );
       })}
-      <Text style={styles.note}>
-        Стартовый набор — классические учебные формы. База растёт по мере
-        разметки решений.
-      </Text>
+      <Text style={styles.note}>{t('sections_note')}</Text>
     </ScrollView>
   );
 }

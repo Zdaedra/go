@@ -15,7 +15,7 @@ import { evalFor, positionEval } from '../engine/evals';
 import { soundForMove, playStone } from '../sound/stones';
 import { openingDisplayName } from '../data/names';
 import branchDescriptions from '../data/descriptions.json';
-import { useT } from '../i18n';
+import { useI18n } from '../i18n';
 import { useAuth } from '../state/AuthContext';
 import { useAccess } from '../state/useTrial';
 import { ui, eyebrow, eyebrowAccent, cardStyle } from '../theme/uiTheme';
@@ -80,7 +80,7 @@ const RESULT_KEY: Record<string, string> = {
 
 export default function PlayScreen({ navigation }: { navigation: any }) {
   const insets = useSafeAreaInsets();
-  const t = useT();
+  const { t, lang } = useI18n();
   const resultRu = (r: string | null | undefined) =>
     r ? (RESULT_KEY[r] ? t(RESULT_KEY[r]) : r) : '';
   const auth = useAuth();
@@ -108,31 +108,74 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       : suggestions(result, 99)),
     [result]
   );
-  const marks: GobanMark[] = useMemo(() => {
-    if (locked) return [];
-    const base: GobanMark[] = fullMarks.length
-      ? fullMarks.map((m) => ({ at: m.at, label: m.label, kind: m.kind }))
-      // Mid-branch positions have no diagram letters; without these dots the
+  // Marks plus a provenance map: every rendered point — including the
+  // mirrored triangle copies below — knows its book color and that tapping
+  // it IS a book transition. Without this, taps on mirrored copies fell
+  // through to viaBook=false, and terminal ones showed «Такого дебюта в
+  // базе нет» instead of «Дебют пройден полностью» (orphan-triangle bug).
+  const { marks, markMeta } = useMemo(() => {
+    const meta = new Map<number, { by?: 'b' | 'w'; viaBook: boolean }>();
+    if (locked) return { marks: [] as GobanMark[], markMeta: meta };
+    const base = fullMarks.length
+      ? fullMarks.map((m) => ({
+          at: m.at, label: m.label as string | null, kind: m.kind as string,
+          by: (m.by === 'b' || m.by === 'w' ? m.by : undefined) as 'b' | 'w' | undefined,
+        }))
+      // Mid-branch positions have no diagram letters; without these marks the
       // board looks dead even though the base knows the continuations.
-      : bookMoves.map((s) => ({ at: s.at, kind: 'dot' }));
+      : bookMoves.map((s) => ({
+          at: s.at, label: null as string | null, kind: 'dot',
+          by: s.color as 'b' | 'w' | undefined,
+        }));
+    for (const mk of base) meta.set(mk.at, { by: mk.by, viaBook: true });
+
+    // Mark semantics (user-facing legend): letters = main branches;
+    // triangle = a side continuation the base can follow further;
+    // dot = a final point — the tap completes the opening. "Leads on"
+    // means the NEXT position still offers book moves; a merely known
+    // final position doesn't count, so a labelled move that ends the
+    // opening renders as a dot, never as a letter.
+    const leadsOn = (at: number, by?: 'b' | 'w') => {
+      const nxt = play(position, at, by ?? toMove);
+      if (!nxt) return false;
+      const r = identify(nxt.board);
+      if (r.status === 'unknown' || r.status === 'empty') return false;
+      return suggestions(r, 1).length > 0;
+    };
+    const kindFor = (mk: { at: number; label: string | null; by?: 'b' | 'w' }) =>
+      !leadsOn(mk.at, mk.by) ? 'dot' : mk.label ? 'letter' : 'triangle';
 
     // When the position is symmetric (e.g. a lone centre stone), each book
-    // continuation exists identically in every mirrored/rotated direction.
-    // Show them all as triangles so the openings read "in all directions" —
-    // playing a mirrored point just yields the mirrored opening.
+    // continuation exists identically in every mirrored/rotated direction —
+    // playing a mirrored point just yields the mirrored opening. Mirrored
+    // copies drop the letter and read as side branches / final points.
     const stab = stabilizer(position);
-    if (stab.length <= 1) return base;
+    if (stab.length <= 1) {
+      return {
+        marks: base.map((m): GobanMark => {
+          const kind = kindFor(m);
+          return { at: m.at, label: kind === 'letter' ? m.label : null, kind };
+        }),
+        markMeta: meta,
+      };
+    }
     const seen = new Set<number>();
     const out: GobanMark[] = [];
     for (const mk of base) {
       for (const at of orbit(mk.at, stab)) {
         if (seen.has(at)) continue;
         seen.add(at);
-        out.push({ at, kind: 'triangle' });
+        const original = at === mk.at;
+        const kind = !leadsOn(at, mk.by) ? 'dot'
+          : original && mk.label ? 'letter' : 'triangle';
+        out.push({ at, label: kind === 'letter' ? mk.label : null, kind });
+        // A mirrored copy plays the same book move in the mirrored line —
+        // same color, same "book transition" status.
+        if (!meta.has(at)) meta.set(at, { by: mk.by, viaBook: true });
       }
     }
-    return out;
-  }, [fullMarks, bookMoves, locked, position]);
+    return { marks: out, markMeta: meta };
+  }, [fullMarks, bookMoves, locked, position, toMove]);
   // Opening completed — a firmly different state from "not in the base":
   // either the last book move led off the diagrams (the book simply stops
   // there), or we sit on a final diagram that offers nothing further.
@@ -145,12 +188,12 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     if ((result.status === 'identified' || result.status === 'candidates') &&
         branch && !fullMarks.length && !bookMoves.length) {
       const name = result.opening
-        ? openingDisplayName(result.opening.family, result.opening.opening, result.opening.name)
-        : openingDisplayName(branch.branch.family, branch.branch.opening, branch.branch.opening_name);
+        ? openingDisplayName(result.opening.family, result.opening.opening, result.opening.name, lang)
+        : openingDisplayName(branch.branch.family, branch.branch.opening, branch.branch.opening_name, lang);
       return { name, result: (branch.branch.result as string | null) ?? null };
     }
     return null;
-  }, [locked, result, lastMove, branch, fullMarks, bookMoves]);
+  }, [locked, result, lastMove, branch, fullMarks, bookMoves, lang]);
 
   // Position verdict for the «Оценка» box (black-perspective, all
   // book positions incl. completed openings are covered).
@@ -193,20 +236,24 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   const placeStone = (at: number) => {
     const mark = fullMarks.find((m) => m.at === at);
     const book = bookMoves.find((s) => s.at === at);
+    // Mirrored triangle copies are not in fullMarks/bookMoves — their
+    // provenance (color + book status) lives in markMeta.
+    const meta = markMeta.get(at);
     const color =
       mark?.by === 'b' || mark?.by === 'w' ? mark.by
       : book ? (book.color as 'b' | 'w')
+      : meta?.by === 'b' || meta?.by === 'w' ? meta.by
       : toMove;
     const next = play(position, at, color);
     if (!next) return;
     soundForMove(position, next.board, 1);
     // Snapshot the opening we were in, so that a book move leading off the
     // diagram index reads as "opening completed", not "not in the base".
-    const viaBook = Boolean(mark || book);
+    const viaBook = Boolean(mark || book || meta?.viaBook);
     const snapName = branch
-      ? openingDisplayName(branch.branch.family, branch.branch.opening, branch.branch.opening_name)
+      ? openingDisplayName(branch.branch.family, branch.branch.opening, branch.branch.opening_name, lang)
       : result.openings.length
-        ? openingDisplayName(result.openings[0].family, result.openings[0].opening, result.openings[0].name)
+        ? openingDisplayName(result.openings[0].family, result.openings[0].opening, result.openings[0].name, lang)
         : undefined;
     setHistory([...history, {
       board: next.board, at, color,
@@ -227,7 +274,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     if (!cands.length) return;
     const m = cands.reduce((a: any, b: any) =>
       (b.branch.moves.length > a.branch.moves.length ? b : a));
-    const name = openingDisplayName(op.family, op.opening, m.branch.opening_name);
+    const name = openingDisplayName(op.family, op.opening, m.branch.opening_name, lang);
     let board = position;
     const added: HistoryItem[] = [];
     for (let i = m.ply; i < m.branch.moves.length; i++) {
@@ -268,14 +315,14 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       return;
     }
     const o = result.opening;
-    const name = o ? openingDisplayName(o.family, o.opening, o.name) : branch.branch.opening_name;
+    const name = o ? openingDisplayName(o.family, o.opening, o.name, lang) : branch.branch.opening_name;
     const key = branch.branch.branch_id;
-    const label = `${name} · в.${branch.branch.branch_no}`;
+    const label = `${name} · ${t('branch_abbr', { n: branch.branch.branch_no })}`;
     setPath((prev) => (prev.some((p) => p.key === key) ? prev : [...prev, { key, label }]));
-  }, [branch, result, locked, history.length, path.length]);
+  }, [branch, result, locked, history.length, path.length, lang, t]);
 
   // ---- header data ----
-  const displayName = auth.email ? auth.email.split('@')[0] : 'Гость';
+  const displayName = auth.email ? auth.email.split('@')[0] : t('guest_name');
 
   // ---- opening card data ----
   const openingName = locked
@@ -283,7 +330,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     : completed?.name
       ? completed.name
       : result.status === 'identified'
-      ? openingDisplayName(result.opening!.family, result.opening!.opening, result.opening!.name)
+      ? openingDisplayName(result.opening!.family, result.opening!.opening, result.opening!.name, lang)
       : result.status === 'candidates'
         // Position is ambiguous — don't commit to a name (nor a family +
         // count, which read like a title). Prompt for more stones instead.
@@ -310,7 +357,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       ? result.openings.map((o) => ({
           family: o.family,
           opening: o.opening,
-          name: openingDisplayName(o.family, o.opening, o.name),
+          name: openingDisplayName(o.family, o.opening, o.name, lang),
         }))
       : null;
 
@@ -491,6 +538,9 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
               : t('best_move_note')}
           </Text>
         )}
+        {marks.length > 0 && !locked && (
+          <Text style={styles.marksLegend}>{t('marks_legend')}</Text>
+        )}
         {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
           <Text style={styles.turnSub}>{t('trial_days_left', { n: access.trial.daysLeft })}</Text>
         )}
@@ -553,6 +603,7 @@ const styles = StyleSheet.create({
   explain: { paddingVertical: 18, paddingHorizontal: 16 },
   explainText: { marginTop: 10, fontSize: 16.5, color: ui.inkSoft, lineHeight: 24 },
   turnSub: { marginTop: 8, fontSize: 12.5, color: ui.muted },
+  marksLegend: { marginTop: 10, fontSize: 12, lineHeight: 18, color: ui.muted },
 
   candList: { marginTop: 10, gap: 4 },
   candHint: { fontSize: 13.5, lineHeight: 19, color: ui.muted, marginBottom: 6 },

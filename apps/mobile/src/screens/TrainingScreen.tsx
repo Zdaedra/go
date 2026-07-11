@@ -1,30 +1,71 @@
-// Training dashboard: overall status, per-skill strength bars and the
-// Play button that starts an adaptive session.
+// Дашборд тренировки по референс-макету «Обучение»: карточка статов,
+// CTA «Играть», звезда навыков (радар по доменам) и лента прогресса.
+// После консилиума v2: плотнее вертикальная композиция, тёмная play-кнопка
+// с оранжевым кольцом, спокойная типографика, синеватые поверхности.
 
-import React from 'react';
-import { View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
+import React, { useMemo } from 'react';
 import {
-  useTrainingProfile, domainStats, trainingPool,
+  View, Text, Pressable, StyleSheet, ScrollView, Alert, Dimensions,
+} from 'react-native';
+import Svg, { Circle, Defs, RadialGradient, Stop, Path } from 'react-native-svg';
+import {
+  useTrainingProfile, domainStats, trainingPool, levelLabel,
 } from '../state/trainingStats';
-import { levelLabel } from '../engine/adaptive';
 import { useAccess } from '../state/useTrial';
 import PrimaryButton from '../components/PrimaryButton';
+import SkillRadar, { RadarAxis } from '../components/SkillRadar';
+import DomainIcon, { DOMAIN_COLORS } from '../components/DomainIcon';
+import { ui } from '../theme/uiTheme';
+import { useT } from '../i18n';
 
-const BAR_MIN = 800;
-const BAR_MAX = 2200;
+// Порядок осей звезды — как на макете: сверху по часовой.
+const RADAR_ORDER = ['capture', 'ld-live', 'ld-kill', 'ko', 'race', 'connect'];
+
+// Локальные токены экрана (консилиум: единая холодная тёмно-синяя палитра).
+const SURFACE = 'rgba(15,19,30,0.92)';
+const SURFACE_SOFT = 'rgba(19,24,38,0.92)';
+const BORDER = 'rgba(255,255,255,0.07)';
+
+/** Тёмная play-кнопка с оранжевым кольцом и мягким ореолом (референс CTA). */
+function PlayOrb({ size = 52 }: { size?: number }) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 52 52">
+      <Defs>
+        <RadialGradient id="orbHalo" cx="0.5" cy="0.5" r="0.5">
+          <Stop offset="0.62" stopColor="rgba(240,168,120,0.16)" />
+          <Stop offset="0.8" stopColor="rgba(240,168,120,0.07)" />
+          <Stop offset="1" stopColor="rgba(240,168,120,0)" />
+        </RadialGradient>
+        <RadialGradient id="orbCore" cx="0.38" cy="0.32" r="0.95">
+          <Stop offset="0" stopColor="#332A4E" />
+          <Stop offset="1" stopColor="#221C38" />
+        </RadialGradient>
+      </Defs>
+      <Circle cx={26} cy={26} r={26} fill="url(#orbHalo)" />
+      <Circle cx={26} cy={26} r={20} fill="url(#orbCore)"
+        stroke="#E0946A" strokeWidth={1.5} />
+      <Path d="M22.5 19.5v13l10.5-6.5z" fill="#F5B58A" />
+    </Svg>
+  );
+}
 
 export default function TrainingScreen({ navigation }: { navigation: any }) {
+  const t = useT();
   const profile = useTrainingProfile();
   const access = useAccess();
+  const width = Dimensions.get('window').width - 32;
+
+  const stats = useMemo(
+    () => (profile ? domainStats(profile) : []),
+    [profile]
+  );
 
   if (!access.open) {
     return (
       <View style={styles.lockPage}>
-        <Text style={styles.lockText}>
-          Бесплатная неделя закончилась. Подписка откроет тренировку и задачи.
-        </Text>
+        <Text style={styles.lockText}>{t('training_locked')}</Text>
         <PrimaryButton
-          label="Открыть подписку"
+          label={t('open_subscription')}
           onPress={() => navigation.getParent()?.navigate('Paywall')}
         />
       </View>
@@ -33,105 +74,245 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
 
   if (!profile) return null;
 
-  const stats = domainStats(profile);
   const attempts = profile.solved + profile.failed;
   const accuracy = attempts ? Math.round((profile.solved / attempts) * 100) : null;
-  const avgRating = stats.length
-    ? Math.round(stats.reduce((s, d) => s + d.rating, 0) / stats.length)
-    : 1100;
-  const weakest = stats[0];
+  const rating = Math.round((profile as any).auser);
+
+  const byKey = new Map(stats.map((d) => [d.domain, d]));
+  const axes: RadarAxis[] = RADAR_ORDER
+    .filter((k) => byKey.has(k))
+    .map((k) => {
+      const d = byKey.get(k)!;
+      return {
+        key: k, label: t(d.label), solved: d.solved, total: d.total,
+        value: d.mastery, color: DOMAIN_COLORS[k] ?? ui.accent,
+      };
+    });
 
   return (
     <ScrollView contentContainerStyle={styles.page}>
-      <View style={styles.header}>
-        <View style={styles.headerCell}>
-          <Text style={styles.big}>{profile.points}</Text>
-          <Text style={styles.small}>очков</Text>
+      {/* карточка статов: очки · решено · точность · рейтинг */}
+      <View style={styles.statsCard}>
+        <View style={styles.statCell}>
+          <Text style={styles.statBig} maxFontSizeMultiplier={1.1}>{profile.points}</Text>
+          <Text style={styles.statSmall}>{t('stat_points')}</Text>
         </View>
-        <View style={styles.headerCell}>
-          <Text style={styles.big}>{profile.solved}</Text>
-          <Text style={styles.small}>решено</Text>
+        <View style={styles.statDivider} />
+        <View style={styles.statCell}>
+          <Text style={styles.statBig} maxFontSizeMultiplier={1.1}>{profile.solved}</Text>
+          <Text style={styles.statSmall}>{t('stat_solved')}</Text>
         </View>
-        <View style={styles.headerCell}>
-          <Text style={styles.big}>{accuracy != null ? `${accuracy}%` : '—'}</Text>
-          <Text style={styles.small}>точность</Text>
+        <View style={styles.statDivider} />
+        <View style={styles.statCell}>
+          <Text style={styles.statBig} maxFontSizeMultiplier={1.1}>
+            {accuracy != null ? `${accuracy}%` : '—'}
+          </Text>
+          <Text style={styles.statSmall}>{t('stat_accuracy')}</Text>
         </View>
-        <View style={styles.headerCell}>
-          <Text style={styles.big}>{avgRating}</Text>
-          <Text style={styles.small}>{levelLabel(avgRating)}</Text>
+        <View style={styles.statDivider} />
+        <View style={styles.statCell}>
+          <Text style={styles.statRating} maxFontSizeMultiplier={1.1}>
+            {rating}
+            <Text style={styles.spark}> ✦</Text>
+          </Text>
+          <Text style={styles.statLevel}>{t(levelLabel(rating))}</Text>
         </View>
       </View>
 
-      <PrimaryButton
-        label="▶ Играть"
+      {/* CTA: Играть */}
+      <Pressable
+        style={({ pressed }) => [styles.playCard, pressed && { opacity: 0.85 }]}
         onPress={() => navigation.navigate('TrainingSession')}
-        style={styles.playBtn}
-        textStyle={styles.playText}
-      />
-      <Text style={styles.playNote}>
-        Тренажёр сам подбирает задачи: держит сложность в твоей зоне роста,
-        чередует навыки и возвращает ошибки для повторения.
-      </Text>
+      >
+        <PlayOrb />
+        <View style={styles.playTextWrap}>
+          <Text style={styles.playTitle}>{t('play_cta')}</Text>
+          <Text style={styles.playNote} numberOfLines={2}>{t('play_note')}</Text>
+        </View>
+        <View style={styles.playChevronWrap}>
+          <Text style={styles.playChevron}>›</Text>
+        </View>
+      </Pressable>
 
-      <Text style={styles.section}>Навыки</Text>
-      {stats.map((d) => {
-        const frac = Math.max(0, Math.min(1, (d.rating - BAR_MIN) / (BAR_MAX - BAR_MIN)));
-        return (
-          <View key={d.domain} style={styles.domainRow}>
-            <View style={styles.domainHead}>
-              <Text style={styles.domainName} numberOfLines={1}>
-                {d.label}
-                {d === weakest && stats.length > 1 ? '  · слабое место' : ''}
-              </Text>
-              <Text style={styles.domainMeta} numberOfLines={1}>
-                {d.rating} · {d.level} · {d.solved}/{d.total}
-              </Text>
-            </View>
-            <View style={styles.barTrack}>
-              <View style={[styles.barFill, { width: `${frac * 100}%` },
-                d === weakest && stats.length > 1 && styles.barWeak]} />
-            </View>
+      {/* звезда навыков */}
+      <View style={styles.starHead}>
+        <View style={styles.starTitleRow}>
+          <Text style={styles.sectionTitle}>{t('star_title')}</Text>
+          <Pressable
+            hitSlop={8}
+            onPress={() => Alert.alert(t('star_info_title'), t('star_info_body'))}
+          >
+            <View style={styles.infoDot}><Text style={styles.infoDotText}>i</Text></View>
+          </Pressable>
+        </View>
+        <View style={styles.legend}>
+          <View style={styles.legendRow}>
+            <View style={styles.legendSolid} />
+            <Text style={styles.legendText}>{t('legend_current')}</Text>
           </View>
-        );
-      })}
+          <View style={styles.legendRow}>
+            <View style={styles.legendDashWrap}>
+              {[0, 1, 2].map((i) => <View key={i} style={styles.legendDash} />)}
+            </View>
+            <Text style={styles.legendText}>{t('legend_potential')}</Text>
+          </View>
+        </View>
+      </View>
 
-      <Text style={styles.poolNote}>
-        В тренировке {trainingPool().length} проверяемых задач; база растёт
-        по мере разметки решений.
-      </Text>
+      <SkillRadar
+        axes={axes}
+        rating={rating}
+        width={width}
+        onSelect={(key) => navigation.navigate('TrainingSession', { domain: key })}
+      />
+
+      {/* прогресс по навыкам */}
+      <View style={styles.progressCard}>
+        <View style={styles.progressHead}>
+          <Text style={styles.sectionTitle}>{t('progress_title')}</Text>
+          <View style={styles.filterChip}>
+            <Text style={styles.filterChipText}>{t('filter_all_skills')}  ⌄</Text>
+          </View>
+        </View>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.progressStrip}
+        >
+          {stats.map((d) => {
+            const color = DOMAIN_COLORS[d.domain] ?? ui.accent;
+            const pct = d.total ? Math.round((d.solved / d.total) * 100) : 0;
+            return (
+              <Pressable
+                key={d.domain}
+                onPress={() => navigation.navigate('TrainingSession', { domain: d.domain })}
+                style={({ pressed }) => [styles.skillCard, pressed && { opacity: 0.6 }]}
+              >
+                <Text style={styles.skillName} numberOfLines={1}>{t(d.label)}</Text>
+                <View style={styles.skillMid}>
+                  <View style={[styles.skillIcon, { backgroundColor: `${color}20` }]}>
+                    <DomainIcon domain={d.domain} size={17} />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.skillCount} maxFontSizeMultiplier={1.05}>
+                      {d.solved}
+                      <Text style={styles.skillTotal}>/{d.total}</Text>
+                    </Text>
+                    <Text style={styles.skillLevel}>{t(d.level)}</Text>
+                  </View>
+                </View>
+                <View style={styles.skillBarRow}>
+                  <View style={styles.skillTrack}>
+                    <View style={[styles.skillFill, {
+                      backgroundColor: color,
+                      width: `${Math.max(pct, 3)}%`,
+                    }]} />
+                  </View>
+                  <Text style={styles.skillPct}>{pct}%</Text>
+                </View>
+              </Pressable>
+            );
+          })}
+        </ScrollView>
+      </View>
+
+      <Text style={styles.poolNote}>{t('pool_note', { n: trainingPool().length })}</Text>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  page: { padding: 16, gap: 12, paddingBottom: 40 },
-  header: { flexDirection: 'row', gap: 8 },
-  headerCell: {
-    flex: 1, alignItems: 'center', paddingVertical: 10,
-    backgroundColor: 'rgba(6,6,7,0.40)', borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)', borderRadius: 12,
+  page: { padding: 16, gap: 12, paddingBottom: 36 },
+
+  statsCard: {
+    flexDirection: 'row', alignItems: 'center',
+    paddingVertical: 10, paddingHorizontal: 4,
+    backgroundColor: SURFACE, borderWidth: 1, borderColor: BORDER,
+    borderRadius: 16,
   },
-  big: { fontSize: 22, fontFamily: 'Playfair', fontVariant: ['tabular-nums'], color: '#F2EFEA' },
-  small: { fontSize: 12, color: '#8E8B85' },
-  playBtn: { paddingVertical: 16 },
-  playText: { fontSize: 18, fontWeight: '800' },
-  playNote: { fontSize: 13, color: '#8E8B85', textAlign: 'center' },
-  section: {
-    fontSize: 12, fontWeight: '700', letterSpacing: 1.2,
-    textTransform: 'uppercase', color: '#8E8B85', marginTop: 10,
+  statCell: { flex: 1, alignItems: 'center', gap: 1 },
+  statDivider: { width: 1, height: 34, backgroundColor: 'rgba(255,255,255,0.09)' },
+  statBig: {
+    fontSize: 23, fontFamily: ui.serif, color: ui.ink,
+    fontVariant: ['tabular-nums'],
   },
-  domainRow: {
-    gap: 7, backgroundColor: 'rgba(6,6,7,0.40)', borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)', borderRadius: 12,
-    paddingVertical: 12, paddingHorizontal: 14,
+  statSmall: { fontSize: 11.5, color: '#8D919C' },
+  statRating: {
+    fontSize: 23, fontFamily: ui.serif, color: '#F0A36A',
+    fontVariant: ['tabular-nums'],
   },
-  domainHead: { flexDirection: 'row', justifyContent: 'space-between', gap: 8 },
-  domainName: { fontSize: 15, fontWeight: '600', flexShrink: 1, color: '#F2EFEA' },
-  domainMeta: { fontSize: 11.5, color: '#8E8B85', fontVariant: ['tabular-nums'], flexShrink: 0 },
-  barTrack: { height: 4, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.08)' },
-  barFill: { height: 4, borderRadius: 2, backgroundColor: '#6F63DC' },
-  barWeak: { backgroundColor: '#F0A878' },
-  poolNote: { fontSize: 12.5, color: '#8E8B85', marginTop: 8 },
+  spark: { fontSize: 12, color: '#F2C9A4' },
+  statLevel: { fontSize: 11.5, color: ui.peach },
+
+  playCard: {
+    flexDirection: 'row', alignItems: 'center', gap: 11,
+    borderRadius: 18, borderWidth: 1, borderColor: 'rgba(224,148,106,0.40)',
+    backgroundColor: 'rgba(42,29,32,0.45)',
+    paddingVertical: 11, paddingLeft: 11, paddingRight: 12,
+  },
+  playTextWrap: { flex: 1, gap: 2 },
+  playTitle: { fontSize: 19, fontWeight: '700', color: ui.ink },
+  playNote: { fontSize: 12.5, lineHeight: 17, color: '#9A98A2' },
+  playChevronWrap: {
+    width: 32, height: 32, borderRadius: 16, alignItems: 'center',
+    justifyContent: 'center', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)',
+  },
+  playChevron: { fontSize: 19, color: ui.inkSoft, marginTop: -2 },
+
+  starHead: {
+    flexDirection: 'row', alignItems: 'flex-start',
+    justifyContent: 'space-between', marginTop: 2,
+  },
+  starTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  sectionTitle: { fontSize: 18, fontWeight: '600', color: ui.ink },
+  infoDot: {
+    width: 17, height: 17, borderRadius: 9, borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.24)', alignItems: 'center',
+    justifyContent: 'center', opacity: 0.7,
+  },
+  infoDotText: { fontSize: 10.5, color: ui.muted, fontStyle: 'italic' },
+  legend: { gap: 4, alignItems: 'flex-end', paddingTop: 3 },
+  legendRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  legendSolid: { width: 18, height: 2.5, borderRadius: 2, backgroundColor: '#9876FF' },
+  legendDashWrap: { flexDirection: 'row', gap: 2.5 },
+  legendDash: { width: 4, height: 1.8, borderRadius: 1, backgroundColor: 'rgba(154,159,172,0.75)' },
+  legendText: { fontSize: 11.5, color: '#858995' },
+
+  progressCard: {
+    padding: 12, gap: 10,
+    backgroundColor: SURFACE, borderWidth: 1, borderColor: BORDER,
+    borderRadius: 18,
+  },
+  progressHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  filterChip: {
+    paddingVertical: 6, paddingHorizontal: 12, borderRadius: 12,
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)',
+    backgroundColor: 'rgba(255,255,255,0.04)',
+  },
+  filterChipText: { fontSize: 12.5, color: ui.inkSoft },
+  progressStrip: { gap: 8, paddingRight: 4 },
+  skillCard: {
+    width: 128, borderRadius: 14, borderWidth: 1,
+    borderColor: BORDER, backgroundColor: SURFACE_SOFT,
+    padding: 10, gap: 7,
+  },
+  skillName: { fontSize: 12.5, fontWeight: '600', color: ui.inkSoft },
+  skillMid: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  skillIcon: {
+    width: 30, height: 30, borderRadius: 15,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  skillCount: { fontSize: 15, color: ui.ink, fontVariant: ['tabular-nums'] },
+  skillTotal: { color: '#858A98', fontSize: 12.5 },
+  skillLevel: { fontSize: 10.5, color: '#858A96' },
+  skillBarRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  skillTrack: {
+    flex: 1, height: 4, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.10)',
+  },
+  skillFill: { height: 4, borderRadius: 2 },
+  skillPct: { fontSize: 10.5, color: '#858A96', fontVariant: ['tabular-nums'] },
+
+  poolNote: { fontSize: 12, color: ui.dim, textAlign: 'center', marginTop: 1 },
   lockPage: { flex: 1, justifyContent: 'center', padding: 24, gap: 12 },
-  lockText: { fontSize: 15, color: '#8E8B85', textAlign: 'center', lineHeight: 22 },
+  lockText: { fontSize: 15, color: ui.muted, textAlign: 'center', lineHeight: 22 },
 });

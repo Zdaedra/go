@@ -1,4 +1,4 @@
-// Lightweight i18n. Strings live in strings.json ({ key: { ru,en,de,fr,es } }).
+// Lightweight i18n. Strings live in strings.json ({ key: { ru,en,es,fr,de,ko } }).
 // Language = device locale on first launch (no native module needed), or the
 // user's in-app choice, persisted. t(key, params) fills {placeholders}.
 
@@ -7,11 +7,12 @@ import { NativeModules, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import STRINGS from './strings.json';
 
-export const LANGS = ['ru', 'en', 'de', 'fr', 'es'] as const;
+export const LANGS = ['ru', 'en', 'es', 'fr', 'de', 'ko'] as const;
 export type Lang = (typeof LANGS)[number];
 
 export const LANG_LABELS: Record<Lang, string> = {
-  ru: 'Русский', en: 'English', de: 'Deutsch', fr: 'Français', es: 'Español',
+  ru: 'Русский', en: 'English', es: 'Español', fr: 'Français', de: 'Deutsch',
+  ko: '한국어',
 };
 
 const KEY = 'lang.v1';

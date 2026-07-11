@@ -21,7 +21,34 @@ function startSession(problem) {
     free: !hasSolution(problem),
     status: 'playing', // 'playing' | 'solved' | 'refuted' | 'wrong'
     moves: [],
+    // Лог отклонённых тапов (ТЗ v3.2 §6, Д4): каждый off-tree тап пишется
+    // событием с весом. weightedWrongCount(session) суммирует.
+    wrongLog: [],
   };
+}
+
+/** Вес ошибочного тапа (Д4/Д5): повтор пункта на той же позиции — 0;
+ * вне view-окна или на глубоком узле (после >=1 своего верного хода) — 0.5;
+ * правдоподобный корневой промах — 1. */
+function wrongTapWeight(session, at) {
+  const ply = session.moves.length;
+  if ((session.wrongLog || []).some((e) => e.at === at && e.ply === ply)) {
+    return 0;
+  }
+  const size = session.size;
+  const v = session.problem.view;
+  const c = at % size;
+  const r = Math.floor(at / size);
+  const outside = v ? (c < v.c0 || c > v.c1 || r < v.r0 || r > v.r1) : false;
+  const userMovesPlayed = session.moves.filter(
+    (m) => m.by === session.problem.to_move
+  ).length;
+  return outside || userMovesPlayed >= 1 ? 0.5 : 1;
+}
+
+/** Сумма весов ошибок за эпизод — вход для Q_learning/Q_rating. */
+function weightedWrongCount(session) {
+  return (session.wrongLog || []).reduce((a, e) => a + e.w, 0);
 }
 
 /**
@@ -51,14 +78,20 @@ function playUserMove(session, at) {
   if (!node) {
     // Off-tree: physically place the stone so the tap feels real, remember
     // the previous board — clearWrong() lifts the stone back off.
+    const w = wrongTapWeight(session, at);
+    const wrongLog = [
+      ...(session.wrongLog || []),
+      { at, ply: session.moves.length, w },
+    ];
     const tryRes = play(session.board, at, session.toMove);
-    if (!tryRes) return { ...session, status: 'wrong' };
+    if (!tryRes) return { ...session, status: 'wrong', wrongLog };
     return {
       ...session,
       status: 'wrong',
       board: tryRes.board,
       prevBoard: session.board,
       wrongAt: at,
+      wrongLog,
     };
   }
   let board = session.board;
@@ -69,6 +102,11 @@ function playUserMove(session, at) {
 
   if (node.tag === 'wrong') {
     // Play out the refutation line (first children chain), then fail.
+    // Правдоподобный неверный ход (decoy) — засчитанная ошибка веса 1 (§6).
+    const wrongLog = [
+      ...(session.wrongLog || []),
+      { at, ply: session.moves.length, w: 1 },
+    ];
     let cur = node;
     while (cur.children && cur.children.length) {
       cur = cur.children[0];
@@ -77,7 +115,7 @@ function playUserMove(session, at) {
       board = r.board;
       moves.push({ at: sgfToIdx(cur.at, size), by: cur.by });
     }
-    return { ...session, board, moves, status: 'refuted' };
+    return { ...session, board, moves, status: 'refuted', wrongLog };
   }
 
   const children = node.children || [];
@@ -88,7 +126,21 @@ function playUserMove(session, at) {
   // Opponent replies with the first answer in the tree.
   const reply = children[0];
   const r2 = play(board, sgfToIdx(reply.at, size), reply.by);
-  if (!r2) return { ...session, board, moves, status: 'solved' };
+  if (!r2) {
+    // Broken tree data: the book's own reply is illegal here. Never award
+    // a silent win — it masks marking bugs (scripts/audit_tsumego_tree.py
+    // guards this invariant offline). Loud in dev, generous-but-logged in
+    // production so the player isn't punished for our data.
+    console.error('[tsumego] illegal opponent reply in solution tree', {
+      problem: session.problem && session.problem.id, at: reply.at, by: reply.by,
+    });
+    if (typeof __DEV__ !== 'undefined' && __DEV__) {
+      throw new Error(
+        `broken tsumego tree: illegal reply ${reply.at} in ${session.problem && session.problem.id}`
+      );
+    }
+    return { ...session, board, moves, status: 'solved' };
+  }
   moves.push({ at: sgfToIdx(reply.at, size), by: reply.by });
   return {
     ...session,
@@ -129,6 +181,39 @@ function hintMove(problem) {
   return good ? sgfToIdx(good.at, sizeOfProblem(problem)) : null;
 }
 
+// ---- Лестница подсказок (ТЗ v3.2 §5): работает по ТЕКУЩЕМУ узлу сессии ----
+
+/** H4: верный ход из текущей позиции (не только корня — чинит G5). */
+function hintMoveAt(session) {
+  const nodes = session.nodes || [];
+  const good =
+    nodes.find((n) => n.by === session.toMove && n.tag !== 'wrong') || null;
+  return good ? sgfToIdx(good.at, session.size) : null;
+}
+
+/** H1: структурный объект — «на что смотреть» (поля из build_structural_targets).
+ * null => деградация в доменный шаблон (hintTemplates.h1Fallback). */
+function hintStructure(problem) {
+  if (!problem.h1Zone || !problem.structuralTargets) return null;
+  return { zone: problem.h1Zone, targets: problem.structuralTargets };
+}
+
+/** H3: кандидаты — ТОЛЬКО корневой узел (Д3: глубже альтернатив в данных
+ * нет). Нужно >=2 правдоподобных decoy, иначе null => деградация в
+ * направляющий вопрос. Порядок стабильный: перемешивает UI. */
+function hintCandidates(session) {
+  if (session.moves.length > 0) return null; // не корень
+  const size = session.size;
+  const roots = session.nodes || [];
+  const correct = roots.filter((n) => n.tag !== 'wrong');
+  const decoys = roots.filter((n) => n.tag === 'wrong');
+  if (!correct.length || decoys.length < 2) return null;
+  return {
+    correctAts: correct.map((n) => sgfToIdx(n.at, size)),
+    decoyAts: decoys.slice(0, 2).map((n) => sgfToIdx(n.at, size)),
+  };
+}
+
 /** View rectangle {c0,r0,c1,r1} covering the action with a margin. */
 function viewRect(problem, margin = 2) {
   const size = sizeOfProblem(problem);
@@ -158,4 +243,5 @@ function viewRect(problem, margin = 2) {
 module.exports = {
   startSession, playUserMove, undoFreeMove, clearWrong, hintMove,
   hasSolution, viewRect,
+  wrongTapWeight, weightedWrongCount, hintMoveAt, hintStructure, hintCandidates,
 };

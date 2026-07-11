@@ -38,6 +38,8 @@ interface GobanProps {
   lastMove?: number | null;
   marks?: GobanMark[];
   ghosts?: GhostStone[];
+  /** H1-подсказка: мягкая подсветка зоны «на что смотреть» (ТЗ v3.2 §5). */
+  zone?: ViewRect | null;
   onPoint?: (at: number) => void;
   disabled?: boolean;
 }
@@ -55,7 +57,7 @@ function hoshiPoints(size: number): [number, number][] {
 
 export default function Goban({
   position, size = 9, view, numbers, lastMove, marks = [], ghosts = [],
-  onPoint, disabled,
+  zone, onPoint, disabled,
 }: GobanProps) {
   const { board, stones } = useTheme();
   const layoutSize = React.useRef(1);
@@ -269,6 +271,22 @@ export default function Goban({
               </SvgText>
             </G>
           ))}
+
+          {zone && (
+            // H1: полупрозрачное лавандовое гало зоны поиска — «смотри сюда»,
+            // без указания точки. Под камнями, поверх сетки.
+            <Rect
+              x={px(Math.max(zone.c0, v.c0)) - CELL * 0.45}
+              y={px(Math.max(zone.r0, v.r0)) - CELL * 0.45}
+              width={(Math.min(zone.c1, v.c1) - Math.max(zone.c0, v.c0)) * CELL + CELL * 0.9}
+              height={(Math.min(zone.r1, v.r1) - Math.max(zone.r0, v.r0)) * CELL + CELL * 0.9}
+              rx={8}
+              fill="rgba(139,124,246,0.14)"
+              stroke="rgba(139,124,246,0.55)"
+              strokeWidth={1.6}
+              strokeDasharray="5 4"
+            />
+          )}
 
           {hoshiPoints(size)
             .filter(([c, r]) => c >= v.c0 && c <= v.c1 && r >= v.r0 && r <= v.r1)

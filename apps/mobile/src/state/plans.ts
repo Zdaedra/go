@@ -3,9 +3,7 @@
 
 export interface Plan {
   id: 'monthly' | 'yearly';
-  title: string;
   price: string;
-  note: string | null;
   /** RevenueCat / store product identifier. */
   productId: string;
 }
@@ -15,16 +13,12 @@ export interface Plan {
 export const PLANS: Plan[] = [
   {
     id: 'yearly',
-    title: 'Год',
-    price: '$36 / год',
-    note: 'выгоднее 40% — $3 в месяц',
+    price: '$36',
     productId: 'go9x9_pro_yearly',
   },
   {
     id: 'monthly',
-    title: 'Месяц',
-    price: '$5 / месяц',
-    note: null,
+    price: '$5',
     productId: 'go9x9_pro_monthly',
   },
 ];

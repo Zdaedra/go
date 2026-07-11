@@ -16,7 +16,7 @@ export interface StoneStyle {
 
 export interface StoneTheme {
   id: string;
-  nameRu: string;
+  nameKey: string; // i18n-ключ имени темы
   black: StoneStyle;
   white: StoneStyle;
   /** Drop shadow under stones. */
@@ -27,7 +27,7 @@ export interface StoneTheme {
 export const stoneThemes: Record<string, StoneTheme> = {
   lacquer: {
     id: 'lacquer',
-    nameRu: 'Лак и слоновая кость',
+    nameKey: 'stheme_lacquer_ivory',
     black: {
       fill: ['#7A7A7A', '#262626', '#0B0B0B'],
       highlight: '#FFFFFF', highlightOpacity: 0.35,
@@ -44,7 +44,7 @@ export const stoneThemes: Record<string, StoneTheme> = {
   },
   shell: {
     id: 'shell',
-    nameRu: 'Сланец и ракушка',
+    nameKey: 'stheme_slate_shell',
     black: {
       fill: ['#5C5C58', '#232322', '#0D0D0C'],
       highlight: '#FFFFFF', highlightOpacity: 0.28,
@@ -61,7 +61,7 @@ export const stoneThemes: Record<string, StoneTheme> = {
   },
   matte: {
     id: 'matte',
-    nameRu: 'Матовые',
+    nameKey: 'stheme_matte',
     black: {
       fill: ['#3A3A38', '#242423', '#1A1A19'],
       highlight: '#FFFFFF', highlightOpacity: 0.1,
@@ -78,7 +78,7 @@ export const stoneThemes: Record<string, StoneTheme> = {
   },
   glass: {
     id: 'glass',
-    nameRu: 'Стекло',
+    nameKey: 'stheme_glass',
     black: {
       fill: ['#4E6E68', '#1E3532', '#0C1917'],
       highlight: '#DFF5F0', highlightOpacity: 0.5,
@@ -95,7 +95,7 @@ export const stoneThemes: Record<string, StoneTheme> = {
   },
   flat: {
     id: 'flat',
-    nameRu: 'Плоские',
+    nameKey: 'stheme_flat',
     black: {
       fill: ['#1C1917', '#1C1917', '#1C1917'],
       highlight: '#FFFFFF', highlightOpacity: 0,
