@@ -11,7 +11,7 @@ import { stabilizer, orbit } from '../engine/symmetry';
 import {
   identify, suggestions, continuationMarks, currentBranch,
 } from '../engine/identify';
-import { evalFor } from '../engine/evals';
+import { evalFor, positionEval } from '../engine/evals';
 import { soundForMove, playStone } from '../sound/stones';
 import { openingDisplayName } from '../data/names';
 import branchDescriptions from '../data/descriptions.json';
@@ -151,6 +151,13 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     }
     return null;
   }, [locked, result, lastMove, branch, fullMarks, bookMoves]);
+
+  // Position verdict for the «Оценка» box (black-perspective, all
+  // book positions incl. completed openings are covered).
+  const posEval = useMemo(
+    () => (locked || result.status === 'empty' ? null : positionEval(position)),
+    [locked, result.status, position]
+  );
 
   // Offline KataGo evaluation of the current book position (null when the
   // position isn't in the evaluated set, e.g. off the book).
@@ -388,12 +395,24 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
             <Text style={styles.diffText}>{toMove === 'b' ? t('black') : t('white')}</Text>
           </View>
           <Text style={[eyebrow, { marginTop: 12 }]}>{t('eval')}</Text>
-          <View style={styles.outcomeRow}>
-            <MiniStone color={branchResult === 'W+' ? 'w' : 'b'} size={14} />
-            <Text style={styles.outcomeText}>
-              {branchResult ? resultRu(branchResult) : '—'}
-            </Text>
-          </View>
+          {posEval ? (
+            // Live KataGo verdict: leading colour + points margin.
+            <View style={styles.outcomeRow}>
+              <MiniStone color={posEval.blackLead >= 0 ? 'b' : 'w'} size={14} />
+              <Text style={styles.outcomeText}>
+                {`+${Math.abs(posEval.blackLead).toFixed(1)} · ${Math.round(
+                  (posEval.blackLead >= 0 ? posEval.blackWinrate : 1 - posEval.blackWinrate) * 100
+                )}%`}
+              </Text>
+            </View>
+          ) : (
+            <View style={styles.outcomeRow}>
+              <MiniStone color={branchResult === 'W+' ? 'w' : 'b'} size={14} />
+              <Text style={styles.outcomeText}>
+                {branchResult ? resultRu(branchResult) : '—'}
+              </Text>
+            </View>
+          )}
         </View>
       </View>
 

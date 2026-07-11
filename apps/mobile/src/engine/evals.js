@@ -27,4 +27,24 @@ function evalFor(position, toMove) {
   };
 }
 
-module.exports = { evalFor };
+/**
+ * Position verdict for the "Оценка" box, independent of whose record we
+ * have: returns { blackWinrate, blackLead } (black's perspective, after
+ * best play by the side to move), or null when the position is unknown.
+ */
+function positionEval(position) {
+  const { position: canon } = canonical(position);
+  const perSide = db.positions[canon];
+  if (!perSide) return null;
+  for (const side of ['B', 'W']) {
+    const rec = perSide[side];
+    if (!rec || !rec.best || !rec.best.length) continue;
+    const m = rec.best[0]; // winrate/scoreLead from `side`'s perspective
+    return side === 'B'
+      ? { blackWinrate: m.winrate, blackLead: m.scoreLead }
+      : { blackWinrate: 1 - m.winrate, blackLead: -m.scoreLead };
+  }
+  return null;
+}
+
+module.exports = { evalFor, positionEval };

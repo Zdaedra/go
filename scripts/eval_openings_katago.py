@@ -170,6 +170,17 @@ def build_units(db):
     if skipped_occupied:
         print(f"WARNING: {skipped_occupied} book moves landed on occupied points "
               f"(transform bug?) — investigate", file=sys.stderr)
+    # Leaf positions (final diagrams with no continuations) still deserve a
+    # position eval — the app shows "who is ahead" when an opening completes.
+    # Side to move from stone parity (openings never lose stones early).
+    covered = {canon for (canon, _p) in units}
+    for canon in db["position_index"]:
+        if canon in covered:
+            continue
+        nb = canon.count("b")
+        nw = canon.count("w")
+        player = "B" if nb == nw else "W"
+        units[(canon, player)] = {"book": {}}
     return units
 
 
@@ -287,9 +298,17 @@ def merge(args):
         if rec.get("missing"):
             missing_moves += len(rec["missing"])
         forced_total += rec.get("forcedQueries", 0)
-        # engine's best = lowest order among root-searched moves
+        # engine's best = lowest order among root-searched moves.
+        # Sanity: a suggested move must land on an empty point of the canon
+        # board; a mismatch means the indexed position itself is corrupt
+        # (e.g. the komoku/18 extraction glitch) — drop such records.
         ranked = sorted((v for v in moves.values() if not v.get("forced")),
                         key=lambda m: m["order"])
+        if any(canon[gtp_to_idx(m["gtp"])] != "." for m in ranked
+               if gtp_to_idx(m["gtp"]) is not None):
+            print(f"  dropped corrupt position (unit {unit_id(canon, player)}, "
+                  f"branch {sorted(next(iter(u['book'].values()))['branches'])[0] if u['book'] else 'leaf'})")
+            continue
         best = ranked[:5]
         book_out = {}
         book_best_wr = None
