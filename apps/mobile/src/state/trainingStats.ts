@@ -23,6 +23,7 @@ export interface EpisodeOutcome {
   h0Cap?: number;          // 0.9 для сужающих H0-шаблонов
   sawSolution?: boolean;
   reproduced?: boolean;
+  source?: 'trainer' | 'catalog' | 'placement'; // Д11: откуда эпизод
 }
 
 export interface EpisodeResult {
@@ -58,6 +59,15 @@ const listeners = new Set<() => void>();
 
 export const trainingPool = () =>
   (db.problems as any[]).filter((p) => p.tree && p.tree.length > 0);
+
+/** Конкретная задача по id (только из проверяемого пула). Каталог (Д11)
+    открывает её тем же экраном эпизода, что и тренажёр. */
+export const problemById = (id: string): any | null =>
+  trainingPool().find((p) => p.id === id) ?? null;
+
+/** Задачи одного раздела каталога (для перехода «дальше» внутри раздела). */
+export const sectionProblems = (categoryId: string, sectionId: string): any[] =>
+  trainingPool().filter((p) => p.category === categoryId && p.section === sectionId);
 
 // Домены — i18n-ключи (переводы в strings.json); русские имена из db.domains
 // больше не используются напрямую.

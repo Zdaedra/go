@@ -58,6 +58,7 @@ function newProfile() {
     recentQ: [],            // последние Q_learning (окно 5)
     lastDomains: [],        // последние поданные домены (окно 5)
     skillM: {},             // domain -> EWMA мастерства
+    sourceStats: {},        // source -> {episodes, cleanFirst} (телеметрия §5)
     points: 0,
     solved: 0,              // эпизоды, решённые самостоятельно
     failed: 0,              // провал / показ решения / пропуск
@@ -107,6 +108,9 @@ function qRating(outcome, isFirstMeeting) {
  */
 function recordEpisode(profile, problem, outcome) {
   const D = problem.difficulty || scaleMeta.median;
+  // Источник эпизода (Д11.9): 'trainer' (подбор) | 'catalog' (выбор игрока
+  // в каталоге) | 'placement'. Оба контура питаются из любого source.
+  const source = outcome.source || 'trainer';
   const rec = profile.problems[problem.id] ||
     (profile.problems[problem.id] = {
       firstMeetingDone: false, tries: 0, solved: false,
@@ -116,12 +120,21 @@ function recordEpisode(profile, problem, outcome) {
   const qL = qLearning(outcome);
   const qR = qRating(outcome, isFirst);
 
-  // --- контур 1: рейтинг (только первая встреча) ---
+  // Д11.2: каталожная первая встреча ДО завершения placement НЕ трогает Elo
+  // (не ломаем bisection) — но задача помечается виденной и питает контур 2.
+  // В v3 placement.done=true с первого эпизода, поэтому в норме путь мёртв —
+  // guard оставлен корректным на случай возврата калибровки.
+  const skipRating = source === 'catalog' && !profile.placement.done;
+
+  // --- контур 1: рейтинг (первая встреча, любой source — Д11) ---
   let ratingDelta = 0;
   if (isFirst) {
     rec.firstMeetingDone = true;
     rec.qRating = qR;
-    if (!profile.placement.done) {
+    rec.source = source;
+    if (skipRating) {
+      // виденной пометили выше; ни границы, ни Auser, ни ratedEpisodes
+    } else if (!profile.placement.done) {
       const pl = profile.placement;
       const mid = (pl.lo + pl.hi) / 2;
       if (qR === 1) pl.lo += SOFT_STEP * (mid - pl.lo);
@@ -129,13 +142,14 @@ function recordEpisode(profile, problem, outcome) {
       pl.step += 1;
       profile.auser = (pl.lo + pl.hi) / 2;
       if (pl.step >= PLACEMENT_EPISODES) pl.done = true;
+      profile.ratedEpisodes += 1;
     } else {
       const K = profile.ratedEpisodes < EARLY_EPISODES ? K_EARLY : K_STABLE;
       const E = 1 / (1 + Math.pow(10, (D - profile.auser) / 400));
       ratingDelta = Math.round(K * (qR - E));
       profile.auser += ratingDelta;
+      profile.ratedEpisodes += 1;
     }
-    profile.ratedEpisodes += 1;
   }
 
   // --- контур 2: обучение ---
@@ -190,7 +204,13 @@ function recordEpisode(profile, problem, outcome) {
   if (outcome.solved) profile.solved += 1;
   else profile.failed += 1;
 
-  return { qR, qL, ratingDelta, pointsGained, auser: Math.round(profile.auser) };
+  // Телеметрия по источнику: cleanSolveRate с разбивкой trainer/catalog (§5).
+  const ss = profile.sourceStats || (profile.sourceStats = {});
+  const st = ss[source] || (ss[source] = { episodes: 0, cleanFirst: 0 });
+  st.episodes += 1;
+  if (isFirst && qR === 1) st.cleanFirst += 1;
+
+  return { qR, qL, ratingDelta, pointsGained, auser: Math.round(profile.auser), source };
 }
 
 // ---------------------------------------------------------------- подбор

@@ -15,7 +15,7 @@ import { play as boardPlay, sgfToIdx } from '../engine/board';
 import { relativeLabel } from '../engine/adaptive2';
 import {
   nextEpisode, recordEpisode, domainLabels, useTrainingProfile,
-  placementState, EpisodeOutcome,
+  placementState, EpisodeOutcome, problemById, sectionProblems,
 } from '../state/trainingStats';
 import { recordAttempt } from '../state/tsumegoProgress';
 import { soundForMove, playStone } from '../sound/stones';
@@ -24,6 +24,7 @@ import PrimaryButton from '../components/PrimaryButton';
 import HintBulb from '../components/HintBulb';
 import hintTemplates from '../data/hintTemplates.json';
 import { useI18n, Lang } from '../i18n';
+import { categoryKey, sectionKey } from '../data/catalog';
 
 const GOAL_KEY: Record<string, string> = {
   capture: 'goal_capture',
@@ -87,6 +88,17 @@ export default function TrainingSessionScreen(
   // Игрок мог выбрать конкретную тему на радаре/в прогрессе — тогда сессия
   // подаёт задачи только этого домена (под его уровень), запись общая.
   const pickedDomain: string | null = route?.params?.domain ?? null;
+  // Каталог (Д11/Д12): та же логика эпизода, но задачи берутся из выбранного
+  // раздела по порядку, а не подбором. Первая встреча тоже rated (§2).
+  const catalogMode: boolean = route?.params?.source === 'catalog';
+  const catCat: string | null = route?.params?.categoryId ?? null;
+  const catSec: string | null = route?.params?.sectionId ?? null;
+  const catStartId: string | null = route?.params?.problemId ?? null;
+  const catalogList = useMemo(
+    () => (catalogMode && catCat && catSec ? sectionProblems(catCat, catSec) : []),
+    [catalogMode, catCat, catSec]
+  );
+  const catIdx = useRef(0);
   const profile = useTrainingProfile();
   const placement = placementState(profile);
 
@@ -107,20 +119,58 @@ export default function TrainingSessionScreen(
   const sawSolutionRef = useRef(false);
   const recorded = useRef(false);
 
-  const serveNext = useCallback(async () => {
-    const p = await nextEpisode(pickedDomain);
-    if (!p) { setExhausted(true); setProblem(null); return; }
+  // Сброс per-episode состояния + загрузка конкретной задачи.
+  const loadProblem = useCallback((p: any) => {
     recorded.current = false;
     sawSolutionRef.current = false;
     h0CapUsed.current = undefined;
     setRung(null); setHintText(null); setH3Missing(false);
     setCantChoice(false); setWalk(null); setReproducing(false);
-    setFeedback(null);
+    setFeedback(null); setExhausted(false);
     setProblem(p);
     setSession(startSession(p));
-  }, [pickedDomain]);
+  }, []);
 
-  useEffect(() => { serveNext(); }, [serveNext, pickedDomain]);
+  // Тренажёр: следующую задачу выбирает движок (с учётом выбранной темы).
+  const serveTrainer = useCallback(async () => {
+    const p = await nextEpisode(pickedDomain);
+    if (!p) { setExhausted(true); setProblem(null); return; }
+    loadProblem(p);
+  }, [pickedDomain, loadProblem]);
+
+  // Каталог: идём по разделу подряд от выбранной задачи (Д11).
+  const advanceCatalog = useCallback((idx: number) => {
+    const p = catalogList[idx];
+    if (!p) { setExhausted(true); setProblem(null); return; }
+    catIdx.current = idx;
+    loadProblem(p);
+  }, [catalogList, loadProblem]);
+
+  // Единый переход «дальше» — знает про режим (тренажёр / каталог).
+  const goNext = useCallback(() => {
+    if (catalogMode) advanceCatalog(catIdx.current + 1);
+    else serveTrainer();
+  }, [catalogMode, advanceCatalog, serveTrainer]);
+
+  // Инициализация / переинициализация при смене темы или каталожной задачи.
+  useEffect(() => {
+    if (catalogMode) {
+      const i = Math.max(0, catalogList.findIndex((p) => p.id === catStartId));
+      advanceCatalog(i);
+    } else {
+      serveTrainer();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [catalogMode, catStartId, pickedDomain]);
+
+  // Каталожная шапка: раздел вместо родового «Тренировка».
+  useEffect(() => {
+    if (catalogMode && catCat && catSec) {
+      navigation.setOptions({
+        title: `${t(categoryKey(catCat))} · ${t(sectionKey(catCat, catSec))}`,
+      });
+    }
+  }, [catalogMode, catCat, catSec, navigation, t]);
 
   const tpl = useMemo(
     () => (problem ? domainTemplates(problem.domain, lang) : null),
@@ -189,7 +239,9 @@ export default function TrainingSessionScreen(
     if (!problem || recorded.current) return null;
     recorded.current = true;
     recordAttempt(problem.id, outcome.solved || Boolean(outcome.reproduced));
-    const res = await recordEpisode(problem, outcome);
+    const res = await recordEpisode(problem, {
+      ...outcome, source: catalogMode ? 'catalog' : 'trainer',
+    });
     if (outcome.solved) setSessionSolved((n) => n + 1);
     if (res.pointsGained) setSessionPoints((n) => n + res.pointsGained);
     const rate = placement.active
@@ -205,7 +257,7 @@ export default function TrainingSessionScreen(
           : t('fb_failed', { rate })
     );
     return res;
-  }, [problem, placement, t]);
+  }, [problem, placement, catalogMode, t]);
 
   // Терминал обычного решения: записать эпизод один раз.
   useEffect(() => {
@@ -261,7 +313,7 @@ export default function TrainingSessionScreen(
       weightedWrongCount: session ? weightedWrongCount(session) : 0,
       hintRung: rung, sawSolution: true, reproduced: false,
     });
-    serveNext();
+    goNext();
   };
 
   const skipProblem = async () => {
@@ -271,7 +323,7 @@ export default function TrainingSessionScreen(
       hintRung: rung,
       sawSolution: sawSolutionRef.current,
     });
-    serveNext();
+    goNext();
   };
 
   // «Ещё раз»: тот же эпизод, лог ошибок сохраняется (§6).
@@ -313,14 +365,20 @@ export default function TrainingSessionScreen(
   }, [problem, session, walk, rung]);
 
   if (exhausted) {
-    const doneText = pickedDomain
-      ? t('training_done_domain', { domain: t(domainLabels[pickedDomain] ?? pickedDomain) })
-      : t('training_done');
+    const doneText = catalogMode
+      ? t('catalog_section_done')
+      : pickedDomain
+        ? t('training_done_domain', { domain: t(domainLabels[pickedDomain] ?? pickedDomain) })
+        : t('training_done');
     return (
       <View style={styles.donePage}>
         <MistBackground />
         <Text style={styles.doneTitle}>{doneText}</Text>
-        <PrimaryButton label={t('to_stats')} dome={false} onPress={() => navigation.goBack()} />
+        <PrimaryButton
+          label={catalogMode ? t('btn_back_catalog') : t('to_stats')}
+          dome={false}
+          onPress={() => navigation.goBack()}
+        />
       </View>
     );
   }
@@ -444,7 +502,7 @@ export default function TrainingSessionScreen(
               <PrimaryButton label={t('btn_next_move')} dome={false} onPress={walkNext} style={styles.nextBtn} />
             )
           ) : terminal && recorded.current ? (
-            <PrimaryButton label={t('btn_next_problem')} dome={false} onPress={serveNext} style={styles.nextBtn} />
+            <PrimaryButton label={t('btn_next_problem')} dome={false} onPress={goNext} style={styles.nextBtn} />
           ) : session.status === 'refuted' ? (
             <>
               <Pressable style={styles.btn} onPress={retrySameEpisode}>

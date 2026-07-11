@@ -2118,5 +2118,21 @@
     "fr": "Tous les problèmes « {domain} » terminés 🎉",
     "de": "Alle „{domain}“-Aufgaben geschafft 🎉",
     "ko": "«{domain}» 문제를 모두 끝냈어요 🎉"
+  },
+  "catalog_section_done": {
+    "ru": "Раздел пройден 🎉",
+    "en": "Section cleared 🎉",
+    "es": "Sección completada 🎉",
+    "fr": "Section terminée 🎉",
+    "de": "Abschnitt geschafft 🎉",
+    "ko": "이 묶음을 끝냈어요 🎉"
+  },
+  "btn_back_catalog": {
+    "ru": "К каталогу",
+    "en": "To catalog",
+    "es": "Al catálogo",
+    "fr": "Au catalogue",
+    "de": "Zum Katalog",
+    "ko": "목록으로"
   }
 }

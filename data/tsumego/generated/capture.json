@@ -1,0 +1,4726 @@
+{
+ "board_size": 9,
+ "source": "procedurally generated, solver-certified — clean license",
+ "categories": [
+  {
+   "id": "capture",
+   "title": "Захват камней",
+   "sections": [
+    {
+     "id": "atari",
+     "title": "Атари и захват"
+    },
+    {
+     "id": "technique",
+     "title": "Приёмы захвата"
+    }
+   ]
+  }
+ ],
+ "problems": [
+  {
+   "id": "gen-capture-atari3-001",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b.......bwb.....................................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "bc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-002",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....b.......bwb.................................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "fc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-003",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............b.......bwb..........................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "dd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-004",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................b.......bwb...................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "be",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-005",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................b.......bwb..............................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ge",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-006",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...............................b.......bwb.......................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ef",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-007",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................b.......bwb................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "cg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-008",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........................................b.......bwb...........................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "hg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-009",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..................................................b.......bwb....................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "fh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-010",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........................................................b.......bwb.............",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "di",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-011",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........bwb.......b.............................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-012",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".............bwb.......b.........................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "fa",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-013",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "....................bwb.......b..................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "db",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-014",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........................bwb.......b...........................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "bc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-015",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "................................bwb.......b......................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "gc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-016",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................................bwb.......b...............................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ed",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-017",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..............................................bwb.......b........................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ce",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-018",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................................................bwb.......b...................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "he",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-019",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................................................bwb.......b............",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ff",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-020",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".................................................................bwb.......b.....",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "dg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-021",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b.......bw........b.............................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "cb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-022",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....b.......bw........b.........................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "gb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-023",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............b.......bw........b..................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ec",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-024",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................b.......bw........b...........................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "cd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-025",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................b.......bw........b......................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "hd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-026",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...............................b.......bw........b...............................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "fe",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-027",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................b.......bw........b........................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "df",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-028",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........................................b.......bw........b...................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "if",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-029",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..................................................b.......bw........b............",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "gg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-030",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........................................................b.......bw........b.....",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "eh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-031",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b........wb.......b.............................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ab",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-032",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....b........wb.......b.........................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "eb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-033",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............b........wb.......b..................................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "cc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-034",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................b........wb.......b...........................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ad",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-035",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................b........wb.......b......................................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "fd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-036",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...............................b........wb.......b...............................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "de",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-037",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................b........wb.......b........................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "bf",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-038",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........................................b........wb.......b...................",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "gf",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-039",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..................................................b........wb.......b............",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "eg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari3-040",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........................................................b........wb.......b.....",
+   "domain": "capture",
+   "difficulty": 900,
+   "tree": [
+    {
+     "at": "ch",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari3"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-041",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "bwb..............................................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "bb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-042",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".bwb.............................................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "cb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-043",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..bwb............................................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "db",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-044",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...bwb...........................................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "eb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-045",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "....bwb..........................................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "fb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-046",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....bwb.........................................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "gb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-047",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......bwb........................................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "hb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-048",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................................................................bwb......",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "bh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-049",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........................................................................bwb.....",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "ch",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-050",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................................................................bwb....",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "dh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-051",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........................................................................bwb...",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "eh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-052",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............................................................................bwb..",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "fh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-053",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".............................................................................bwb.",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "gh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-054",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..............................................................................bwb",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "hh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-055",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "b........w........b..............................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "bb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-056",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........b........w........b......................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "hb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-057",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........b........w........b.....................................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "bc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-058",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".................b........w........b.............................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "hc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-059",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..................b........w........b............................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "bd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-060",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................b........w........b....................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "hd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-061",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........................b........w........b...................................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "be",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-062",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................................b........w........b...........................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "he",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-063",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "....................................b........w........b..........................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "bf",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-064",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............................................b........w........b..................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "hf",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-065",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".............................................b........w........b.................",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "bg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-066",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....................................................b........w........b.........",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "hg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-067",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................................b........w........b........",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "bh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-edge-068",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..............................................................b........w........b",
+   "domain": "capture",
+   "difficulty": 880,
+   "tree": [
+    {
+     "at": "hh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-edge"
+   }
+  },
+  {
+   "id": "gen-capture-atari-corner-069",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "wb...............................................................................",
+   "domain": "capture",
+   "difficulty": 850,
+   "tree": [
+    {
+     "at": "ab",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-corner"
+   }
+  },
+  {
+   "id": "gen-capture-atari-corner-070",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................................................................wb.......",
+   "domain": "capture",
+   "difficulty": 850,
+   "tree": [
+    {
+     "at": "ah",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-corner"
+   }
+  },
+  {
+   "id": "gen-capture-atari-corner-071",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......bw........................................................................",
+   "domain": "capture",
+   "difficulty": 850,
+   "tree": [
+    {
+     "at": "ib",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-corner"
+   }
+  },
+  {
+   "id": "gen-capture-atari-corner-072",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...............................................................................bw",
+   "domain": "capture",
+   "difficulty": 850,
+   "tree": [
+    {
+     "at": "ih",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-corner"
+   }
+  },
+  {
+   "id": "gen-capture-atari-corner-073",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "w........b.......................................................................",
+   "domain": "capture",
+   "difficulty": 850,
+   "tree": [
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-corner"
+   }
+  },
+  {
+   "id": "gen-capture-atari-corner-074",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........w........b...............................................................",
+   "domain": "capture",
+   "difficulty": 850,
+   "tree": [
+    {
+     "at": "ha",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-corner"
+   }
+  },
+  {
+   "id": "gen-capture-atari-corner-075",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...............................................................b........w........",
+   "domain": "capture",
+   "difficulty": 850,
+   "tree": [
+    {
+     "at": "bi",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-corner"
+   }
+  },
+  {
+   "id": "gen-capture-atari-corner-076",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................................................................b........w",
+   "domain": "capture",
+   "difficulty": 850,
+   "tree": [
+    {
+     "at": "hi",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "atari-corner"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-077",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b.......bwb......bwb............................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "bd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-078",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....b.......bwb......bwb........................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "fd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-079",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........b.......bwb......bwb..................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ce",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-080",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...............b.......bwb......bwb..............................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ge",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-081",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....................b.......bwb......bwb........................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "df",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-082",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............................b.......bwb......bwb.................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "bg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-083",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "................................b.......bwb......bwb.............................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "fg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-084",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................b.......bwb......bwb.......................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ch",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-085",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................................b.......bwb......bwb...................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "gh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-086",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "................................................b.......bwb......bwb.............",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "di",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-087",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........bwb......bwb.......b....................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-088",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".............bwb......bwb.......b................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "fa",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-089",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................bwb......bwb.......b..........................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "cb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-090",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................bwb......bwb.......b......................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "gb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-091",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".............................bwb......bwb.......b................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "dc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-092",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "....................................bwb......bwb.......b.........................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "bd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-093",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................................bwb......bwb.......b.....................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "fd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-094",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..............................................bwb......bwb.......b...............",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ce",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-095",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..................................................bwb......bwb.......b...........",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ge",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-096",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................................................bwb......bwb.......b.....",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "df",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-097",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".bb......bww.......bb............................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "db",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-098",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....bb......bww.......bb........................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "hb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-099",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............bb......bww.......bb.................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "fc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-100",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................bb......bww.......bb..........................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "dd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-101",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................bb......bww.......bb......................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "hd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-102",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...............................bb......bww.......bb..............................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ge",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-103",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................bb......bww.......bb.......................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ef",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-104",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................................bb......bww.......bb...................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "if",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-105",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".................................................bb......bww.......bb............",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "gg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-106",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................................................bb......bww.......bb.....",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "eh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-107",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".bb.......wwb......bb............................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ab",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-108",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....bb.......wwb......bb........................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "eb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-109",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............bb.......wwb......bb.................................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "cc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-110",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................bb.......wwb......bb..........................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ad",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-111",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................bb.......wwb......bb......................................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ed",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-112",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...............................bb.......wwb......bb..............................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "de",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-113",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................bb.......wwb......bb.......................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "bf",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-114",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................................bb.......wwb......bb...................",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "ff",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-115",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".................................................bb.......wwb......bb............",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "dg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-two-stone-116",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................................................bb.......wwb......bb.....",
+   "domain": "capture",
+   "difficulty": 960,
+   "tree": [
+    {
+     "at": "bh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "two-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-117",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b.......bwb......bwb......bwb...................................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "be",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-118",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "....b.......bwb......bwb......bwb................................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ee",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-119",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........b.......bwb......bwb......bwb..........................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "bf",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-120",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".............b.......bwb......bwb......bwb.......................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ef",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-121",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................b.......bwb......bwb......bwb.................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "bg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-122",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................b.......bwb......bwb......bwb..............................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "eg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-123",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............................b.......bwb......bwb......bwb........................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "bh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-124",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...............................b.......bwb......bwb......bwb.....................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "eh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-125",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....................................b.......bwb......bwb......bwb...............",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "bi",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-126",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................................b.......bwb......bwb......bwb............",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ei",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-127",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........bwb......bwb......bwb.......b...........................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-128",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............bwb......bwb......bwb.......b........................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ea",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-129",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..................bwb......bwb......bwb.......b..................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "bb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-130",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....................bwb......bwb......bwb.......b...............................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "eb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-131",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........................bwb......bwb......bwb.......b.........................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "bc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-132",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..............................bwb......bwb......bwb.......b......................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ec",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-133",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "....................................bwb......bwb......bwb.......b................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "bd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-134",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................................bwb......bwb......bwb.......b.............",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ed",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-135",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".............................................bwb......bwb......bwb.......b.......",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "be",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-136",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "................................................bwb......bwb......bwb.......b....",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ee",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-137",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".bbb.....bwww......bbb...........................................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "eb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-138",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "....bbb.....bwww......bbb........................................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "hb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-139",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............bbb.....bwww......bbb................................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "gc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-140",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................bbb.....bwww......bbb.........................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ed",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-141",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................bbb.....bwww......bbb.....................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "id",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-142",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..............................bbb.....bwww......bbb..............................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ge",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-143",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................bbb.....bwww......bbb......................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ff",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-144",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........................................bbb.....bwww......bbb...................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "if",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-145",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".................................................bbb.....bwww......bbb...........",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "hg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-146",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................................................bbb.....bwww......bbb....",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "fh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-147",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".bbb......wwwb.....bbb...........................................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ab",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-148",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "....bbb......wwwb.....bbb........................................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "db",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-149",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "............bbb......wwwb.....bbb................................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "cc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-150",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................bbb......wwwb.....bbb.........................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ad",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-151",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................bbb......wwwb.....bbb.....................................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ed",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-152",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "..............................bbb......wwwb.....bbb..............................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ce",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-153",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................bbb......wwwb.....bbb......................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "bf",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-154",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........................................bbb......wwwb.....bbb...................",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "ef",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-155",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": ".................................................bbb......wwwb.....bbb...........",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "dg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-three-stone-156",
+   "category": "capture",
+   "section": "atari",
+   "title": "Атари: захвати",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................................................bbb......wwwb.....bbb....",
+   "domain": "capture",
+   "difficulty": 1010,
+   "tree": [
+    {
+     "at": "bh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "three-stone"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-001",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b.......bwb.......wb.......b....................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ac",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-002",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........b.......bwb.......wb.......b..........................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "bd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-003",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....................b.......bwb.......wb.......b................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ce",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-004",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "................................b.......bwb.......wb.......b.....................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ef",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-005",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................................b.......bwb.......wb.......b...........",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "fg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-006",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b.......bwb......bw........b....................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "cc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-007",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........b.......bwb......bw........b..........................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "dd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-008",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....................b.......bwb......bw........b................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ee",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-009",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "................................b.......bwb......bw........b.....................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "gf",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-010",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................................b.......bwb......bw........b...........",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "hg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-011",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b........wb......bwb.......b....................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ab",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-012",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........b........wb......bwb.......b..........................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "bc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-013",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....................b........wb......bwb.......b................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "cd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-014",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "................................b........wb......bwb.......b.....................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ee",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-015",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................................b........wb......bwb.......b...........",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ff",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-016",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b.......bw.......bwb.......b....................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "cb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-017",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "...........b.......bw.......bwb.......b..........................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "dc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-018",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....................b.......bw.......bwb.......b................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ed",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-019",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "................................b.......bw.......bwb.......b.....................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ge",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-020",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "..........................................b.......bw.......bwb.......b...........",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "hf",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-021",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".b.......bwwb......bb............................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ca",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-022",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "............b.......bwwb......bb.................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "eb",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-023",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................b.......bwwb......bb......................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "gc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-024",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................b.......bwwb......bb.......................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "de",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-025",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".................................................b.......bwwb......bb............",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ff",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-026",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "..b......bwwb......bb............................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-027",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".............b......bwwb......bb.................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "db",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-028",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "........................b......bwwb......bb......................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "fc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-029",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................................b......bwwb......bb.......................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ce",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-030",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "..................................................b......bwwb......bb............",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ef",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-031",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".bb......bwwb......b.............................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "cc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-032",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "............bb......bwwb......b..................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ed",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-033",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................bb......bwwb......b.......................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "ge",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-034",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................bb......bwwb......b........................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "dg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-035",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".................................................bb......bwwb......b.............",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "fh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-036",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".bb......bwwb.......b............................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "bc",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-037",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "............bb......bwwb.......b.................................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "dd",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-038",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".......................bb......bwwb.......b......................................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "fe",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-039",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": "......................................bb......bwwb.......b.......................",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "cg",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  },
+  {
+   "id": "gen-capture-squeeze-040",
+   "category": "capture",
+   "section": "technique",
+   "title": "Приём захвата",
+   "to_move": "b",
+   "size": 9,
+   "board": ".................................................bb......bwwb.......b............",
+   "domain": "capture",
+   "difficulty": 1050,
+   "tree": [
+    {
+     "at": "eh",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "gen+negamax-solver",
+    "method": "template×symmetry, unique-key certified",
+    "template": "squeeze"
+   }
+  }
+ ]
+}

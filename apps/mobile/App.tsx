@@ -14,7 +14,6 @@ import PlayScreen from './src/screens/PlayScreen';
 import LearnScreen from './src/screens/LearnScreen';
 import OpeningScreen from './src/screens/OpeningScreen';
 import TsumegoListScreen from './src/screens/TsumegoListScreen';
-import TsumegoProblemScreen from './src/screens/TsumegoProblemScreen';
 import TrainingSessionScreen from './src/screens/TrainingSessionScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import AuthScreen from './src/screens/AuthScreen';
@@ -71,11 +70,6 @@ function LearnNavigator() {
         name="TsumegoList"
         component={TsumegoListScreen}
         options={{ title: t('title_tsumego_list') }}
-      />
-      <LearnStack.Screen
-        name="TsumegoProblem"
-        component={TsumegoProblemScreen}
-        options={{ title: t('title_tsumego') }}
       />
       <LearnStack.Screen
         name="TrainingSession"

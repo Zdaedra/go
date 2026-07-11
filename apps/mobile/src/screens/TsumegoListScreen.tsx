@@ -26,7 +26,10 @@ export default function TsumegoListScreen({ route, navigation }: { route: any; n
               key={p.id}
               style={[styles.cell, st?.solved && styles.cellSolved]}
               onPress={() =>
-                navigation.navigate('TsumegoProblem', {
+                // Д11/Д12: каталог открывает единый экран эпизода (лестница
+                // подсказок + запись в профиль), а не старый текстовый экран.
+                navigation.navigate('TrainingSession', {
+                  source: 'catalog',
                   problemId: p.id,
                   index: i,
                   categoryId,
