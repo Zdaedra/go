@@ -1512,6 +1512,14 @@
   "deltaWinrate": 0.271
  },
  {
+  "branch": "territorial/komoku/18",
+  "toMove": "B",
+  "kataBest": "E5",
+  "kataWinrate": 0.5594,
+  "bookBestWinrate": 0.3728,
+  "deltaWinrate": 0.187
+ },
+ {
   "branch": "hoshi/flower/4",
   "toMove": "B",
   "kataBest": "B5",
@@ -1766,30 +1774,6 @@
   "kataWinrate": 0.5469,
   "bookBestWinrate": 0.2739,
   "deltaWinrate": 0.273
- },
- {
-  "branch": "territorial/komoku/18",
-  "toMove": "B",
-  "kataBest": "E5",
-  "kataWinrate": 0.9976,
-  "bookBestWinrate": 0.1573,
-  "deltaWinrate": 0.84
- },
- {
-  "branch": "territorial/komoku/18",
-  "toMove": "B",
-  "kataBest": "E5",
-  "kataWinrate": 0.1419,
-  "bookBestWinrate": 0.0612,
-  "deltaWinrate": 0.081
- },
- {
-  "branch": "territorial/komoku/18",
-  "toMove": "W",
-  "kataBest": "B4",
-  "kataWinrate": 0.9733,
-  "bookBestWinrate": 0.6485,
-  "deltaWinrate": 0.325
  },
  {
   "branch": "tengen/almost-equilateral-2/5",

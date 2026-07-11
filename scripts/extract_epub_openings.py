@@ -115,6 +115,25 @@ def parse_svg(svg) -> dict | None:
     labels: list[dict] = []
     markers: list[dict] = []
 
+    # gb:v on an ancestor <g> lists the interactive states at which the
+    # element toggles visibility (state 0 = diagram start, state N = after
+    # move N of this diagram). A stone whose list starts at 0 is on the
+    # board before the first numbered move, i.e. it is a setup stone —
+    # even if a move number also sits on it (see below).
+    parent_of = {child: p for p in svg.iter() for child in p}
+
+    def gb_states(el) -> list[int] | None:
+        node = el
+        while node is not None:
+            v = node.get(f"{{{GB_NS}}}v")
+            if v:
+                try:
+                    return [int(t) for t in v.split()]
+                except ValueError:
+                    return None
+            node = parent_of.get(node)
+        return None
+
     for el in svg.iter():
         tag = el.tag
         if tag == q("use", SVG_NS):
@@ -126,7 +145,8 @@ def parse_svg(svg) -> dict | None:
             if href in ("b", "w"):
                 # A point can hold several stones over the diagram's lifetime
                 # (stone captured, then played on again), so keep a list.
-                stones.append({"color": href, "col": col, "row": row})
+                stones.append({"color": href, "col": col, "row": row,
+                               "states": gb_states(el)})
             elif href in MARKER_KINDS:
                 markers.append({"col": col, "row": row, "kind": MARKER_KINDS[href]})
             # '#h' star points and other decorations are ignored
@@ -173,9 +193,19 @@ def parse_svg(svg) -> dict | None:
         if "n" in stone:
             entry["n"] = stone["n"]
             moves.append(entry)
+            # The book reuses one stone element when a setup stone is
+            # captured and the same color later replays the point (e.g.
+            # Komoku diagram 18: setup white bh is captured by 23, white
+            # throws back in at 34). The element carries the move number,
+            # but its gb:v starting at state 0 shows it is also on the
+            # board at the start — record the setup stone too.
+            if stone["states"] and stone["states"][0] == 0:
+                setup[stone["color"]].append(coord)
         else:
             setup[stone["color"]].append(coord)
 
+    setup["b"].sort()
+    setup["w"].sort()
     moves.sort(key=lambda m: m["n"])
 
     return {

@@ -1,5 +1,5 @@
 {
-  "source": "a29974c3-sg0182_mt_mini_book.epub",
+  "source": "sg0182_mt_mini_book.epub",
   "board_size": 9,
   "coordinate_system": "sgf (a-i left to right, a-i top to bottom); gtp uses A-J skipping I, rows 9-1",
   "families": [
@@ -29070,6 +29070,7 @@
               ],
               "setup_white": [
                 "ah",
+                "bh",
                 "cf",
                 "cg",
                 "de",

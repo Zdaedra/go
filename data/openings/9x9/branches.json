@@ -22,7 +22,7 @@
  },
  "branch_count": 259,
  "lines_reconstructed": 141,
- "position_count": 1614,
+ "position_count": 1613,
  "branches": [
   {
    "branch_id": "tengen/preamble/1",
@@ -27070,6 +27070,7 @@
    ],
    "setup_white": [
     "ah",
+    "bh",
     "cf",
     "cg",
     "de",
@@ -42336,9 +42337,7 @@
     "ply": 8,
     "final": true,
     "to_canonical": "anti_transpose"
-   }
-  ],
-  ".......................b.......wb.....bb.ww....bww.....bww.....b.b.......wb......": [
+   },
    {
     "branch_id": "territorial/komoku/18",
     "ply": 0,
@@ -42346,7 +42345,7 @@
     "to_canonical": "anti_transpose"
    }
   ],
-  "......................bb.......wb.....bb.ww....bww.....bww.....b.b.......wb......": [
+  "......................bb.......wb.....bb.ww....bww.....bww.....bwb.......wb......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 1,
@@ -42354,7 +42353,7 @@
     "to_canonical": "anti_transpose"
    }
   ],
-  "......................w........wbb.....w.wb....wwb.w..bbwbb....w.b.......b.......": [
+  "......................w........wbb.....w.wb....wwb.w..bbwbb....wwb.......b.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 2,
@@ -42362,7 +42361,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbw..bbwbb....w.b.......b.......": [
+  "......................w........wbb.....w.wb....wwbbw..bbwbb....wwb.......b.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 3,
@@ -42370,7 +42369,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbw..bbwbb....w.bw......b.......": [
+  "......................w........wbb.....w.wb....wwbbw..bbwbb....wwbw......b.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 4,
@@ -42378,7 +42377,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbw..bbwbb....w.bw.....bb.......": [
+  "......................w........wbb.....w.wb....wwbbw..bbwbb......bw.....bb.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 5,
@@ -42386,7 +42385,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbw..bbwbb....w.bww....bb.......": [
+  "......................w........wbb.....w.wb....wwbbw..bbwbb......bww....bb.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 6,
@@ -42394,7 +42393,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbw..bbwbb.b..w.bww....bb.......": [
+  "......................w........wbb.....w.wb....wwbbw..bbwbb.b....bww....bb.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 7,
@@ -42402,7 +42401,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbww.bbwbb.b..w.bww....bb.......": [
+  "......................w........wbb.....w.wb....wwbbww.bbwbb.b....bww....bb.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 8,
@@ -42410,7 +42409,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbww.bbwbb.bb.w.bww....bb.......": [
+  "......................w........wbb.....w.wb....wwbbww.bbwbb.bb...bww....bb.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 9,
@@ -42418,7 +42417,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbww.bbwbb.bb.w.bwww...bb.......": [
+  "......................w........wbb.....w.wb....wwbbww.bbwbb.bb...bwww...bb.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 10,
@@ -42426,7 +42425,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb.w.bwww...bb.......": [
+  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb...bwww...bb.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 11,
@@ -42434,7 +42433,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb.w.bwwww..bb.......": [
+  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb...bwwww..bb.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 12,
@@ -42442,7 +42441,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb.w.bwwwwb.bb.......": [
+  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb...bwwwwb.bb.......": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 13,
@@ -42450,7 +42449,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb.w.bwwwwb.bb.w.....": [
+  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb...bwwwwb.bb.w.....": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 14,
@@ -42458,7 +42457,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb.w.bwwwwb.bb.w..b..": [
+  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb...bwwwwb.bb.w..b..": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 15,
@@ -42466,7 +42465,7 @@
     "to_canonical": "identity"
    }
   ],
-  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb.wwbwwwwb.bb.w..b..": [
+  "......................w........wbb.....w.wb....wwbbww.bbwbbbbb..wbwwwwb.bb.w..b..": [
    {
     "branch_id": "territorial/komoku/18",
     "ply": 16,
