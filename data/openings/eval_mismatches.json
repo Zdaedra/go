@@ -1,0 +1,1866 @@
+[
+ {
+  "branch": "hoshi/submarine/2",
+  "toMove": "W",
+  "kataBest": "D6",
+  "kataWinrate": 0.3802,
+  "bookBestWinrate": 0.0778,
+  "deltaWinrate": 0.302
+ },
+ {
+  "branch": "hoshi/other-hoshi-openings/9",
+  "toMove": "B",
+  "kataBest": "D4",
+  "kataWinrate": 0.648,
+  "bookBestWinrate": 0.5141,
+  "deltaWinrate": 0.134
+ },
+ {
+  "branch": "hoshi/submarine/3",
+  "toMove": "B",
+  "kataBest": "D7",
+  "kataWinrate": 0.4221,
+  "bookBestWinrate": 0.2619,
+  "deltaWinrate": 0.16
+ },
+ {
+  "branch": "territorial/sansan/5",
+  "toMove": "B",
+  "kataBest": "F6",
+  "kataWinrate": 0.1607,
+  "bookBestWinrate": 0.0694,
+  "deltaWinrate": 0.091
+ },
+ {
+  "branch": "hoshi/submarine/5",
+  "toMove": "W",
+  "kataBest": "E7",
+  "kataWinrate": 0.152,
+  "bookBestWinrate": 0.0633,
+  "deltaWinrate": 0.089
+ },
+ {
+  "branch": "hoshi/submarine/4",
+  "toMove": "B",
+  "kataBest": "D7",
+  "kataWinrate": 0.7465,
+  "bookBestWinrate": 0.1492,
+  "deltaWinrate": 0.597
+ },
+ {
+  "branch": "territorial/sansan/5",
+  "toMove": "B",
+  "kataBest": "D6",
+  "kataWinrate": 0.1421,
+  "bookBestWinrate": 0.0634,
+  "deltaWinrate": 0.079
+ },
+ {
+  "branch": "territorial/sansan/5",
+  "toMove": "W",
+  "kataBest": "C4",
+  "kataWinrate": 0.9145,
+  "bookBestWinrate": 0.8552,
+  "deltaWinrate": 0.059
+ },
+ {
+  "branch": "territorial/sansan/5",
+  "toMove": "B",
+  "kataBest": "D6",
+  "kataWinrate": 0.1946,
+  "bookBestWinrate": 0.0404,
+  "deltaWinrate": 0.154
+ },
+ {
+  "branch": "territorial/avoiding-transpositions/6",
+  "toMove": "B",
+  "kataBest": "D6",
+  "kataWinrate": 0.3686,
+  "bookBestWinrate": 0.3017,
+  "deltaWinrate": 0.067
+ },
+ {
+  "branch": "hoshi/other-hoshi-openings/9",
+  "toMove": "W",
+  "kataBest": "E7",
+  "kataWinrate": 0.5766,
+  "bookBestWinrate": 0.2067,
+  "deltaWinrate": 0.37
+ },
+ {
+  "branch": "takamoku/other-takamoku-openings/4",
+  "toMove": "W",
+  "kataBest": "E7",
+  "kataWinrate": 0.5116,
+  "bookBestWinrate": 0.4515,
+  "deltaWinrate": 0.06
+ },
+ {
+  "branch": "hoshi/other-hoshi-openings/9",
+  "toMove": "B",
+  "kataBest": "F4",
+  "kataWinrate": 0.6132,
+  "bookBestWinrate": 0.5209,
+  "deltaWinrate": 0.092
+ },
+ {
+  "branch": "tengen/side-attachment/2",
+  "toMove": "B",
+  "kataBest": "D2",
+  "kataWinrate": 0.2763,
+  "bookBestWinrate": 0.1858,
+  "deltaWinrate": 0.09
+ },
+ {
+  "branch": "tengen/side-attachment/3",
+  "toMove": "B",
+  "kataBest": "C3",
+  "kataWinrate": 0.159,
+  "bookBestWinrate": 0.0598,
+  "deltaWinrate": 0.099
+ },
+ {
+  "branch": "tengen/pendulum/6",
+  "toMove": "B",
+  "kataBest": "C4",
+  "kataWinrate": 0.4815,
+  "bookBestWinrate": 0.4193,
+  "deltaWinrate": 0.062
+ },
+ {
+  "branch": "tengen/orthodox/2",
+  "toMove": "W",
+  "kataBest": "F7",
+  "kataWinrate": 0.6615,
+  "bookBestWinrate": 0.5321,
+  "deltaWinrate": 0.129
+ },
+ {
+  "branch": "tengen/orthodox/3",
+  "toMove": "B",
+  "kataBest": "F7",
+  "kataWinrate": 0.5375,
+  "bookBestWinrate": 0.4688,
+  "deltaWinrate": 0.069
+ },
+ {
+  "branch": "tengen/headbutt/2",
+  "toMove": "B",
+  "kataBest": "G4",
+  "kataWinrate": 0.2801,
+  "bookBestWinrate": 0.0874,
+  "deltaWinrate": 0.193
+ },
+ {
+  "branch": "tengen/orthodox/2",
+  "toMove": "W",
+  "kataBest": "D7",
+  "kataWinrate": 0.2596,
+  "bookBestWinrate": 0.016,
+  "deltaWinrate": 0.244
+ },
+ {
+  "branch": "tengen/other-tengen-openings/5",
+  "toMove": "B",
+  "kataBest": "F5",
+  "kataWinrate": 0.5829,
+  "bookBestWinrate": 0.5316,
+  "deltaWinrate": 0.051
+ },
+ {
+  "branch": "tengen/orthodox/6",
+  "toMove": "W",
+  "kataBest": "C4",
+  "kataWinrate": 0.1331,
+  "bookBestWinrate": 0.063,
+  "deltaWinrate": 0.07
+ },
+ {
+  "branch": "tengen/windmill/5",
+  "toMove": "B",
+  "kataBest": "C4",
+  "kataWinrate": 0.3216,
+  "bookBestWinrate": 0.2396,
+  "deltaWinrate": 0.082
+ },
+ {
+  "branch": "tengen/windmill/5",
+  "toMove": "B",
+  "kataBest": "H2",
+  "kataWinrate": 0.2969,
+  "bookBestWinrate": 0.083,
+  "deltaWinrate": 0.214
+ },
+ {
+  "branch": "tengen/almost-equilateral-3/3",
+  "toMove": "B",
+  "kataBest": "C6",
+  "kataWinrate": 0.3729,
+  "bookBestWinrate": 0.3052,
+  "deltaWinrate": 0.068
+ },
+ {
+  "branch": "territorial/avoiding-transpositions/6",
+  "toMove": "W",
+  "kataBest": "D5",
+  "kataWinrate": 0.7158,
+  "bookBestWinrate": 0.6123,
+  "deltaWinrate": 0.104
+ },
+ {
+  "branch": "tengen/curveball/1",
+  "toMove": "B",
+  "kataBest": "D3",
+  "kataWinrate": 0.477,
+  "bookBestWinrate": 0.3513,
+  "deltaWinrate": 0.126
+ },
+ {
+  "branch": "tengen/side-attachment/2",
+  "toMove": "W",
+  "kataBest": "C7",
+  "kataWinrate": 0.743,
+  "bookBestWinrate": 0.6581,
+  "deltaWinrate": 0.085
+ },
+ {
+  "branch": "tengen/side-attachment/2",
+  "toMove": "W",
+  "kataBest": "C6",
+  "kataWinrate": 0.6658,
+  "bookBestWinrate": 0.5682,
+  "deltaWinrate": 0.098
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/3",
+  "toMove": "B",
+  "kataBest": "F7",
+  "kataWinrate": 0.4415,
+  "bookBestWinrate": 0.3789,
+  "deltaWinrate": 0.063
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/3",
+  "toMove": "B",
+  "kataBest": "E2",
+  "kataWinrate": 0.282,
+  "bookBestWinrate": 0.2038,
+  "deltaWinrate": 0.078
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/3",
+  "toMove": "W",
+  "kataBest": "D7",
+  "kataWinrate": 0.8252,
+  "bookBestWinrate": 0.7833,
+  "deltaWinrate": 0.042
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/3",
+  "toMove": "B",
+  "kataBest": "D7",
+  "kataWinrate": 0.1798,
+  "bookBestWinrate": 0.0673,
+  "deltaWinrate": 0.112
+ },
+ {
+  "branch": "takamoku/zazen/1",
+  "toMove": "B",
+  "kataBest": "F7",
+  "kataWinrate": 0.513,
+  "bookBestWinrate": 0.4475,
+  "deltaWinrate": 0.066
+ },
+ {
+  "branch": "takamoku/new-orthodox/6",
+  "toMove": "B",
+  "kataBest": "F6",
+  "kataWinrate": 0.4259,
+  "bookBestWinrate": 0.385,
+  "deltaWinrate": 0.041
+ },
+ {
+  "branch": "takamoku/secret-agent-033/2",
+  "toMove": "W",
+  "kataBest": "B5",
+  "kataWinrate": 0.5487,
+  "bookBestWinrate": 0.4668,
+  "deltaWinrate": 0.082
+ },
+ {
+  "branch": "takamoku/white-slice/2",
+  "toMove": "B",
+  "kataBest": "D7",
+  "kataWinrate": 0.1858,
+  "bookBestWinrate": 0.0723,
+  "deltaWinrate": 0.113
+ },
+ {
+  "branch": "takamoku/new-orthodox/6",
+  "toMove": "W",
+  "kataBest": "C6",
+  "kataWinrate": 0.6496,
+  "bookBestWinrate": 0.5444,
+  "deltaWinrate": 0.105
+ },
+ {
+  "branch": "territorial/avoiding-transpositions/2",
+  "toMove": "W",
+  "kataBest": "F5",
+  "kataWinrate": 0.6483,
+  "bookBestWinrate": 0.6046,
+  "deltaWinrate": 0.044
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/4",
+  "toMove": "B",
+  "kataBest": "F6",
+  "kataWinrate": 0.4277,
+  "bookBestWinrate": 0.293,
+  "deltaWinrate": 0.135
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/4",
+  "toMove": "W",
+  "kataBest": "C6",
+  "kataWinrate": 0.748,
+  "bookBestWinrate": 0.5338,
+  "deltaWinrate": 0.214
+ },
+ {
+  "branch": "tengen/almost-equilateral-1/2",
+  "toMove": "B",
+  "kataBest": "G6",
+  "kataWinrate": 0.458,
+  "bookBestWinrate": 0.4059,
+  "deltaWinrate": 0.052
+ },
+ {
+  "branch": "hoshi/other-hoshi-openings/9",
+  "toMove": "B",
+  "kataBest": "F4",
+  "kataWinrate": 0.5693,
+  "bookBestWinrate": 0.5162,
+  "deltaWinrate": 0.053
+ },
+ {
+  "branch": "tengen/pendulum/8",
+  "toMove": "W",
+  "kataBest": "D6",
+  "kataWinrate": 0.5112,
+  "bookBestWinrate": 0.289,
+  "deltaWinrate": 0.222
+ },
+ {
+  "branch": "takamoku/jump-attachment/2",
+  "toMove": "W",
+  "kataBest": "H5",
+  "kataWinrate": 0.4423,
+  "bookBestWinrate": 0.2159,
+  "deltaWinrate": 0.226
+ },
+ {
+  "branch": "tengen/almost-equilateral-2/2",
+  "toMove": "W",
+  "kataBest": "C6",
+  "kataWinrate": 0.6164,
+  "bookBestWinrate": 0.5668,
+  "deltaWinrate": 0.05
+ },
+ {
+  "branch": "tengen/sword/10",
+  "toMove": "B",
+  "kataBest": "C4",
+  "kataWinrate": 0.3905,
+  "bookBestWinrate": 0.1577,
+  "deltaWinrate": 0.233
+ },
+ {
+  "branch": "tengen/sword/10",
+  "toMove": "B",
+  "kataBest": "C7",
+  "kataWinrate": 0.2247,
+  "bookBestWinrate": 0.063,
+  "deltaWinrate": 0.162
+ },
+ {
+  "branch": "tengen/curveball/4",
+  "toMove": "W",
+  "kataBest": "F7",
+  "kataWinrate": 0.3627,
+  "bookBestWinrate": 0.2992,
+  "deltaWinrate": 0.064
+ },
+ {
+  "branch": "tengen/sword/10",
+  "toMove": "B",
+  "kataBest": "C7",
+  "kataWinrate": 0.1029,
+  "bookBestWinrate": 0.0131,
+  "deltaWinrate": 0.09
+ },
+ {
+  "branch": "takamoku/zazen/1",
+  "toMove": "B",
+  "kataBest": "G3",
+  "kataWinrate": 0.3763,
+  "bookBestWinrate": 0.1606,
+  "deltaWinrate": 0.216
+ },
+ {
+  "branch": "takamoku/boots/3",
+  "toMove": "B",
+  "kataBest": "F6",
+  "kataWinrate": 0.2096,
+  "bookBestWinrate": 0.0767,
+  "deltaWinrate": 0.133
+ },
+ {
+  "branch": "takamoku/kodachi/2",
+  "toMove": "B",
+  "kataBest": "F6",
+  "kataWinrate": 0.1629,
+  "bookBestWinrate": 0.0434,
+  "deltaWinrate": 0.119
+ },
+ {
+  "branch": "territorial/avoiding-transpositions/3",
+  "toMove": "B",
+  "kataBest": "F6",
+  "kataWinrate": 0.0705,
+  "bookBestWinrate": 0.0212,
+  "deltaWinrate": 0.049
+ },
+ {
+  "branch": "territorial/sea-fairy/2",
+  "toMove": "B",
+  "kataBest": "F3",
+  "kataWinrate": 0.1204,
+  "bookBestWinrate": 0.059,
+  "deltaWinrate": 0.061
+ },
+ {
+  "branch": "tengen/almost-equilateral-1/4",
+  "toMove": "B",
+  "kataBest": "E7",
+  "kataWinrate": 0.3805,
+  "bookBestWinrate": 0.3165,
+  "deltaWinrate": 0.064
+ },
+ {
+  "branch": "hoshi/other-hoshi-openings/8",
+  "toMove": "B",
+  "kataBest": "D4",
+  "kataWinrate": 0.6374,
+  "bookBestWinrate": 0.5647,
+  "deltaWinrate": 0.073
+ },
+ {
+  "branch": "hoshi/other-hoshi-openings/8",
+  "toMove": "W",
+  "kataBest": "D5",
+  "kataWinrate": 0.549,
+  "bookBestWinrate": 0.3763,
+  "deltaWinrate": 0.173
+ },
+ {
+  "branch": "hoshi/lunar-eclipse/2",
+  "toMove": "B",
+  "kataBest": "C6",
+  "kataWinrate": 0.204,
+  "bookBestWinrate": 0.1246,
+  "deltaWinrate": 0.079
+ },
+ {
+  "branch": "hoshi/preamble/13",
+  "toMove": "W",
+  "kataBest": "D5",
+  "kataWinrate": 0.8316,
+  "bookBestWinrate": 0.7021,
+  "deltaWinrate": 0.13
+ },
+ {
+  "branch": "hoshi/preamble/13",
+  "toMove": "B",
+  "kataBest": "F4",
+  "kataWinrate": 0.3742,
+  "bookBestWinrate": 0.0786,
+  "deltaWinrate": 0.296
+ },
+ {
+  "branch": "hoshi/lunar-eclipse/2",
+  "toMove": "W",
+  "kataBest": "F4",
+  "kataWinrate": 0.8185,
+  "bookBestWinrate": 0.6267,
+  "deltaWinrate": 0.192
+ },
+ {
+  "branch": "hoshi/lunar-eclipse/3",
+  "toMove": "B",
+  "kataBest": "F3",
+  "kataWinrate": 0.1707,
+  "bookBestWinrate": 0.0212,
+  "deltaWinrate": 0.149
+ },
+ {
+  "branch": "hoshi/blackjack/2",
+  "toMove": "B",
+  "kataBest": "G3",
+  "kataWinrate": 0.3468,
+  "bookBestWinrate": 0.3011,
+  "deltaWinrate": 0.046
+ },
+ {
+  "branch": "hoshi/preamble/12",
+  "toMove": "B",
+  "kataBest": "D7",
+  "kataWinrate": 0.2622,
+  "bookBestWinrate": 0.1649,
+  "deltaWinrate": 0.097
+ },
+ {
+  "branch": "hoshi/preamble/13",
+  "toMove": "B",
+  "kataBest": "G3",
+  "kataWinrate": 0.0784,
+  "bookBestWinrate": 0.0094,
+  "deltaWinrate": 0.069
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/2",
+  "toMove": "W",
+  "kataBest": "G6",
+  "kataWinrate": 0.674,
+  "bookBestWinrate": 0.5997,
+  "deltaWinrate": 0.074
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/2",
+  "toMove": "B",
+  "kataBest": "E4",
+  "kataWinrate": 0.4231,
+  "bookBestWinrate": 0.3678,
+  "deltaWinrate": 0.055
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/2",
+  "toMove": "B",
+  "kataBest": "F5",
+  "kataWinrate": 0.2662,
+  "bookBestWinrate": 0.2111,
+  "deltaWinrate": 0.055
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/2",
+  "toMove": "W",
+  "kataBest": "E8",
+  "kataWinrate": 0.7974,
+  "bookBestWinrate": 0.6313,
+  "deltaWinrate": 0.166
+ },
+ {
+  "branch": "territorial/mokuhazushi-main-line/4",
+  "toMove": "W",
+  "kataBest": "G5",
+  "kataWinrate": 0.7565,
+  "bookBestWinrate": 0.6622,
+  "deltaWinrate": 0.094
+ },
+ {
+  "branch": "hoshi/other-hoshi-openings/2",
+  "toMove": "W",
+  "kataBest": "D7",
+  "kataWinrate": 0.6138,
+  "bookBestWinrate": 0.5707,
+  "deltaWinrate": 0.043
+ },
+ {
+  "branch": "hoshi/airship/2",
+  "toMove": "W",
+  "kataBest": "D3",
+  "kataWinrate": 0.4524,
+  "bookBestWinrate": 0.4109,
+  "deltaWinrate": 0.042
+ },
+ {
+  "branch": "tengen/hand-fan/4",
+  "toMove": "B",
+  "kataBest": "C4",
+  "kataWinrate": 0.4688,
+  "bookBestWinrate": 0.2308,
+  "deltaWinrate": 0.238
+ },
+ {
+  "branch": "tengen/preamble/9",
+  "toMove": "W",
+  "kataBest": "D4",
+  "kataWinrate": 0.71,
+  "bookBestWinrate": 0.6446,
+  "deltaWinrate": 0.065
+ },
+ {
+  "branch": "tengen/jump-attack/2",
+  "toMove": "W",
+  "kataBest": "F4",
+  "kataWinrate": 0.5959,
+  "bookBestWinrate": 0.5315,
+  "deltaWinrate": 0.064
+ },
+ {
+  "branch": "territorial/mokuhazushi-main-line/4",
+  "toMove": "B",
+  "kataBest": "E3",
+  "kataWinrate": 0.2711,
+  "bookBestWinrate": 0.2091,
+  "deltaWinrate": 0.062
+ },
+ {
+  "branch": "territorial/sansan/2",
+  "toMove": "B",
+  "kataBest": "F4",
+  "kataWinrate": 0.1568,
+  "bookBestWinrate": 0.0416,
+  "deltaWinrate": 0.115
+ },
+ {
+  "branch": "territorial/komoku/2",
+  "toMove": "W",
+  "kataBest": "G4",
+  "kataWinrate": 0.7933,
+  "bookBestWinrate": 0.7524,
+  "deltaWinrate": 0.041
+ },
+ {
+  "branch": "territorial/komoku/9",
+  "toMove": "B",
+  "kataBest": "G5",
+  "kataWinrate": 0.1915,
+  "bookBestWinrate": 0.1492,
+  "deltaWinrate": 0.042
+ },
+ {
+  "branch": "takamoku/white-slice/2",
+  "toMove": "B",
+  "kataBest": "D7",
+  "kataWinrate": 0.1086,
+  "bookBestWinrate": 0.0198,
+  "deltaWinrate": 0.089
+ },
+ {
+  "branch": "hoshi/black-boomerang/2",
+  "toMove": "B",
+  "kataBest": "C3",
+  "kataWinrate": 0.3813,
+  "bookBestWinrate": 0.1825,
+  "deltaWinrate": 0.199
+ },
+ {
+  "branch": "territorial/komoku/19",
+  "toMove": "B",
+  "kataBest": "F5",
+  "kataWinrate": 0.1659,
+  "bookBestWinrate": 0.0445,
+  "deltaWinrate": 0.121
+ },
+ {
+  "branch": "territorial/komoku/9",
+  "toMove": "B",
+  "kataBest": "B5",
+  "kataWinrate": 0.1651,
+  "bookBestWinrate": 0.0648,
+  "deltaWinrate": 0.1
+ },
+ {
+  "branch": "tengen/hand-fan/3",
+  "toMove": "B",
+  "kataBest": "E6",
+  "kataWinrate": 0.4728,
+  "bookBestWinrate": 0.1276,
+  "deltaWinrate": 0.345
+ },
+ {
+  "branch": "takamoku/zazen/2",
+  "toMove": "B",
+  "kataBest": "H6",
+  "kataWinrate": 0.2232,
+  "bookBestWinrate": 0.1481,
+  "deltaWinrate": 0.075
+ },
+ {
+  "branch": "takamoku/slider/5",
+  "toMove": "W",
+  "kataBest": "D3",
+  "kataWinrate": 0.6062,
+  "bookBestWinrate": 0.4622,
+  "deltaWinrate": 0.144
+ },
+ {
+  "branch": "takamoku/slider/9",
+  "toMove": "B",
+  "kataBest": "F2",
+  "kataWinrate": 0.4608,
+  "bookBestWinrate": 0.3472,
+  "deltaWinrate": 0.114
+ },
+ {
+  "branch": "takamoku/white-slice/2",
+  "toMove": "B",
+  "kataBest": "G6",
+  "kataWinrate": 0.0684,
+  "bookBestWinrate": 0.0078,
+  "deltaWinrate": 0.061
+ },
+ {
+  "branch": "territorial/avoiding-transpositions/5",
+  "toMove": "B",
+  "kataBest": "F4",
+  "kataWinrate": 0.4599,
+  "bookBestWinrate": 0.2454,
+  "deltaWinrate": 0.214
+ },
+ {
+  "branch": "takamoku/new-orthodox/3",
+  "toMove": "B",
+  "kataBest": "G6",
+  "kataWinrate": 0.2302,
+  "bookBestWinrate": 0.1355,
+  "deltaWinrate": 0.095
+ },
+ {
+  "branch": "territorial/avoiding-transpositions/2",
+  "toMove": "W",
+  "kataBest": "G6",
+  "kataWinrate": 0.578,
+  "bookBestWinrate": 0.4548,
+  "deltaWinrate": 0.123
+ },
+ {
+  "branch": "takamoku/slider/8",
+  "toMove": "W",
+  "kataBest": "D2",
+  "kataWinrate": 0.7379,
+  "bookBestWinrate": 0.6817,
+  "deltaWinrate": 0.056
+ },
+ {
+  "branch": "takamoku/andromeda/2",
+  "toMove": "B",
+  "kataBest": "D4",
+  "kataWinrate": 0.5415,
+  "bookBestWinrate": 0.4788,
+  "deltaWinrate": 0.063
+ },
+ {
+  "branch": "takamoku/andromeda/2",
+  "toMove": "W",
+  "kataBest": "G7",
+  "kataWinrate": 0.5431,
+  "bookBestWinrate": 0.269,
+  "deltaWinrate": 0.274
+ },
+ {
+  "branch": "takamoku/other-takamoku-openings/1",
+  "toMove": "W",
+  "kataBest": "F4",
+  "kataWinrate": 0.4659,
+  "bookBestWinrate": 0.4254,
+  "deltaWinrate": 0.04
+ },
+ {
+  "branch": "takamoku/other-takamoku-openings/2",
+  "toMove": "B",
+  "kataBest": "C5",
+  "kataWinrate": 0.3238,
+  "bookBestWinrate": 0.1658,
+  "deltaWinrate": 0.158
+ },
+ {
+  "branch": "takamoku/other-takamoku-openings/1",
+  "toMove": "B",
+  "kataBest": "G4",
+  "kataWinrate": 0.546,
+  "bookBestWinrate": 0.3394,
+  "deltaWinrate": 0.207
+ },
+ {
+  "branch": "territorial/mokuhazushi-main-line/2",
+  "toMove": "B",
+  "kataBest": "F7",
+  "kataWinrate": 0.1414,
+  "bookBestWinrate": 0.046,
+  "deltaWinrate": 0.095
+ },
+ {
+  "branch": "territorial/komoku/16",
+  "toMove": "W",
+  "kataBest": "C2",
+  "kataWinrate": 0.806,
+  "bookBestWinrate": 0.7265,
+  "deltaWinrate": 0.08
+ },
+ {
+  "branch": "hoshi/black-boomerang/6",
+  "toMove": "W",
+  "kataBest": "H5",
+  "kataWinrate": 0.632,
+  "bookBestWinrate": 0.3686,
+  "deltaWinrate": 0.263
+ },
+ {
+  "branch": "hoshi/other-hoshi-openings/8",
+  "toMove": "B",
+  "kataBest": "C5",
+  "kataWinrate": 0.5255,
+  "bookBestWinrate": 0.4476,
+  "deltaWinrate": 0.078
+ },
+ {
+  "branch": "hoshi/other-hoshi-openings/8",
+  "toMove": "W",
+  "kataBest": "F7",
+  "kataWinrate": 0.5792,
+  "bookBestWinrate": 0.4883,
+  "deltaWinrate": 0.091
+ },
+ {
+  "branch": "territorial/komoku/2",
+  "toMove": "W",
+  "kataBest": "F6",
+  "kataWinrate": 0.8349,
+  "bookBestWinrate": 0.7425,
+  "deltaWinrate": 0.092
+ },
+ {
+  "branch": "hoshi/flower/5",
+  "toMove": "W",
+  "kataBest": "E8",
+  "kataWinrate": 0.7948,
+  "bookBestWinrate": 0.7336,
+  "deltaWinrate": 0.061
+ },
+ {
+  "branch": "hoshi/flower/5",
+  "toMove": "B",
+  "kataBest": "C5",
+  "kataWinrate": 0.4408,
+  "bookBestWinrate": 0.1867,
+  "deltaWinrate": 0.254
+ },
+ {
+  "branch": "hoshi/flower/5",
+  "toMove": "W",
+  "kataBest": "C5",
+  "kataWinrate": 0.9618,
+  "bookBestWinrate": 0.6239,
+  "deltaWinrate": 0.338
+ },
+ {
+  "branch": "hoshi/flower/5",
+  "toMove": "W",
+  "kataBest": "F8",
+  "kataWinrate": 0.2842,
+  "bookBestWinrate": 0.1237,
+  "deltaWinrate": 0.161
+ },
+ {
+  "branch": "hoshi/bean-throwing/2",
+  "toMove": "B",
+  "kataBest": "H7",
+  "kataWinrate": 0.3058,
+  "bookBestWinrate": 0.2515,
+  "deltaWinrate": 0.054
+ },
+ {
+  "branch": "hoshi/preamble/3",
+  "toMove": "B",
+  "kataBest": "C3",
+  "kataWinrate": 0.2488,
+  "bookBestWinrate": 0.1794,
+  "deltaWinrate": 0.069
+ },
+ {
+  "branch": "hoshi/preamble/5",
+  "toMove": "B",
+  "kataBest": "H3",
+  "kataWinrate": 0.1295,
+  "bookBestWinrate": 0.0298,
+  "deltaWinrate": 0.1
+ },
+ {
+  "branch": "hoshi/horse-head/2",
+  "toMove": "W",
+  "kataBest": "D8",
+  "kataWinrate": 0.5329,
+  "bookBestWinrate": 0.4115,
+  "deltaWinrate": 0.121
+ },
+ {
+  "branch": "hoshi/preamble/3",
+  "toMove": "B",
+  "kataBest": "D3",
+  "kataWinrate": 0.1877,
+  "bookBestWinrate": 0.1395,
+  "deltaWinrate": 0.048
+ },
+ {
+  "branch": "hoshi/preamble/2",
+  "toMove": "W",
+  "kataBest": "C6",
+  "kataWinrate": 0.8556,
+  "bookBestWinrate": 0.7955,
+  "deltaWinrate": 0.06
+ },
+ {
+  "branch": "hoshi/preamble/2",
+  "toMove": "B",
+  "kataBest": "B5",
+  "kataWinrate": 0.3241,
+  "bookBestWinrate": 0.0671,
+  "deltaWinrate": 0.257
+ },
+ {
+  "branch": "hoshi/big-flower/2",
+  "toMove": "B",
+  "kataBest": "G7",
+  "kataWinrate": 0.1974,
+  "bookBestWinrate": 0.0991,
+  "deltaWinrate": 0.098
+ },
+ {
+  "branch": "hoshi/bean-throwing/5",
+  "toMove": "B",
+  "kataBest": "B3",
+  "kataWinrate": 0.6376,
+  "bookBestWinrate": 0.5306,
+  "deltaWinrate": 0.107
+ },
+ {
+  "branch": "hoshi/bean-throwing/5",
+  "toMove": "W",
+  "kataBest": "C7",
+  "kataWinrate": 0.0773,
+  "bookBestWinrate": 0.0312,
+  "deltaWinrate": 0.046
+ },
+ {
+  "branch": "hoshi/bean-throwing/3",
+  "toMove": "W",
+  "kataBest": "H7",
+  "kataWinrate": 0.7395,
+  "bookBestWinrate": 0.5843,
+  "deltaWinrate": 0.155
+ },
+ {
+  "branch": "hoshi/lunar-eclipse/4",
+  "toMove": "B",
+  "kataBest": "C6",
+  "kataWinrate": 0.1285,
+  "bookBestWinrate": 0.0173,
+  "deltaWinrate": 0.111
+ },
+ {
+  "branch": "hoshi/blackjack/2",
+  "toMove": "B",
+  "kataBest": "C3",
+  "kataWinrate": 0.4246,
+  "bookBestWinrate": 0.2556,
+  "deltaWinrate": 0.169
+ },
+ {
+  "branch": "hoshi/flower/2",
+  "toMove": "W",
+  "kataBest": "G7",
+  "kataWinrate": 0.5977,
+  "bookBestWinrate": 0.3128,
+  "deltaWinrate": 0.285
+ },
+ {
+  "branch": "hoshi/blackjack/2",
+  "toMove": "B",
+  "kataBest": "C3",
+  "kataWinrate": 0.3741,
+  "bookBestWinrate": 0.2631,
+  "deltaWinrate": 0.111
+ },
+ {
+  "branch": "hoshi/black-boomerang/4",
+  "toMove": "W",
+  "kataBest": "E4",
+  "kataWinrate": 0.9036,
+  "bookBestWinrate": 0.7619,
+  "deltaWinrate": 0.142
+ },
+ {
+  "branch": "hoshi/black-boomerang/4",
+  "toMove": "B",
+  "kataBest": "E4",
+  "kataWinrate": 0.2655,
+  "bookBestWinrate": 0.1544,
+  "deltaWinrate": 0.111
+ },
+ {
+  "branch": "hoshi/black-boomerang/7",
+  "toMove": "B",
+  "kataBest": "H3",
+  "kataWinrate": 0.1978,
+  "bookBestWinrate": 0.0454,
+  "deltaWinrate": 0.152
+ },
+ {
+  "branch": "territorial/sansan/2",
+  "toMove": "B",
+  "kataBest": "C6",
+  "kataWinrate": 0.2021,
+  "bookBestWinrate": 0.0408,
+  "deltaWinrate": 0.161
+ },
+ {
+  "branch": "territorial/komoku/20",
+  "toMove": "B",
+  "kataBest": "B5",
+  "kataWinrate": 0.1758,
+  "bookBestWinrate": 0.0289,
+  "deltaWinrate": 0.147
+ },
+ {
+  "branch": "tengen/almost-equilateral-2/2",
+  "toMove": "W",
+  "kataBest": "E8",
+  "kataWinrate": 0.4922,
+  "bookBestWinrate": 0.2631,
+  "deltaWinrate": 0.229
+ },
+ {
+  "branch": "territorial/komoku/15",
+  "toMove": "B",
+  "kataBest": "D3",
+  "kataWinrate": 0.179,
+  "bookBestWinrate": 0.0341,
+  "deltaWinrate": 0.145
+ },
+ {
+  "branch": "tengen/pendulum/4",
+  "toMove": "W",
+  "kataBest": "F7",
+  "kataWinrate": 0.6632,
+  "bookBestWinrate": 0.6198,
+  "deltaWinrate": 0.043
+ },
+ {
+  "branch": "tengen/pendulum/4",
+  "toMove": "B",
+  "kataBest": "G3",
+  "kataWinrate": 0.4324,
+  "bookBestWinrate": 0.3509,
+  "deltaWinrate": 0.082
+ },
+ {
+  "branch": "hoshi/bean-throwing/7",
+  "toMove": "W",
+  "kataBest": "H4",
+  "kataWinrate": 0.5664,
+  "bookBestWinrate": 0.4992,
+  "deltaWinrate": 0.067
+ },
+ {
+  "branch": "hoshi/bean-throwing/8",
+  "toMove": "W",
+  "kataBest": "D3",
+  "kataWinrate": 0.2059,
+  "bookBestWinrate": 0.1633,
+  "deltaWinrate": 0.043
+ },
+ {
+  "branch": "hoshi/bean-throwing/3",
+  "toMove": "B",
+  "kataBest": "E6",
+  "kataWinrate": 0.398,
+  "bookBestWinrate": 0.2367,
+  "deltaWinrate": 0.161
+ },
+ {
+  "branch": "hoshi/bean-throwing/3",
+  "toMove": "W",
+  "kataBest": "H3",
+  "kataWinrate": 0.8896,
+  "bookBestWinrate": 0.7633,
+  "deltaWinrate": 0.126
+ },
+ {
+  "branch": "takamoku/preamble/5",
+  "toMove": "B",
+  "kataBest": "G3",
+  "kataWinrate": 0.2215,
+  "bookBestWinrate": 0.1003,
+  "deltaWinrate": 0.121
+ },
+ {
+  "branch": "takamoku/preamble/5",
+  "toMove": "B",
+  "kataBest": "C3",
+  "kataWinrate": 0.1579,
+  "bookBestWinrate": 0.0201,
+  "deltaWinrate": 0.138
+ },
+ {
+  "branch": "takamoku/andromeda/4",
+  "toMove": "B",
+  "kataBest": "C2",
+  "kataWinrate": 0.2017,
+  "bookBestWinrate": 0.1564,
+  "deltaWinrate": 0.045
+ },
+ {
+  "branch": "hoshi/black-boomerang/2",
+  "toMove": "W",
+  "kataBest": "G4",
+  "kataWinrate": 0.9743,
+  "bookBestWinrate": 0.901,
+  "deltaWinrate": 0.073
+ },
+ {
+  "branch": "tengen/almost-equilateral-1/4",
+  "toMove": "B",
+  "kataBest": "E7",
+  "kataWinrate": 0.4704,
+  "bookBestWinrate": 0.1939,
+  "deltaWinrate": 0.276
+ },
+ {
+  "branch": "tengen/curveball/3",
+  "toMove": "B",
+  "kataBest": "G7",
+  "kataWinrate": 0.4562,
+  "bookBestWinrate": 0.3582,
+  "deltaWinrate": 0.098
+ },
+ {
+  "branch": "tengen/curveball/3",
+  "toMove": "B",
+  "kataBest": "C4",
+  "kataWinrate": 0.3639,
+  "bookBestWinrate": 0.2091,
+  "deltaWinrate": 0.155
+ },
+ {
+  "branch": "hoshi/flower/5",
+  "toMove": "W",
+  "kataBest": "C7",
+  "kataWinrate": 0.1083,
+  "bookBestWinrate": 0.0553,
+  "deltaWinrate": 0.053
+ },
+ {
+  "branch": "hoshi/black-boomerang/3",
+  "toMove": "W",
+  "kataBest": "H1",
+  "kataWinrate": 0.8185,
+  "bookBestWinrate": 0.6925,
+  "deltaWinrate": 0.126
+ },
+ {
+  "branch": "tengen/orthodox/3",
+  "toMove": "B",
+  "kataBest": "F2",
+  "kataWinrate": 0.4675,
+  "bookBestWinrate": 0.4116,
+  "deltaWinrate": 0.056
+ },
+ {
+  "branch": "hoshi/flower/5",
+  "toMove": "W",
+  "kataBest": "D4",
+  "kataWinrate": 0.072,
+  "bookBestWinrate": 0.0225,
+  "deltaWinrate": 0.049
+ },
+ {
+  "branch": "tengen/jump-attack/3",
+  "toMove": "B",
+  "kataBest": "G4",
+  "kataWinrate": 0.5261,
+  "bookBestWinrate": 0.4053,
+  "deltaWinrate": 0.121
+ },
+ {
+  "branch": "tengen/jump-attack/3",
+  "toMove": "W",
+  "kataBest": "H5",
+  "kataWinrate": 0.5668,
+  "bookBestWinrate": 0.4965,
+  "deltaWinrate": 0.07
+ },
+ {
+  "branch": "territorial/sansan/6",
+  "toMove": "W",
+  "kataBest": "F6",
+  "kataWinrate": 0.6975,
+  "bookBestWinrate": 0.3726,
+  "deltaWinrate": 0.325
+ },
+ {
+  "branch": "territorial/sansan/6",
+  "toMove": "B",
+  "kataBest": "E4",
+  "kataWinrate": 0.6715,
+  "bookBestWinrate": 0.5577,
+  "deltaWinrate": 0.114
+ },
+ {
+  "branch": "territorial/sansan/3",
+  "toMove": "W",
+  "kataBest": "E6",
+  "kataWinrate": 0.6877,
+  "bookBestWinrate": 0.2869,
+  "deltaWinrate": 0.401
+ },
+ {
+  "branch": "territorial/sansan/7",
+  "toMove": "W",
+  "kataBest": "E7",
+  "kataWinrate": 0.6542,
+  "bookBestWinrate": 0.2677,
+  "deltaWinrate": 0.387
+ },
+ {
+  "branch": "takamoku/slider/5",
+  "toMove": "B",
+  "kataBest": "G5",
+  "kataWinrate": 0.5228,
+  "bookBestWinrate": 0.3439,
+  "deltaWinrate": 0.179
+ },
+ {
+  "branch": "takamoku/slider/5",
+  "toMove": "B",
+  "kataBest": "E7",
+  "kataWinrate": 0.3309,
+  "bookBestWinrate": 0.216,
+  "deltaWinrate": 0.115
+ },
+ {
+  "branch": "takamoku/zazen/3",
+  "toMove": "W",
+  "kataBest": "C7",
+  "kataWinrate": 0.8011,
+  "bookBestWinrate": 0.6617,
+  "deltaWinrate": 0.139
+ },
+ {
+  "branch": "tengen/preamble/10",
+  "toMove": "W",
+  "kataBest": "C3",
+  "kataWinrate": 0.8742,
+  "bookBestWinrate": 0.7659,
+  "deltaWinrate": 0.108
+ },
+ {
+  "branch": "tengen/preamble/10",
+  "toMove": "B",
+  "kataBest": "C3",
+  "kataWinrate": 0.3144,
+  "bookBestWinrate": 0.212,
+  "deltaWinrate": 0.102
+ },
+ {
+  "branch": "takamoku/andromeda/2",
+  "toMove": "B",
+  "kataBest": "H4",
+  "kataWinrate": 0.6706,
+  "bookBestWinrate": 0.6286,
+  "deltaWinrate": 0.042
+ },
+ {
+  "branch": "takamoku/andromeda/6",
+  "toMove": "W",
+  "kataBest": "F6",
+  "kataWinrate": 0.6598,
+  "bookBestWinrate": 0.2051,
+  "deltaWinrate": 0.455
+ },
+ {
+  "branch": "takamoku/andromeda/6",
+  "toMove": "W",
+  "kataBest": "F7",
+  "kataWinrate": 0.4325,
+  "bookBestWinrate": 0.1701,
+  "deltaWinrate": 0.262
+ },
+ {
+  "branch": "takamoku/slider/6",
+  "toMove": "B",
+  "kataBest": "G5",
+  "kataWinrate": 0.5498,
+  "bookBestWinrate": 0.4295,
+  "deltaWinrate": 0.12
+ },
+ {
+  "branch": "takamoku/slider/6",
+  "toMove": "W",
+  "kataBest": "F7",
+  "kataWinrate": 0.6068,
+  "bookBestWinrate": 0.5397,
+  "deltaWinrate": 0.067
+ },
+ {
+  "branch": "takamoku/slider/6",
+  "toMove": "W",
+  "kataBest": "C5",
+  "kataWinrate": 0.5734,
+  "bookBestWinrate": 0.5006,
+  "deltaWinrate": 0.073
+ },
+ {
+  "branch": "territorial/sansan/2",
+  "toMove": "B",
+  "kataBest": "D7",
+  "kataWinrate": 0.0963,
+  "bookBestWinrate": 0.0151,
+  "deltaWinrate": 0.081
+ },
+ {
+  "branch": "tengen/preamble/10",
+  "toMove": "B",
+  "kataBest": "E4",
+  "kataWinrate": 0.254,
+  "bookBestWinrate": 0.1877,
+  "deltaWinrate": 0.066
+ },
+ {
+  "branch": "hoshi/flower/6",
+  "toMove": "B",
+  "kataBest": "G6",
+  "kataWinrate": 0.4081,
+  "bookBestWinrate": 0.2792,
+  "deltaWinrate": 0.129
+ },
+ {
+  "branch": "takamoku/zazen/2",
+  "toMove": "B",
+  "kataBest": "C5",
+  "kataWinrate": 0.1607,
+  "bookBestWinrate": 0.0031,
+  "deltaWinrate": 0.158
+ },
+ {
+  "branch": "tengen/jump-attack/5",
+  "toMove": "B",
+  "kataBest": "H7",
+  "kataWinrate": 0.3449,
+  "bookBestWinrate": 0.2954,
+  "deltaWinrate": 0.049
+ },
+ {
+  "branch": "tengen/hand-fan/2",
+  "toMove": "B",
+  "kataBest": "F7",
+  "kataWinrate": 0.6224,
+  "bookBestWinrate": 0.3135,
+  "deltaWinrate": 0.309
+ },
+ {
+  "branch": "takamoku/slider/3",
+  "toMove": "B",
+  "kataBest": "F3",
+  "kataWinrate": 0.5755,
+  "bookBestWinrate": 0.3824,
+  "deltaWinrate": 0.193
+ },
+ {
+  "branch": "takamoku/slider/3",
+  "toMove": "W",
+  "kataBest": "C2",
+  "kataWinrate": 0.7313,
+  "bookBestWinrate": 0.6911,
+  "deltaWinrate": 0.04
+ },
+ {
+  "branch": "takamoku/slider/4",
+  "toMove": "W",
+  "kataBest": "B4",
+  "kataWinrate": 0.6491,
+  "bookBestWinrate": 0.5498,
+  "deltaWinrate": 0.099
+ },
+ {
+  "branch": "hoshi/bean-throwing/2",
+  "toMove": "W",
+  "kataBest": "F7",
+  "kataWinrate": 0.7987,
+  "bookBestWinrate": 0.6499,
+  "deltaWinrate": 0.149
+ },
+ {
+  "branch": "hoshi/bean-throwing/2",
+  "toMove": "W",
+  "kataBest": "C7",
+  "kataWinrate": 0.6732,
+  "bookBestWinrate": 0.5982,
+  "deltaWinrate": 0.075
+ },
+ {
+  "branch": "territorial/komoku/10",
+  "toMove": "W",
+  "kataBest": "C3",
+  "kataWinrate": 0.2401,
+  "bookBestWinrate": 0.1057,
+  "deltaWinrate": 0.134
+ },
+ {
+  "branch": "territorial/komoku/3",
+  "toMove": "B",
+  "kataBest": "C6",
+  "kataWinrate": 0.3496,
+  "bookBestWinrate": 0.2593,
+  "deltaWinrate": 0.09
+ },
+ {
+  "branch": "takamoku/andromeda/2",
+  "toMove": "W",
+  "kataBest": "B3",
+  "kataWinrate": 0.3147,
+  "bookBestWinrate": 0.239,
+  "deltaWinrate": 0.076
+ },
+ {
+  "branch": "tengen/almost-equilateral-2/5",
+  "toMove": "B",
+  "kataBest": "E7",
+  "kataWinrate": 0.4149,
+  "bookBestWinrate": 0.1866,
+  "deltaWinrate": 0.228
+ },
+ {
+  "branch": "hoshi/flower/6",
+  "toMove": "W",
+  "kataBest": "B5",
+  "kataWinrate": 0.7402,
+  "bookBestWinrate": 0.5656,
+  "deltaWinrate": 0.175
+ },
+ {
+  "branch": "hoshi/black-boomerang/8",
+  "toMove": "B",
+  "kataBest": "G2",
+  "kataWinrate": 0.2546,
+  "bookBestWinrate": 0.144,
+  "deltaWinrate": 0.111
+ },
+ {
+  "branch": "hoshi/black-boomerang/8",
+  "toMove": "B",
+  "kataBest": "G3",
+  "kataWinrate": 0.2272,
+  "bookBestWinrate": 0.077,
+  "deltaWinrate": 0.15
+ },
+ {
+  "branch": "territorial/komoku/17",
+  "toMove": "W",
+  "kataBest": "B3",
+  "kataWinrate": 0.6295,
+  "bookBestWinrate": 0.5853,
+  "deltaWinrate": 0.044
+ },
+ {
+  "branch": "tengen/curveball/2",
+  "toMove": "W",
+  "kataBest": "H2",
+  "kataWinrate": 0.5594,
+  "bookBestWinrate": 0.4266,
+  "deltaWinrate": 0.133
+ },
+ {
+  "branch": "tengen/preamble/5",
+  "toMove": "W",
+  "kataBest": "G3",
+  "kataWinrate": 0.4629,
+  "bookBestWinrate": 0.3286,
+  "deltaWinrate": 0.134
+ },
+ {
+  "branch": "territorial/other-mokuhazushi-openings/4",
+  "toMove": "W",
+  "kataBest": "F6",
+  "kataWinrate": 0.5839,
+  "bookBestWinrate": 0.4592,
+  "deltaWinrate": 0.125
+ },
+ {
+  "branch": "tengen/sword/8",
+  "toMove": "W",
+  "kataBest": "B6",
+  "kataWinrate": 0.55,
+  "bookBestWinrate": 0.5098,
+  "deltaWinrate": 0.04
+ },
+ {
+  "branch": "tengen/soccer-juggling/5",
+  "toMove": "W",
+  "kataBest": "H5",
+  "kataWinrate": 0.4429,
+  "bookBestWinrate": 0.0309,
+  "deltaWinrate": 0.412
+ },
+ {
+  "branch": "tengen/preamble/7",
+  "toMove": "W",
+  "kataBest": "C7",
+  "kataWinrate": 0.8324,
+  "bookBestWinrate": 0.5615,
+  "deltaWinrate": 0.271
+ },
+ {
+  "branch": "hoshi/flower/4",
+  "toMove": "B",
+  "kataBest": "B5",
+  "kataWinrate": 0.1809,
+  "bookBestWinrate": 0.1037,
+  "deltaWinrate": 0.077
+ },
+ {
+  "branch": "hoshi/bean-throwing/2",
+  "toMove": "B",
+  "kataBest": "H4",
+  "kataWinrate": 0.555,
+  "bookBestWinrate": 0.0741,
+  "deltaWinrate": 0.481
+ },
+ {
+  "branch": "tengen/preamble/6",
+  "toMove": "B",
+  "kataBest": "F6",
+  "kataWinrate": 0.7791,
+  "bookBestWinrate": 0.5354,
+  "deltaWinrate": 0.244
+ },
+ {
+  "branch": "territorial/komoku/14",
+  "toMove": "B",
+  "kataBest": "B4",
+  "kataWinrate": 0.1906,
+  "bookBestWinrate": 0.1289,
+  "deltaWinrate": 0.062
+ },
+ {
+  "branch": "tengen/soccer-juggling/2",
+  "toMove": "B",
+  "kataBest": "D3",
+  "kataWinrate": 0.3935,
+  "bookBestWinrate": 0.1859,
+  "deltaWinrate": 0.208
+ },
+ {
+  "branch": "tengen/soccer-juggling/2",
+  "toMove": "W",
+  "kataBest": "F4",
+  "kataWinrate": 0.8134,
+  "bookBestWinrate": 0.6573,
+  "deltaWinrate": 0.156
+ },
+ {
+  "branch": "tengen/soccer-juggling/3",
+  "toMove": "B",
+  "kataBest": "G4",
+  "kataWinrate": 0.1587,
+  "bookBestWinrate": 0.0233,
+  "deltaWinrate": 0.135
+ },
+ {
+  "branch": "tengen/hand-fan/3",
+  "toMove": "W",
+  "kataBest": "B4",
+  "kataWinrate": 0.9186,
+  "bookBestWinrate": 0.5167,
+  "deltaWinrate": 0.402
+ },
+ {
+  "branch": "territorial/komoku/5",
+  "toMove": "W",
+  "kataBest": "B6",
+  "kataWinrate": 0.8282,
+  "bookBestWinrate": 0.532,
+  "deltaWinrate": 0.296
+ },
+ {
+  "branch": "territorial/komoku/6",
+  "toMove": "W",
+  "kataBest": "C6",
+  "kataWinrate": 0.849,
+  "bookBestWinrate": 0.786,
+  "deltaWinrate": 0.063
+ },
+ {
+  "branch": "territorial/komoku/6",
+  "toMove": "B",
+  "kataBest": "A5",
+  "kataWinrate": 0.2284,
+  "bookBestWinrate": 0.1861,
+  "deltaWinrate": 0.042
+ },
+ {
+  "branch": "hoshi/flower/6",
+  "toMove": "W",
+  "kataBest": "E2",
+  "kataWinrate": 0.5351,
+  "bookBestWinrate": 0.4016,
+  "deltaWinrate": 0.134
+ },
+ {
+  "branch": "hoshi/flower/6",
+  "toMove": "W",
+  "kataBest": "H2",
+  "kataWinrate": 0.6485,
+  "bookBestWinrate": 0.5301,
+  "deltaWinrate": 0.118
+ },
+ {
+  "branch": "territorial/mokuhazushi-main-line/6",
+  "toMove": "B",
+  "kataBest": "G5",
+  "kataWinrate": 0.4451,
+  "bookBestWinrate": 0.1525,
+  "deltaWinrate": 0.293
+ },
+ {
+  "branch": "hoshi/bean-throwing/6",
+  "toMove": "B",
+  "kataBest": "G8",
+  "kataWinrate": 0.1367,
+  "bookBestWinrate": 0.0723,
+  "deltaWinrate": 0.064
+ },
+ {
+  "branch": "takamoku/andromeda/5",
+  "toMove": "W",
+  "kataBest": "G8",
+  "kataWinrate": 0.9286,
+  "bookBestWinrate": 0.782,
+  "deltaWinrate": 0.147
+ },
+ {
+  "branch": "takamoku/andromeda/5",
+  "toMove": "B",
+  "kataBest": "G2",
+  "kataWinrate": 0.3003,
+  "bookBestWinrate": 0.166,
+  "deltaWinrate": 0.134
+ },
+ {
+  "branch": "takamoku/andromeda/5",
+  "toMove": "B",
+  "kataBest": "F2",
+  "kataWinrate": 0.1296,
+  "bookBestWinrate": 0.0728,
+  "deltaWinrate": 0.057
+ },
+ {
+  "branch": "takamoku/andromeda/5",
+  "toMove": "B",
+  "kataBest": "J2",
+  "kataWinrate": 0.3096,
+  "bookBestWinrate": 0.0045,
+  "deltaWinrate": 0.305
+ },
+ {
+  "branch": "territorial/avoiding-transpositions/5",
+  "toMove": "B",
+  "kataBest": "F6",
+  "kataWinrate": 0.3218,
+  "bookBestWinrate": 0.1858,
+  "deltaWinrate": 0.136
+ },
+ {
+  "branch": "tengen/preamble/11",
+  "toMove": "W",
+  "kataBest": "C7",
+  "kataWinrate": 0.6616,
+  "bookBestWinrate": 0.5615,
+  "deltaWinrate": 0.1
+ },
+ {
+  "branch": "tengen/soccer-juggling/6",
+  "toMove": "W",
+  "kataBest": "H6",
+  "kataWinrate": 0.5312,
+  "bookBestWinrate": 0.3567,
+  "deltaWinrate": 0.174
+ },
+ {
+  "branch": "takamoku/new-orthodox/3",
+  "toMove": "W",
+  "kataBest": "D4",
+  "kataWinrate": 0.8757,
+  "bookBestWinrate": 0.7923,
+  "deltaWinrate": 0.083
+ },
+ {
+  "branch": "tengen/almost-equilateral-2/2",
+  "toMove": "B",
+  "kataBest": "G7",
+  "kataWinrate": 0.733,
+  "bookBestWinrate": 0.5332,
+  "deltaWinrate": 0.2
+ },
+ {
+  "branch": "tengen/almost-equilateral-2/2",
+  "toMove": "W",
+  "kataBest": "H4",
+  "kataWinrate": 0.4049,
+  "bookBestWinrate": 0.2991,
+  "deltaWinrate": 0.106
+ },
+ {
+  "branch": "tengen/almost-equilateral-2/3",
+  "toMove": "W",
+  "kataBest": "C7",
+  "kataWinrate": 0.4755,
+  "bookBestWinrate": 0.2086,
+  "deltaWinrate": 0.267
+ },
+ {
+  "branch": "takamoku/slider/2",
+  "toMove": "W",
+  "kataBest": "F2",
+  "kataWinrate": 0.5309,
+  "bookBestWinrate": 0.4583,
+  "deltaWinrate": 0.073
+ },
+ {
+  "branch": "tengen/preamble/6",
+  "toMove": "B",
+  "kataBest": "F7",
+  "kataWinrate": 0.8911,
+  "bookBestWinrate": 0.5529,
+  "deltaWinrate": 0.338
+ },
+ {
+  "branch": "tengen/preamble/6",
+  "toMove": "W",
+  "kataBest": "E8",
+  "kataWinrate": 0.2844,
+  "bookBestWinrate": 0.1172,
+  "deltaWinrate": 0.167
+ },
+ {
+  "branch": "tengen/almost-equilateral-2/2",
+  "toMove": "W",
+  "kataBest": "H6",
+  "kataWinrate": 0.245,
+  "bookBestWinrate": 0.099,
+  "deltaWinrate": 0.146
+ },
+ {
+  "branch": "takamoku/andromeda/7",
+  "toMove": "W",
+  "kataBest": "H5",
+  "kataWinrate": 0.8587,
+  "bookBestWinrate": 0.572,
+  "deltaWinrate": 0.287
+ },
+ {
+  "branch": "takamoku/andromeda/7",
+  "toMove": "W",
+  "kataBest": "B5",
+  "kataWinrate": 0.5469,
+  "bookBestWinrate": 0.2739,
+  "deltaWinrate": 0.273
+ },
+ {
+  "branch": "territorial/komoku/18",
+  "toMove": "B",
+  "kataBest": "E5",
+  "kataWinrate": 0.9976,
+  "bookBestWinrate": 0.1573,
+  "deltaWinrate": 0.84
+ },
+ {
+  "branch": "territorial/komoku/18",
+  "toMove": "B",
+  "kataBest": "E5",
+  "kataWinrate": 0.1419,
+  "bookBestWinrate": 0.0612,
+  "deltaWinrate": 0.081
+ },
+ {
+  "branch": "territorial/komoku/18",
+  "toMove": "W",
+  "kataBest": "B4",
+  "kataWinrate": 0.9733,
+  "bookBestWinrate": 0.6485,
+  "deltaWinrate": 0.325
+ },
+ {
+  "branch": "tengen/almost-equilateral-2/5",
+  "toMove": "B",
+  "kataBest": "D4",
+  "kataWinrate": 0.2151,
+  "bookBestWinrate": 0.0625,
+  "deltaWinrate": 0.153
+ },
+ {
+  "branch": "territorial/komoku/5",
+  "toMove": "W",
+  "kataBest": "E8",
+  "kataWinrate": 0.4911,
+  "bookBestWinrate": 0.3087,
+  "deltaWinrate": 0.182
+ },
+ {
+  "branch": "hoshi/bean-throwing/4",
+  "toMove": "B",
+  "kataBest": "F3",
+  "kataWinrate": 0.9983,
+  "bookBestWinrate": 0.5274,
+  "deltaWinrate": 0.471
+ },
+ {
+  "branch": "takamoku/zazen/3",
+  "toMove": "B",
+  "kataBest": "B3",
+  "kataWinrate": 0.3858,
+  "bookBestWinrate": 0.0417,
+  "deltaWinrate": 0.344
+ },
+ {
+  "branch": "tengen/cross-line/3",
+  "toMove": "W",
+  "kataBest": "D4",
+  "kataWinrate": 0.8257,
+  "bookBestWinrate": 0.7811,
+  "deltaWinrate": 0.045
+ },
+ {
+  "branch": "tengen/cross-line/3",
+  "toMove": "B",
+  "kataBest": "G8",
+  "kataWinrate": 0.2164,
+  "bookBestWinrate": 0.0179,
+  "deltaWinrate": 0.199
+ },
+ {
+  "branch": "tengen/cross-line/3",
+  "toMove": "W",
+  "kataBest": "E2",
+  "kataWinrate": 0.8954,
+  "bookBestWinrate": 0.8155,
+  "deltaWinrate": 0.08
+ },
+ {
+  "branch": "territorial/komoku/4",
+  "toMove": "W",
+  "kataBest": "C8",
+  "kataWinrate": 0.4496,
+  "bookBestWinrate": 0.2768,
+  "deltaWinrate": 0.173
+ },
+ {
+  "branch": "hoshi/black-boomerang/10",
+  "toMove": "B",
+  "kataBest": "B2",
+  "kataWinrate": 0.4234,
+  "bookBestWinrate": 0.2937,
+  "deltaWinrate": 0.13
+ }
+]
