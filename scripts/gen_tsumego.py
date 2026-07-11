@@ -182,6 +182,58 @@ def _region(coords):
     return [coord_to_idx(c) for c in coords]
 
 
+# (name, black, white, to_move, defender, goal, correct vital point)
+SEED_LD_TESTS = [
+    ("bent3-live", ["bb", "ca", "ac", "cb", "bc"], [], "b", "b", "live", "aa"),
+    ("bent3-kill", ["cc", "da", "db", "ad", "bd", "cd"],
+     ["bb", "ca", "ac", "cb", "bc"], "b", "w", "kill", "aa"),
+    ("straight3-live", ["ab", "bb", "cb", "da", "db"], [], "b", "b", "live", "ba"),
+    ("straight3-kill", ["ac", "bc", "cc", "dc", "ea", "eb", "ec"],
+     ["ab", "bb", "cb", "da", "db"], "b", "w", "kill", "ba"),
+    ("t4-kill", ["ea", "eb", "ac", "bc", "cc", "dc", "db"],
+     ["ab", "cb", "da", "bb"], "b", "w", "kill", "ba"),
+    ("side3-live", ["ca", "ga", "db", "eb", "fb"], [], "b", "b", "live", "ea"),
+    ("side3-kill", ["ba", "bb", "cb", "dc", "ec", "fc", "gb", "ha", "hb"],
+     ["ca", "ga", "db", "eb", "fb"], "b", "w", "kill", "ea"),
+]
+
+
+def _ld_region(board, defender):
+    """Eye space only: empty points that touch the defender group plus the
+    small enclosed pockets around it — never the open board (which would blow
+    up the search). Small-pocket = empty region of size <= 8."""
+    d = [i for i, c in enumerate(board) if c == defender]
+    touch = {nb for i in d for nb in neighbors(i) if board[nb] == "."}
+    region = set(touch)
+    for reg in _empty_regions(board):
+        if len(reg) <= 8 and any(p in touch for p in reg):
+            region.update(reg)
+    # one ring of contact points from the pocket, still excluding open board
+    for p in list(region):
+        for nb in neighbors(p):
+            if board[nb] == "." and nb not in region:
+                # include only if it also belongs to a small pocket
+                pass
+    return sorted(region)
+
+
+def ld_self_test() -> bool:
+    print("=== L&D solver self-test on public-domain seeds ===")
+    ok = True
+    for name, b, w, tm, defender, goal, key in SEED_LD_TESTS:
+        board = board_from(b, w)
+        region = _ld_region(board, defender)
+        depth = len(region) + 2
+        win, winners = certify_ld(board, tm, defender, region, depth)
+        keys = sorted(idx_to_coord(i) for i in winners)
+        good = win and keys == [key]
+        ok = ok and good
+        print(f"  {name:16s} {goal:4s} expect [{key}] -> {keys} "
+              f"{'OK' if good else 'FAIL'}")
+    print("L&D self-test:", "PASS" if ok else "FAIL")
+    return ok
+
+
 def self_test() -> bool:
     print("=== solver self-test on public-domain seeds ===")
     ok = True
@@ -198,6 +250,83 @@ def self_test() -> bool:
               f"{'OK' if good else 'FAIL'}")
     print("self-test:", "PASS" if ok else "FAIL")
     return ok
+
+
+# --------------------------------------------------------------- life & death
+#
+# EXPERIMENTAL — not wired into generation. Capturability-based status solver
+# (life == the attacker cannot remove the whole group). It is only sound for
+# FULLY ENCLOSED groups: the seed LIVE shapes are bare corner/side eye-shapes
+# with liberties into the open board, so `certify_ld` does NOT reproduce their
+# keys (ld_self_test FAILS by design — documents the limitation). The sound
+# path for ld/ko is KataGo status-evaluation on enclosed candidates (see
+# scripts/cross_check_katago.py and docs/content-generation-findings.md), not
+# this heuristic. Kept as a starting point for enclosed-shape generation.
+
+
+def _empty_regions(board):
+    seen = [False] * (N * N)
+    regions = []
+    for i in range(N * N):
+        if board[i] != "." or seen[i]:
+            continue
+        stack, comp = [i], []
+        seen[i] = True
+        while stack:
+            j = stack.pop()
+            comp.append(j)
+            for nb in neighbors(j):
+                if board[nb] == "." and not seen[nb]:
+                    seen[nb] = True
+                    stack.append(nb)
+        regions.append(comp)
+    return regions
+
+
+def _capturable(board, defender, to_move, region, depth, memo):
+    """Can the attacker force the WHOLE defender group off the board (life =
+    uncapturable)? Sound, engine-based — no eye heuristic. Two real eyes make
+    a group uncapturable, so this decides life & death directly. Memoized."""
+    if count(board, defender) == 0:
+        return True                          # group gone = dead
+    key = ("".join(board), to_move, depth)
+    if key in memo:
+        return memo[key]
+    if depth <= 0:
+        memo[key] = False                    # couldn't capture in budget = alive
+        return False
+    attacker = opp(defender)
+    if to_move == attacker:
+        # attacker wins if SOME move leads to capture (defender replies next)
+        res = any(_capturable(nb, defender, defender, region, depth - 1, memo)
+                  for _, nb in _legal_moves(board, attacker, region))
+    else:
+        # defender survives if SOME move (or pass) escapes capture; the group
+        # is capturable only if EVERY defender reply is still capturable.
+        res = all(_capturable(nb, defender, attacker, region, depth - 1, memo)
+                  for _, nb in _legal_moves(board, defender, region)) and \
+            _capturable(board, defender, attacker, region, depth - 1, memo)  # pass
+    memo[key] = res
+    return res
+
+
+def _alive(board, defender, to_move, region, depth):
+    return not _capturable(board, defender, to_move, region, depth, {})
+
+
+def certify_ld(board, to_move, defender, region, depth):
+    """Which first moves reach the goal? Goal = make `defender` alive if
+    to_move IS the defender (a LIVE problem), else kill it (KILL problem).
+    Returns (win, winning_idxs); a clean puzzle has exactly one."""
+    want_alive = (to_move == defender)
+    other = opp(to_move)
+    depth = min(depth, 14)                    # cap; memo handles transpositions
+    winners = []
+    for idx, nb in _legal_moves(board, to_move, region):
+        alive = _alive(nb, defender, other, region, depth - 1)
+        if (want_alive and alive) or (not want_alive and not alive):
+            winners.append(idx)
+    return (len(winners) > 0), winners
 
 
 # --------------------------------------------------------------- geometry
