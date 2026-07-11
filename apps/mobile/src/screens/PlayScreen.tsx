@@ -344,13 +344,16 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     >
       {/* profile header */}
       <View style={[styles.card, styles.header]}>
-        <View style={styles.avatar}>
-          <Text style={styles.avatarText}>{displayName[0]?.toUpperCase() ?? 'G'}</Text>
-        </View>
-        <View style={{ flex: 1 }}>
+        {/* avatar + name open the profile tab (личный кабинет) */}
+        <Pressable
+          style={styles.headerProfile}
+          onPress={() => navigation.navigate('Settings')}
+        >
+          <View style={styles.avatar}>
+            <Text style={styles.avatarText}>{displayName[0]?.toUpperCase() ?? 'G'}</Text>
+          </View>
           <Text style={styles.name}>{displayName}</Text>
-          <Text style={styles.nameSub}>{t('app_subtitle')}</Text>
-        </View>
+        </Pressable>
         <Pressable
           style={styles.iconBtn}
           onPress={() => setMyColor(myColor === 'b' ? 'w' : 'b')}
@@ -485,6 +488,7 @@ const styles = StyleSheet.create({
   card: { ...cardStyle, padding: 14 },
 
   header: { flexDirection: 'row', alignItems: 'center', gap: 13 },
+  headerProfile: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 13 },
   avatar: {
     width: 46, height: 46, borderRadius: 23,
     backgroundColor: '#3B3833', borderWidth: 1, borderColor: ui.hairlineStrong,
