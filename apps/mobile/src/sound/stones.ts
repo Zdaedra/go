@@ -1,15 +1,28 @@
-// Stone sounds: a clack when a stone lands, a double clack when stones
-// are captured. A small pool of preloaded players lets rapid moves
-// overlap, and a subtle random playback-rate change keeps the clack from
-// sounding machine-identical. Sound is a nicety — every call swallows
-// errors so audio problems can never break the game.
+// Stone sounds: real recordings of stones on a goban (from the Sabaki
+// project, MIT license) — five placement takes and five capture takes,
+// picked at random so consecutive moves never sound machine-identical.
+// Sound is a nicety: every call swallows errors so audio problems can
+// never break the game.
 
 import { Audio } from 'expo-av';
 
-const POOL = 3;
+const PLACE_SOURCES = [
+  require('../../assets/sounds/stone0.mp3'),
+  require('../../assets/sounds/stone1.mp3'),
+  require('../../assets/sounds/stone2.mp3'),
+  require('../../assets/sounds/stone3.mp3'),
+  require('../../assets/sounds/stone4.mp3'),
+];
+const CAPTURE_SOURCES = [
+  require('../../assets/sounds/capture0.mp3'),
+  require('../../assets/sounds/capture1.mp3'),
+  require('../../assets/sounds/capture2.mp3'),
+  require('../../assets/sounds/capture3.mp3'),
+  require('../../assets/sounds/capture4.mp3'),
+];
+
 let placePool: Audio.Sound[] = [];
-let captureSound: Audio.Sound | null = null;
-let cursor = 0;
+let capturePool: Audio.Sound[] = [];
 let ready = false;
 
 export async function initStoneSounds() {
@@ -20,42 +33,37 @@ export async function initStoneSounds() {
       staysActiveInBackground: false,
     });
     placePool = await Promise.all(
-      Array.from({ length: POOL }, async () => {
-        const { sound } = await Audio.Sound.createAsync(
-          require('../../assets/sounds/stone-place.wav'),
-          { volume: 0.9 }
-        );
+      PLACE_SOURCES.map(async (src) => {
+        const { sound } = await Audio.Sound.createAsync(src, { volume: 1.0 });
         return sound;
       })
     );
-    captureSound = (
-      await Audio.Sound.createAsync(
-        require('../../assets/sounds/stone-capture.wav'),
-        { volume: 0.8 }
-      )
-    ).sound;
+    capturePool = await Promise.all(
+      CAPTURE_SOURCES.map(async (src) => {
+        const { sound } = await Audio.Sound.createAsync(src, { volume: 0.9 });
+        return sound;
+      })
+    );
     ready = true;
   } catch {
     // no audio device / interrupted session — play silently ever after
   }
 }
 
-export function playStone(delayMs = 0) {
-  if (!ready || !placePool.length) return;
-  const s = placePool[cursor++ % placePool.length];
-  const fire = () => {
-    s.setRateAsync(0.94 + Math.random() * 0.12, false).catch(() => {});
-    s.replayAsync().catch(() => {});
-  };
+function playFrom(pool: Audio.Sound[], delayMs: number) {
+  if (!ready || !pool.length) return;
+  const s = pool[Math.floor(Math.random() * pool.length)];
+  const fire = () => s.replayAsync().catch(() => {});
   if (delayMs > 0) setTimeout(fire, delayMs);
   else fire();
 }
 
+export function playStone(delayMs = 0) {
+  playFrom(placePool, delayMs);
+}
+
 export function playCapture(delayMs = 0) {
-  if (!ready || !captureSound) return;
-  const fire = () => captureSound!.replayAsync().catch(() => {});
-  if (delayMs > 0) setTimeout(fire, delayMs);
-  else fire();
+  playFrom(capturePool, delayMs);
 }
 
 /** Count stones on an 81/361-char board string. */

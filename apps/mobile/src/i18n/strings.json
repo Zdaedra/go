@@ -782,5 +782,12 @@
     "de": "★ — bester KataGo-Zug · {side}: {p}%, {lead} Pkt.",
     "fr": "★ — meilleur coup KataGo · {side} : {p}%, {lead} pts",
     "es": "★ — mejor jugada de KataGo · {side}: {p}%, {lead} pts"
+  },
+  "opening_placeholder": {
+    "ru": "Сделай первые ходы — здесь появится название дебюта.",
+    "en": "Make the first moves — the opening's name will appear here.",
+    "de": "Mach die ersten Züge – hier erscheint der Name der Eröffnung.",
+    "fr": "Joue les premiers coups — le nom de l’ouverture apparaîtra ici.",
+    "es": "Haz las primeras jugadas: aquí aparecerá el nombre de la apertura."
   }
 }

@@ -369,12 +369,17 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       <View style={[styles.card, styles.opening]}>
         <View style={styles.openingLeft}>
           <Text style={eyebrowAccent}>{t('title_opening')}</Text>
-          <Text
-            style={styles.openingTitle}
-            numberOfLines={2}
-            adjustsFontSizeToFit
-            minimumFontScale={0.5}
-          >{openingName}</Text>
+          {result.status === 'empty' && !locked ? (
+            // Fresh board: a quiet prompt instead of a fake title.
+            <Text style={styles.openingPlaceholder}>{t('opening_placeholder')}</Text>
+          ) : (
+            <Text
+              style={styles.openingTitle}
+              numberOfLines={2}
+              adjustsFontSizeToFit
+              minimumFontScale={0.5}
+            >{openingName}</Text>
+          )}
         </View>
         <View style={styles.openingRight}>
           <Text style={eyebrow}>{t('move')}</Text>
@@ -507,6 +512,7 @@ const styles = StyleSheet.create({
   opening: { flexDirection: 'row', alignItems: 'center' },
   openingLeft: { flex: 1.4, paddingRight: 14, justifyContent: 'center' },
   openingTitle: { fontFamily: ui.serif, fontSize: 27, color: '#EFECE7', marginTop: 6 },
+  openingPlaceholder: { fontSize: 13.5, color: ui.muted, marginTop: 8, lineHeight: 19 },
   openingRight: {
     flex: 1, borderLeftWidth: 1, borderLeftColor: ui.hairline,
     paddingLeft: 14, paddingTop: 2,
