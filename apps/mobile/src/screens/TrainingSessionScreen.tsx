@@ -15,11 +15,27 @@ import PrimaryButton from '../components/PrimaryButton';
 import HintBulb from '../components/HintBulb';
 
 const STATUS_TEXT: Record<string, string> = {
-  playing: 'Найди лучший ход.',
   wrong: 'Мимо — такого хода нет в решении. Попробуй ещё.',
   refuted: 'Не получилось: соперник опровергает этот ход.',
   solved: 'Решено! ✓',
 };
+
+// What the problem actually asks for, by domain — «найди лучший ход»
+// says nothing; the goal does.
+const GOAL_TEXT: Record<string, string> = {
+  capture: 'Поймай камни соперника.',
+  'ld-live': 'Спаси группу — она должна жить.',
+  'ld-kill': 'Убей группу соперника.',
+  ko: 'Реши задачу через ко.',
+  race: 'Выиграй гонку либертей.',
+  connect: 'Соедини свои камни.',
+};
+
+function goalOf(problem: any): string {
+  const side = problem.to_move === 'b' ? 'чёрные' : 'белые';
+  const goal = GOAL_TEXT[problem.domain] ?? 'Найди лучший ход.';
+  return `Ходят ${side}. ${goal}`;
+}
 
 export default function TrainingSessionScreen({ navigation }: { navigation: any }) {
   const [problem, setProblem] = useState<any | null>(null);
@@ -96,8 +112,17 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
 
   if (!problem || !session) return null;
 
-  const last = session.moves.length ? session.moves[session.moves.length - 1].at : null;
+  const last = session.wrongAt != null
+    ? session.wrongAt
+    : session.moves.length ? session.moves[session.moves.length - 1].at : null;
   const terminal = session.status === 'solved' || session.status === 'refuted';
+
+  const skipProblem = () => {
+    if (recorded.current) return;
+    recorded.current = true;
+    recordAttempt(problem.id, false);
+    recordResult(problem, false, false).then(() => serveNext());
+  };
 
   return (
     <View style={styles.screen}>
@@ -138,7 +163,7 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
               (session.status === 'wrong' || session.status === 'refuted') && styles.bad,
             ]}
           >
-            {STATUS_TEXT[session.status]}
+            {session.status === 'playing' ? goalOf(problem) : STATUS_TEXT[session.status]}
           </Text>
           {feedback && <Text style={styles.feedback}>{feedback}</Text>}
         </View>
@@ -171,6 +196,9 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
               onPress={() => { hadMistake.current = true; setSession(startSession(problem)); }}
             >
               <Text style={styles.btnText}>Заново</Text>
+            </Pressable>
+            <Pressable style={styles.btn} onPress={skipProblem}>
+              <Text style={styles.btnText}>Пропустить →</Text>
             </Pressable>
             <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
               <Text style={styles.btnText}>Завершить</Text>

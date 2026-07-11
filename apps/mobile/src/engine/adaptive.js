@@ -125,21 +125,33 @@ function pickNext(profile, pool) {
       ? profile.lastDomains[profile.lastDomains.length - 1]
       : null;
   const eligible = domains.filter((d) => d !== streakDomain);
-  const pickFrom = eligible.length ? eligible : domains;
-  // Weakest rating first => balanced, weakness-focused practice.
-  pickFrom.sort((a, b) => ratingOf(profile, a) - ratingOf(profile, b));
-  const domain = pickFrom[0];
+  const pickFrom = new Set(eligible.length ? eligible : domains);
 
-  const user = ratingOf(profile, domain);
-  const candidates = unseen.filter((p) => (p.domain || 'ld-live') === domain);
-  candidates.sort(
-    (a, b) =>
-      Math.abs(expectedScore(user, a.difficulty || START_RATING) - TARGET_SUCCESS) -
-      Math.abs(expectedScore(user, b.difficulty || START_RATING) - TARGET_SUCCESS)
-  );
+  // Pick the (domain, problem) pair jointly: closeness to the target
+  // success chance dominates; a mild bias favours weaker domains. Picking
+  // the domain first would trap a cold-start user in domains whose easiest
+  // problems are far too hard (the classical corpus is skewed difficult).
+  const totalAttempts = Object.values(profile.domainAttempts)
+    .reduce((a, b) => a + b, 0);
+  // Warm-up: the first serves should feel winnable (~85%), then settle.
+  const target = totalAttempts < 8 ? 0.85 : TARGET_SUCCESS;
+  const minRating = Math.min(...domains.map((d) => ratingOf(profile, d)));
+
+  let best = null;
+  let bestCost = Infinity;
+  for (const p of unseen) {
+    const domain = p.domain || 'ld-live';
+    if (!pickFrom.has(domain)) continue;
+    const exp = expectedScore(ratingOf(profile, domain), p.difficulty || START_RATING);
+    const cost =
+      Math.abs(exp - target) +
+      (ratingOf(profile, domain) - minRating) * 0.0004;
+    if (cost < bestCost) { bestCost = cost; best = p; }
+  }
+  if (!best) return null;
   profile.counter += 1;
-  profile.lastDomains = [...profile.lastDomains.slice(-4), domain];
-  return candidates[0];
+  profile.lastDomains = [...profile.lastDomains.slice(-4), best.domain || 'ld-live'];
+  return best;
 }
 
 /** Human level label for a rating (rough kyu/dan feel, in Russian). */

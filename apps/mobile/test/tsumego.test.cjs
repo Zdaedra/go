@@ -19,15 +19,18 @@ const byId = new Map(db.problems.map((p) => [p.id, p]));
   assert.equal(s.board[sgfToIdx('ee')], '.', 'white stone captured');
 }
 
-// Off-tree move -> wrong (board unchanged), then recover and solve.
+// Off-tree move -> wrong: the stone IS placed (visual feedback), then
+// clearWrong lifts it back off and the problem is still solvable.
 {
   const p = byId.get('cap-atari-1');
   let s = startSession(p);
   const before = s.board;
   s = playUserMove(s, sgfToIdx('aa'));
   assert.equal(s.status, 'wrong');
-  assert.equal(s.board, before, 'board unchanged on wrong move');
+  assert.notEqual(s.board, before, 'wrong stone appears on the board');
+  assert.equal(s.wrongAt, sgfToIdx('aa'), 'wrong point remembered');
   s = clearWrong(s);
+  assert.equal(s.board, before, 'clearWrong lifts the stone');
   s = playUserMove(s, sgfToIdx('ef'));
   assert.equal(s.status, 'solved');
 }

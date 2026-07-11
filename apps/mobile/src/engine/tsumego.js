@@ -49,7 +49,17 @@ function playUserMove(session, at) {
     (n) => sgfToIdx(n.at, size) === at && n.by === session.toMove
   );
   if (!node) {
-    return { ...session, status: 'wrong' };
+    // Off-tree: physically place the stone so the tap feels real, remember
+    // the previous board — clearWrong() lifts the stone back off.
+    const tryRes = play(session.board, at, session.toMove);
+    if (!tryRes) return { ...session, status: 'wrong' };
+    return {
+      ...session,
+      status: 'wrong',
+      board: tryRes.board,
+      prevBoard: session.board,
+      wrongAt: at,
+    };
   }
   let board = session.board;
   const res = play(board, at, node.by);
@@ -100,9 +110,16 @@ function undoFreeMove(session) {
   return s;
 }
 
-/** Clear a transient 'wrong' status back to playing. */
+/** Clear a transient 'wrong' status back to playing (lifts the stone). */
 function clearWrong(session) {
-  return session.status === 'wrong' ? { ...session, status: 'playing' } : session;
+  if (session.status !== 'wrong') return session;
+  return {
+    ...session,
+    status: 'playing',
+    board: session.prevBoard ?? session.board,
+    prevBoard: undefined,
+    wrongAt: undefined,
+  };
 }
 
 /** Board index of the first correct move (for the hint ghost). */

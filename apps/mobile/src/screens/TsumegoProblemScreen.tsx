@@ -76,7 +76,9 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
     ? 'Режим самопроверки: разыграй решение за обе стороны.'
     : STATUS_TEXT[session.status];
 
-  const last = session.moves.length ? session.moves[session.moves.length - 1].at : null;
+  const last = session.wrongAt != null
+    ? session.wrongAt
+    : session.moves.length ? session.moves[session.moves.length - 1].at : null;
   const next = pos + 1 < problems.length ? problems[pos + 1] : null;
 
   return (
