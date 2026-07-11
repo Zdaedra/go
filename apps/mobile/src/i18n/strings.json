@@ -1,10 +1,10 @@
 {
   "tab_play": {
-    "ru": "Игра",
-    "en": "Play",
-    "de": "Spiel",
-    "fr": "Jouer",
-    "es": "Jugar"
+    "ru": "Дебюты",
+    "en": "Openings",
+    "de": "Eröffnungen",
+    "fr": "Ouvertures",
+    "es": "Aperturas"
   },
   "tab_learn": {
     "ru": "Обучение",
@@ -168,11 +168,11 @@
     "es": "Inicio"
   },
   "restart": {
-    "ru": "Заново",
-    "en": "Restart",
-    "de": "Neu starten",
-    "fr": "Recommencer",
-    "es": "Reiniciar"
+    "ru": "Новая партия",
+    "en": "New game",
+    "de": "Neue Partie",
+    "fr": "Nouvelle partie",
+    "es": "Nueva partida"
   },
   "back": {
     "ru": "Назад",
@@ -210,11 +210,11 @@
     "es": "Haz otra jugada para determinar la apertura, o elígela aquí:"
   },
   "place_first": {
-    "ru": "Поставь первый камень — база опознает дебют и ветку.",
-    "en": "Place the first stone — the database will identify the opening and branch.",
-    "de": "Setze den ersten Stein – die Datenbank erkennt Eröffnung und Variante.",
-    "fr": "Place la première pierre — la base reconnaîtra l’ouverture et la variante.",
-    "es": "Coloca la primera piedra: la base identificará la apertura y la variante."
+    "ru": "Сделай ход, чтобы определить дебют.",
+    "en": "Make a move to identify the opening.",
+    "de": "Mach einen Zug, um die Eröffnung zu bestimmen.",
+    "fr": "Joue un coup pour identifier l’ouverture.",
+    "es": "Haz una jugada para identificar la apertura."
   },
   "not_in_base": {
     "ru": "Такого дебюта в базе нет. «Назад» вернёт в книжную линию.",
