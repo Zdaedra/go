@@ -11,6 +11,8 @@ import { stabilizer, orbit } from '../engine/symmetry';
 import {
   identify, suggestions, continuationMarks, currentBranch,
 } from '../engine/identify';
+import { evalFor } from '../engine/evals';
+import { soundForMove, playStone } from '../sound/stones';
 import { openingDisplayName } from '../data/names';
 import branchDescriptions from '../data/descriptions.json';
 import { useT } from '../i18n';
@@ -150,15 +152,28 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
     return null;
   }, [locked, result, lastMove, branch, fullMarks, bookMoves]);
 
+  // Offline KataGo evaluation of the current book position (null when the
+  // position isn't in the evaluated set, e.g. off the book).
+  const kataEval = useMemo(
+    () => (locked || result.status === 'unknown' || result.status === 'empty'
+      ? null
+      : evalFor(position, toMove)),
+    [locked, result.status, position, toMove]
+  );
+
   const nextSuggestion = useMemo(() => {
     if (locked || result.status === 'unknown') return null;
+    // KataGo's best move, when the position has been scored.
+    if (kataEval) {
+      return { at: kataEval.best[0].at, color: toMove };
+    }
     if (fullMarks.length) {
       const own = fullMarks.find((m) => m.by === toMove) ?? fullMarks[0];
       return own ? { at: own.at, color: (own.by ?? toMove) as 'b' | 'w' } : null;
     }
     const sug = bookMoves.filter((s) => s.color === toMove);
     return sug.length ? { at: sug[0].at, color: sug[0].color as 'b' | 'w' } : null;
-  }, [locked, result, fullMarks, bookMoves, toMove]);
+  }, [locked, result, kataEval, fullMarks, bookMoves, toMove]);
 
   const ghosts: GhostStone[] = useMemo(() => {
     // The "best move" hint highlights the single recommended reply as a
@@ -177,6 +192,7 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
       : toMove;
     const next = play(position, at, color);
     if (!next) return;
+    soundForMove(position, next.board, 1);
     // Snapshot the opening we were in, so that a book move leading off the
     // diagram index reads as "opening completed", not "not in the base".
     const viaBook = Boolean(mark || book);
@@ -219,7 +235,11 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         openingResult: (m.branch.result as string | null) ?? null,
       });
     }
-    if (added.length) setHistory([...history, ...added]);
+    if (added.length) {
+      // A quick cascade of clacks as the line plays onto the board.
+      for (let i = 0; i < Math.min(added.length, 6); i++) playStone(i * 90);
+      setHistory([...history, ...added]);
+    }
   };
 
   // Trial ended (and not subscribed): send the user to the paywall once
@@ -434,7 +454,15 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
         )}
 
         {showHints && nextSuggestion && !completed && (
-          <Text style={[styles.turnSub, { color: ui.peach }]}>{t('best_move_note')}</Text>
+          <Text style={[styles.turnSub, { color: ui.peach }]}>
+            {kataEval
+              ? t('best_move_eval', {
+                  side: toMove === 'b' ? t('black') : t('white'),
+                  p: Math.round(kataEval.best[0].winrate * 100),
+                  lead: `${kataEval.best[0].scoreLead >= 0 ? '+' : ''}${kataEval.best[0].scoreLead.toFixed(1)}`,
+                })
+              : t('best_move_note')}
+          </Text>
         )}
         {access.open && !access.pro && access.trial && access.trial.daysLeft <= TRIAL_NOTICE_DAYS && (
           <Text style={styles.turnSub}>{t('trial_days_left', { n: access.trial.daysLeft })}</Text>

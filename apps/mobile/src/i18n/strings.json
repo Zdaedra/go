@@ -775,5 +775,12 @@
     "de": "Version {v}",
     "fr": "Version {v}",
     "es": "Versión {v}"
+  },
+  "best_move_eval": {
+    "ru": "★ — лучший ход KataGo · {side}: {p}%, {lead} очк.",
+    "en": "★ — KataGo best move · {side}: {p}%, {lead} pts",
+    "de": "★ — bester KataGo-Zug · {side}: {p}%, {lead} Pkt.",
+    "fr": "★ — meilleur coup KataGo · {side} : {p}%, {lead} pts",
+    "es": "★ — mejor jugada de KataGo · {side}: {p}%, {lead} pts"
   }
 }

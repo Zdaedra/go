@@ -9,6 +9,7 @@ import { ui } from './src/theme/uiTheme';
 import { ThemeProvider } from './src/theme/ThemeContext';
 import { AuthProvider, useAuth } from './src/state/AuthContext';
 import { I18nProvider, useT } from './src/i18n';
+import { initStoneSounds } from './src/sound/stones';
 import PlayScreen from './src/screens/PlayScreen';
 import LearnScreen from './src/screens/LearnScreen';
 import OpeningScreen from './src/screens/OpeningScreen';
@@ -148,6 +149,7 @@ export default function App() {
     Playfair: require('./assets/fonts/PlayfairDisplay.ttf'),
     InterV: require('./assets/fonts/Inter.ttf'),
   });
+  React.useEffect(() => { initStoneSounds(); }, []);
   if (!fontsLoaded) return null;
   return (
     <I18nProvider>

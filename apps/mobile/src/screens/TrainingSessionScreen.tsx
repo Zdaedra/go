@@ -9,6 +9,7 @@ import {
 } from '../engine/tsumego';
 import { nextProblem, recordResult, domainLabels } from '../state/trainingStats';
 import { recordAttempt } from '../state/tsumegoProgress';
+import { soundForMove } from '../sound/stones';
 import MistBackground from '../components/MistBackground';
 import PrimaryButton from '../components/PrimaryButton';
 import HintBulb from '../components/HintBulb';
@@ -117,7 +118,13 @@ export default function TrainingSessionScreen({ navigation }: { navigation: any 
         size={session.size}
         view={view ?? undefined}
         lastMove={last}
-        onPoint={(at) => setSession((s: any) => playUserMove(s, at))}
+        onPoint={(at) => setSession((s: any) => {
+          const n = playUserMove(s, at);
+          if (n.board !== s.board) {
+            soundForMove(s.board, n.board, n.moves.length - s.moves.length);
+          }
+          return n;
+        })}
         disabled={terminal}
       />
 

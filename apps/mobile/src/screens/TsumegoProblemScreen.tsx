@@ -10,6 +10,7 @@ import {
   startSession, playUserMove, undoFreeMove, clearWrong, hintMove, viewRect,
 } from '../engine/tsumego';
 import { recordAttempt } from '../state/tsumegoProgress';
+import { soundForMove } from '../sound/stones';
 import { visibleProblems } from './TsumegoSectionsScreen';
 
 const STATUS_TEXT: Record<string, string> = {
@@ -94,7 +95,13 @@ export default function TsumegoProblemScreen({ route, navigation }: { route: any
         view={view}
         lastMove={last}
         ghosts={ghosts}
-        onPoint={(at) => setSession((s: any) => playUserMove(s, at))}
+        onPoint={(at) => setSession((s: any) => {
+          const n = playUserMove(s, at);
+          if (n.board !== s.board) {
+            soundForMove(s.board, n.board, n.moves.length - s.moves.length);
+          }
+          return n;
+        })}
         disabled={session.status === 'solved' || session.status === 'refuted'}
       />
 
