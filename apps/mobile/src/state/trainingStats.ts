@@ -110,6 +110,14 @@ export async function getProfile(): Promise<TrainingProfile> {
   return load();
 }
 
+/** Полный сброс профиля тренировки (удаление аккаунта): чистит и хранилище,
+    и in-memory cache — иначе кэш пере-сохранит старый профиль после wipe. */
+export async function wipeTrainingProfile(): Promise<void> {
+  cache = null;
+  listeners.forEach((fn) => fn());
+  await AsyncStorage.removeItem(KEY).catch(() => {});
+}
+
 /** Подать следующую задачу (гейт повторов -> utility).
     domain — если игрок сам выбрал область на радаре/в прогрессе, подаём
     только задачи этого домена под его уровень; запись в профиль общая. */

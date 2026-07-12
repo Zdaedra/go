@@ -86,7 +86,10 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
       const d = byKey.get(k)!;
       return {
         key: k, label: t(d.label), solved: d.solved, total: d.total,
-        value: d.mastery, color: DOMAIN_COLORS[k] ?? ui.accent,
+        // До первой попытки в домене фигура пустая: дефолтная EWMA 0.6 у
+        // свежего профиля иначе рисует «освоенность 60%» на ровном месте.
+        value: d.attempts > 0 ? d.mastery : 0,
+        color: DOMAIN_COLORS[k] ?? ui.accent,
       };
     });
 

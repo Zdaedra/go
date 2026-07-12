@@ -17,7 +17,7 @@ import { useTheme } from '../theme/ThemeContext';
 import { boardThemes } from '../theme/boardThemes';
 import { stoneThemes } from '../theme/stoneThemes';
 import {
-  useTrainingProfile, domainStats, trainingPool,
+  useTrainingProfile, domainStats, trainingPool, wipeTrainingProfile,
 } from '../state/trainingStats';
 import { levelLabel, DEFAULT_RATING as START_RATING } from '../state/trainingStats';
 import MistBackground from '../components/MistBackground';
@@ -75,9 +75,11 @@ export default function ProfileScreen({ navigation }: { navigation: any }) {
         style: 'destructive',
         onPress: async () => {
           // Local-only for now: clears device data + signs out. Real server
-          // account deletion lands with the backend.
+          // account deletion lands with the backend. Профиль тренировки — через
+          // wipeTrainingProfile (актуальный ключ + сброс in-memory cache).
+          await wipeTrainingProfile();
           await AsyncStorage.multiRemove([
-            'training.v1', 'tsumegoProgress.v1', 'trial.v1',
+            'tsumegoProgress.v1', 'trial.v1',
           ]).catch(() => {});
           auth.signOut();
         },
