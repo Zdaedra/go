@@ -120,12 +120,15 @@ def walk_audit(problem, issues):
         by = node["by"]
         children = node.get("children") or []
 
-        # 2: wrong только на ply1 за решателя; correct только на листе
+        # 2: wrong — на ЛЮБОМ ходе решателя (движок tsumego.js продвигает nodes
+        # к reply.children каждый ход и опровергает wrong-тап на любой глубине;
+        # сорснутые многоходовые тэсудзи легитимно ставят decoy глубже ply1).
+        # Настоящая ошибка — wrong за оппонента — ловится WRONG_BY_OPPONENT.
         if tag == "wrong":
-            if depth != 1:
-                issues.append((pid, "WRONG_DEEP", f"ply={depth}"))
             if by != to_move:
                 issues.append((pid, "WRONG_BY_OPPONENT", node["at"]))
+        if tag == "correct" and children:
+            issues.append((pid, "CORRECT_NONLEAF", node["at"]))
         if tag == "correct" and children:
             issues.append((pid, "CORRECT_NONLEAF", node["at"]))
 

@@ -1255,6 +1255,14 @@
     "de": "Der markierte Zug",
     "ko": "강조된 수"
   },
+  "why_label": {
+    "ru": "Почему это работает",
+    "en": "Why it works",
+    "es": "Por qué funciona",
+    "fr": "Pourquoi ça marche",
+    "de": "Warum es funktioniert",
+    "ko": "왜 통하는가"
+  },
   "fb_calibration": {
     "ru": "калибровка {step}/{total}",
     "en": "calibration {step}/{total}",
@@ -2111,6 +2119,46 @@
     "de": "Aufgaben 151–174",
     "ko": "문제 151–174"
   },
+  "cat_ogs": {
+    "ru": "Практика: OGS",
+    "en": "Practice: OGS",
+    "es": "Práctica: OGS",
+    "fr": "Pratique : OGS",
+    "de": "Praxis: OGS",
+    "ko": "연습: OGS"
+  },
+  "sec_ogs_capture": {
+    "ru": "Захват",
+    "en": "Capture",
+    "es": "Captura",
+    "fr": "Capture",
+    "de": "Fangen",
+    "ko": "따내기"
+  },
+  "sec_ogs_connect": {
+    "ru": "Соединение",
+    "en": "Connect",
+    "es": "Conexión",
+    "fr": "Connexion",
+    "de": "Verbinden",
+    "ko": "연결"
+  },
+  "sec_ogs_ld_live": {
+    "ru": "Жизнь",
+    "en": "Life",
+    "es": "Vida",
+    "fr": "Vie",
+    "de": "Leben",
+    "ko": "삶"
+  },
+  "sec_ogs_ld_kill": {
+    "ru": "Убийство",
+    "en": "Kill",
+    "es": "Matar",
+    "fr": "Tuer",
+    "de": "Töten",
+    "ko": "죽이기"
+  },
   "training_done_domain": {
     "ru": "Все задачи темы «{domain}» пройдены 🎉",
     "en": "All “{domain}” problems cleared 🎉",
@@ -2151,6 +2199,14 @@
     "de": "Verteiltes Wiederholen — festigen, solange es frisch ist",
     "ko": "간격 반복 — 기억이 생생할 때 굳혀요"
   },
+  "review_explain": {
+    "ru": "Решённое возвращается через растущие интервалы — так память держится надолго. Эти задачи пора повторить.",
+    "en": "Solved problems come back at growing intervals — that’s how memory sticks for the long run. These are due now.",
+    "es": "Lo resuelto vuelve en intervalos crecientes: así la memoria se fija a largo plazo. Toca repasar estas.",
+    "fr": "Les problèmes résolus reviennent à intervalles croissants — c’est ainsi que la mémoire tient. Voici ceux à revoir.",
+    "de": "Gelöstes kommt in wachsenden Abständen zurück — so bleibt es langfristig sitzen. Diese sind jetzt dran.",
+    "ko": "푼 문제가 점점 긴 간격으로 다시 나옵니다 — 그래야 오래 기억에 남아요. 지금 복습할 때입니다."
+  },
   "review_title": {
     "ru": "Повторение",
     "en": "Review",
@@ -2166,5 +2222,253 @@
     "fr": "Les révisions du jour sont faites 🎉",
     "de": "Die heutigen Wiederholungen sind erledigt 🎉",
     "ko": "오늘 복습을 끝냈어요 🎉"
+  },
+  "session_done": {
+    "ru": "Тренировка завершена",
+    "en": "Session complete",
+    "es": "Sesión completada",
+    "fr": "Séance terminée",
+    "de": "Sitzung abgeschlossen",
+    "ko": "세션 완료"
+  },
+  "session_row_total": {
+    "ru": "Задач: {n}",
+    "en": "Problems: {n}",
+    "es": "Problemas: {n}",
+    "fr": "Problèmes : {n}",
+    "de": "Aufgaben: {n}",
+    "ko": "문제: {n}"
+  },
+  "session_row_solo": {
+    "ru": "Самостоятельно: {n}",
+    "en": "On your own: {n}",
+    "es": "Por tu cuenta: {n}",
+    "fr": "En autonomie : {n}",
+    "de": "Selbstständig: {n}",
+    "ko": "스스로 해결: {n}"
+  },
+  "session_row_hinted": {
+    "ru": "С подсказкой: {n}",
+    "en": "With a hint: {n}",
+    "es": "Con pista: {n}",
+    "fr": "Avec indice : {n}",
+    "de": "Mit Hinweis: {n}",
+    "ko": "힌트 사용: {n}"
+  },
+  "session_row_reproduced": {
+    "ru": "После разбора: {n}",
+    "en": "After a walkthrough: {n}",
+    "es": "Tras el análisis: {n}",
+    "fr": "Après l’analyse : {n}",
+    "de": "Nach der Lösung: {n}",
+    "ko": "해설 후 재현: {n}"
+  },
+  "session_row_firsttry": {
+    "ru": "С первого раза: {pct}%",
+    "en": "First try: {pct}%",
+    "es": "A la primera: {pct}%",
+    "fr": "Du premier coup : {pct}%",
+    "de": "Auf Anhieb: {pct}%",
+    "ko": "한 번에: {pct}%"
+  },
+  "session_row_points": {
+    "ru": "Очки: +{n}",
+    "en": "Points: +{n}",
+    "es": "Puntos: +{n}",
+    "fr": "Points : +{n}",
+    "de": "Punkte: +{n}",
+    "ko": "점수: +{n}"
+  },
+  "session_mastery_up": {
+    "ru": "{domain}: +{pct}% к навыку",
+    "en": "{domain}: +{pct}% skill",
+    "es": "{domain}: +{pct}% de habilidad",
+    "fr": "{domain} : +{pct}% de maîtrise",
+    "de": "{domain}: +{pct}% Können",
+    "ko": "{domain}: 실력 +{pct}%"
+  },
+  "session_more": {
+    "ru": "Ещё 5",
+    "en": "5 more",
+    "es": "5 más",
+    "fr": "Encore 5",
+    "de": "5 weitere",
+    "ko": "5개 더"
+  },
+  "onb_ep1_intro": {
+    "ru": "У каждой группы есть дыхания — свободные точки рядом с камнями. У белого камня осталось одно. Нажми на выделенную точку.",
+    "en": "Every group has liberties — the empty points next to its stones. This white stone has just one left. Tap the highlighted point.",
+    "es": "Cada grupo tiene libertades: los puntos vacíos junto a sus piedras. A esta piedra blanca le queda una. Toca el punto resaltado.",
+    "fr": "Chaque groupe a des libertés — les points vides à côté de ses pierres. Cette pierre blanche n’en a plus qu’une. Touchez le point en surbrillance.",
+    "de": "Jede Gruppe hat Freiheiten — die leeren Punkte neben ihren Steinen. Dieser weiße Stein hat nur noch eine. Tippe auf den markierten Punkt.",
+    "ko": "모든 그룹에는 활로 — 돌 옆의 빈 점 — 가 있습니다. 이 백돌에는 하나만 남았어요. 강조된 점을 누르세요."
+  },
+  "onb_ep1_after": {
+    "ru": "Так и происходит захват: камень без дыханий снимается с доски.",
+    "en": "That’s how a capture works: a stone with no liberties is taken off the board.",
+    "es": "Así funciona la captura: una piedra sin libertades se retira del tablero.",
+    "fr": "Voilà comment se passe une capture : une pierre sans liberté est retirée du plateau.",
+    "de": "So funktioniert das Fangen: ein Stein ohne Freiheiten wird vom Brett genommen.",
+    "ko": "이렇게 돌을 잡습니다: 활로가 없는 돌은 판에서 들어냅니다."
+  },
+  "onb_ep2_intro": {
+    "ru": "Теперь сам. Найди белый камень, которому осталось одно дыхание, и займи его.",
+    "en": "Now on your own. Find the white stone with one liberty left and take it.",
+    "es": "Ahora tú. Encuentra la piedra blanca con una libertad y ocúpala.",
+    "fr": "À vous maintenant. Trouvez la pierre blanche à une liberté et prenez-la.",
+    "de": "Jetzt du. Finde den weißen Stein mit nur einer Freiheit und besetze sie.",
+    "ko": "이제 직접. 활로가 하나 남은 백돌을 찾아 그 자리를 차지하세요."
+  },
+  "onb_step": {
+    "ru": "Шаг {n}/{total}",
+    "en": "Step {n}/{total}",
+    "es": "Paso {n}/{total}",
+    "fr": "Étape {n}/{total}",
+    "de": "Schritt {n}/{total}",
+    "ko": "{n}/{total}단계"
+  },
+  "onb_done_title": {
+    "ru": "Основы пройдены 🎉",
+    "en": "Basics complete 🎉",
+    "es": "Fundamentos completados 🎉",
+    "fr": "Les bases sont acquises 🎉",
+    "de": "Grundlagen gemeistert 🎉",
+    "ko": "기초 완료 🎉"
+  },
+  "onb_done_note": {
+    "ru": "Ты научился находить дыхания и захватывать камни. Дальше — задачи под твой уровень.",
+    "en": "You’ve learned to spot liberties and capture stones. Next come problems tuned to your level.",
+    "es": "Has aprendido a ver libertades y capturar piedras. Ahora vienen problemas a tu nivel.",
+    "fr": "Vous savez repérer les libertés et capturer des pierres. Place aux problèmes adaptés à votre niveau.",
+    "de": "Du hast gelernt, Freiheiten zu erkennen und Steine zu fangen. Weiter geht’s mit Aufgaben für dein Niveau.",
+    "ko": "활로를 찾고 돌을 잡는 법을 익혔어요. 이제 실력에 맞춘 문제가 이어집니다."
+  },
+  "onb_start": {
+    "ru": "Тренироваться",
+    "en": "Start training",
+    "es": "Entrenar",
+    "fr": "S’entraîner",
+    "de": "Training starten",
+    "ko": "훈련 시작"
+  },
+  "onb_later": {
+    "ru": "На главную",
+    "en": "Home",
+    "es": "Inicio",
+    "fr": "Accueil",
+    "de": "Startseite",
+    "ko": "홈으로"
+  },
+  "goal_today": {
+    "ru": "Цель на сегодня",
+    "en": "Today’s goal",
+    "es": "Meta de hoy",
+    "fr": "Objectif du jour",
+    "de": "Heutiges Ziel",
+    "ko": "오늘의 목표"
+  },
+  "goal_left": {
+    "ru": "Ещё {n} до цели дня",
+    "en": "{n} more to hit today’s goal",
+    "es": "{n} más para la meta de hoy",
+    "fr": "Encore {n} pour l’objectif du jour",
+    "de": "Noch {n} bis zum Tagesziel",
+    "ko": "오늘 목표까지 {n}개"
+  },
+  "goal_done": {
+    "ru": "Цель дня взята 🎉",
+    "en": "Daily goal reached 🎉",
+    "es": "Meta diaria lograda 🎉",
+    "fr": "Objectif du jour atteint 🎉",
+    "de": "Tagesziel erreicht 🎉",
+    "ko": "오늘 목표 달성 🎉"
+  },
+  "catalog_hard_title": {
+    "ru": "Серьёзный вызов",
+    "en": "A serious challenge",
+    "es": "Un reto serio",
+    "fr": "Un vrai défi",
+    "de": "Eine harte Nuss",
+    "ko": "만만찮은 도전"
+  },
+  "catalog_hard_body": {
+    "ru": "Уровень задачи — «{plevel}», твой сейчас — «{ulevel}». Точно попробовать?",
+    "en": "This problem is “{plevel}” level; you’re at “{ulevel}”. Give it a try anyway?",
+    "es": "El nivel del problema es «{plevel}»; tú estás en «{ulevel}». ¿Probar de todos modos?",
+    "fr": "Ce problème est de niveau « {plevel} » ; vous êtes « {ulevel} ». Essayer quand même ?",
+    "de": "Diese Aufgabe ist Stufe „{plevel}“; du bist „{ulevel}“. Trotzdem versuchen?",
+    "ko": "이 문제는 “{plevel}” 수준, 지금 당신은 “{ulevel}”입니다. 그래도 도전할까요?"
+  },
+  "catalog_hard_cancel": {
+    "ru": "Не сейчас",
+    "en": "Not now",
+    "es": "Ahora no",
+    "fr": "Pas maintenant",
+    "de": "Nicht jetzt",
+    "ko": "나중에"
+  },
+  "catalog_hard_go": {
+    "ru": "Всё равно",
+    "en": "Try anyway",
+    "es": "Probar igual",
+    "fr": "Essayer quand même",
+    "de": "Trotzdem",
+    "ko": "그래도 도전"
+  },
+  "reproduce_line": {
+    "ru": "Повтори по памяти",
+    "en": "Replay from memory",
+    "es": "Repite de memoria",
+    "fr": "Rejouer de mémoire",
+    "de": "Aus dem Gedächtnis",
+    "ko": "기억으로 재현"
+  },
+  "reproduce_watch": {
+    "ru": "Смотреть",
+    "en": "Watch",
+    "es": "Ver",
+    "fr": "Regarder",
+    "de": "Ansehen",
+    "ko": "보기"
+  },
+  "reproduce_your_move": {
+    "ru": "Твой ход · {done}/{total}",
+    "en": "Your move · {done}/{total}",
+    "es": "Tu jugada · {done}/{total}",
+    "fr": "À vous · {done}/{total}",
+    "de": "Dein Zug · {done}/{total}",
+    "ko": "당신 차례 · {done}/{total}"
+  },
+  "reproduce_wrong": {
+    "ru": "Не та точка",
+    "en": "Not that point",
+    "es": "Ese punto no",
+    "fr": "Pas ce point",
+    "de": "Nicht dieser Punkt",
+    "ko": "그 자리가 아니에요"
+  },
+  "reproduce_done": {
+    "ru": "Линия воспроизведена ✓",
+    "en": "Line reproduced ✓",
+    "es": "Línea reproducida ✓",
+    "fr": "Séquence reproduite ✓",
+    "de": "Folge reproduziert ✓",
+    "ko": "수순 재현 완료 ✓"
+  },
+  "reproduce_show_next": {
+    "ru": "Показать ход",
+    "en": "Show the move",
+    "es": "Mostrar jugada",
+    "fr": "Montrer le coup",
+    "de": "Zug zeigen",
+    "ko": "수 보기"
+  },
+  "reproduce_again": {
+    "ru": "Ещё раз",
+    "en": "Again",
+    "es": "Otra vez",
+    "fr": "Encore",
+    "de": "Nochmal",
+    "ko": "다시"
   }
 }

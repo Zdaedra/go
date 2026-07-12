@@ -105,6 +105,14 @@
     "fr": "Pourquoi rien d’autre ne vit :",
     "de": "Warum sonst nichts lebt:",
     "ko": "다른 수로는 살 수 없는 이유:"
+   },
+   "why": {
+    "ru": "Живёт группа с двумя глазами. Этот ход даёт ей форму, которую уже не убить.",
+    "en": "A group with two eyes lives. This move gives it a shape that can no longer be killed.",
+    "es": "Un grupo con dos ojos vive. Esta jugada le da una forma que ya no se puede matar.",
+    "fr": "Un groupe à deux yeux vit. Ce coup lui donne une forme qu’on ne peut plus tuer.",
+    "de": "Eine Gruppe mit zwei Augen lebt. Dieser Zug gibt ihr eine Form, die nicht mehr zu töten ist.",
+    "ko": "두 집이 있으면 삽니다. 이 수가 더는 잡히지 않는 모양을 만들어 줍니다."
    }
   },
   "ld-kill": {
@@ -202,6 +210,14 @@
     "fr": "Pourquoi le groupe ne se sauve pas :",
     "de": "Warum die Gruppe nicht zu retten ist:",
     "ko": "이 그룹을 살릴 수 없는 이유:"
+   },
+   "why": {
+    "ru": "Без двух глаз группа не живёт. Этот ход не даёт сопернику их построить.",
+    "en": "Without two eyes a group can’t live. This move stops the opponent from making them.",
+    "es": "Sin dos ojos, un grupo no vive. Esta jugada impide que el rival los haga.",
+    "fr": "Sans deux yeux, un groupe ne vit pas. Ce coup empêche l’adversaire de les faire.",
+    "de": "Ohne zwei Augen lebt keine Gruppe. Dieser Zug verhindert, dass der Gegner sie macht.",
+    "ko": "두 집이 없으면 살 수 없습니다. 이 수가 상대의 두 집 만들기를 막습니다."
    }
   },
   "ko": {
@@ -275,6 +291,14 @@
     "fr": "Ce que le ko apporte :",
     "de": "Was das Ko bringt:",
     "ko": "패로 얻는 것:"
+   },
+   "why": {
+    "ru": "Прямого ответа у соперника нет — позиция решается через ко. Этот ход его и начинает.",
+    "en": "The opponent has no direct answer — the position is settled by a ko. This move starts it.",
+    "es": "El rival no tiene respuesta directa: la posición se decide por un ko. Esta jugada lo inicia.",
+    "fr": "L’adversaire n’a pas de réponse directe — la position se règle par un ko. Ce coup l’engage.",
+    "de": "Der Gegner hat keine direkte Antwort — die Stellung entscheidet ein Ko. Dieser Zug beginnt es.",
+    "ko": "상대에겐 곧바로 받을 수가 없습니다 — 이 자리는 패로 갈립니다. 이 수가 그 패를 시작합니다."
    }
   },
   "race": {
@@ -351,6 +375,14 @@
     "fr": "Pourquoi la course est gagnée :",
     "de": "Warum das Rennen gewonnen ist:",
     "ko": "수상전을 이기는 이유:"
+   },
+   "why": {
+    "ru": "В гонке свобод выигрывает тот, кто снимает первым. Этот ход выводит тебя вперёд на темп.",
+    "en": "In a capturing race, whoever captures first wins. This move puts you one move ahead.",
+    "es": "En una carrera de capturas gana quien captura primero. Esta jugada te pone un tiempo por delante.",
+    "fr": "Dans un semeai, celui qui capture en premier gagne. Ce coup vous met un temps devant.",
+    "de": "Im Wettlauf gewinnt, wer zuerst schlägt. Dieser Zug bringt dich einen Zug in Führung.",
+    "ko": "수상전은 먼저 잡는 쪽이 이깁니다. 이 수가 한 수 앞서게 해 줍니다."
    }
   },
   "connect": {
@@ -424,6 +456,14 @@
     "fr": "Pourquoi la connexion tient :",
     "de": "Warum die Verbindung hält:",
     "ko": "연결이 유지되는 이유:"
+   },
+   "why": {
+    "ru": "Связанные камни не разрезать, а разрезанные — уязвимы. Этот ход решает связь в твою пользу.",
+    "en": "Connected stones can’t be cut; split stones are weak. This move settles the connection in your favor.",
+    "es": "Las piedras conectadas no se cortan; las separadas son débiles. Esta jugada resuelve la conexión a tu favor.",
+    "fr": "Des pierres reliées ne se coupent pas ; séparées, elles sont faibles. Ce coup règle la connexion en votre faveur.",
+    "de": "Verbundene Steine kann man nicht schneiden, getrennte sind schwach. Dieser Zug klärt die Verbindung zu deinen Gunsten.",
+    "ko": "이어진 돌은 끊기지 않고, 끊긴 돌은 약합니다. 이 수가 연결을 내게 유리하게 정리합니다."
    }
   },
   "capture": {
@@ -521,6 +561,14 @@
     "fr": "Pourquoi pas d’échappatoire :",
     "de": "Warum es kein Entkommen gibt:",
     "ko": "달아날 수 없는 이유:"
+   },
+   "why": {
+    "ru": "Захватить — значит отнять последнюю свободу или закрыть путь к бегству. Этот ход делает именно это.",
+    "en": "To capture is to take the last liberty or close the escape. That’s exactly what this move does.",
+    "es": "Capturar es quitar la última libertad o cerrar la huida. Eso es justo lo que hace esta jugada.",
+    "fr": "Capturer, c’est ôter la dernière liberté ou fermer la fuite. C’est exactement ce que fait ce coup.",
+    "de": "Fangen heißt: die letzte Freiheit nehmen oder die Flucht schließen. Genau das tut dieser Zug.",
+    "ko": "돌을 잡는다는 건 마지막 활로를 없애거나 도망길을 막는 것 — 이 수가 바로 그것입니다."
    }
   }
  }

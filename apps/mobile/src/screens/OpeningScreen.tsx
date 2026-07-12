@@ -1,6 +1,6 @@
 // Opening card: branch list with replay on the board.
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import Goban, { GobanMark } from '../components/Goban';
 import { EMPTY_BOARD, play, sgfToIdx } from '../engine/board';
@@ -62,6 +62,41 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
       .map((c: any) => ({ at: sgfToIdx(c.coord), label: c.label, kind: c.kind }));
   }, [branch, atEnd]);
 
+  // #8: воспроизведение линии по памяти. Игрок сам ставит ходы за обе
+  // стороны; корректность = совпадение с line[cursor] (S6). Переиспользуем
+  // states: доска после cursor ходов = states[cursor], ожидаемый ход —
+  // states[cursor+1].at. Короткая фикс-длина.
+  const REPRO_MAX = 8;
+  const reproMoves = branch.line ?? branch.moves;
+  const reproTarget = Math.min(reproMoves.length, REPRO_MAX);
+  const canReproduce = reproTarget >= 2;
+
+  const [mode, setMode] = useState<'watch' | 'repro'>('watch');
+  const [cursor, setCursor] = useState(0);       // сколько ходов уже воспроизведено
+  const [wrongAt, setWrongAt] = useState<number | null>(null);
+  const [wrongCount, setWrongCount] = useState(0); // подряд ошибок на текущем ходе
+
+  // Вспышка ошибки: показать ~0.9с и убрать. Неверный камень НЕ ставим (S6).
+  useEffect(() => {
+    if (wrongAt == null) return;
+    const id = setTimeout(() => setWrongAt(null), 900);
+    return () => clearTimeout(id);
+  }, [wrongAt]);
+
+  const reproDone = mode === 'repro' && cursor >= reproTarget;
+  const startRepro = () => { setMode('repro'); setCursor(0); setWrongCount(0); setWrongAt(null); };
+  const stopRepro = () => { setMode('watch'); setWrongAt(null); };
+  // «Показать ход» после 2 ошибок: продвигаем на один верный ход (S6).
+  const showNextMove = () => { setWrongCount(0); setWrongAt(null); setCursor((c) => Math.min(reproTarget, c + 1)); };
+  const handleReproTap = (at: number) => {
+    if (cursor >= reproTarget) return;
+    if (at === states[cursor + 1]?.at) {
+      setWrongCount(0); setWrongAt(null); setCursor((c) => c + 1); // верно — прогресс сохраняется
+    } else {
+      setWrongAt(at); setWrongCount((w) => w + 1);                 // ошибка — cursor НЕ двигаем
+    }
+  };
+
   const name = openingDisplayName(family, opening, branch.opening_name, lang);
 
   // Hard lock after the free week: the card shows nothing but the paywall.
@@ -92,7 +127,10 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
         {branches.map((b, i) => (
           <Pressable
             key={b.branch_id}
-            onPress={() => { setBranchIdx(i); setPly(Number.MAX_SAFE_INTEGER); }}
+            onPress={() => {
+              setBranchIdx(i); setPly(Number.MAX_SAFE_INTEGER);
+              setMode('watch'); setCursor(0); setWrongAt(null); setWrongCount(0); // #8
+            }}
             style={[styles.branchBtn, i === branchIdx && styles.branchBtnActive]}
           >
             <Text style={styles.branchBtnText}>{t('branch_n', { n: b.branch_no })}</Text>
@@ -101,31 +139,71 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
       </View>
 
       <Goban
-        position={states[shown].board}
-        lastMove={states[shown].at}
-        marks={marks}
+        position={mode === 'repro' ? states[Math.min(cursor, states.length - 1)].board : states[shown].board}
+        lastMove={mode === 'repro' ? (cursor > 0 ? states[cursor].at : null) : states[shown].at}
+        marks={mode === 'repro'
+          ? (wrongAt != null ? [{ at: wrongAt, label: '✕', kind: 'bad' }] : [])
+          : marks}
+        onPoint={mode === 'repro' ? handleReproTap : undefined}
       />
 
-      <View style={styles.replay}>
-        <Pressable style={styles.btn} onPress={() => setPly(0)}>
-          <Text style={styles.btnText}>⏮</Text>
-        </Pressable>
-        <Pressable style={styles.btn} onPress={() => setPly(Math.max(0, shown - 1))}>
-          <Text style={styles.btnText}>‹</Text>
-        </Pressable>
-        <Text style={styles.plyText}>
-          {shown}/{states.length - 1}
-        </Text>
-        <Pressable
-          style={styles.btn}
-          onPress={() => setPly(Math.min(states.length - 1, shown + 1))}
-        >
-          <Text style={styles.btnText}>›</Text>
-        </Pressable>
-        <Pressable style={styles.btn} onPress={() => setPly(states.length - 1)}>
-          <Text style={styles.btnText}>⏭</Text>
-        </Pressable>
-      </View>
+      {mode === 'watch' ? (
+        <>
+          <View style={styles.replay}>
+            <Pressable style={styles.btn} onPress={() => setPly(0)}>
+              <Text style={styles.btnText}>⏮</Text>
+            </Pressable>
+            <Pressable style={styles.btn} onPress={() => setPly(Math.max(0, shown - 1))}>
+              <Text style={styles.btnText}>‹</Text>
+            </Pressable>
+            <Text style={styles.plyText}>
+              {shown}/{states.length - 1}
+            </Text>
+            <Pressable
+              style={styles.btn}
+              onPress={() => setPly(Math.min(states.length - 1, shown + 1))}
+            >
+              <Text style={styles.btnText}>›</Text>
+            </Pressable>
+            <Pressable style={styles.btn} onPress={() => setPly(states.length - 1)}>
+              <Text style={styles.btnText}>⏭</Text>
+            </Pressable>
+          </View>
+          {canReproduce && (
+            <Pressable style={styles.reproToggle} onPress={startRepro}>
+              <Text style={styles.reproToggleText}>{t('reproduce_line')}</Text>
+            </Pressable>
+          )}
+        </>
+      ) : (
+        <View style={styles.reproPanel}>
+          <Text style={[
+            styles.reproStatus,
+            wrongAt != null && styles.reproStatusBad,
+            reproDone && styles.reproStatusOk,
+          ]}>
+            {reproDone
+              ? t('reproduce_done')
+              : wrongAt != null
+                ? t('reproduce_wrong')
+                : t('reproduce_your_move', { done: cursor, total: reproTarget })}
+          </Text>
+          <View style={styles.reproControls}>
+            {reproDone ? (
+              <Pressable style={styles.btn} onPress={startRepro}>
+                <Text style={styles.btnText}>{t('reproduce_again')}</Text>
+              </Pressable>
+            ) : wrongCount >= 2 ? (
+              <Pressable style={styles.btn} onPress={showNextMove}>
+                <Text style={styles.btnText}>{t('reproduce_show_next')}</Text>
+              </Pressable>
+            ) : null}
+            <Pressable style={styles.btn} onPress={stopRepro}>
+              <Text style={styles.btnText}>{t('reproduce_watch')}</Text>
+            </Pressable>
+          </View>
+        </View>
+      )}
 
       <View style={styles.info}>
         {(branchDescriptions as Record<string, string>)[branch.branch_id] && (
@@ -174,6 +252,16 @@ const styles = StyleSheet.create({
   },
   btnText: { fontSize: 16, color: '#F2EFEA' },
   plyText: { fontSize: 14, minWidth: 48, textAlign: 'center', color: '#F2EFEA' },
+  reproToggle: {
+    alignSelf: 'center', paddingVertical: 8, paddingHorizontal: 18, borderRadius: 10,
+    borderWidth: 1, borderColor: 'rgba(154,120,255,0.45)', backgroundColor: 'rgba(122,92,255,0.12)',
+  },
+  reproToggleText: { fontSize: 14, color: '#C5BBF0', fontWeight: '600' },
+  reproPanel: { gap: 10, alignItems: 'center' },
+  reproStatus: { fontSize: 16, fontFamily: 'Playfair', color: '#EFECE7' },
+  reproStatusBad: { color: '#C96F5A' },
+  reproStatusOk: { color: '#8FBF9E' },
+  reproControls: { flexDirection: 'row', gap: 8, justifyContent: 'center' },
   info: { gap: 4 },
   infoDesc: { fontSize: 14.5, lineHeight: 20, color: '#E8E6E3', marginBottom: 2 },
   infoText: { fontSize: 15, color: '#8E8B85' },

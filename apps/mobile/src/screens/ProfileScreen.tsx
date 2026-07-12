@@ -165,9 +165,10 @@ export default function ProfileScreen({ navigation }: { navigation: any }) {
               return (
                 <View key={s.domain} style={styles.domainRow}>
                   <View style={styles.domainHead}>
-                    <Text style={styles.domainLabel}>{s.label}</Text>
+                    {/* label/level — i18n-ключи из domainStats, обязателен t() */}
+                    <Text style={styles.domainLabel}>{t(s.label as any)}</Text>
                     <Text style={styles.domainMeta}>
-                      {s.rating} · {s.level}
+                      {s.rating} · {t(s.level as any)}
                     </Text>
                   </View>
                   <View style={styles.barTrack}>

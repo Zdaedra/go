@@ -79,7 +79,19 @@ def main_line_depth(tree):
     return best
 
 
+THEME_DOMAIN = {
+    "live": "ld-live", "kill": "ld-kill", "play-inside": "ld-kill",
+    "ko": "ko", "capturing-race": "race", "connect-under": "connect",
+    "net": "capture", "oiotoshi": "capture", "wedge": "connect",
+    "escape": "race",
+}
+
+
 def domain_of(problem):
+    # Per-problem theme (e.g. Hatsuyoron 1982-index re-tag) is authoritative.
+    theme = problem.get("theme")
+    if theme in THEME_DOMAIN:
+        return THEME_DOMAIN[theme]
     sec = problem["section"]
     if sec in DOMAIN_BY_SECTION:
         return DOMAIN_BY_SECTION[sec]

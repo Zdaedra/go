@@ -16,6 +16,7 @@ import { relativeLabel } from '../engine/adaptive2';
 import {
   nextEpisode, recordEpisode, domainLabels, useTrainingProfile,
   placementState, EpisodeOutcome, problemById, sectionProblems,
+  getProfile, completeOnboarding, todayProgress, DAILY_GOAL,
 } from '../state/trainingStats';
 import { recordAttempt } from '../state/tsumegoProgress';
 import { soundForMove, playStone } from '../sound/stones';
@@ -41,6 +42,23 @@ const RUNG_BUTTON_KEY: string[] = [
   'rung_h0', 'rung_h1', 'rung_h2', 'rung_h3', 'rung_h4',
 ];
 
+// #2: адаптивный поток бесконечен — режем его на «чанки» по 5 завершённых
+// эпизодов и показываем итог-чекпоинт (S1). Конечные режимы (повторы/каталог)
+// завершаются на своём терминале, а не по этому порогу.
+const SESSION_CHUNK = 5;
+
+type ChunkStats = { solo: number; hinted: number; reproduced: number; points: number };
+const emptyChunk = (): ChunkStats => ({ solo: 0, hinted: 0, reproduced: 0, points: 0 });
+
+// #3: онбординг «Первые шаги» — 3 фикс. seed-задачи на захват (покажи→вместе→
+// сам). Эп1 guided (подсветка хода + интро об интерфейсе И го), эп2 «сам с
+// доступной подсказкой», эп3 solo. Все три — «сними последнюю свободу».
+const ONBOARDING_SEEDS = [
+  'cap-atari-corner', // угол: белый с 1 дыханием — управляемый
+  'cap-atari-edge',   // край: попробуй сам
+  'cap-atari-1',      // центр: solo (есть h1Zone/hints)
+];
+
 type Walkthrough = { boards: string[]; step: number } | null;
 
 // Шаблоны домена, спроецированные на язык: каждый текст в JSON —
@@ -55,6 +73,9 @@ function domainTemplates(domain: string, lang: Lang) {
     h2: raw.h2.map((x: any) => ({ text: L(x.text), slots: x.slots })),
     h4Reason: raw.h4Reason.map(L),
     h4RefutePrefix: L(raw.h4RefutePrefix),
+    // #1: доменно-инвариантная причина после решения (S5) — одна на домен,
+    // без {move}/hashPick; null если у домена нет шаблона (строка скрыта).
+    why: raw.why ? L(raw.why) : null,
   };
 }
 
@@ -105,7 +126,14 @@ export default function TrainingSessionScreen(
   const placement = placementState(profile);
 
   const [problem, setProblem] = useState<any | null>(null);
-  const [exhausted, setExhausted] = useState(false);
+  // #2: итог сессии. null = идёт эпизод; иначе — экран-итог (S1):
+  // 'chunk' достигнут порог адаптива, 'exhausted' конец очереди/раздела,
+  // 'exit' досрочный выход через «Закончить».
+  const [summaryKind, setSummaryKind] = useState<null | 'chunk' | 'exhausted' | 'exit' | 'onboarding'>(null);
+  // #3: онбординг активен (чистый адаптивный вход нового профиля). onbIdx —
+  // индекс seed-задачи (0..2).
+  const [onboarding, setOnboarding] = useState(false);
+  const onbIdx = useRef(0);
   const [session, setSession] = useState<any>(null);
   const [rung, setRung] = useState<number | null>(null); // макс. открытая ступень
   const [hintText, setHintText] = useState<string | null>(null);
@@ -114,6 +142,7 @@ export default function TrainingSessionScreen(
   const [walk, setWalk] = useState<Walkthrough>(null);
   const [reproducing, setReproducing] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [whyText, setWhyText] = useState<string | null>(null); // #1: причина после решения
   const [sessionSolved, setSessionSolved] = useState(0);
   const [sessionPoints, setSessionPoints] = useState(0);
 
@@ -121,49 +150,97 @@ export default function TrainingSessionScreen(
   const sawSolutionRef = useRef(false);
   const recorded = useRef(false);
 
+  // #2: статистика текущего чанка (S2-классификация) + снапшот mastery на его
+  // старте для честной Δ. profileRef — свежий профиль для снапшота внутри
+  // async finishEpisode (reactive profile там был бы устаревшим).
+  const chunkStats = useRef<ChunkStats>(emptyChunk());
+  const chunkMasteryStart = useRef<Record<string, number> | null>(null);
+  const profileRef = useRef(profile);
+  useEffect(() => { profileRef.current = profile; }, [profile]);
+
   // Сброс per-episode состояния + загрузка конкретной задачи.
   const loadProblem = useCallback((p: any) => {
-    recorded.current = false;
     sawSolutionRef.current = false;
     h0CapUsed.current = undefined;
     setRung(null); setHintText(null); setH3Missing(false);
     setCantChoice(false); setWalk(null); setReproducing(false);
-    setFeedback(null); setExhausted(false);
+    setFeedback(null); setWhyText(null); setSummaryKind(null);
     setProblem(p);
     setSession(startSession(p));
+    // recorded сбрасываем ПОСЛЕДНИМ: в async-контексте (serveTrainer) каждый
+    // setState выше коммитится отдельно, и ранний сброс открывал окно, где
+    // терминальный эффект видел старую solved-пару с recorded=false и
+    // записывал эпизод повторно (двойной Elo + залипший фидбек).
+    recorded.current = false;
   }, []);
 
   // Тренажёр: следующую задачу выбирает движок (с учётом темы / режима повтора).
   const serveTrainer = useCallback(async () => {
     const p = await nextEpisode(pickedDomain, reviewMode);
-    if (!p) { setExhausted(true); setProblem(null); return; }
+    if (!p) { setSummaryKind('exhausted'); setProblem(null); return; }
     loadProblem(p);
   }, [pickedDomain, reviewMode, loadProblem]);
 
   // Каталог: идём по разделу подряд от выбранной задачи (Д11).
   const advanceCatalog = useCallback((idx: number) => {
     const p = catalogList[idx];
-    if (!p) { setExhausted(true); setProblem(null); return; }
+    if (!p) { setSummaryKind('exhausted'); setProblem(null); return; }
     catIdx.current = idx;
     loadProblem(p);
   }, [catalogList, loadProblem]);
 
+  // #3: онбординг — 3 seed-задачи по порядку; после последней помечаем
+  // онбординг пройденным и показываем свой финал (S4).
+  const advanceOnboarding = useCallback((idx: number) => {
+    if (idx >= ONBOARDING_SEEDS.length) {
+      completeOnboarding();
+      setSummaryKind('onboarding');
+      setProblem(null);
+      return;
+    }
+    const p = problemById(ONBOARDING_SEEDS[idx]);
+    if (!p) { setOnboarding(false); serveTrainer(); return; } // seed нет — в адаптив
+    onbIdx.current = idx;
+    loadProblem(p);
+  }, [loadProblem, serveTrainer]);
+
   // Единый переход «дальше» — знает про режим (тренажёр / каталог).
+  // Адаптив: после SESSION_CHUNK завершённых эпизодов — итог-чекпоинт (S1).
   const goNext = useCallback(() => {
-    if (catalogMode) advanceCatalog(catIdx.current + 1);
-    else serveTrainer();
-  }, [catalogMode, advanceCatalog, serveTrainer]);
+    if (onboarding) { advanceOnboarding(onbIdx.current + 1); return; }
+    if (catalogMode) { advanceCatalog(catIdx.current + 1); return; }
+    const c = chunkStats.current;
+    if (!reviewMode && c.solo + c.hinted + c.reproduced >= SESSION_CHUNK) {
+      setSummaryKind('chunk');
+      return;
+    }
+    serveTrainer();
+  }, [onboarding, advanceOnboarding, catalogMode, reviewMode, advanceCatalog, serveTrainer]);
+
+  // #2: «Ещё 5» — новый чанк (сброс счётчиков + пере-снапшот mastery).
+  const continueSession = useCallback(() => {
+    chunkStats.current = emptyChunk();
+    chunkMasteryStart.current = null;
+    setSummaryKind(null);
+    serveTrainer();
+  }, [serveTrainer]);
 
   // Инициализация / переинициализация при смене темы или каталожной задачи.
   useEffect(() => {
     if (catalogMode) {
       const i = Math.max(0, catalogList.findIndex((p) => p.id === catStartId));
       advanceCatalog(i);
-    } else {
-      serveTrainer();
+      return;
     }
+    if (reviewMode || pickedDomain) { serveTrainer(); return; }
+    // #3: чистый адаптивный вход — сперва «Первые шаги», если не пройдены (S4).
+    (async () => {
+      const prof = await getProfile();
+      if (!prof.onboardingDone) { setOnboarding(true); advanceOnboarding(0); }
+      else serveTrainer();
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [catalogMode, catStartId, pickedDomain]);
+  }, [catalogMode, catStartId, pickedDomain, reviewMode]);
 
   // Шапка: «Повторение» в режиме SRS, раздел в каталоге, иначе родовая.
   useEffect(() => {
@@ -242,12 +319,26 @@ export default function TrainingSessionScreen(
   const finishEpisode = useCallback(async (outcome: EpisodeOutcome) => {
     if (!problem || recorded.current) return null;
     recorded.current = true;
+    // #2: снапшот mastery берём перед ПЕРВЫМ recordEpisode чанка — дальше
+    // recordEpisode обновит skillM, и Δ считается честно (S1).
+    if (chunkMasteryStart.current === null) {
+      chunkMasteryStart.current = { ...((profileRef.current?.skillM as any) ?? {}) };
+    }
     recordAttempt(problem.id, outcome.solved || Boolean(outcome.reproduced));
     const res = await recordEpisode(problem, {
       ...outcome, source: catalogMode ? 'catalog' : 'trainer',
     });
     if (outcome.solved) setSessionSolved((n) => n + 1);
     if (res.pointsGained) setSessionPoints((n) => n + res.pointsGained);
+    // #2: классификация исхода для итога (S2). skipped/give-up не считаем.
+    const cs = chunkStats.current;
+    if (outcome.solved && !outcome.sawSolution) {
+      const clean = outcome.hintRung == null && (outcome.weightedWrongCount || 0) === 0;
+      if (clean) cs.solo += 1; else cs.hinted += 1;
+    } else if (outcome.reproduced) {
+      cs.reproduced += 1;
+    }
+    cs.points += res.pointsGained || 0;
     const rate = placement.active
       ? t('fb_calibration', { step: Math.min(placement.step + 1, placement.total), total: placement.total })
       : res.ratingDelta
@@ -260,16 +351,34 @@ export default function TrainingSessionScreen(
           ? t('fb_reproduced', { points: res.pointsGained })
           : t('fb_failed', { rate })
     );
+    // #1: «Почему это работает» — только при честном решении (сам, без разбора).
+    // Текст доменно-инвариантный (S5); при отсутствии шаблона строка скрыта.
+    if (outcome.solved && !outcome.sawSolution && !outcome.reproduced && tpl?.why) {
+      setWhyText(tpl.why);
+    }
     return res;
-  }, [problem, placement, catalogMode, t]);
+  }, [problem, placement, catalogMode, t, tpl]);
 
   // Терминал обычного решения: записать эпизод один раз.
   useEffect(() => {
     if (!session || !problem || recorded.current || walk) return;
+    // Защита от рассинхрона problem/session: loadProblem зовётся из async
+    // (serveTrainer), где setState НЕ батчатся — есть кадр «problem новый,
+    // session ещё старая (solved)». Записывать можно только пару, которая
+    // принадлежит друг другу, иначе новая задача фиксируется решённой сама.
+    if (session.problem?.id !== problem.id) return;
     if (session.status !== 'solved') return;
     if (reproducing) {
       finishEpisode({
         solved: false, // сам не решил (Q=0), но разбор воспроизведён
+        weightedWrongCount: weightedWrongCount(session),
+        hintRung: rung, sawSolution: true, reproduced: true,
+      });
+    } else if (onboarding && onbIdx.current === 0) {
+      // #3/S4: guided эпизод 1 — ход указан пальцем. Пишем как reproduced
+      // (Q=0, без Elo), но задача входит в SRS.
+      finishEpisode({
+        solved: false,
         weightedWrongCount: weightedWrongCount(session),
         hintRung: rung, sawSolution: true, reproduced: true,
       });
@@ -282,7 +391,7 @@ export default function TrainingSessionScreen(
         sawSolution: sawSolutionRef.current,
       });
     }
-  }, [session, problem, walk, reproducing, rung, finishEpisode]);
+  }, [session, problem, walk, reproducing, onboarding, rung, finishEpisode]);
 
   const view = useMemo(() => (problem ? viewRect(problem) : null), [problem]);
 
@@ -352,6 +461,11 @@ export default function TrainingSessionScreen(
       : null;
   const ghosts: GhostStone[] = useMemo(() => {
     if (!problem || !session || walk || session.status !== 'playing') return [];
+    // #3: guided эпизод 1 — сразу подсвечиваем нужную точку (палец).
+    if (onboarding && onbIdx.current === 0) {
+      const at = hintMoveAt(session);
+      if (at != null) return [{ at, color: problem.to_move, label: '★' }];
+    }
     if (rung === 3) {
       const cands = hintCandidates(session);
       if (cands) {
@@ -368,23 +482,98 @@ export default function TrainingSessionScreen(
     return [];
   }, [problem, session, walk, rung]);
 
-  if (exhausted) {
-    const doneText = reviewMode
-      ? t('review_done')
-      : catalogMode
-        ? t('catalog_section_done')
-        : pickedDomain
-          ? t('training_done_domain', { domain: t(domainLabels[pickedDomain] ?? pickedDomain) })
-          : t('training_done');
+  if (summaryKind === 'onboarding') {
     return (
       <View style={styles.donePage}>
         <MistBackground />
-        <Text style={styles.doneTitle}>{doneText}</Text>
-        <PrimaryButton
-          label={catalogMode ? t('btn_back_catalog') : t('to_stats')}
-          dome={false}
-          onPress={() => navigation.goBack()}
-        />
+        <Text style={styles.doneTitle}>{t('onb_done_title')}</Text>
+        <Text style={styles.onbNote}>{t('onb_done_note')}</Text>
+        <View style={styles.summaryActions}>
+          <PrimaryButton
+            label={t('onb_start')}
+            dome={false}
+            onPress={() => {
+              setOnboarding(false);
+              chunkStats.current = emptyChunk();
+              chunkMasteryStart.current = null;
+              setSummaryKind(null);
+              serveTrainer();
+            }}
+            style={styles.nextBtn}
+          />
+          <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
+            <Text style={styles.btnText}>{t('onb_later')}</Text>
+          </Pressable>
+        </View>
+      </View>
+    );
+  }
+  if (summaryKind) {
+    const cs = chunkStats.current;
+    const total = cs.solo + cs.hinted + cs.reproduced;
+    const firstTry = total > 0 ? Math.round((cs.solo / total) * 100) : 0;
+    // Δmastery: только домены с ростом ≥1% (S1: EWMA медленная, иначе 0%/шум).
+    const startM = chunkMasteryStart.current ?? {};
+    const curM = (profile?.skillM as any) ?? {};
+    const gains = Object.keys(curM)
+      .map((d) => ({ d, delta: (curM[d] ?? 0.6) - ((startM as any)[d] ?? 0.6) }))
+      .filter((x) => x.delta >= 0.01)
+      .sort((a, b) => b.delta - a.delta);
+    const title = summaryKind === 'exhausted'
+      ? (reviewMode
+          ? t('review_done')
+          : catalogMode
+            ? t('catalog_section_done')
+            : pickedDomain
+              ? t('training_done_domain', { domain: t(domainLabels[pickedDomain] ?? pickedDomain) })
+              : t('training_done'))
+      : t('session_done');
+    return (
+      <View style={styles.donePage}>
+        <MistBackground />
+        <Text style={styles.doneTitle}>{title}</Text>
+        {total > 0 && (
+          <View style={styles.summaryCard}>
+            <Text style={styles.summaryRow}>{t('session_row_total', { n: total })}</Text>
+            {cs.solo > 0 && <Text style={styles.summaryRow}>{t('session_row_solo', { n: cs.solo })}</Text>}
+            {cs.hinted > 0 && <Text style={styles.summaryRow}>{t('session_row_hinted', { n: cs.hinted })}</Text>}
+            {cs.reproduced > 0 && <Text style={styles.summaryRow}>{t('session_row_reproduced', { n: cs.reproduced })}</Text>}
+            <Text style={styles.summaryRow}>{t('session_row_firsttry', { pct: firstTry })}</Text>
+            {cs.points > 0 && <Text style={styles.summaryRowAccent}>{t('session_row_points', { n: cs.points })}</Text>}
+            {todayProgress(profile) >= DAILY_GOAL && (
+              <Text style={styles.summaryGoalDone}>{t('goal_done')}</Text>
+            )}
+            {gains.map((g) => (
+              <Text key={g.d} style={styles.summaryRowUp}>
+                {t('session_mastery_up', { domain: t(domainLabels[g.d] ?? g.d), pct: Math.round(g.delta * 100) })}
+              </Text>
+            ))}
+          </View>
+        )}
+        <View style={styles.summaryActions}>
+          {summaryKind === 'chunk' ? (
+            <>
+              <PrimaryButton label={t('session_more')} dome={false} onPress={continueSession} style={styles.nextBtn} />
+              <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
+                <Text style={styles.btnText}>{t('btn_finish')}</Text>
+              </Pressable>
+            </>
+          ) : summaryKind === 'exit' ? (
+            <>
+              <PrimaryButton label={t('btn_finish')} dome={false} onPress={() => navigation.goBack()} style={styles.nextBtn} />
+              <Pressable style={styles.btn} onPress={continueSession}>
+                <Text style={styles.btnText}>{t('session_more')}</Text>
+              </Pressable>
+            </>
+          ) : (
+            <PrimaryButton
+              label={catalogMode ? t('btn_back_catalog') : t('btn_finish')}
+              dome={false}
+              onPress={() => navigation.goBack()}
+              style={styles.nextBtn}
+            />
+          )}
+        </View>
       </View>
     );
   }
@@ -400,7 +589,7 @@ export default function TrainingSessionScreen(
       : session.moves.length ? session.moves[session.moves.length - 1].at : null;
 
   const goalText = t(GOAL_KEY[problem.domain] ?? 'goal_default');
-  const statusText = walk
+  let statusText = walk
     ? walk.step === 0
       ? t('walk_intro', { goal: goalText })
       : walk.step + 1 >= walk.boards.length
@@ -415,6 +604,16 @@ export default function TrainingSessionScreen(
           : reproducing
             ? t('status_reproduce')
             : `${t(problem.to_move === 'b' ? 'to_move_black' : 'to_move_white')} ${goalText}`;
+  // #3: онбординг-копирайт (интерфейс + го). Эп1: интро → после захвата;
+  // эп2: нудж «сам». Эп3 и далее — обычный статус.
+  if (onboarding && !walk) {
+    if (onbIdx.current === 0) {
+      if (solvedNow) statusText = t('onb_ep1_after');
+      else if (session.status === 'playing') statusText = t('onb_ep1_intro');
+    } else if (onbIdx.current === 1 && session.status === 'playing') {
+      statusText = t('onb_ep2_intro');
+    }
+  }
 
   return (
     <View style={styles.screen}>
@@ -424,7 +623,11 @@ export default function TrainingSessionScreen(
           <Text style={[styles.domainChip, pickedDomain ? styles.domainChipFocused : null]}>
             {pickedDomain ? '◆ ' : ''}{t(domainLabels[problem.domain] ?? problem.domain)}
           </Text>
-          {placement.active ? (
+          {onboarding ? (
+            <Text style={styles.placementChip}>
+              {t('onb_step', { n: onbIdx.current + 1, total: ONBOARDING_SEEDS.length })}
+            </Text>
+          ) : placement.active ? (
             <Text style={styles.placementChip}>
               {t('chip_calibration', { step: Math.min(placement.step + 1, placement.total), total: placement.total })}
             </Text>
@@ -470,7 +673,15 @@ export default function TrainingSessionScreen(
             {hintText && !walk && session.status === 'playing' && (
               <Text style={styles.hintText}>{hintText}</Text>
             )}
-            {feedback && <Text style={styles.feedback}>{feedback}</Text>}
+            {feedback && !(onboarding && onbIdx.current === 0) && (
+              <Text style={styles.feedback}>{feedback}</Text>
+            )}
+            {whyText && (
+              <View style={styles.whyBox}>
+                <Text style={styles.whyLabel}>{t('why_label')}</Text>
+                <Text style={styles.why}>{whyText}</Text>
+              </View>
+            )}
             {placement.active && !walk && session.status === 'playing' && (
               <Text style={styles.warn}>{t('placement_hint_warn')}</Text>
             )}
@@ -532,7 +743,13 @@ export default function TrainingSessionScreen(
               <Pressable style={styles.btn} onPress={skipProblem}>
                 <Text style={styles.btnText}>{t('btn_skip')}</Text>
               </Pressable>
-              <Pressable style={styles.btn} onPress={() => navigation.goBack()}>
+              <Pressable style={styles.btn} onPress={() => {
+                // #2: досрочный выход — итог, если в чанке есть завершённые
+                // эпизоды; иначе просто выходим (S1).
+                const c = chunkStats.current;
+                if (c.solo + c.hinted + c.reproduced >= 1) setSummaryKind('exit');
+                else navigation.goBack();
+              }}>
                 <Text style={styles.btnText}>{t('btn_finish')}</Text>
               </Pressable>
             </>
@@ -580,6 +797,9 @@ const styles = StyleSheet.create({
   bad: { color: '#C96F5A' },
   hintText: { marginTop: 8, fontSize: 14.5, lineHeight: 20, color: '#F0A878' },
   feedback: { marginTop: 8, fontSize: 14, color: '#C5BBF0', fontWeight: '600' },
+  whyBox: { marginTop: 10 },
+  whyLabel: { fontSize: 10, fontWeight: '600', letterSpacing: 1.6, textTransform: 'uppercase', color: '#8E88B8' },
+  why: { marginTop: 4, fontSize: 13.5, lineHeight: 19, color: '#BCB6C8' },
   warn: { marginTop: 6, fontSize: 12, color: '#C96F5A' },
   hintBtn: {
     paddingVertical: 12, paddingHorizontal: 15, borderRadius: 13,
@@ -598,4 +818,15 @@ const styles = StyleSheet.create({
   nextBtn: { paddingVertical: 12, paddingHorizontal: 22, marginTop: 0 },
   donePage: { flex: 1, justifyContent: 'center', padding: 24, gap: 12 },
   doneTitle: { fontSize: 22, fontWeight: '500', textAlign: 'center', color: '#EFECE7', fontFamily: 'Playfair' },
+  summaryCard: {
+    alignSelf: 'stretch', backgroundColor: 'rgba(6,6,7,0.40)', borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)', borderRadius: 16, padding: 18, gap: 6,
+    marginVertical: 6,
+  },
+  summaryRow: { fontSize: 15, color: '#D8D4E0', fontVariant: ['tabular-nums'] },
+  summaryRowAccent: { fontSize: 15, color: '#C5BBF0', fontWeight: '700', marginTop: 2, fontVariant: ['tabular-nums'] },
+  summaryRowUp: { fontSize: 13.5, color: '#8FBF9E' },
+  summaryGoalDone: { fontSize: 14.5, color: '#9AD1A8', fontWeight: '700', marginTop: 2 },
+  summaryActions: { flexDirection: 'row', gap: 10, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center', marginTop: 4 },
+  onbNote: { fontSize: 14.5, lineHeight: 20, color: '#BCB6C8', textAlign: 'center', maxWidth: 340, alignSelf: 'center' },
 });

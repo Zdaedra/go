@@ -39,7 +39,15 @@ export type TrainingProfile = ReturnType<typeof newProfile> & {
   lastActiveAt?: number;
   streakDays?: number;   // подряд дней с >=1 эпизодом
   streakStamp?: string;  // YYYY-MM-DD последнего дня с эпизодом
+  onboardingDone?: boolean; // #3: пройден ли онбординг «Первые шаги» (S4)
+  todayStamp?: string;      // #4: YYYY-MM-DD дня счётчика цели (S3, локальный)
+  todayCount?: number;      // #4: завершённых задач сегодня (для дневной цели)
+  srsExplained?: boolean;   // #5: показано ли развёрнутое объяснение повторов
 };
+
+// #4: дневная цель. Стрик и цель РАЗВЯЗАНЫ (S3): стрик = «приходил» (>=1),
+// цель = сколько задач за день; связку с заморозками отложили в v2.
+export const DAILY_GOAL = 5;
 
 function dayStamp(d = new Date()): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -52,6 +60,18 @@ function bumpStreak(profile: TrainingProfile) {
   y.setDate(y.getDate() - 1);
   profile.streakDays = profile.streakStamp === dayStamp(y) ? (profile.streakDays ?? 0) + 1 : 1;
   profile.streakStamp = today;
+}
+
+// #4: +1 к дневному счётчику (в отличие от bumpStreak — не идемпотентно).
+// Сброс при смене локального дня.
+function bumpToday(profile: TrainingProfile) {
+  const today = dayStamp();
+  if (profile.todayStamp !== today) {
+    profile.todayStamp = today;
+    profile.todayCount = 1;
+  } else {
+    profile.todayCount = (profile.todayCount ?? 0) + 1;
+  }
 }
 
 let cache: TrainingProfile | null = null;
@@ -93,9 +113,24 @@ async function load(): Promise<TrainingProfile> {
   if (cache) return touchSession(cache);
   try {
     const raw = await AsyncStorage.getItem(KEY);
-    cache = raw ? (JSON.parse(raw) as TrainingProfile) : (newProfile() as TrainingProfile);
+    if (raw) {
+      cache = JSON.parse(raw) as TrainingProfile;
+      // #3: миграция онбординга (S4) — у старых профилей флага нет. Опытного
+      // игрока (есть очки / история / поданные эпизоды) НЕ гоним в «Первые
+      // шаги»; действительно новый профиль (всё по нулям) — гоним.
+      if (cache.onboardingDone === undefined) {
+        cache.onboardingDone =
+          (cache.points || 0) > 0 ||
+          (cache.counter || 0) > 0 ||
+          Object.keys(cache.problems || {}).length > 0;
+      }
+    } else {
+      cache = newProfile() as TrainingProfile;
+      cache.onboardingDone = false; // новый профиль — онбординг идёт
+    }
   } catch {
     cache = newProfile() as TrainingProfile;
+    cache.onboardingDone = false;
   }
   return touchSession(cache);
 }
@@ -108,6 +143,22 @@ async function save(): Promise<void> {
 
 export async function getProfile(): Promise<TrainingProfile> {
   return load();
+}
+
+/** #3: отметить онбординг пройденным (после 3-го seed-эпизода). */
+export async function completeOnboarding(): Promise<void> {
+  const p = await load();
+  p.onboardingDone = true;
+  await save();
+}
+
+/** #5: отметить, что развёрнутое объяснение SRS показано (первый заход в
+    повторы). Дальше карточка показывает компактную ноту. */
+export async function markSrsExplained(): Promise<void> {
+  const p = await load();
+  if (p.srsExplained) return;
+  p.srsExplained = true;
+  await save();
 }
 
 /** Полный сброс профиля тренировки (удаление аккаунта): чистит и хранилище,
@@ -143,9 +194,13 @@ export function dueReviewCount(
   now = Date.now(),
 ): number {
   if (!profile) return 0;
+  // Пул мог сократиться (чистка gen-* 2026-07-12): записи-сироты профиля не
+  // считаем, иначе карточка обещает повторы, которые pickNext не подаст.
+  const poolIds = new Set(trainingPool().map((p: any) => p.id));
   let n = 0;
   const probs = profile.problems as any;
   for (const id in probs) {
+    if (!poolIds.has(id)) continue;
     const r = probs[id];
     if (r && r.dueDate != null && r.dueDate <= now) n += 1;
   }
@@ -160,6 +215,9 @@ export async function recordEpisode(
   const profile = await load();
   const res = recordCore(profile, problem, outcome, Date.now() as any);
   bumpStreak(profile);
+  // #4: к дневной цели засчитываем только завершённые задачи (solved/
+  // reproduced) — как «N задач» в итоге сессии (S2); пропуск не считаем.
+  if (outcome.solved || outcome.reproduced) bumpToday(profile);
   await save();
   return res as EpisodeResult;
 }
@@ -173,6 +231,12 @@ export function streakDays(profile: TrainingProfile | null): number {
   return profile.streakStamp === today || profile.streakStamp === dayStamp(y)
     ? profile.streakDays
     : 0;
+}
+
+/** #4: завершённых задач сегодня (0, если счётчик от прошлого дня). */
+export function todayProgress(profile: TrainingProfile | null): number {
+  if (!profile?.todayStamp) return 0;
+  return profile.todayStamp === dayStamp() ? (profile.todayCount ?? 0) : 0;
 }
 
 /** Placement ещё идёт? Номер эпизода калибровки. */

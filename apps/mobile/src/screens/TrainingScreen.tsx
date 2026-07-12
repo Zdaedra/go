@@ -10,6 +10,7 @@ import {
 import Svg, { Circle, Defs, RadialGradient, Stop, Path } from 'react-native-svg';
 import {
   useTrainingProfile, domainStats, trainingPool, levelLabel, dueReviewCount,
+  todayProgress, DAILY_GOAL, markSrsExplained,
 } from '../state/trainingStats';
 import { useAccess } from '../state/useTrial';
 import PrimaryButton from '../components/PrimaryButton';
@@ -49,6 +50,25 @@ function PlayOrb({ size = 52 }: { size?: number }) {
   );
 }
 
+/** #4: кольцо дневной цели (done/goal). БЕЗ 🔥 внутри — стрик отдельный (S3). */
+function DailyRing({ done, goal, size = 46 }: { done: number; goal: number; size?: number }) {
+  const r = (size - 5) / 2;
+  const circ = 2 * Math.PI * r;
+  const pct = Math.min(1, goal > 0 ? done / goal : 0);
+  const complete = done >= goal;
+  const color = complete ? '#8FBF9E' : '#F0A36A';
+  return (
+    <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      <Circle cx={size / 2} cy={size / 2} r={r} stroke="rgba(255,255,255,0.12)" strokeWidth={3.5} fill="none" />
+      <Circle
+        cx={size / 2} cy={size / 2} r={r} stroke={color} strokeWidth={3.5} fill="none"
+        strokeDasharray={`${circ * pct} ${circ}`} strokeLinecap="round"
+        transform={`rotate(-90 ${size / 2} ${size / 2})`}
+      />
+    </Svg>
+  );
+}
+
 export default function TrainingScreen({ navigation }: { navigation: any }) {
   const t = useT();
   const profile = useTrainingProfile();
@@ -78,6 +98,8 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
   const accuracy = attempts ? Math.round((profile.solved / attempts) * 100) : null;
   const rating = Math.round((profile as any).auser);
   const dueCount = dueReviewCount(profile);
+  const doneToday = todayProgress(profile);
+  const goalMet = doneToday >= DAILY_GOAL;
 
   const byKey = new Map(stats.map((d) => [d.domain, d]));
   const axes: RadarAxis[] = RADAR_ORDER
@@ -123,18 +145,44 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
         </View>
       </View>
 
+      {/* #4: дневная цель — кольцо прогресса дня (стрик отдельный, S3) */}
+      <View style={styles.goalCard}>
+        <View style={styles.goalRingWrap}>
+          <DailyRing done={doneToday} goal={DAILY_GOAL} />
+          <Text style={styles.goalRingText} maxFontSizeMultiplier={1.1}>
+            {Math.min(doneToday, DAILY_GOAL)}/{DAILY_GOAL}
+          </Text>
+        </View>
+        <View style={styles.goalTextWrap}>
+          <Text style={[styles.goalTitle, goalMet && styles.goalTitleDone]}>
+            {goalMet ? t('goal_done') : t('goal_today')}
+          </Text>
+          {!goalMet && (
+            <Text style={styles.goalNote}>{t('goal_left', { n: DAILY_GOAL - doneToday })}</Text>
+          )}
+        </View>
+      </View>
+
       {/* Повторение по SRS (фаза 2): показываем, только если есть просроченные */}
       {dueCount > 0 && (
         <Pressable
           style={({ pressed }) => [styles.reviewCard, pressed && { opacity: 0.85 }]}
-          onPress={() => navigation.navigate('TrainingSession', { review: true })}
+          onPress={() => {
+            // #5: первый заход в повторы — помечаем, что объяснение показано.
+            if (!profile.srsExplained) markSrsExplained();
+            navigation.navigate('TrainingSession', { review: true });
+          }}
         >
           <View style={styles.reviewBadge}>
             <Text style={styles.reviewBadgeText}>↻</Text>
           </View>
           <View style={styles.reviewTextWrap}>
             <Text style={styles.reviewTitle}>{t('review_due', { n: dueCount })}</Text>
-            <Text style={styles.reviewNote}>{t('review_note')}</Text>
+            {/* #5: пока не объяснили — развёрнутое человеческое объяснение SRS,
+                после первого захода — компактная нота. */}
+            <Text style={[styles.reviewNote, !profile.srsExplained && styles.reviewNoteLong]}>
+              {profile.srsExplained ? t('review_note') : t('review_explain')}
+            </Text>
           </View>
           <Text style={styles.playChevron}>›</Text>
         </Pressable>
@@ -295,6 +343,23 @@ const styles = StyleSheet.create({
   reviewTextWrap: { flex: 1, gap: 2 },
   reviewTitle: { fontSize: 16, fontWeight: '700', color: '#F1EDF9' },
   reviewNote: { fontSize: 12.5, lineHeight: 17, color: '#9E99B0' },
+  reviewNoteLong: { lineHeight: 18, marginTop: 1 },
+
+  goalCard: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    borderRadius: 16, borderWidth: 1, borderColor: 'rgba(224,148,106,0.30)',
+    backgroundColor: 'rgba(42,29,32,0.35)',
+    paddingVertical: 10, paddingLeft: 11, paddingRight: 14,
+  },
+  goalRingWrap: { width: 46, height: 46, alignItems: 'center', justifyContent: 'center' },
+  goalRingText: {
+    position: 'absolute', fontSize: 13, fontWeight: '700', color: ui.ink,
+    fontVariant: ['tabular-nums'],
+  },
+  goalTextWrap: { flex: 1, gap: 2 },
+  goalTitle: { fontSize: 16, fontWeight: '700', color: ui.ink },
+  goalTitleDone: { color: '#9AD1A8' },
+  goalNote: { fontSize: 12.5, lineHeight: 17, color: '#9A98A2' },
 
   starHead: {
     flexDirection: 'row', alignItems: 'flex-start',
