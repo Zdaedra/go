@@ -25,8 +25,9 @@ def idx_rc(idx, n):
     return idx % n, idx // n
 
 
-def rc_to_gtp(c, r, n):
-    return f"{GTP_COLS[c]}{n - r}"
+def rc_to_gtp(c, r, height):
+    # GTP row is numbered from the BOTTOM, so it depends on board HEIGHT.
+    return f"{GTP_COLS[c]}{height - r}"
 
 
 def gtp_to_rc(gtp, n):
@@ -75,6 +76,53 @@ def _neighbors_idx(i, n):
         if 0 <= nc < n and 0 <= nr < n:
             out.append(nr * n + nc)
     return out
+
+
+def crop_box(board, n, margin):
+    stones = [(i % n, i // n) for i, ch in enumerate(board) if ch != "."]
+    cs = [c for c, r in stones]
+    rs = [r for c, r in stones]
+    c0 = max(0, min(cs) - margin)
+    c1 = min(n - 1, max(cs) + margin)
+    r0 = max(0, min(rs) - margin)
+    r1 = min(n - 1, max(rs) + margin)
+    return c0, r0, c1, r1
+
+
+def build_request_crop(qid, board, n, to_move, visits, margin):
+    """Crop the problem onto its own tiny board: the shape's bounding box plus
+    a thin margin. The crop edges become walls, so there is no big open area
+    for KataGo to grab instead of solving locally — capturing/killing the group
+    becomes the biggest move because it IS the whole board. Returns (request,
+    crop_dims) so the caller can translate coordinates back."""
+    c0, r0, c1, r1 = crop_box(board, n, margin)
+    w, h = c1 - c0 + 1, r1 - r0 + 1
+    player = "B" if to_move == "b" else "W"
+    stones = []
+    for i, ch in enumerate(board):
+        if ch == ".":
+            continue
+        c, r = i % n, i // n
+        if c0 <= c <= c1 and r0 <= r <= r1:
+            stones.append(["B" if ch == "b" else "W",
+                           rc_to_gtp(c - c0, r - r0, h)])
+    req = {
+        "id": qid,
+        "initialStones": stones,
+        "moves": [],
+        "initialPlayer": player,
+        "rules": "japanese",
+        "komi": 7.0,
+        "boardXSize": w, "boardYSize": h,
+        "maxVisits": visits,
+    }
+    return req, (c0, r0, w, h)
+
+
+def key_to_crop_gtp(key_coord, crop):
+    c0, r0, w, h = crop
+    kc, kr = coord_to_rc(key_coord)
+    return rc_to_gtp(kc - c0, kr - r0, h)
 
 
 def build_request(qid, board, n, to_move, visits, region):
@@ -153,6 +201,10 @@ def main():
     ap.add_argument("--model", required=True)
     ap.add_argument("--config", required=True)
     ap.add_argument("--visits", type=int, default=200)
+    ap.add_argument("--margin", type=int, default=1,
+                    help="crop margin around the shape (crop mode)")
+    ap.add_argument("--no-crop", action="store_true",
+                    help="use whole board + avoidMoves instead of cropping")
     args = ap.parse_args()
 
     data = json.loads(open(args.sample).read())
@@ -164,14 +216,20 @@ def main():
         key = key_of(p)
         if key is None:
             continue
-        region = region_gtp(p["board"], n)
-        kc = coord_to_rc(key)
-        key_gtp = rc_to_gtp(kc[0], kc[1], n)
-        if key_gtp not in region:
-            region.append(key_gtp)
         qid = f"q{i}"
-        requests.append(build_request(qid, p["board"], n, p["to_move"],
-                                      args.visits, region))
+        if args.no_crop:
+            region = region_gtp(p["board"], n)
+            kc = coord_to_rc(key)
+            key_gtp = rc_to_gtp(kc[0], kc[1], n)
+            if key_gtp not in region:
+                region.append(key_gtp)
+            requests.append(build_request(qid, p["board"], n, p["to_move"],
+                                          args.visits, region))
+        else:
+            req, crop = build_request_crop(qid, p["board"], n, p["to_move"],
+                                           args.visits, args.margin)
+            requests.append(req)
+            key_gtp = key_to_crop_gtp(key, crop)
         meta[qid] = (p["id"], key, key_gtp)
 
     best = run_batch(args.katago, args.model, args.config, requests)
