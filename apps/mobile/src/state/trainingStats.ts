@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   newProfile, startSession as startSessionCore, recordEpisode as recordCore,
   pickNext, levelLabel, relativeLabel, ptargetEff, DEFAULT_RATING,
-  PLACEMENT_EPISODES,
+  PLACEMENT_EPISODES, abilityFor,
 } from '../engine/adaptive2';
 import db from '../data/tsumego.json';
 
@@ -115,7 +115,9 @@ export async function getProfile(): Promise<TrainingProfile> {
     только задачи этого домена под его уровень; запись в профиль общая. */
 export async function nextEpisode(domain?: string | null): Promise<any | null> {
   const profile = await load();
-  const p = pickNext(profile, trainingPool(), (domain ?? null) as any);
+  // now (реальное время) — для межсессионного SRS (фаза 2): подаём задачи,
+  // чей интервал повтора по дате наступил.
+  const p = pickNext(profile, trainingPool(), (domain ?? null) as any, Date.now() as any);
   await save();
   return p;
 }
@@ -126,7 +128,7 @@ export async function recordEpisode(
   outcome: EpisodeOutcome
 ): Promise<EpisodeResult> {
   const profile = await load();
-  const res = recordCore(profile, problem, outcome);
+  const res = recordCore(profile, problem, outcome, Date.now() as any);
   bumpStreak(profile);
   await save();
   return res as EpisodeResult;
@@ -169,13 +171,14 @@ export interface DomainStat {
 export function domainStats(profile: TrainingProfile): DomainStat[] {
   const pool = trainingPool();
   const domains = [...new Set(pool.map((p) => p.domain ?? 'ld-live'))];
-  const rating = Math.round((profile as any).auser ?? DEFAULT_RATING);
   return domains.map((d) => {
     const ids = pool.filter((p) => (p.domain ?? 'ld-live') === d).map((p) => p.id);
     const recs = ids
       .map((id) => (profile.problems as any)[id])
       .filter(Boolean);
     const solved = recs.filter((r: any) => r.solved).length;
+    // per-domain ability (фаза 2 поднавыки): Auser + доменный оффсет.
+    const rating = Math.round(abilityFor(profile as any, d));
     return {
       domain: d,
       label: domainLabels[d] ?? d,

@@ -37,7 +37,23 @@ const MAX_REVIEWS_PER_SESSION = 3;
 const M_START = 0.6;
 const M_ALPHA = 0.3;
 
+// --- поднавыки (фаза 2): доменные оффсеты рейтинга ---
+// ability в домене = Auser + domainOffset[domain]. Оффсет дрейфует к
+// остаточному отклонению результата в домене от общего уровня, так что
+// сильный в захвате получает захват сложнее, слабый в ld — ld легче.
+const K_DOMAIN = 16;             // скорость дрейфа оффсета
+const DOMAIN_OFFSET_CAP = 140;   // насколько домен может отстоять от Auser
+
+// --- межсессионный SRS (фаза 2): интервальные повторения по РЕАЛЬНЫМ датам ---
+const DAY_MS = 24 * 60 * 60 * 1000;
+const SRS_INTERVALS_DAYS = [1, 3, 7, 16, 35, 75]; // индекс = rec.srsLevel
+
 function clamp(x, lo, hi) { return Math.min(hi, Math.max(lo, x)); }
+
+/** Ability игрока в конкретном домене = общий Auser + доменный оффсет (фаза 2). */
+function abilityFor(profile, domain) {
+  return profile.auser + ((profile.domainOffset || {})[domain] || 0);
+}
 
 // Старт «с самого низа»: новый игрок начинает новичком и растёт вверх, а не
 // с середины шкалы (продуктовое решение — не презюмировать силу, вести снизу
@@ -58,6 +74,7 @@ function newProfile() {
     recentQ: [],            // последние Q_learning (окно 5)
     lastDomains: [],        // последние поданные домены (окно 5)
     skillM: {},             // domain -> EWMA мастерства
+    domainOffset: {},       // domain -> оффсет рейтинга (поднавыки, фаза 2)
     sourceStats: {},        // source -> {episodes, cleanFirst} (телеметрия §5)
     points: 0,
     solved: 0,              // эпизоды, решённые самостоятельно
@@ -106,8 +123,9 @@ function qRating(outcome, isFirstMeeting) {
  * Записать завершённый эпизод. Возвращает
  * { qR, qL, ratingDelta, pointsGained, auser }.
  */
-function recordEpisode(profile, problem, outcome) {
+function recordEpisode(profile, problem, outcome, now = null) {
   const D = problem.difficulty || scaleMeta.median;
+  const domain = problem.domain || 'ld-live';
   // Источник эпизода (Д11.9): 'trainer' (подбор) | 'catalog' (выбор игрока
   // в каталоге) | 'placement'. Оба контура питаются из любого source.
   const source = outcome.source || 'trainer';
@@ -149,6 +167,12 @@ function recordEpisode(profile, problem, outcome) {
       ratingDelta = Math.round(K * (qR - E));
       profile.auser += ratingDelta;
       profile.ratedEpisodes += 1;
+      // поднавык (фаза 2): доменный оффсет дрейфует к остаточному отклонению
+      // результата в ЭТОМ домене от ожидания по его текущей ability.
+      const off = profile.domainOffset || (profile.domainOffset = {});
+      const Edom = 1 / (1 + Math.pow(10, (D - abilityFor(profile, domain)) / 400));
+      off[domain] = clamp((off[domain] || 0) + K_DOMAIN * (qR - Edom),
+        -DOMAIN_OFFSET_CAP, DOMAIN_OFFSET_CAP);
     }
   }
 
@@ -160,7 +184,6 @@ function recordEpisode(profile, problem, outcome) {
     rec.hintRungMax = rec.hintRungMax == null
       ? outcome.hintRung : Math.max(rec.hintRungMax, outcome.hintRung);
   }
-  const domain = problem.domain || 'ld-live';
   const m = profile.skillM[domain] ?? M_START;
   profile.skillM[domain] = M_ALPHA * qL + (1 - M_ALPHA) * m;
 
@@ -178,13 +201,30 @@ function recordEpisode(profile, problem, outcome) {
     profile.frustration = Math.min(0, profile.frustration + FRUST_DECAY);
   }
 
-  // повторы (v1 — внутрисессионные, по счётчику эпизодов)
+  // повторы внутри сессии (по счётчику эпизодов)
   if (!outcome.solved || outcome.sawSolution) {
     rec.dueEpisode = profile.counter + REVIEW_AFTER_FAIL;
   } else if (rec.tries > 1 || (outcome.weightedWrongCount || 0) > 0) {
     rec.dueEpisode = profile.counter + REVIEW_AFTER_RETRY;
   } else {
-    rec.dueEpisode = null; // чистое решение: межсессионный повтор — фаза 2
+    rec.dueEpisode = null; // чистое решение — внутрисессионно не повторяем
+  }
+
+  // межсессионный SRS (фаза 2): интервальная лестница по РЕАЛЬНЫМ датам.
+  // Чистое решение растит интервал (1→3→7→16→35→75 дней); любой промах или
+  // подсказка сбрасывает его в начало. Задача вернётся в другой день.
+  if (now != null) {
+    const cleanSolve = outcome.solved && !outcome.sawSolution
+      && (outcome.weightedWrongCount || 0) === 0
+      && (outcome.hintRung == null || outcome.hintRung === 0);
+    if (cleanSolve) {
+      const lvl = rec.srsLevel || 0;            // текущий уровень задаёт интервал
+      rec.dueDate = now + SRS_INTERVALS_DAYS[lvl] * DAY_MS;
+      rec.srsLevel = Math.min(lvl + 1, SRS_INTERVALS_DAYS.length - 1); // затем растём
+    } else {
+      rec.srsLevel = 0;                          // промах/подсказка — в начало
+      rec.dueDate = now + SRS_INTERVALS_DAYS[0] * DAY_MS;
+    }
   }
 
   // --- очки (§8): отдельная сущность ---
@@ -230,7 +270,7 @@ function dtarget(profile) {
  * подаём только задачи этого домена, но по той же логике уровня (Dtarget)
  * и с той же записью в профиль — это донатит в общую систему обучения.
  */
-function pickNext(profile, pool, domainFilter = null) {
+function pickNext(profile, pool, domainFilter = null, now = null) {
   profile.counter += 1;
   if (domainFilter) {
     pool = pool.filter((p) => (p.domain || 'ld-live') === domainFilter);
@@ -254,7 +294,28 @@ function pickNext(profile, pool, domainFilter = null) {
     return pick;
   }
 
-  // -- гейт повторов: до MAX_REVIEWS_PER_SESSION за сессию, не подряд --
+  // -- межсессионный SRS (фаза 2): задачи, чей срок повтора по ДАТЕ наступил.
+  // Высший приоритет среди повторов — интервал ждал дни; тот же лимит на
+  // сессию и «не подряд». Обновит dueDate/srsLevel при recordEpisode.
+  if (now != null && profile.reviewsServed < MAX_REVIEWS_PER_SESSION &&
+      profile.lastReviewAt !== profile.counter - 1) {
+    const dueSrs = pool.filter((p) => {
+      const r = profile.problems[p.id];
+      return r && r.dueDate != null && r.dueDate <= now;
+    });
+    if (dueSrs.length) {
+      dueSrs.sort((a, b) =>
+        profile.problems[a.id].dueDate - profile.problems[b.id].dueDate);
+      const pick = dueSrs[0];
+      profile.problems[pick.id].wasDueWhenServed = true;
+      profile.reviewsServed += 1;
+      profile.lastReviewAt = profile.counter;
+      profile.lastDomains = [...profile.lastDomains.slice(-4), pick.domain];
+      return pick;
+    }
+  }
+
+  // -- гейт повторов внутри сессии: до MAX_REVIEWS_PER_SESSION, не подряд --
   if (profile.reviewsServed < MAX_REVIEWS_PER_SESSION &&
       profile.lastReviewAt !== profile.counter - 1) {
     const due = pool.filter((p) => {
@@ -276,7 +337,11 @@ function pickNext(profile, pool, domainFilter = null) {
   }
 
   // -- utility по невиданным --
-  const Dt = dtarget(profile);
+  // Целевая сложность считается per-domain (фаза 2): для каждого кандидата от
+  // ability именно его домена, так что сложность матчится к поднавыку.
+  const pEff = ptargetEff(profile);
+  const dtfor = (dom) =>
+    abilityFor(profile, dom) + 400 * Math.log10((1 - pEff) / pEff);
   const unseen = pool.filter((p) => !profile.problems[p.id]?.firstMeetingDone);
   if (!unseen.length) return null;
 
@@ -291,6 +356,7 @@ function pickNext(profile, pool, domainFilter = null) {
   for (const p of unseen) {
     const D = p.difficulty || scaleMeta.median;
     const domain = p.domain || 'ld-live';
+    const Dt = dtfor(domain);
     const difficultyMatch = Math.exp(-((D - Dt) ** 2) / (2 * SIGMA * SIGMA));
     const skillNeed = clamp(1 - (profile.skillM[domain] ?? M_START), 0, 1);
     const recent = profile.lastDomains.filter((d) => d === domain).length;
@@ -311,9 +377,11 @@ function pickNext(profile, pool, domainFilter = null) {
 
 // ---------------------------------------------------------------- метки
 
-/** Относительная метка сложности (i18n-ключ rel_*). */
+/** Относительная метка сложности (i18n-ключ rel_*). Относительно ability в
+    домене задачи (фаза 2), а не только общего Auser. */
 function relativeLabel(profile, problem) {
-  const d = (problem.difficulty || scaleMeta.median) - profile.auser;
+  const d = (problem.difficulty || scaleMeta.median)
+    - abilityFor(profile, problem.domain || 'ld-live');
   if (d <= -250) return 'rel_warmup';
   if (d <= -100) return 'rel_comfy';
   if (d <= 100) return 'rel_right';
@@ -336,6 +404,7 @@ const DEFAULT_RATING = START_RATING;
 module.exports = {
   newProfile, startSession, recordEpisode, pickNext,
   qLearning, qRating, ptargetEff, dtarget, relativeLabel, levelLabel,
+  abilityFor,
   HINT_CAP, PLACEMENT_EPISODES, MAX_REVIEWS_PER_SESSION, DEFAULT_RATING,
-  START_RATING, scaleMeta,
+  START_RATING, SRS_INTERVALS_DAYS, scaleMeta,
 };
