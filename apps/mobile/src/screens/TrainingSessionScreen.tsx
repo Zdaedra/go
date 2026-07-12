@@ -88,6 +88,8 @@ export default function TrainingSessionScreen(
   // Игрок мог выбрать конкретную тему на радаре/в прогрессе — тогда сессия
   // подаёт задачи только этого домена (под его уровень), запись общая.
   const pickedDomain: string | null = route?.params?.domain ?? null;
+  // Режим повторения (фаза 2): подаём только просроченные по SRS задачи.
+  const reviewMode: boolean = route?.params?.review === true;
   // Каталог (Д11/Д12): та же логика эпизода, но задачи берутся из выбранного
   // раздела по порядку, а не подбором. Первая встреча тоже rated (§2).
   const catalogMode: boolean = route?.params?.source === 'catalog';
@@ -131,12 +133,12 @@ export default function TrainingSessionScreen(
     setSession(startSession(p));
   }, []);
 
-  // Тренажёр: следующую задачу выбирает движок (с учётом выбранной темы).
+  // Тренажёр: следующую задачу выбирает движок (с учётом темы / режима повтора).
   const serveTrainer = useCallback(async () => {
-    const p = await nextEpisode(pickedDomain);
+    const p = await nextEpisode(pickedDomain, reviewMode);
     if (!p) { setExhausted(true); setProblem(null); return; }
     loadProblem(p);
-  }, [pickedDomain, loadProblem]);
+  }, [pickedDomain, reviewMode, loadProblem]);
 
   // Каталог: идём по разделу подряд от выбранной задачи (Д11).
   const advanceCatalog = useCallback((idx: number) => {
@@ -163,14 +165,16 @@ export default function TrainingSessionScreen(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [catalogMode, catStartId, pickedDomain]);
 
-  // Каталожная шапка: раздел вместо родового «Тренировка».
+  // Шапка: «Повторение» в режиме SRS, раздел в каталоге, иначе родовая.
   useEffect(() => {
-    if (catalogMode && catCat && catSec) {
+    if (reviewMode) {
+      navigation.setOptions({ title: t('review_title') });
+    } else if (catalogMode && catCat && catSec) {
       navigation.setOptions({
         title: `${t(categoryKey(catCat))} · ${t(sectionKey(catCat, catSec))}`,
       });
     }
-  }, [catalogMode, catCat, catSec, navigation, t]);
+  }, [reviewMode, catalogMode, catCat, catSec, navigation, t]);
 
   const tpl = useMemo(
     () => (problem ? domainTemplates(problem.domain, lang) : null),
@@ -365,11 +369,13 @@ export default function TrainingSessionScreen(
   }, [problem, session, walk, rung]);
 
   if (exhausted) {
-    const doneText = catalogMode
-      ? t('catalog_section_done')
-      : pickedDomain
-        ? t('training_done_domain', { domain: t(domainLabels[pickedDomain] ?? pickedDomain) })
-        : t('training_done');
+    const doneText = reviewMode
+      ? t('review_done')
+      : catalogMode
+        ? t('catalog_section_done')
+        : pickedDomain
+          ? t('training_done_domain', { domain: t(domainLabels[pickedDomain] ?? pickedDomain) })
+          : t('training_done');
     return (
       <View style={styles.donePage}>
         <MistBackground />

@@ -2134,5 +2134,37 @@
     "fr": "Au catalogue",
     "de": "Zum Katalog",
     "ko": "목록으로"
+  },
+  "review_due": {
+    "ru": "{n} на повторение",
+    "en": "{n} to review",
+    "es": "{n} para repasar",
+    "fr": "{n} à réviser",
+    "de": "{n} zum Wiederholen",
+    "ko": "복습 {n}개"
+  },
+  "review_note": {
+    "ru": "Интервальное повторение — закрепи, пока помнишь",
+    "en": "Spaced repetition — lock it in while it’s fresh",
+    "es": "Repetición espaciada — afiánzalo mientras lo recuerdas",
+    "fr": "Répétition espacée — ancre-le tant que c’est frais",
+    "de": "Verteiltes Wiederholen — festigen, solange es frisch ist",
+    "ko": "간격 반복 — 기억이 생생할 때 굳혀요"
+  },
+  "review_title": {
+    "ru": "Повторение",
+    "en": "Review",
+    "es": "Repaso",
+    "fr": "Révision",
+    "de": "Wiederholung",
+    "ko": "복습"
+  },
+  "review_done": {
+    "ru": "Повторы на сегодня сделаны 🎉",
+    "en": "Today’s reviews are done 🎉",
+    "es": "Los repasos de hoy están hechos 🎉",
+    "fr": "Les révisions du jour sont faites 🎉",
+    "de": "Die heutigen Wiederholungen sind erledigt 🎉",
+    "ko": "오늘 복습을 끝냈어요 🎉"
   }
 }

@@ -113,13 +113,35 @@ export async function getProfile(): Promise<TrainingProfile> {
 /** Подать следующую задачу (гейт повторов -> utility).
     domain — если игрок сам выбрал область на радаре/в прогрессе, подаём
     только задачи этого домена под его уровень; запись в профиль общая. */
-export async function nextEpisode(domain?: string | null): Promise<any | null> {
+export async function nextEpisode(
+  domain?: string | null,
+  reviewOnly = false,
+): Promise<any | null> {
   const profile = await load();
   // now (реальное время) — для межсессионного SRS (фаза 2): подаём задачи,
-  // чей интервал повтора по дате наступил.
-  const p = pickNext(profile, trainingPool(), (domain ?? null) as any, Date.now() as any);
+  // чей интервал повтора по дате наступил. reviewOnly — режим «повторение».
+  const p = pickNext(
+    profile, trainingPool(), (domain ?? null) as any,
+    Date.now() as any, reviewOnly as any,
+  );
   await save();
   return p;
+}
+
+/** Сколько задач готово к повтору по SRS-сроку (dueDate <= now). Драйвер
+    привычки — показывается карточкой на экране «Обучение» (фаза 2 surface). */
+export function dueReviewCount(
+  profile: TrainingProfile | null,
+  now = Date.now(),
+): number {
+  if (!profile) return 0;
+  let n = 0;
+  const probs = profile.problems as any;
+  for (const id in probs) {
+    const r = probs[id];
+    if (r && r.dueDate != null && r.dueDate <= now) n += 1;
+  }
+  return n;
 }
 
 /** Записать завершённый эпизод (один раз на задачу-эпизод). */

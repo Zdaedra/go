@@ -270,10 +270,28 @@ function dtarget(profile) {
  * подаём только задачи этого домена, но по той же логике уровня (Dtarget)
  * и с той же записью в профиль — это донатит в общую систему обучения.
  */
-function pickNext(profile, pool, domainFilter = null, now = null) {
+function pickNext(profile, pool, domainFilter = null, now = null, reviewOnly = false) {
   profile.counter += 1;
   if (domainFilter) {
     pool = pool.filter((p) => (p.domain || 'ld-live') === domainFilter);
+  }
+
+  // -- режим повторения (фаза 2 surface): подаём ТОЛЬКО просроченные по SRS,
+  // без лимитов сессии, пока не кончатся. recordEpisode переносит dueDate
+  // вперёд, поэтому решённая задача выпадает и сессия доходит до конца.
+  if (reviewOnly) {
+    if (now == null) return null;
+    const due = pool.filter((p) => {
+      const r = profile.problems[p.id];
+      return r && r.dueDate != null && r.dueDate <= now;
+    });
+    if (!due.length) return null;
+    due.sort((a, b) =>
+      profile.problems[a.id].dueDate - profile.problems[b.id].dueDate);
+    const pick = due[0];
+    profile.problems[pick.id].wasDueWhenServed = true;
+    profile.lastDomains = [...profile.lastDomains.slice(-4), pick.domain];
+    return pick;
   }
 
   // -- placement: bisection мимо utility --

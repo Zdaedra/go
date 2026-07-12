@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Svg, { Circle, Defs, RadialGradient, Stop, Path } from 'react-native-svg';
 import {
-  useTrainingProfile, domainStats, trainingPool, levelLabel,
+  useTrainingProfile, domainStats, trainingPool, levelLabel, dueReviewCount,
 } from '../state/trainingStats';
 import { useAccess } from '../state/useTrial';
 import PrimaryButton from '../components/PrimaryButton';
@@ -77,6 +77,7 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
   const attempts = profile.solved + profile.failed;
   const accuracy = attempts ? Math.round((profile.solved / attempts) * 100) : null;
   const rating = Math.round((profile as any).auser);
+  const dueCount = dueReviewCount(profile);
 
   const byKey = new Map(stats.map((d) => [d.domain, d]));
   const axes: RadarAxis[] = RADAR_ORDER
@@ -118,6 +119,23 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
           <Text style={styles.statLevel}>{t(levelLabel(rating))}</Text>
         </View>
       </View>
+
+      {/* Повторение по SRS (фаза 2): показываем, только если есть просроченные */}
+      {dueCount > 0 && (
+        <Pressable
+          style={({ pressed }) => [styles.reviewCard, pressed && { opacity: 0.85 }]}
+          onPress={() => navigation.navigate('TrainingSession', { review: true })}
+        >
+          <View style={styles.reviewBadge}>
+            <Text style={styles.reviewBadgeText}>↻</Text>
+          </View>
+          <View style={styles.reviewTextWrap}>
+            <Text style={styles.reviewTitle}>{t('review_due', { n: dueCount })}</Text>
+            <Text style={styles.reviewNote}>{t('review_note')}</Text>
+          </View>
+          <Text style={styles.playChevron}>›</Text>
+        </Pressable>
+      )}
 
       {/* CTA: Играть */}
       <Pressable
@@ -258,6 +276,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)',
   },
   playChevron: { fontSize: 19, color: ui.inkSoft, marginTop: -2 },
+
+  reviewCard: {
+    flexDirection: 'row', alignItems: 'center', gap: 11,
+    borderRadius: 16, borderWidth: 1, borderColor: 'rgba(154,120,255,0.42)',
+    backgroundColor: 'rgba(122,92,255,0.13)',
+    paddingVertical: 10, paddingLeft: 11, paddingRight: 12,
+  },
+  reviewBadge: {
+    width: 38, height: 38, borderRadius: 19, alignItems: 'center',
+    justifyContent: 'center', backgroundColor: 'rgba(154,120,255,0.20)',
+    borderWidth: 1, borderColor: 'rgba(154,120,255,0.45)',
+  },
+  reviewBadgeText: { fontSize: 20, color: '#C5BBF0', marginTop: -1 },
+  reviewTextWrap: { flex: 1, gap: 2 },
+  reviewTitle: { fontSize: 16, fontWeight: '700', color: '#F1EDF9' },
+  reviewNote: { fontSize: 12.5, lineHeight: 17, color: '#9E99B0' },
 
   starHead: {
     flexDirection: 'row', alignItems: 'flex-start',
