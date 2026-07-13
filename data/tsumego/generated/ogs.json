@@ -15,6 +15,10 @@
      "title": "connect"
     },
     {
+     "id": "ld-kill",
+     "title": "ld-kill"
+    },
+    {
      "id": "ld-live",
      "title": "ld-live"
     }
@@ -7344,12 +7348,12 @@
   {
    "id": "ogs-7850-68731",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "capture",
    "title": "Capture a Stone",
    "to_move": "b",
    "size": 19,
    "board": ".................................................................................................................................................................b.................bw..................b.................................................................................................................................................................",
-   "domain": "ld-live",
+   "domain": "capture",
    "difficulty": 1000,
    "tree": [
     {
@@ -7371,12 +7375,12 @@
   {
    "id": "ogs-7850-68732",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "capture",
    "title": "Capture Two Stones",
    "to_move": "b",
    "size": 19,
    "board": ".................................................................................................................................................................bb................bww.................bb................................................................................................................................................................",
-   "domain": "ld-live",
+   "domain": "capture",
    "difficulty": 1000,
    "tree": [
     {
@@ -7398,12 +7402,12 @@
   {
    "id": "ogs-7850-68733",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "capture",
    "title": "Capture Three Stones",
    "to_move": "b",
    "size": 19,
    "board": "..............................................................................................................................................b.................bw.................bwwb................bb................................................................................................................................................................",
-   "domain": "ld-live",
+   "domain": "capture",
    "difficulty": 1000,
    "tree": [
     {
@@ -7425,12 +7429,12 @@
   {
    "id": "ogs-7850-68734",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "capture",
    "title": "Capture From Within",
    "to_move": "b",
    "size": 19,
    "board": ".............................................................................................................................................bbb...............bwwwb..............bw.wb..............bwwwb...............bbb.............................................................................................................................................",
-   "domain": "ld-live",
+   "domain": "capture",
    "difficulty": 1000,
    "tree": [
     {
@@ -7452,12 +7456,12 @@
   {
    "id": "ogs-7850-68735",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "capture",
    "title": "Capture in a Ladder",
    "to_move": "b",
    "size": 19,
    "board": ".......................................................................wb................bwb.................b...........................................................................................................................................................................................................................................................",
-   "domain": "ld-live",
+   "domain": "capture",
    "difficulty": 1000,
    "tree": [
     {
@@ -7597,12 +7601,12 @@
   {
    "id": "ogs-7850-68737",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "capture",
    "title": "Capture in a Net",
    "to_move": "b",
    "size": 19,
    "board": ".........................................................................................................................w.....................b.................wb................bwb.................b.................................................................................................................................................................",
-   "domain": "ld-live",
+   "domain": "capture",
    "difficulty": 1000,
    "tree": [
     {
@@ -7830,12 +7834,12 @@
   {
    "id": "ogs-7850-68740",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "ld-kill",
    "title": "Kill - Straight Three",
    "to_move": "b",
    "size": 19,
    "board": "..............bw.................bwwww.............b.bbbb................................................................................................................................................................................................................................................................................................................",
-   "domain": "ld-live",
+   "domain": "ld-kill",
    "difficulty": 1110,
    "tree": [
     {
@@ -7954,12 +7958,12 @@
   {
    "id": "ogs-7850-68742",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "ld-kill",
    "title": "Kill - Bent Three",
    "to_move": "b",
    "size": 19,
    "board": "...............bw.................bww...............b.bww................bbb.............................................................................................................................................................................................................................................................................................",
-   "domain": "ld-live",
+   "domain": "ld-kill",
    "difficulty": 1110,
    "tree": [
     {
@@ -8045,12 +8049,12 @@
   {
    "id": "ogs-7850-68744",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "ld-kill",
    "title": "Kill: Pyramid Four",
    "to_move": "b",
    "size": 19,
    "board": ".............................................................................................................................................bbbb.............bbwwwb.............bww.wwb............bw...wb.............bwwwbb.............bbbb..........................................................................................................................",
-   "domain": "ld-live",
+   "domain": "ld-kill",
    "difficulty": 1110,
    "tree": [
     {
@@ -8152,12 +8156,12 @@
   {
    "id": "ogs-7850-68748",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "ld-kill",
    "title": "Kill: Crossed Five",
    "to_move": "b",
    "size": 19,
    "board": ".........................................................................................................................bbbb...............bwwwbb............bww.wwb............bw...wb............bww.wwb............bbwwwb...............bbbb.........................................................................................................................",
-   "domain": "ld-live",
+   "domain": "ld-kill",
    "difficulty": 1110,
    "tree": [
     {
@@ -8294,12 +8298,12 @@
   {
    "id": "ogs-7850-68747",
    "category": "ogs",
-   "section": "ld-live",
+   "section": "ld-kill",
    "title": "Kill - Bulky Five",
    "to_move": "b",
    "size": 19,
    "board": "............................................................................................................................................bbbb..............bwwwwbb............bw..wwb............bw...wb............bbwwwwb..............bbbb.........................................................................................................................",
-   "domain": "ld-live",
+   "domain": "ld-kill",
    "difficulty": 1110,
    "tree": [
     {
@@ -8392,6 +8396,4471 @@
     "collection": 7850,
     "collection_label": "Absolute Basics I",
     "owner": "ElysianOne",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-4253-30279",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Basic Life 1",
+   "to_move": "b",
+   "size": 9,
+   "board": "....wb.......wbbbb....wwwww......................................................",
+   "domain": "ld-live",
+   "difficulty": 1000,
+   "tree": [
+    {
+     "at": "ha",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "ga",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ha",
+       "by": "w",
+       "children": [
+        {
+         "at": "ia",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ha",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ia",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ha",
+       "by": "w",
+       "children": [
+        {
+         "at": "ga",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ha",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 4253,
+    "collection_label": "Basic Life puzzles",
+    "owner": "KyleBurg",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-4253-30280",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Basic Life 2",
+   "to_move": "b",
+   "size": 9,
+   "board": ".....wb.......wbb......wwbb......www.............................................",
+   "domain": "ld-live",
+   "difficulty": 1000,
+   "tree": [
+    {
+     "at": "ia",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 4253,
+    "collection_label": "Basic Life puzzles",
+    "owner": "KyleBurg",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-4253-30283",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Basic Life 4",
+   "to_move": "b",
+   "size": 9,
+   "board": "...................wwwwwww..wbbbbbw..wb...bw..wbbbbbw..wwwwwww...................",
+   "domain": "ld-live",
+   "difficulty": 1000,
+   "tree": [
+    {
+     "at": "ee",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 4253,
+    "collection_label": "Basic Life puzzles",
+    "owner": "KyleBurg",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-4253-30284",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Basic Life 5",
+   "to_move": "b",
+   "size": 9,
+   "board": ".wb...bw..wbbbbbw..wwwwwww.......................................................",
+   "domain": "ld-live",
+   "difficulty": 1000,
+   "tree": [
+    {
+     "at": "ea",
+     "by": "b",
+     "tag": "correct"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 4253,
+    "collection_label": "Basic Life puzzles",
+    "owner": "KyleBurg",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-4765-36659",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "the under",
+   "to_move": "w",
+   "size": 9,
+   "board": "..bbw......bw.w.....bbwwww...bwbwbb.bbwwbwb..wbw.bb....wwb.b....w.wb.............",
+   "domain": "ld-live",
+   "difficulty": 1440,
+   "tree": [
+    {
+     "at": "bd",
+     "by": "w",
+     "children": [
+      {
+       "at": "eb",
+       "by": "b",
+       "children": [
+        {
+         "at": "fa",
+         "by": "w",
+         "children": [
+          {
+           "at": "ag",
+           "by": "b",
+           "children": [
+            {
+             "at": "ad",
+             "by": "w",
+             "children": [
+              {
+               "at": "ic",
+               "by": "b",
+               "children": [
+                {
+                 "at": "ib",
+                 "by": "w",
+                 "children": [
+                  {
+                   "at": "ha",
+                   "by": "b",
+                   "children": [
+                    {
+                     "at": "id",
+                     "by": "w",
+                     "children": [
+                      {
+                       "at": "ie",
+                       "by": "b",
+                       "children": [
+                        {
+                         "at": "gf",
+                         "by": "w",
+                         "children": [
+                          {
+                           "at": "ic",
+                           "by": "b",
+                           "children": [
+                            {
+                             "at": "hb",
+                             "by": "w",
+                             "children": [
+                              {
+                               "at": "ga",
+                               "by": "b",
+                               "children": [
+                                {
+                                 "at": "id",
+                                 "by": "w",
+                                 "children": [
+                                  {
+                                   "at": "bc",
+                                   "by": "b",
+                                   "children": [
+                                    {
+                                     "at": "af",
+                                     "by": "w",
+                                     "children": [
+                                      {
+                                       "at": "ic",
+                                       "by": "b",
+                                       "children": [
+                                        {
+                                         "at": "hf",
+                                         "by": "w",
+                                         "children": [
+                                          {
+                                           "at": "ia",
+                                           "by": "b",
+                                           "children": [
+                                            {
+                                             "at": "gb",
+                                             "by": "w",
+                                             "children": [
+                                              {
+                                               "at": "ha",
+                                               "by": "b",
+                                               "children": [
+                                                {
+                                                 "at": "he",
+                                                 "by": "w",
+                                                 "tag": "correct"
+                                                }
+                                               ]
+                                              }
+                                             ]
+                                            },
+                                            {
+                                             "at": "id",
+                                             "by": "w",
+                                             "tag": "wrong",
+                                             "children": [
+                                              {
+                                               "at": "ac",
+                                               "by": "b",
+                                               "children": [
+                                                {
+                                                 "at": "he",
+                                                 "by": "w",
+                                                 "tag": "wrong",
+                                                 "children": [
+                                                  {
+                                                   "at": "be",
+                                                   "by": "b",
+                                                   "children": [
+                                                    {
+                                                     "at": "ae",
+                                                     "by": "w",
+                                                     "tag": "wrong",
+                                                     "children": [
+                                                      {
+                                                       "at": "bf",
+                                                       "by": "b"
+                                                      }
+                                                     ]
+                                                    }
+                                                   ]
+                                                  }
+                                                 ]
+                                                }
+                                               ]
+                                              }
+                                             ]
+                                            }
+                                           ]
+                                          }
+                                         ]
+                                        }
+                                       ]
+                                      }
+                                     ]
+                                    },
+                                    {
+                                     "at": "he",
+                                     "by": "w",
+                                     "tag": "wrong"
+                                    }
+                                   ]
+                                  }
+                                 ]
+                                }
+                               ]
+                              }
+                             ]
+                            }
+                           ]
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "at": "ha",
+                 "by": "w",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "hb",
+                   "by": "b"
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "at": "hb",
+               "by": "b",
+               "children": [
+                {
+                 "at": "id",
+                 "by": "w",
+                 "children": [
+                  {
+                   "at": "hf",
+                   "by": "b",
+                   "children": [
+                    {
+                     "at": "ha",
+                     "by": "w",
+                     "children": [
+                      {
+                       "at": "gb",
+                       "by": "b",
+                       "children": [
+                        {
+                         "at": "ib",
+                         "by": "w",
+                         "tag": "correct"
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 4765,
+    "collection_label": "9x9 life and death",
+    "owner": "I am kill",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-4765-40586",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "life and death",
+   "to_move": "b",
+   "size": 9,
+   "board": "............bwwww....bbwbb.....bwwwb....bwwb...b..bbb.....b......b...............",
+   "domain": "ld-live",
+   "difficulty": 1396,
+   "tree": [
+    {
+     "at": "ic",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ib",
+       "by": "w",
+       "children": [
+        {
+         "at": "ie",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ea",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ib",
+     "by": "b",
+     "children": [
+      {
+       "at": "ic",
+       "by": "w",
+       "children": [
+        {
+         "at": "hc",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ea",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ic",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ga",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ha",
+       "by": "w",
+       "children": [
+        {
+         "at": "ea",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "fa",
+           "by": "w",
+           "children": [
+            {
+             "at": "ic",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "ib",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ia",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ic",
+       "by": "w",
+       "children": [
+        {
+         "at": "ib",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ha",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ha",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ic",
+       "by": "w",
+       "children": [
+        {
+         "at": "ga",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ea",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "fa",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ic",
+       "by": "w",
+       "children": [
+        {
+         "at": "ea",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ga",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "da",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ea",
+       "by": "w",
+       "children": [
+        {
+         "at": "ic",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ib",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 4765,
+    "collection_label": "9x9 life and death",
+    "owner": "I am kill",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-4765-41313",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "life an death",
+   "to_move": "w",
+   "size": 9,
+   "board": ".......................w...w........ww....w..w.....ww.wwwwwwbw.bbwbbwbb..bb.bb...",
+   "domain": "ld-live",
+   "difficulty": 1462,
+   "tree": [
+    {
+     "at": "ih",
+     "by": "w",
+     "children": [
+      {
+       "at": "hi",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "ig",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ih",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "gi",
+     "by": "w",
+     "children": [
+      {
+       "at": "ih",
+       "by": "b",
+       "children": [
+        {
+         "at": "hi",
+         "by": "w",
+         "children": [
+          {
+           "at": "ii",
+           "by": "b",
+           "children": [
+            {
+             "at": "gi",
+             "by": "w",
+             "children": [
+              {
+               "at": "hi",
+               "by": "b",
+               "children": [
+                {
+                 "at": "ig",
+                 "by": "w",
+                 "children": [
+                  {
+                   "at": "gi",
+                   "by": "b",
+                   "children": [
+                    {
+                     "at": "di",
+                     "by": "w",
+                     "tag": "correct"
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "hi",
+     "by": "w",
+     "children": [
+      {
+       "at": "ih",
+       "by": "b",
+       "children": [
+        {
+         "at": "gi",
+         "by": "w",
+         "children": [
+          {
+           "at": "ii",
+           "by": "b",
+           "children": [
+            {
+             "at": "gi",
+             "by": "w",
+             "children": [
+              {
+               "at": "hi",
+               "by": "b"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ii",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ih",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 4765,
+    "collection_label": "9x9 life and death",
+    "owner": "I am kill",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19895",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 1",
+   "to_move": "w",
+   "size": 19,
+   "board": "......................................................................................................................................ww................bbw.................bw................bbw....................................bw................bb.w................www...........................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1220,
+   "tree": [
+    {
+     "at": "bl",
+     "by": "w",
+     "children": [
+      {
+       "at": "al",
+       "by": "b",
+       "children": [
+        {
+         "at": "cl",
+         "by": "w",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "al",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bl",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "cl",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bl",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19887",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 2",
+   "to_move": "b",
+   "size": 19,
+   "board": ".................................................................................................................................................................................................................................................................................bbbbbb.............bwwwwb.............bw..wb.............bw.w.b...............w.........",
+   "domain": "ld-live",
+   "difficulty": 1220,
+   "tree": [
+    {
+     "at": "jq",
+     "by": "b",
+     "children": [
+      {
+       "at": "ls",
+       "by": "w",
+       "children": [
+        {
+         "at": "lr",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "kq",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "jq",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "jr",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "jq",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "lr",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "jq",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ls",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "jq",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19896",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 3",
+   "to_move": "b",
+   "size": 19,
+   "board": "...................................................................................................................ww................wbw.................bw.................bw.................bw..................bw................bbw................ww.w.............................................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1220,
+   "tree": [
+    {
+     "at": "al",
+     "by": "b",
+     "children": [
+      {
+       "at": "an",
+       "by": "w",
+       "children": [
+        {
+         "at": "am",
+         "by": "b",
+         "children": [
+          {
+           "at": "ai",
+           "by": "w",
+           "children": [
+            {
+             "at": "aj",
+             "by": "b",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "am",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "al",
+       "by": "w",
+       "children": [
+        {
+         "at": "ak",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ai",
+           "by": "w"
+          }
+         ]
+        },
+        {
+         "at": "ai",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ak",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19898",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 4",
+   "to_move": "w",
+   "size": 19,
+   "board": "...................................................................................................................................................................................................................................................................................wwwww.............wbbbbbww...........w..bwb.w...........w.bb.b.ww............w.b......",
+   "domain": "ld-live",
+   "difficulty": 1220,
+   "tree": [
+    {
+     "at": "jq",
+     "by": "w",
+     "children": [
+      {
+       "at": "os",
+       "by": "b",
+       "children": [
+        {
+         "at": "or",
+         "by": "w",
+         "children": [
+          {
+           "at": "js",
+           "by": "b",
+           "children": [
+            {
+             "at": "jr",
+             "by": "w",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "jr",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "jq",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "os",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "jq",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "js",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "jq",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19899",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 5",
+   "to_move": "b",
+   "size": 19,
+   "board": "...................................................................................................................................w...............www.w.............wbbb...............w....b.............wbbb................wwwbb.................ww................w.................................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1220,
+   "tree": [
+    {
+     "at": "rj",
+     "by": "b",
+     "children": [
+      {
+       "at": "oj",
+       "by": "w",
+       "children": [
+        {
+         "at": "pj",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ri",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "rk",
+       "by": "w",
+       "children": [
+        {
+         "at": "sk",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "rj",
+           "by": "w",
+           "children": [
+            {
+             "at": "qj",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "oj",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "rj",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "sk",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "rk",
+     "by": "b",
+     "children": [
+      {
+       "at": "ri",
+       "by": "w",
+       "children": [
+        {
+         "at": "rj",
+         "by": "b",
+         "children": [
+          {
+           "at": "oj",
+           "by": "w",
+           "children": [
+            {
+             "at": "pj",
+             "by": "b",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "oj",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "rj",
+       "by": "w",
+       "children": [
+        {
+         "at": "ri",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "rk",
+           "by": "w",
+           "children": [
+            {
+             "at": "qj",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "sk",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "rk",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ri",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19891",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 6",
+   "to_move": "w",
+   "size": 19,
+   "board": ".................................................................................................................................................................................................................................................................................bb.bbb.............bw.bwb............bbww.wb...........bbw..wwb.................w.......",
+   "domain": "ld-live",
+   "difficulty": 1242,
+   "tree": [
+    {
+     "at": "js",
+     "by": "w",
+     "children": [
+      {
+       "at": "ir",
+       "by": "b",
+       "children": [
+        {
+         "at": "hs",
+         "by": "w",
+         "children": [
+          {
+           "at": "gs",
+           "by": "b",
+           "children": [
+            {
+             "at": "is",
+             "by": "w",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "is",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "js",
+       "by": "b",
+       "children": [
+        {
+         "at": "jr",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "gs",
+           "by": "b",
+           "children": [
+            {
+             "at": "ks",
+             "by": "w",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "hs",
+               "by": "b"
+              }
+             ]
+            },
+            {
+             "at": "hs",
+             "by": "w",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "ir",
+               "by": "b"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "jr",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "hs",
+       "by": "b",
+       "children": [
+        {
+         "at": "is",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "gs",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "hs",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "js",
+       "by": "b",
+       "children": [
+        {
+         "at": "jr",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "is",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ir",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "js",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19893",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 7",
+   "to_move": "w",
+   "size": 19,
+   "board": "......................................................................................................................................bb.................wb................wwb..................w.b................w.b..............w.wb................wbb...............bwb................bbbb........................................................................",
+   "domain": "ld-live",
+   "difficulty": 1242,
+   "tree": [
+    {
+     "at": "bl",
+     "by": "w",
+     "children": [
+      {
+       "at": "an",
+       "by": "b",
+       "children": [
+        {
+         "at": "bm",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ak",
+           "by": "b"
+          }
+         ]
+        },
+        {
+         "at": "ak",
+         "by": "w",
+         "children": [
+          {
+           "at": "bm",
+           "by": "b",
+           "children": [
+            {
+             "at": "bn",
+             "by": "w",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "al",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "an",
+       "by": "b",
+       "children": [
+        {
+         "at": "bk",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bm",
+           "by": "b"
+          }
+         ]
+        },
+        {
+         "at": "bm",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bk",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "bk",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "an",
+       "by": "b",
+       "children": [
+        {
+         "at": "bm",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "al",
+           "by": "b"
+          }
+         ]
+        },
+        {
+         "at": "al",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bm",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "bm",
+     "by": "w",
+     "tag": "wrong"
+    },
+    {
+     "at": "ak",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bl",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19890",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 8",
+   "to_move": "w",
+   "size": 19,
+   "board": ".....................................................................................................................................................................................................................................................................................b...............bbb.b............b.bwwbb............bw.w.wb..............w.w........",
+   "domain": "ld-live",
+   "difficulty": 1242,
+   "tree": [
+    {
+     "at": "ir",
+     "by": "w",
+     "children": [
+      {
+       "at": "ms",
+       "by": "b",
+       "children": [
+        {
+         "at": "ls",
+         "by": "w",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ls",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ir",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19892",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 9",
+   "to_move": "w",
+   "size": 19,
+   "board": "...................................................................................................................................................................................................................................................................................................bbbbbb.............bwwwwbbb...........bw.w.wwb................b.b.....",
+   "domain": "ld-live",
+   "difficulty": 1242,
+   "tree": [
+    {
+     "at": "ks",
+     "by": "w",
+     "children": [
+      {
+       "at": "ms",
+       "by": "b",
+       "children": [
+        {
+         "at": "is",
+         "by": "w",
+         "children": [
+          {
+           "at": "kr",
+           "by": "b",
+           "children": [
+            {
+             "at": "lr",
+             "by": "w",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "is",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ks",
+       "by": "b",
+       "children": [
+        {
+         "at": "kr",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ms",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "kr",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ms",
+       "by": "b",
+       "children": [
+        {
+         "at": "is",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ks",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "js",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "kr",
+       "by": "b",
+       "children": [
+        {
+         "at": "ks",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ms",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19886",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 10",
+   "to_move": "w",
+   "size": 19,
+   "board": "...............................................................................................wwww...............wbbwbb.............w.bbwb.............bb.bw................bww................b..w.............bbbbw..............bw..w...............ww...............................................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1242,
+   "tree": [
+    {
+     "at": "bh",
+     "by": "w",
+     "tag": "correct"
+    },
+    {
+     "at": "aj",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bj",
+       "by": "b",
+       "children": [
+        {
+         "at": "bh",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ak",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "bk",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bh",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "ak",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bh",
+       "by": "b",
+       "children": [
+        {
+         "at": "bj",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bk",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "bj",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "aj",
+       "by": "b",
+       "children": [
+        {
+         "at": "bh",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bk",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19897",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 11",
+   "to_move": "b",
+   "size": 19,
+   "board": ".............................................................................................................................................................................................................................................................bbbb................wwwbb..........b.bbw..wb...........bbwwwbwb...........bww.wbwb...........bbbw...b.......",
+   "domain": "ld-live",
+   "difficulty": 1264,
+   "tree": [
+    {
+     "at": "jp",
+     "by": "b",
+     "children": [
+      {
+       "at": "js",
+       "by": "w",
+       "children": [
+        {
+         "at": "ks",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "js",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "jp",
+       "by": "w",
+       "children": [
+        {
+         "at": "ks",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "is",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ks",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "jp",
+       "by": "w",
+       "children": [
+        {
+         "at": "js",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "is",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19901",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 12",
+   "to_move": "b",
+   "size": 19,
+   "board": "................................................................................................................................wwwww..............wbbb...............wb................wwbb.w............wbwwwb.............wb..wbb............wbbbbbw.............wwwwww...............................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1264,
+   "tree": [
+    {
+     "at": "ri",
+     "by": "b",
+     "children": [
+      {
+       "at": "sh",
+       "by": "w",
+       "children": [
+        {
+         "at": "si",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "sh",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "rj",
+       "by": "w",
+       "children": [
+        {
+         "at": "ri",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "pl",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "rj",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "sh",
+       "by": "w",
+       "children": [
+        {
+         "at": "ri",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "si",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19919",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 14",
+   "to_move": "w",
+   "size": 19,
+   "board": "..........................................................................................................................................................................................................................................................................w...................wwww...............bb.w..............b..bw.................b.w.............",
+   "domain": "ld-live",
+   "difficulty": 1264,
+   "tree": [
+    {
+     "at": "bs",
+     "by": "w",
+     "children": [
+      {
+       "at": "br",
+       "by": "b",
+       "children": [
+        {
+         "at": "cs",
+         "by": "w",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "cs",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bs",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "cr",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bs",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "br",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bs",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19918",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 15",
+   "to_move": "b",
+   "size": 19,
+   "board": "........................................................................................................................................................................................................................................................w...................ww...............w.bw................bbw...............b..bww................................",
+   "domain": "ld-live",
+   "difficulty": 1264,
+   "tree": [
+    {
+     "at": "bs",
+     "by": "b",
+     "children": [
+      {
+       "at": "cr",
+       "by": "w",
+       "children": [
+        {
+         "at": "ds",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "cs",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bs",
+       "by": "w",
+       "children": [
+        {
+         "at": "br",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "es",
+           "by": "w",
+           "children": [
+            {
+             "at": "ds",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "cr",
+               "by": "w"
+              }
+             ]
+            },
+            {
+             "at": "as",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "ds",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "cr",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bs",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "br",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "cs",
+       "by": "w",
+       "children": [
+        {
+         "at": "ds",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bs",
+           "by": "w"
+          }
+         ]
+        },
+        {
+         "at": "bs",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ds",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19900",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 16",
+   "to_move": "b",
+   "size": 19,
+   "board": "...............................................................................................................bbb...............b..w...............bww...............bwb................bwww...............b.b.w.............b.bbw.................bww................bb................................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1286,
+   "tree": [
+    {
+     "at": "rk",
+     "by": "b",
+     "children": [
+      {
+       "at": "rg",
+       "by": "w",
+       "children": [
+        {
+         "at": "si",
+         "by": "b",
+         "children": [
+          {
+           "at": "ri",
+           "by": "w",
+           "children": [
+            {
+             "at": "sj",
+             "by": "b",
+             "children": [
+              {
+               "at": "sh",
+               "by": "w",
+               "children": [
+                {
+                 "at": "sj",
+                 "by": "b",
+                 "children": [
+                  {
+                   "at": "si",
+                   "by": "w",
+                   "children": [
+                    {
+                     "at": "sn",
+                     "by": "b",
+                     "tag": "correct"
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "at": "sn",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "sj",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "sn",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "sj",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "si",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "rk",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "sn",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "rk",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19917",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 17",
+   "to_move": "b",
+   "size": 19,
+   "board": "..........................................................................................................................................................................................................................................................................ww...................ww...............bbbwww................bbw...............b.ww.............",
+   "domain": "ld-live",
+   "difficulty": 1286,
+   "tree": [
+    {
+     "at": "br",
+     "by": "b",
+     "children": [
+      {
+       "at": "as",
+       "by": "w",
+       "children": [
+        {
+         "at": "ds",
+         "by": "b",
+         "children": [
+          {
+           "at": "bs",
+           "by": "w",
+           "children": [
+            {
+             "at": "ar",
+             "by": "b",
+             "children": [
+              {
+               "at": "bs",
+               "by": "w",
+               "children": [
+                {
+                 "at": "as",
+                 "by": "b",
+                 "tag": "correct"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "bs",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ds",
+           "by": "w"
+          }
+         ]
+        },
+        {
+         "at": "ar",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ds",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "bs",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ds",
+       "by": "w",
+       "children": [
+        {
+         "at": "cr",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ar",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ds",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "br",
+       "by": "w",
+       "children": [
+        {
+         "at": "bs",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ar",
+           "by": "w"
+          }
+         ]
+        },
+        {
+         "at": "ar",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bs",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ar",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ds",
+       "by": "w",
+       "children": [
+        {
+         "at": "cr",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bs",
+           "by": "w"
+          }
+         ]
+        },
+        {
+         "at": "bs",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "cr",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "cr",
+     "by": "b",
+     "tag": "wrong"
+    },
+    {
+     "at": "as",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "br",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19922",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 19",
+   "to_move": "b",
+   "size": 19,
+   "board": ".....................................................................................................................................bbbbb..............wwwwwb..................b.............b.w.wb...............b.wb..............wwwbb.............bbbb..............................................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1286,
+   "tree": [
+    {
+     "at": "bl",
+     "by": "b",
+     "children": [
+      {
+       "at": "dl",
+       "by": "w",
+       "children": [
+        {
+         "at": "am",
+         "by": "b",
+         "children": [
+          {
+           "at": "bk",
+           "by": "w",
+           "children": [
+            {
+             "at": "al",
+             "by": "b",
+             "children": [
+              {
+               "at": "ej",
+               "by": "w",
+               "children": [
+                {
+                 "at": "aj",
+                 "by": "b",
+                 "tag": "correct"
+                },
+                {
+                 "at": "dj",
+                 "by": "b",
+                 "children": [
+                  {
+                   "at": "aj",
+                   "by": "w",
+                   "children": [
+                    {
+                     "at": "cj",
+                     "by": "b",
+                     "tag": "correct"
+                    }
+                   ]
+                  },
+                  {
+                   "at": "cj",
+                   "by": "w",
+                   "children": [
+                    {
+                     "at": "aj",
+                     "by": "b",
+                     "tag": "correct"
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ej",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bl",
+       "by": "w",
+       "children": [
+        {
+         "at": "bk",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "dj",
+           "by": "w",
+           "children": [
+            {
+             "at": "am",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "dl",
+               "by": "w"
+              }
+             ]
+            },
+            {
+             "at": "al",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "dl",
+               "by": "w"
+              }
+             ]
+            },
+            {
+             "at": "bj",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "dl",
+               "by": "w"
+              }
+             ]
+            },
+            {
+             "at": "dl",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "dk",
+               "by": "w",
+               "children": [
+                {
+                 "at": "am",
+                 "by": "b",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "al",
+                   "by": "w",
+                   "children": [
+                    {
+                     "at": "dl",
+                     "by": "b",
+                     "tag": "wrong",
+                     "children": [
+                      {
+                       "at": "cl",
+                       "by": "w"
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "dl",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bl",
+       "by": "w",
+       "children": [
+        {
+         "at": "al",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bk",
+           "by": "w",
+           "children": [
+            {
+             "at": "ej",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "dk",
+               "by": "w",
+               "children": [
+                {
+                 "at": "am",
+                 "by": "b",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "aj",
+                   "by": "w"
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "at": "am",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "ej",
+               "by": "w",
+               "children": [
+                {
+                 "at": "aj",
+                 "by": "b",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "bj",
+                   "by": "w",
+                   "children": [
+                    {
+                     "at": "dk",
+                     "by": "b",
+                     "tag": "wrong",
+                     "children": [
+                      {
+                       "at": "dj",
+                       "by": "w"
+                      }
+                     ]
+                    },
+                    {
+                     "at": "dj",
+                     "by": "b",
+                     "tag": "wrong",
+                     "children": [
+                      {
+                       "at": "dk",
+                       "by": "w"
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19923",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 20",
+   "to_move": "b",
+   "size": 19,
+   "board": ".............................................................................................................................................................................................................................................b...................bb..............bbbwwb.............bww.wb.............bww.b.b............bw..w.b..............w.w.......",
+   "domain": "ld-live",
+   "difficulty": 1286,
+   "tree": [
+    {
+     "at": "kr",
+     "by": "b",
+     "children": [
+      {
+       "at": "kq",
+       "by": "w",
+       "children": [
+        {
+         "at": "kp",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "kp",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "kr",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "kq",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "kr",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19904",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 21",
+   "to_move": "w",
+   "size": 19,
+   "board": "...................................................................................................................w..................ww...................w...............bbbw.w.................w..............b.b.w...............b.bw...................w.............wwwww...............bbbb.......................................................................",
+   "domain": "ld-live",
+   "difficulty": 1308,
+   "tree": [
+    {
+     "at": "bk",
+     "by": "w",
+     "children": [
+      {
+       "at": "ck",
+       "by": "b",
+       "children": [
+        {
+         "at": "cn",
+         "by": "w",
+         "children": [
+          {
+           "at": "an",
+           "by": "b",
+           "children": [
+            {
+             "at": "bn",
+             "by": "w",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "dl",
+         "by": "w",
+         "children": [
+          {
+           "at": "bn",
+           "by": "b",
+           "children": [
+            {
+             "at": "an",
+             "by": "w",
+             "children": [
+              {
+               "at": "cn",
+               "by": "b",
+               "children": [
+                {
+                 "at": "dn",
+                 "by": "w",
+                 "tag": "correct"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "dn",
+         "by": "w",
+         "children": [
+          {
+           "at": "bn",
+           "by": "b",
+           "children": [
+            {
+             "at": "an",
+             "by": "w",
+             "children": [
+              {
+               "at": "cn",
+               "by": "b",
+               "children": [
+                {
+                 "at": "dl",
+                 "by": "w",
+                 "tag": "correct"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "bn",
+         "by": "w",
+         "children": [
+          {
+           "at": "cn",
+           "by": "b",
+           "children": [
+            {
+             "at": "dn",
+             "by": "w",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ck",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bk",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "cn",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bk",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "bn",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bk",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "an",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bk",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19905",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 22",
+   "to_move": "w",
+   "size": 19,
+   "board": "..........................................................................................................................................................................................................................................b.bb..............b.b..b.............bwwww.bb.........b.b.w..w.b..........bbwwb.wbb..........bw.b.wwb.b.............wbb........",
+   "domain": "ld-live",
+   "difficulty": 1308,
+   "tree": [
+    {
+     "at": "gr",
+     "by": "w",
+     "children": [
+      {
+       "at": "ls",
+       "by": "b",
+       "children": [
+        {
+         "at": "ir",
+         "by": "w",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ir",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "gr",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19920",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 23",
+   "to_move": "w",
+   "size": 19,
+   "board": ".........................................................b.bbb...............bwwwb.............wwb..bbb...........w..wb.wwb..........bwwbww.bb............bbbbb.............b..................bb........................................................................................................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1308,
+   "tree": [
+    {
+     "at": "cg",
+     "by": "w",
+     "children": [
+      {
+       "at": "df",
+       "by": "b",
+       "children": [
+        {
+         "at": "ef",
+         "by": "w",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "df",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "cg",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "ef",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "df",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "ai",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "cg",
+       "by": "b"
+      }
+     ]
+    },
+    {
+     "at": "fg",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "cg",
+       "by": "b"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19924",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 24",
+   "to_move": "b",
+   "size": 19,
+   "board": ".................................................................................................................................................................................................................................................................................ww.ww..............w..bw............wwwbbbww...........wbbb..bww..........w.wb..........",
+   "domain": "ld-live",
+   "difficulty": 1308,
+   "tree": [
+    {
+     "at": "ks",
+     "by": "b",
+     "children": [
+      {
+       "at": "gs",
+       "by": "w",
+       "children": [
+        {
+         "at": "jr",
+         "by": "b",
+         "children": [
+          {
+           "at": "ms",
+           "by": "w",
+           "children": [
+            {
+             "at": "ls",
+             "by": "b",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "gs",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "kr",
+       "by": "w",
+       "children": [
+        {
+         "at": "ls",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ms",
+           "by": "w",
+           "children": [
+            {
+             "at": "ks",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "js",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "ks",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ls",
+           "by": "w",
+           "children": [
+            {
+             "at": "jr",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "lr",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19935",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 25",
+   "to_move": "b",
+   "size": 19,
+   "board": "......................................................................................................................................................................................................................................................................w..........wwwwwww............w.bb.bbw..........w.bbw..bw...........wwbb.wbww......................",
+   "domain": "ld-live",
+   "difficulty": 1308,
+   "tree": [
+    {
+     "at": "ns",
+     "by": "b",
+     "children": [
+      {
+       "at": "lp",
+       "by": "w",
+       "children": [
+        {
+         "at": "lq",
+         "by": "b",
+         "children": [
+          {
+           "at": "mq",
+           "by": "w",
+           "children": [
+            {
+             "at": "lr",
+             "by": "b",
+             "children": [
+              {
+               "at": "os",
+               "by": "w",
+               "children": [
+                {
+                 "at": "ms",
+                 "by": "b",
+                 "tag": "correct"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "at": "ms",
+             "by": "b",
+             "children": [
+              {
+               "at": "os",
+               "by": "w",
+               "children": [
+                {
+                 "at": "lr",
+                 "by": "b",
+                 "tag": "correct"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "at": "ls",
+             "by": "b",
+             "children": [
+              {
+               "at": "os",
+               "by": "w",
+               "children": [
+                {
+                 "at": "ms",
+                 "by": "b",
+                 "tag": "correct"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "lr",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "lq",
+           "by": "w",
+           "children": [
+            {
+             "at": "mq",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "js",
+               "by": "w",
+               "children": [
+                {
+                 "at": "ms",
+                 "by": "b",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "ks",
+                   "by": "w"
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "lq",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ns",
+       "by": "w",
+       "children": [
+        {
+         "at": "ls",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ms",
+           "by": "w",
+           "children": [
+            {
+             "at": "lr",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "js",
+               "by": "w"
+              }
+             ]
+            },
+            {
+             "at": "js",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "lr",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "lr",
+     "by": "b",
+     "children": [
+      {
+       "at": "ns",
+       "by": "w",
+       "children": [
+        {
+         "at": "mq",
+         "by": "b",
+         "children": [
+          {
+           "at": "ms",
+           "by": "w",
+           "children": [
+            {
+             "at": "ls",
+             "by": "b",
+             "children": [
+              {
+               "at": "os",
+               "by": "w",
+               "children": [
+                {
+                 "at": "js",
+                 "by": "b",
+                 "children": [
+                  {
+                   "at": "lp",
+                   "by": "w",
+                   "children": [
+                    {
+                     "at": "lq",
+                     "by": "b",
+                     "tag": "correct"
+                    }
+                   ]
+                  },
+                  {
+                   "at": "lq",
+                   "by": "w",
+                   "children": [
+                    {
+                     "at": "lp",
+                     "by": "b",
+                     "tag": "correct"
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19937",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 26",
+   "to_move": "b",
+   "size": 19,
+   "board": ".........................................................................................................................................................................................................................................................w................ww.................bbw.................bbww.................bw................bww..............",
+   "domain": "ld-live",
+   "difficulty": 1330,
+   "tree": [
+    {
+     "at": "ar",
+     "by": "b",
+     "children": [
+      {
+       "at": "cr",
+       "by": "w",
+       "children": [
+        {
+         "at": "bs",
+         "by": "b",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "cr",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ar",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "br",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "cr",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "bs",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ar",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19938",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 27",
+   "to_move": "b",
+   "size": 19,
+   "board": "...........................................................................................................................................................................................................................................................................ww................b..w................bwww...............wbbw.................b...............",
+   "domain": "ld-live",
+   "difficulty": 1330,
+   "tree": [
+    {
+     "at": "bs",
+     "by": "b",
+     "children": [
+      {
+       "at": "ar",
+       "by": "w",
+       "children": [
+        {
+         "at": "aq",
+         "by": "b",
+         "children": [
+          {
+           "at": "ao",
+           "by": "w",
+           "children": [
+            {
+             "at": "as",
+             "by": "b",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "bp",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "es",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ar",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bs",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "aq",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bs",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19939",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 28",
+   "to_move": "b",
+   "size": 19,
+   "board": ".............wb..w..............wb.bw..............wbwbbw.............wwbbw................www...........................................................................................................................................................................................................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1330,
+   "tree": [
+    {
+     "at": "sb",
+     "by": "b",
+     "children": [
+      {
+       "at": "sa",
+       "by": "w",
+       "children": [
+        {
+         "at": "qa",
+         "by": "b",
+         "children": [
+          {
+           "at": "pb",
+           "by": "w",
+           "children": [
+            {
+             "at": "pa",
+             "by": "b",
+             "children": [
+              {
+               "at": "pc",
+               "by": "w",
+               "children": [
+                {
+                 "at": "sb",
+                 "by": "b",
+                 "tag": "correct"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "qa",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "pb",
+       "by": "w",
+       "children": [
+        {
+         "at": "pa",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "pc",
+           "by": "w",
+           "children": [
+            {
+             "at": "sb",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "pb",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "pb",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "qa",
+       "by": "w",
+       "children": [
+        {
+         "at": "sb",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "sd",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "pa",
+     "by": "b",
+     "tag": "wrong"
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19940",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 29",
+   "to_move": "b",
+   "size": 19,
+   "board": "..w...................wbb..............wwb.wb..............wb.b..............bbb.........................................................................................................................................................................................................................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1330,
+   "tree": [
+    {
+     "at": "bb",
+     "by": "b",
+     "children": [
+      {
+       "at": "ab",
+       "by": "w",
+       "children": [
+        {
+         "at": "ba",
+         "by": "b",
+         "children": [
+          {
+           "at": "ad",
+           "by": "w",
+           "children": [
+            {
+             "at": "bd",
+             "by": "b",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "ad",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ba",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ac",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bb",
+       "by": "w",
+       "children": [
+        {
+         "at": "ab",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ad",
+           "by": "w",
+           "children": [
+            {
+             "at": "bd",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "aa",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "ad",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ab",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ab",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bb",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ba",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "bb",
+       "by": "w",
+       "children": [
+        {
+         "at": "ea",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "aa",
+           "by": "w"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19941",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 30",
+   "to_move": "w",
+   "size": 19,
+   "board": "...............................................................................................www.................bww................bbww..............b.w.w..............wbbbw..............wb.bw..............wbbw...............wwww.................................................................................................................................",
+   "domain": "ld-live",
+   "difficulty": 1330,
+   "tree": [
+    {
+     "at": "di",
+     "by": "w",
+     "children": [
+      {
+       "at": "bi",
+       "by": "b",
+       "children": [
+        {
+         "at": "ag",
+         "by": "w",
+         "tag": "correct"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "bi",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "di",
+       "by": "b",
+       "children": [
+        {
+         "at": "ag",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "ah",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ag",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "di",
+       "by": "b",
+       "children": [
+        {
+         "at": "ah",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bi",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "ah",
+     "by": "w",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ag",
+       "by": "b",
+       "children": [
+        {
+         "at": "di",
+         "by": "w",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "bi",
+           "by": "b"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-2697-19957",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Problem 50",
+   "to_move": "b",
+   "size": 19,
+   "board": "......................................................................................................................................................................................................................................................................................bbb............bbbbwwwbb........bbwwwwwbb..b.......bww..bbw............b..w.w......",
+   "domain": "ld-live",
+   "difficulty": 1396,
+   "tree": [
+    {
+     "at": "or",
+     "by": "b",
+     "children": [
+      {
+       "at": "ns",
+       "by": "w",
+       "children": [
+        {
+         "at": "kr",
+         "by": "b",
+         "children": [
+          {
+           "at": "is",
+           "by": "w",
+           "children": [
+            {
+             "at": "os",
+             "by": "b",
+             "tag": "correct"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "kr",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "ls",
+       "by": "w",
+       "children": [
+        {
+         "at": "or",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "jr",
+           "by": "w",
+           "children": [
+            {
+             "at": "lr",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "is",
+               "by": "w"
+              }
+             ]
+            },
+            {
+             "at": "is",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "lr",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "is",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "jr",
+           "by": "w",
+           "children": [
+            {
+             "at": "or",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "lr",
+               "by": "w"
+              }
+             ]
+            },
+            {
+             "at": "lr",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "or",
+               "by": "w",
+               "children": [
+                {
+                 "at": "pq",
+                 "by": "b",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "pr",
+                   "by": "w"
+                  },
+                  {
+                   "at": "os",
+                   "by": "w"
+                  },
+                  {
+                   "at": "ps",
+                   "by": "w"
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "at": "is",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "or",
+       "by": "w",
+       "children": [
+        {
+         "at": "pq",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "kr",
+           "by": "w",
+           "children": [
+            {
+             "at": "pr",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "os",
+               "by": "w",
+               "children": [
+                {
+                 "at": "ps",
+                 "by": "b",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "ls",
+                   "by": "w"
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "at": "js",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "pr",
+               "by": "w",
+               "children": [
+                {
+                 "at": "qr",
+                 "by": "b",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "ps",
+                   "by": "w"
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "at": "kr",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "pq",
+           "by": "w",
+           "children": [
+            {
+             "at": "jr",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "ls",
+               "by": "w",
+               "children": [
+                {
+                 "at": "js",
+                 "by": "b",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "gs",
+                   "by": "w"
+                  }
+                 ]
+                },
+                {
+                 "at": "gs",
+                 "by": "b",
+                 "tag": "wrong",
+                 "children": [
+                  {
+                   "at": "js",
+                   "by": "w"
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 2697,
+    "collection_label": "Hyacinth L&D",
+    "owner": "Hyacinth",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-1924-15674",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Puzzle No 2",
+   "to_move": "b",
+   "size": 9,
+   "board": ".........................................................wwwwww...wbbbbb...wb.w..",
+   "domain": "ld-live",
+   "difficulty": 1396,
+   "tree": [
+    {
+     "at": "hi",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "ii",
+     "by": "b",
+     "tag": "wrong"
+    },
+    {
+     "at": "fi",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "hi",
+       "by": "w",
+       "children": [
+        {
+         "at": "ii",
+         "by": "b",
+         "tag": "wrong",
+         "children": [
+          {
+           "at": "hi",
+           "by": "w",
+           "children": [
+            {
+             "at": "gi",
+             "by": "b",
+             "tag": "wrong",
+             "children": [
+              {
+               "at": "hi",
+               "by": "w"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 1924,
+    "collection_label": "Beginner L&D",
+    "owner": "goezoe",
+    "source": "online-go.com",
+    "license": "personal-use-unverified"
+   }
+  },
+  {
+   "id": "ogs-1924-15675",
+   "category": "ogs",
+   "section": "ld-live",
+   "title": "Puzzle No 3",
+   "to_move": "b",
+   "size": 9,
+   "board": "................................................bbbbb...bbwwwbb..bww.wwb..bw...wb",
+   "domain": "ld-live",
+   "difficulty": 1396,
+   "tree": [
+    {
+     "at": "fi",
+     "by": "b",
+     "tag": "correct"
+    },
+    {
+     "at": "fh",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "fi",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "gi",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "fi",
+       "by": "w"
+      }
+     ]
+    },
+    {
+     "at": "ei",
+     "by": "b",
+     "tag": "wrong",
+     "children": [
+      {
+       "at": "fi",
+       "by": "w"
+      }
+     ]
+    }
+   ],
+   "scaleVersion": "v2-2026-07-11",
+   "marked_by": {
+    "engine": "ogs-import",
+    "collection": 1924,
+    "collection_label": "Beginner L&D",
+    "owner": "goezoe",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }

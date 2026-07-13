@@ -42,6 +42,12 @@ COLLECTIONS = [
     (8138, "connect", "Connections tesuji from Yeonwoo"),
     (10961, "connect", "Connecting Stones"),
     (7850, "ld-live", "Absolute Basics I"),
+    # Досорсинг make-life новичкового низа (user-original, НЕ сканы книг —
+    # Cho Chikun/Bozulich/Honinbo и пр. в чёрном списке по копирайту).
+    (4253, "ld-live", "Basic Life puzzles"),
+    (4765, "ld-live", "9x9 life and death"),
+    (2697, "ld-live", "Hyacinth L&D"),
+    (1924, "ld-live", "Beginner L&D"),
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0", "Referer": "https://online-go.com/"}
