@@ -99,6 +99,12 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
 
   const name = openingDisplayName(family, opening, branch.opening_name, lang);
 
+  // Описание ветки локализовано (волна 2): descriptions.json — вложенный
+  // {branch_id: {ru,en,es,fr,de,ko}}. Берём язык интерфейса, откат на ru,
+  // чтобы недостающий перевод не оставлял пустой блок.
+  const descEntry = (branchDescriptions as Record<string, Record<string, string>>)[branch.branch_id];
+  const descText = descEntry ? (descEntry[lang] || descEntry.ru || '') : '';
+
   // Hard lock after the free week: the card shows nothing but the paywall.
   if (!access.open) {
     return (
@@ -206,10 +212,8 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
       )}
 
       <View style={styles.info}>
-        {(branchDescriptions as Record<string, string>)[branch.branch_id] && (
-          <Text style={styles.infoDesc}>
-            {(branchDescriptions as Record<string, string>)[branch.branch_id]}
-          </Text>
+        {descText !== '' && (
+          <Text style={styles.infoDesc}>{descText}</Text>
         )}
         <Text style={styles.infoText}>{branch.caption}</Text>
         {branch.result && (

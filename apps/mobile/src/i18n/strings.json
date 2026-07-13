@@ -2120,12 +2120,12 @@
     "ko": "문제 151–174"
   },
   "cat_ogs": {
-    "ru": "Практика: OGS",
-    "en": "Practice: OGS",
-    "es": "Práctica: OGS",
-    "fr": "Pratique : OGS",
-    "de": "Praxis: OGS",
-    "ko": "연습: OGS"
+    "ru": "Практика",
+    "en": "Practice",
+    "es": "Práctica",
+    "fr": "Pratique",
+    "de": "Praxis",
+    "ko": "연습"
   },
   "sec_ogs_capture": {
     "ru": "Захват",
@@ -2382,6 +2382,38 @@
     "fr": "Objectif du jour atteint 🎉",
     "de": "Tagesziel erreicht 🎉",
     "ko": "오늘 목표 달성 🎉"
+  },
+  "goal_edit": {
+    "ru": "Изменить",
+    "en": "Edit",
+    "es": "Cambiar",
+    "fr": "Modifier",
+    "de": "Ändern",
+    "ko": "변경"
+  },
+  "goal_set_title": {
+    "ru": "Цель на день",
+    "en": "Daily goal",
+    "es": "Meta diaria",
+    "fr": "Objectif quotidien",
+    "de": "Tagesziel",
+    "ko": "일일 목표"
+  },
+  "goal_set_sub": {
+    "ru": "Сколько задач решать в день",
+    "en": "How many problems to solve per day",
+    "es": "Cuántos problemas resolver al día",
+    "fr": "Combien de problèmes résoudre par jour",
+    "de": "Wie viele Aufgaben pro Tag",
+    "ko": "하루에 풀 문제 수"
+  },
+  "goal_unit": {
+    "ru": "задач",
+    "en": "problems",
+    "es": "problemas",
+    "fr": "problèmes",
+    "de": "Aufgaben",
+    "ko": "문제"
   },
   "catalog_hard_title": {
     "ru": "Серьёзный вызов",

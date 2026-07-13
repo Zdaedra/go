@@ -43,11 +43,15 @@ export type TrainingProfile = ReturnType<typeof newProfile> & {
   todayStamp?: string;      // #4: YYYY-MM-DD дня счётчика цели (S3, локальный)
   todayCount?: number;      // #4: завершённых задач сегодня (для дневной цели)
   srsExplained?: boolean;   // #5: показано ли развёрнутое объяснение повторов
+  dailyGoal?: number;       // #4: пользовательская дневная цель (задач/день)
 };
 
 // #4: дневная цель. Стрик и цель РАЗВЯЗАНЫ (S3): стрик = «приходил» (>=1),
 // цель = сколько задач за день; связку с заморозками отложили в v2.
-export const DAILY_GOAL = 5;
+// Цель задаёт пользователь (см. dailyGoal/setDailyGoal); DEFAULT — если не
+// выбрана. Пресеты — типичные режимы «лёгкий / обычный / интенсив».
+export const DEFAULT_DAILY_GOAL = 5;
+export const DAILY_GOAL_OPTIONS = [3, 5, 10, 15, 20];
 
 function dayStamp(d = new Date()): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -237,6 +241,21 @@ export function streakDays(profile: TrainingProfile | null): number {
 export function todayProgress(profile: TrainingProfile | null): number {
   if (!profile?.todayStamp) return 0;
   return profile.todayStamp === dayStamp() ? (profile.todayCount ?? 0) : 0;
+}
+
+/** #4: пользовательская дневная цель (сколько задач в день). Дефолт, если
+    игрок ещё не выбрал своё значение. */
+export function dailyGoal(profile: TrainingProfile | null): number {
+  const g = profile?.dailyGoal;
+  return g && g > 0 ? g : DEFAULT_DAILY_GOAL;
+}
+
+/** #4: задать дневную цель (контрол на экране «Обучение»). Значение зажимаем
+    в разумные границы, чтобы битый ввод не сломал кольцо прогресса. */
+export async function setDailyGoal(n: number): Promise<void> {
+  const p = await load();
+  p.dailyGoal = Math.max(1, Math.min(99, Math.round(n)));
+  await save();
 }
 
 /** Placement ещё идёт? Номер эпизода калибровки. */

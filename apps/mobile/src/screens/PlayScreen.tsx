@@ -347,10 +347,12 @@ export default function PlayScreen({ navigation }: { navigation: any }) {
   // Label above the explanation card, and the explanation body itself.
   // Candidates are rendered as a list (one opening per row) rather than a
   // comma sentence, so the box grows cleanly with however many there are.
-  const identifiedDesc =
-    !locked && result.status === 'identified' && branch
-      ? (branchDescriptions as Record<string, string>)[branch.branch.branch_id]
-      : null;
+  // Описание локализовано (волна 2): {branch_id: {ru,en,...}} с откатом на ru.
+  const identifiedDesc = (() => {
+    if (locked || result.status !== 'identified' || !branch) return null;
+    const d = (branchDescriptions as Record<string, Record<string, string>>)[branch.branch.branch_id];
+    return d ? (d[lang] || d.ru || null) : null;
+  })();
 
   const candidateOpenings =
     !locked && result.status === 'candidates'

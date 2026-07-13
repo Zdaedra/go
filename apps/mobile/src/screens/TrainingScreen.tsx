@@ -3,14 +3,14 @@
 // После консилиума v2: плотнее вертикальная композиция, тёмная play-кнопка
 // с оранжевым кольцом, спокойная типографика, синеватые поверхности.
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
-  View, Text, Pressable, StyleSheet, ScrollView, Alert, Dimensions,
+  View, Text, Pressable, StyleSheet, ScrollView, Alert, Dimensions, Modal,
 } from 'react-native';
 import Svg, { Circle, Defs, RadialGradient, Stop, Path } from 'react-native-svg';
 import {
   useTrainingProfile, domainStats, trainingPool, levelLabel, dueReviewCount,
-  todayProgress, DAILY_GOAL, markSrsExplained,
+  todayProgress, dailyGoal, setDailyGoal, DAILY_GOAL_OPTIONS, markSrsExplained,
 } from '../state/trainingStats';
 import { useAccess } from '../state/useTrial';
 import PrimaryButton from '../components/PrimaryButton';
@@ -74,6 +74,7 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
   const profile = useTrainingProfile();
   const access = useAccess();
   const width = Dimensions.get('window').width - 32;
+  const [goalPicker, setGoalPicker] = useState(false); // #4: модалка выбора цели
 
   const stats = useMemo(
     () => (profile ? domainStats(profile) : []),
@@ -99,7 +100,8 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
   const rating = Math.round((profile as any).auser);
   const dueCount = dueReviewCount(profile);
   const doneToday = todayProgress(profile);
-  const goalMet = doneToday >= DAILY_GOAL;
+  const goal = dailyGoal(profile);
+  const goalMet = doneToday >= goal;
 
   const byKey = new Map(stats.map((d) => [d.domain, d]));
   const axes: RadarAxis[] = RADAR_ORDER
@@ -145,12 +147,18 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
         </View>
       </View>
 
-      {/* #4: дневная цель — кольцо прогресса дня (стрик отдельный, S3) */}
-      <View style={styles.goalCard}>
+      {/* #4: дневная цель — кольцо прогресса дня (стрик отдельный, S3).
+          Тап по карточке — выбрать свою цель (сколько задач в день). */}
+      <Pressable
+        style={({ pressed }) => [styles.goalCard, pressed && { opacity: 0.85 }]}
+        onPress={() => setGoalPicker(true)}
+        accessibilityRole="button"
+        accessibilityLabel={t('goal_edit')}
+      >
         <View style={styles.goalRingWrap}>
-          <DailyRing done={doneToday} goal={DAILY_GOAL} />
+          <DailyRing done={doneToday} goal={goal} />
           <Text style={styles.goalRingText} maxFontSizeMultiplier={1.1}>
-            {Math.min(doneToday, DAILY_GOAL)}/{DAILY_GOAL}
+            {Math.min(doneToday, goal)}/{goal}
           </Text>
         </View>
         <View style={styles.goalTextWrap}>
@@ -158,10 +166,45 @@ export default function TrainingScreen({ navigation }: { navigation: any }) {
             {goalMet ? t('goal_done') : t('goal_today')}
           </Text>
           {!goalMet && (
-            <Text style={styles.goalNote}>{t('goal_left', { n: DAILY_GOAL - doneToday })}</Text>
+            <Text style={styles.goalNote}>{t('goal_left', { n: goal - doneToday })}</Text>
           )}
         </View>
-      </View>
+        <Text style={styles.goalEdit}>{t('goal_edit')} ›</Text>
+      </Pressable>
+
+      {/* #4: пикер дневной цели — пресеты «лёгкий / обычный / интенсив» */}
+      <Modal
+        visible={goalPicker}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setGoalPicker(false)}
+      >
+        <Pressable style={styles.sheetBackdrop} onPress={() => setGoalPicker(false)}>
+          <Pressable style={styles.sheet} onPress={() => {}}>
+            <Text style={styles.sheetTitle}>{t('goal_set_title')}</Text>
+            <Text style={styles.sheetSub}>{t('goal_set_sub')}</Text>
+            <View style={styles.sheetChips}>
+              {DAILY_GOAL_OPTIONS.map((n) => {
+                const active = n === goal;
+                return (
+                  <Pressable
+                    key={n}
+                    style={[styles.goalChip, active && styles.goalChipActive]}
+                    onPress={() => { setDailyGoal(n); setGoalPicker(false); }}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: active }}
+                  >
+                    <Text style={[styles.goalChipNum, active && styles.goalChipNumActive]}>{n}</Text>
+                    <Text style={[styles.goalChipUnit, active && styles.goalChipUnitActive]}>
+                      {t('goal_unit')}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </Pressable>
+        </Pressable>
+      </Modal>
 
       {/* Повторение по SRS (фаза 2): показываем, только если есть просроченные */}
       {dueCount > 0 && (
@@ -360,6 +403,32 @@ const styles = StyleSheet.create({
   goalTitle: { fontSize: 16, fontWeight: '700', color: ui.ink },
   goalTitleDone: { color: '#9AD1A8' },
   goalNote: { fontSize: 12.5, lineHeight: 17, color: '#9A98A2' },
+  goalEdit: { fontSize: 12.5, fontWeight: '600', color: '#E0946A' },
+
+  // #4: пикер дневной цели (bottom sheet)
+  sheetBackdrop: {
+    flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'flex-end',
+  },
+  sheet: {
+    backgroundColor: '#171B26', borderTopLeftRadius: 22, borderTopRightRadius: 22,
+    borderTopWidth: 1, borderColor: 'rgba(255,255,255,0.08)',
+    paddingHorizontal: 20, paddingTop: 20, paddingBottom: 34, gap: 4,
+  },
+  sheetTitle: { fontSize: 18, fontWeight: '700', color: ui.ink },
+  sheetSub: { fontSize: 13, lineHeight: 18, color: '#9A98A2', marginBottom: 14 },
+  sheetChips: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  goalChip: {
+    minWidth: 58, alignItems: 'center', paddingVertical: 12, paddingHorizontal: 14,
+    borderRadius: 14, borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)',
+    backgroundColor: 'rgba(255,255,255,0.03)',
+  },
+  goalChipActive: {
+    borderColor: 'rgba(224,148,106,0.65)', backgroundColor: 'rgba(224,148,106,0.14)',
+  },
+  goalChipNum: { fontSize: 20, fontWeight: '700', color: ui.ink, fontVariant: ['tabular-nums'] },
+  goalChipNumActive: { color: '#F0A36A' },
+  goalChipUnit: { fontSize: 11, color: '#8C8A95', marginTop: 1 },
+  goalChipUnitActive: { color: '#D8A583' },
 
   starHead: {
     flexDirection: 'row', alignItems: 'flex-start',

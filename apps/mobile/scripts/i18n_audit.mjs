@@ -68,8 +68,14 @@ console.log(`Слой C — hintTemplates: ${hintFull}/${hintTexts} тексто
 if (hintFull < hintTexts) { failed = true; console.log('  !! шаблоны подсказок не полностью переведены'); }
 
 const desc = JSON.parse(fs.readFileSync(path.join(SRC, 'data/descriptions.json'), 'utf8'));
-const nDesc = Object.keys(desc).length;
-console.log(`Слой C — descriptions.json: ${nDesc} описаний веток, локалей 1/6 (ru) — волна 2`);
+const descEntries = Object.entries(desc);
+const DESC_LANGS = ['ru', 'en', 'es', 'fr', 'de', 'ko'];
+// Вложенный формат {branch_id: {ru,en,...}} (волна 2). Полностью локализовано,
+// если у ветки все 6 локалей непустые.
+const descFull = descEntries.filter(([, v]) =>
+  v && typeof v === 'object' && DESC_LANGS.every((L) => (v[L] || '').trim())).length;
+console.log(`Слой C — descriptions.json: ${descFull}/${descEntries.length} описаний веток на всех 6 локалях`);
+if (descFull < descEntries.length) { failed = true; console.log('  !! описания дебютов переведены не полностью'); }
 
 const tsumego = JSON.parse(fs.readFileSync(path.join(SRC, 'data/tsumego.json'), 'utf8'));
 const cyrTitles = tsumego.problems.filter((p) => /[А-Яа-яЁё]/.test(p.title || '')).length;

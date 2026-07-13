@@ -103185,7 +103185,7 @@
    "id": "ogs-9318-81343",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures01",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "........................................bww.....bwb..............................",
@@ -103202,8 +103202,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103212,7 +103210,7 @@
    "id": "ogs-9318-81344",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures02",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "...............................w........bw......bwbw.............................",
@@ -103229,8 +103227,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103239,7 +103235,7 @@
    "id": "ogs-9318-81345",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures03",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".......................................wbw......bwb........w.....................",
@@ -103256,8 +103252,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103266,7 +103260,7 @@
    "id": "ogs-9318-81346",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures04",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".................................................b........bw.......bw......bw....",
@@ -103283,8 +103277,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103293,7 +103285,7 @@
    "id": "ogs-9318-81347",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures05",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "..............................................w.b...............wwbbw......wwb...",
@@ -103310,8 +103302,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103320,7 +103310,7 @@
    "id": "ogs-9318-81348",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures06",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".................................................w........wbb.....wbwbw......wwb.",
@@ -103337,8 +103327,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103347,7 +103335,7 @@
    "id": "ogs-9318-81349",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures07",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "..............................w.......wb......wbwb......bwb......................",
@@ -103364,8 +103352,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103374,7 +103360,7 @@
    "id": "ogs-9318-81350",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures08",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".......................................................b.bbw.....bwwbw.....b.bw..",
@@ -103391,8 +103377,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103401,7 +103385,7 @@
    "id": "ogs-9318-81351",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures09",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "...............................b.......bwb.....bw.w.....wbw........w.............",
@@ -103418,8 +103402,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103428,7 +103410,7 @@
    "id": "ogs-9318-81352",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures10",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".........................................w..........w...b.b.w.......bbw........bw",
@@ -103445,8 +103427,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103455,7 +103435,7 @@
    "id": "ogs-9318-81353",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures11",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "....................www......wbbw.....b.wb......bwb.......bw.....................",
@@ -103472,8 +103452,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103482,7 +103460,7 @@
    "id": "ogs-9318-81354",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures12",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "...............................bw......bw.w.....bwbw......bw.....................",
@@ -103499,8 +103477,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103509,7 +103485,7 @@
    "id": "ogs-9318-81355",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures13",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".......................................bbb.....bwwwb....wb.bw.....www............",
@@ -103526,8 +103502,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103536,7 +103510,7 @@
    "id": "ogs-9318-81356",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures14",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "..................................................w.....w.bbww...wbwwb....bww....",
@@ -103553,8 +103527,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103563,7 +103535,7 @@
    "id": "ogs-9318-81357",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures15",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".......................................b........wbb.....wbwwb....wb.wb.....w.....",
@@ -103580,8 +103552,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103590,7 +103560,7 @@
    "id": "ogs-9318-81358",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures16",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".......................................b........bwwb....bwbbww...bwb.bw....wbw...",
@@ -103607,8 +103577,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103617,7 +103585,7 @@
    "id": "ogs-9318-81359",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures17",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "...............................................wwwbb...wbbbwb....w.bwb......w....",
@@ -103634,8 +103602,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103644,7 +103610,7 @@
    "id": "ogs-9318-81360",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures18",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".....................bw......bwb......bwbw.....bww.w.....bbw.....................",
@@ -103661,8 +103627,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103671,7 +103635,7 @@
    "id": "ogs-9318-81361",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures19",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "........................................b.......wbww.....bwbw....bwwbw.....b.....",
@@ -103688,8 +103652,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103698,7 +103660,7 @@
    "id": "ogs-9318-81362",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures20",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".............................wbb......bwwb.....bw.w......bw......................",
@@ -103715,8 +103677,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103725,7 +103685,7 @@
    "id": "ogs-9318-81363",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures21",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".............................w.b......bwwb.....wbwwb......bb.....................",
@@ -103742,8 +103702,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103752,7 +103710,7 @@
    "id": "ogs-9318-81364",
    "category": "ogs",
    "section": "capture",
-   "title": "Captures22",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "......................b.......bwbw....bw........bwb......wbww.....wb.............",
@@ -103769,8 +103727,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9318,
-    "collection_label": "Basic Captures",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103779,7 +103735,7 @@
    "id": "ogs-4162-30003",
    "category": "ogs",
    "section": "capture",
-   "title": "First Capture",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".......................bwb.......b......................w...w....................",
@@ -103801,8 +103757,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 4162,
-    "collection_label": "Basics of Capture",
-    "owner": "KyleBurg",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103811,7 +103765,7 @@
    "id": "ogs-4162-30004",
    "category": "ogs",
    "section": "capture",
-   "title": "Second Capture",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "..............bw.......bwb.......b......................w...w....................",
@@ -103926,8 +103880,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 4162,
-    "collection_label": "Basics of Capture",
-    "owner": "KyleBurg",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103936,7 +103888,7 @@
    "id": "ogs-4162-30005",
    "category": "ogs",
    "section": "capture",
-   "title": "First Ko",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "...............................bw......bw.w......bw..............................",
@@ -103958,8 +103910,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 4162,
-    "collection_label": "Basics of Capture",
-    "owner": "KyleBurg",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -103968,7 +103918,7 @@
    "id": "ogs-4162-30006",
    "category": "ogs",
    "section": "capture",
-   "title": "Who won?",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "....bw.......bw.......bw.......bw.......bw.......bw.......bw.......bw.......bw...",
@@ -103990,8 +103940,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 4162,
-    "collection_label": "Basics of Capture",
-    "owner": "KyleBurg",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104000,7 +103948,7 @@
    "id": "ogs-118-2038",
    "category": "ogs",
    "section": "capture",
-   "title": "~4 There's No choice",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "..........................b........w.............................................",
@@ -104077,8 +104025,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 118,
-    "collection_label": "Beginner Captures",
-    "owner": "J3ss_wby_x",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104087,7 +104033,7 @@
    "id": "ogs-118-2039",
    "category": "ogs",
    "section": "capture",
-   "title": "~5~ Ladder",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "........................b........wb........b.....................................",
@@ -104212,8 +104158,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 118,
-    "collection_label": "Beginner Captures",
-    "owner": "J3ss_wby_x",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104222,7 +104166,7 @@
    "id": "ogs-118-2041",
    "category": "ogs",
    "section": "capture",
-   "title": "~6 Alot of stones",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "....................bbbbb....bwwwb....bw.wb....bwwwb....bbbbb....................",
@@ -104239,8 +104183,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 118,
-    "collection_label": "Beginner Captures",
-    "owner": "J3ss_wby_x",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104249,7 +104191,7 @@
    "id": "ogs-118-2042",
    "category": "ogs",
    "section": "capture",
-   "title": "~7 Eyes",
+   "title": "",
    "to_move": "w",
    "size": 9,
    "board": "................bb......bww......bw.......bw.......bw.......bww.......bb.........",
@@ -104266,8 +104208,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 118,
-    "collection_label": "Beginner Captures",
-    "owner": "J3ss_wby_x",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104276,7 +104216,7 @@
    "id": "ogs-9370-81823",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 01",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "........................................bwb.......b..............................",
@@ -104293,8 +104233,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9370,
-    "collection_label": "Black To Capture Rev 1",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104303,7 +104241,7 @@
    "id": "ogs-9370-81824",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 02",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "......................b.......bw........bwb.......b..............................",
@@ -104320,8 +104258,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9370,
-    "collection_label": "Black To Capture Rev 1",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104330,7 +104266,7 @@
    "id": "ogs-9370-81825",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 03",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "...............................bb......bwwb....bw.wb.....b.b.....................",
@@ -104347,8 +104283,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9370,
-    "collection_label": "Black To Capture Rev 1",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104357,7 +104291,7 @@
    "id": "ogs-9370-81826",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 04",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "..........................b........w.......bw........b...........................",
@@ -104374,8 +104308,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9370,
-    "collection_label": "Black To Capture Rev 1",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104384,7 +104316,7 @@
    "id": "ogs-9370-81827",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 05",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "..................bbb......wwwb.....wb.......b...................................",
@@ -104401,8 +104333,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9370,
-    "collection_label": "Black To Capture Rev 1",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104411,7 +104341,7 @@
    "id": "ogs-9370-81828",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 06",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "wwb......w........b..............................................................",
@@ -104428,8 +104358,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9370,
-    "collection_label": "Black To Capture Rev 1",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104438,7 +104366,7 @@
    "id": "ogs-9370-81829",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 07",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "wb.......wb.......wwb......wb.wb.....w.b.........................................",
@@ -104455,8 +104383,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9370,
-    "collection_label": "Black To Capture Rev 1",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104465,7 +104391,7 @@
    "id": "ogs-9370-81830",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 08",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "....................................................b.......ww........bw.......bw",
@@ -104482,8 +104408,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9370,
-    "collection_label": "Black To Capture Rev 1",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104492,7 +104416,7 @@
    "id": "ogs-9370-81831",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 09",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "................................................bb.....bbwwbb...ww.bww...........",
@@ -104509,8 +104433,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9370,
-    "collection_label": "Black To Capture Rev 1",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104519,7 +104441,7 @@
    "id": "ogs-9371-81832",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 01",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "...............................bw......bw.w.....bwwb......bb.....................",
@@ -104536,8 +104458,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9371,
-    "collection_label": "Black To Capture Rev 2",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104546,7 +104466,7 @@
    "id": "ogs-9371-81833",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 02",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".wb......wwwb.....bwb.......b....................................................",
@@ -104563,8 +104483,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9371,
-    "collection_label": "Black To Capture Rev 2",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104573,7 +104491,7 @@
    "id": "ogs-9371-81834",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 03",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".........bb.......wwbb.....w.w......bw.wb.....bw.................................",
@@ -104590,8 +104508,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9371,
-    "collection_label": "Black To Capture Rev 2",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104600,7 +104516,7 @@
    "id": "ogs-9371-81835",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 04",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "..............................ww......w.bw.....bwwb......bb......................",
@@ -104617,8 +104533,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9371,
-    "collection_label": "Black To Capture Rev 2",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104627,7 +104541,7 @@
    "id": "ogs-9371-81836",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 05",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "................................b........w.......bwb.....wbwbw....bw.wb....bwwwb.",
@@ -104644,8 +104558,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9371,
-    "collection_label": "Black To Capture Rev 2",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104654,7 +104566,7 @@
    "id": "ogs-9371-81837",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture 06",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "................bb......bww......bw.......bww......bbb...........................",
@@ -104671,8 +104583,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 9371,
-    "collection_label": "Black To Capture Rev 2",
-    "owner": "Paul Smith",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104681,7 +104591,7 @@
    "id": "ogs-6429-55946",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect and die -2",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".....................................................................................................................................................................................................................................ww................wbb.................wb.................wbb.................wb..................ww.................................",
@@ -104755,8 +104665,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 6429,
-    "collection_label": "Connect and die for Beginner",
-    "owner": "Moongoca",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104765,7 +104673,7 @@
    "id": "ogs-6429-55947",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect and die -3",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".....................................................................................................................................................................................................................................www...............wbbw................wbw................wbw................wbw...............bbbw................b.................",
@@ -104839,8 +104747,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 6429,
-    "collection_label": "Connect and die for Beginner",
-    "owner": "Moongoca",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104849,7 +104755,7 @@
    "id": "ogs-6429-55948",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect and die -4",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".......................................................................................................................................................................................................................................................bbb................wwwb.................wb................wb.b..............bwb................bwb................",
@@ -104900,8 +104806,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 6429,
-    "collection_label": "Connect and die for Beginner",
-    "owner": "Moongoca",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104910,7 +104814,7 @@
    "id": "ogs-6429-55949",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect and die -5",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".................................................................................................................................................................................................................bbbbb..............wwwwb...............b.wb...............wwb...............bbwb...............wwwb...............bbb...................................",
@@ -104972,8 +104876,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 6429,
-    "collection_label": "Connect and die for Beginner",
-    "owner": "Moongoca",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -104982,7 +104884,7 @@
    "id": "ogs-6429-55950",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect and die -6",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "..................................................................................................................................................................................................................ww.................bw.................wb.................wb................wbb.b...............wb..................ww..................................",
@@ -105023,8 +104925,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 6429,
-    "collection_label": "Connect and die for Beginner",
-    "owner": "Moongoca",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105033,7 +104933,7 @@
    "id": "ogs-6429-55952",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect and die -7",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".................................................................................................................................................................................................w..................wb...............wwbb................bwb...............w.wb.................wb..............bwwbb.w.............bbwww................................",
@@ -105086,8 +104986,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 6429,
-    "collection_label": "Connect and die for Beginner",
-    "owner": "Moongoca",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105096,7 +104994,7 @@
    "id": "ogs-6429-55953",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect and die -8",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...........................................................................................................................................................................................................................................................................bbb................bwwbb.............bw..wb.............bw.wwb..............w.bwb.............",
@@ -105149,8 +105047,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 6429,
-    "collection_label": "Connect and die for Beginner",
-    "owner": "Moongoca",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105159,7 +105055,7 @@
    "id": "ogs-6429-55954",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect and die -9",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "............................................................................................................................................................................w..................bww................wb.b...............wb................bwb................w..b...............wwwb...............bbbb.....................................................",
@@ -105222,8 +105118,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 6429,
-    "collection_label": "Connect and die for Beginner",
-    "owner": "Moongoca",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105232,7 +105126,7 @@
    "id": "ogs-6429-55955",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect and die -10",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".............................................................................................................................................................................................................................................................................................bbbb...............ww.bw..............w.bw.w.............w.w................",
@@ -105295,8 +105189,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 6429,
-    "collection_label": "Connect and die for Beginner",
-    "owner": "Moongoca",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105305,7 +105197,7 @@
    "id": "ogs-2324-17930",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 1",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".......................................................................................................................................................................................................................b...............w.wb.b............w..w...bb..........b....w.w.....w......bw......b....w....b.bb.w..b...b..........................................",
@@ -105417,8 +105309,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105427,7 +105317,7 @@
    "id": "ogs-2324-17931",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 2",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...............................................................................................................................................................................................w.....................w..............bwwwbb..............bbbw.b.........w....bww...b.............bw.b.b..b...b.....bbww..wb.b.b.......bw....wwwwb.........................",
@@ -105512,8 +105402,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105522,7 +105410,7 @@
    "id": "ogs-2324-17932",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 3",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".................................................................................................................................................................................................................................w....w...........b.....wbb...........b.....wb................wwb.....b...w.b.....bwb........wb.......wbw.................w..............",
@@ -105671,8 +105559,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105681,7 +105567,7 @@
    "id": "ogs-2324-17933",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 4",
+   "title": "",
    "to_move": "w",
    "size": 19,
    "board": "..................................................................................................................................................................................................................ww.................bw.................bw..................bww................b..b........b.......b.....w..w..b.........................................",
@@ -105746,8 +105632,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105756,7 +105640,7 @@
    "id": "ogs-2324-17934",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 5",
+   "title": "",
    "to_move": "w",
    "size": 19,
    "board": "....................................................................................................................................................................................w.......................................................................................w.b...........w................b.......w.b...w.....b.........................................",
@@ -105809,8 +105693,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105819,7 +105701,7 @@
    "id": "ogs-2324-17935",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 6",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".................................................................................................................................................................................................w.................w..................wb................wbww...............bbb............b.......w........w.......b.....b..b..w.........................................",
@@ -105860,8 +105742,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105870,7 +105750,7 @@
    "id": "ogs-2324-17936",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 7",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "........................................................................................................................................................................................................................................................bb.................bwbb.b.........w...ww...........b........w.w...b....b.........................................",
@@ -105923,8 +105803,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -105933,7 +105811,7 @@
    "id": "ogs-2324-17937",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 8",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "..............................................................................................................................................................................................................b................................w..........b...w.b.....b........b...bw...........b.bw..bw....b......bww.w.bw..w.............bbbw...w.............w........",
@@ -105998,8 +105876,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -106008,7 +105884,7 @@
    "id": "ogs-2324-17938",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 9",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "................................................................................................................................................................................................b..b................b..................bw.w.................wbb........b...bbb..wb............ww..w.b.....w.w.......w.b....b.............................................",
@@ -106073,8 +105949,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -106083,7 +105957,7 @@
    "id": "ogs-2324-17939",
    "category": "ogs",
    "section": "connect",
-   "title": "Problem 10",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".............................................................................................................................................................................b.b...........w.......b................w....................................wwb.b.........w....wbb...................wbbb....b.b......w..ww.b...............................................",
@@ -106148,8 +106022,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 2324,
-    "collection_label": "Connect/Cut",
-    "owner": "Kaworu Nagisa",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -106158,7 +106030,7 @@
    "id": "ogs-918-8308",
    "category": "ogs",
    "section": "connect",
-   "title": "first question",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "...............................w.......wb.b......w...............................",
@@ -106223,8 +106095,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 918,
-    "collection_label": "Connecting exercise 1",
-    "owner": "i am poop",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -106233,7 +106103,7 @@
    "id": "ogs-918-8309",
    "category": "ogs",
    "section": "connect",
-   "title": "second question",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": "......................w.......wbwb.....wb........w...............................",
@@ -106284,8 +106154,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 918,
-    "collection_label": "Connecting exercise 1",
-    "owner": "i am poop",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -106294,7 +106162,7 @@
    "id": "ogs-918-8310",
    "category": "ogs",
    "section": "connect",
-   "title": "third question",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".............................wwwww....b.b.b....b...b....wwwww....................",
@@ -106632,8 +106500,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 918,
-    "collection_label": "Connecting exercise 1",
-    "owner": "i am poop",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -106642,7 +106508,7 @@
    "id": "ogs-918-8311",
    "category": "ogs",
    "section": "connect",
-   "title": "fourth question",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".......w.......wbw........w.............................b........................",
@@ -106792,8 +106658,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 918,
-    "collection_label": "Connecting exercise 1",
-    "owner": "i am poop",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -106802,7 +106666,7 @@
    "id": "ogs-918-8312",
    "category": "ogs",
    "section": "connect",
-   "title": "fifth question",
+   "title": "",
    "to_move": "b",
    "size": 9,
    "board": ".......w.......wbw........w...................b..................................",
@@ -106982,8 +106846,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 918,
-    "collection_label": "Connecting exercise 1",
-    "owner": "i am poop",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -106992,7 +106854,7 @@
    "id": "ogs-8138-71464",
    "category": "ogs",
    "section": "connect",
-   "title": "Connection - 1",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...w.................w.wb...............w.wwb..............wwbb...............wb.................bb......................................................................................................................................................................................................................................................................",
@@ -107117,8 +106979,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 8138,
-    "collection_label": "Connections tesuji from Yeonwoo",
-    "owner": "Darkhan",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -107127,7 +106987,7 @@
    "id": "ogs-8138-71466",
    "category": "ogs",
    "section": "connect",
-   "title": "Connection - 3",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "....................w..b................w.bw..w...........wbb.w.............wwwb...............b.wb................bb....................................................................................................................................................................................................................................................",
@@ -107190,8 +107050,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 8138,
-    "collection_label": "Connections tesuji from Yeonwoo",
-    "owner": "Darkhan",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -107200,7 +107058,7 @@
    "id": "ogs-8138-71467",
    "category": "ogs",
    "section": "connect",
-   "title": "Connection - 4",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".......................................................................................................................................................................................................................................................................w.............www...w...........bwbbwwwb..........b.bwb..bb............bw.........................",
@@ -107346,8 +107204,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 8138,
-    "collection_label": "Connections tesuji from Yeonwoo",
-    "owner": "Darkhan",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -107356,7 +107212,7 @@
    "id": "ogs-8138-71468",
    "category": "ogs",
    "section": "connect",
-   "title": "Connection - 5",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".b.................wbw.................bw..bb............bbbww..............wbw...b.............ww.w..................................w..................................................................................................................................................................................................................................",
@@ -107547,8 +107403,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 8138,
-    "collection_label": "Connections tesuji from Yeonwoo",
-    "owner": "Darkhan",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -107557,7 +107411,7 @@
    "id": "ogs-8138-71469",
    "category": "ogs",
    "section": "connect",
-   "title": "Connection - 6",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "........................................................................................................................................................................................................................................................................w...............www...............bw.bw..............bbwb...............bwwb.....................",
@@ -107860,8 +107714,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 8138,
-    "collection_label": "Connections tesuji from Yeonwoo",
-    "owner": "Darkhan",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -107870,7 +107722,7 @@
    "id": "ogs-8138-71470",
    "category": "ogs",
    "section": "connect",
-   "title": "Connection - 7",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "....................................................................................................................................................................................................................................................................wbbbb............ww.wbw.............wbw.wb............w.bbwwbb...........w..b..wb....................",
@@ -108041,8 +107893,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 8138,
-    "collection_label": "Connections tesuji from Yeonwoo",
-    "owner": "Darkhan",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108051,7 +107901,7 @@
    "id": "ogs-8138-71471",
    "category": "ogs",
    "section": "connect",
-   "title": "Connection - 8",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "....................................................................................................................................................................................................................................................b.................b..............www.wb............w.bw.wb..............b.wb.b...........w.b.bwwb....................",
@@ -108178,8 +108028,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 8138,
-    "collection_label": "Connections tesuji from Yeonwoo",
-    "owner": "Darkhan",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108188,7 +108036,7 @@
    "id": "ogs-10961-101478",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 01",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...................................................................................................................................................................................................................w....................................ww................wbw................wbwbbbb.b..........wbwwwwwb............b...bb.b.............................",
@@ -108234,8 +108082,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108244,7 +108090,7 @@
    "id": "ogs-10961-101480",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 02",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...................................................................................................................................................................................................................w.....................................w.w...............w...w..............bbb................bwwww.b.b..........b....b.............b.................",
@@ -108285,8 +108131,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108295,7 +108139,7 @@
    "id": "ogs-10961-101481",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 03",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "............................................................................................................................................................................................................................................................................w.................w.....ww...........bww.wwbwb..........b....bbb.b..............wb...........",
@@ -108336,8 +108180,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108346,7 +108188,7 @@
    "id": "ogs-10961-101482",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 04",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...................................................................................................................................................................................................................................................w..............w.....w........www.w...w.w........wbbbw...wbb........wb.bw.w.w.b........wwbb......b............b.....b.",
@@ -108381,8 +108223,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108391,7 +108231,7 @@
    "id": "ogs-10961-101483",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 05",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "..............................................................................................................................................................................................................b................b.b.....................................wb................w.w.................wbb................wb................w.bw.................b.",
@@ -108419,8 +108259,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108429,7 +108267,7 @@
    "id": "ogs-10961-101484",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 06",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "................................................................................................................................................................................................b........................................................b.....w............bw.w.w.............bw.w...............bw.b.w...............wb..w...............b.............",
@@ -108470,8 +108308,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108480,7 +108316,7 @@
    "id": "ogs-10961-101485",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 07",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...b...b..............bw..b.w............b.w.b.w..........b.b.w.ww..............w...............w.w......................................................................................................................................................................................................................................................................",
@@ -108509,8 +108345,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108519,7 +108353,7 @@
    "id": "ogs-10961-101486",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 08",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...b................w.bw.................b.w.b.b..........w.b..................b.w...............www.....................................................................................................................................................................................................................................................................",
@@ -108584,8 +108418,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108594,7 +108426,7 @@
    "id": "ogs-10961-101487",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 09",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "........................................................................................................................................................................................................................................................www.................bw.wwb.............b...bb...........w.b.w.b..............bw..................................",
@@ -108694,8 +108526,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108704,7 +108534,7 @@
    "id": "ogs-10961-101488",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 10",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".............................................bb.w.b.w.w.............wb..wb.........bb..wb..wb............wb...wwb........bbbw.b...b.............wb.w...........b.b.ww....................................................................................................................................................................................................",
@@ -108781,8 +108611,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108791,7 +108619,7 @@
    "id": "ogs-10961-101489",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 11",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".b..................wb.................wbb.w.b.b..........wwb..wb..............b.................ww.w....................................................................................................................................................................................................................................................................",
@@ -108855,8 +108683,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108865,7 +108691,7 @@
    "id": "ogs-10961-101490",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 12",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "w.b................bbb....w.w.........wwwwwb.bw..............bb.b................................w...b...................................................................................................................................................................................................................................................................",
@@ -108930,8 +108756,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -108940,7 +108764,7 @@
    "id": "ogs-10961-101491",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 13",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "......................................................................................................................................................................................................................................bbbw...............bww.ww.............bw.wb.w.............bwbb...............bwwb.w............bw..bw..............................",
@@ -109064,8 +108888,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -109074,7 +108896,7 @@
    "id": "ogs-10961-101492",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 14",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "................................bwwb...........ww.wb..b..............wbw.b...........b..bww..............b.b.wb................bw.b...............ww.....................................................................................................................................................................................................................",
@@ -109163,8 +108985,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -109173,7 +108993,7 @@
    "id": "ogs-10961-101493",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 15",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "......................................................................................................................................................................................................................................................................w.w...............w.w................w.bw...........b.bb..bw...............w.bw.................bw.",
@@ -109271,8 +109091,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -109281,7 +109099,7 @@
    "id": "ogs-10961-101497",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 16",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "........................................................................................................................................................................bb..............b.b...................w.w..............bbww..............w.wbbb...........w...wb...............w.w.w................w................bbb.b.................b.....................",
@@ -109418,8 +109236,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -109428,7 +109244,7 @@
    "id": "ogs-10961-101498",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 17",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...........b...............w.wb.................wbb...b...........w.wwww..b............w...wb..................b.........................................................................................................................................................................................................................................................",
@@ -109579,8 +109395,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -109589,7 +109403,7 @@
    "id": "ogs-10961-101500",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 18",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".................................wwww..........w...wbbbb..............w.ww...............wwbw...............bbbb..........................................................................b..............................................................................................................................................................................",
@@ -109700,8 +109514,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -109710,7 +109522,7 @@
    "id": "ogs-10961-101501",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 19",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "..............................................................................................................................................................................................................................................................................wwbb.b............wbwwb..b.........w.wb.wwbb.w.b.......wbbb....b...........w...............",
@@ -109933,8 +109745,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -109943,7 +109753,7 @@
    "id": "ogs-10961-101506",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 21",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "....................................................................................................................................................................................................................................................................w....................................bbwwww.............bw..bb.......................................",
@@ -109991,8 +109801,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110001,7 +109809,7 @@
    "id": "ogs-10961-101511",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 22",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "............................................................................................................................................................................................................................................................................wwww...............wbbw.www..........bb....bb.w..............................................",
@@ -110079,8 +109887,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110089,7 +109895,7 @@
    "id": "ogs-10961-101515",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 23",
+   "title": "",
    "to_move": "w",
    "size": 19,
    "board": "..........................w.b..........wb..w.w............wb...ww.b..........wwbb.bbb............wwb...............b.b...................b...............................................................................................................................................................................................................................",
@@ -110209,8 +110015,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110219,7 +110023,7 @@
    "id": "ogs-10961-101520",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 24",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "....................................w........b.b...b.ww...........bww..bbbw..........bbw....w..............w.w..w........................................................................................................................................................................................................................................................",
@@ -110378,8 +110182,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110388,7 +110190,7 @@
    "id": "ogs-10961-101530",
    "category": "ogs",
    "section": "connect",
-   "title": "Connect 25",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "............................................................................................................................................................................................................................................................w..b.............w.................w..w..b...........w.bbw.b.b.................b.............................",
@@ -110440,8 +110242,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 10961,
-    "collection_label": "Connecting Stones",
-    "owner": "KlairungChimmai",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110450,7 +110250,7 @@
    "id": "ogs-7850-68731",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture a Stone",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".................................................................................................................................................................b.................bw..................b.................................................................................................................................................................",
@@ -110467,8 +110267,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110477,7 +110275,7 @@
    "id": "ogs-7850-68732",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture Two Stones",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".................................................................................................................................................................bb................bww.................bb................................................................................................................................................................",
@@ -110494,8 +110292,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110504,7 +110300,7 @@
    "id": "ogs-7850-68733",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture Three Stones",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "..............................................................................................................................................b.................bw.................bwwb................bb................................................................................................................................................................",
@@ -110521,8 +110317,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110531,7 +110325,7 @@
    "id": "ogs-7850-68734",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture From Within",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".............................................................................................................................................bbb...............bwwwb..............bw.wb..............bwwwb...............bbb.............................................................................................................................................",
@@ -110548,8 +110342,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110558,7 +110350,7 @@
    "id": "ogs-7850-68735",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture in a Ladder",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".......................................................................wb................bwb.................b...........................................................................................................................................................................................................................................................",
@@ -110693,8 +110485,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110703,7 +110493,7 @@
    "id": "ogs-7850-68737",
    "category": "ogs",
    "section": "capture",
-   "title": "Capture in a Net",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".........................................................................................................................w.....................b.................wb................bwb.................b.................................................................................................................................................................",
@@ -110851,8 +110641,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110861,7 +110649,7 @@
    "id": "ogs-7850-68739",
    "category": "ogs",
    "section": "ld-live",
-   "title": "Make Life - Straight Three",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "..............wb.................wbbbb...............wwww..............w.................................................................................................................................................................................................................................................................................................",
@@ -110926,8 +110714,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110936,7 +110722,7 @@
    "id": "ogs-7850-68740",
    "category": "ogs",
    "section": "ld-kill",
-   "title": "Kill - Straight Three",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "..............bw.................bwwww.............b.bbbb................................................................................................................................................................................................................................................................................................................",
@@ -110975,8 +110761,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -110985,7 +110769,7 @@
    "id": "ogs-7850-68741",
    "category": "ogs",
    "section": "ld-live",
-   "title": "Make Life - Bent Three",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...............wb.................wbb...............w.wbb................www.............................................................................................................................................................................................................................................................................................",
@@ -111050,8 +110834,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -111060,7 +110842,7 @@
    "id": "ogs-7850-68742",
    "category": "ogs",
    "section": "ld-kill",
-   "title": "Kill - Bent Three",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "...............bw.................bww...............b.bww................bbb.............................................................................................................................................................................................................................................................................................",
@@ -111099,8 +110881,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -111109,7 +110889,7 @@
    "id": "ogs-7850-68743",
    "category": "ogs",
    "section": "ld-live",
-   "title": "Make Life: Pyramid Four",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "............................................................................................................................................wwww...............wbbbww............wb...bw............wbb.bbw............wwbbbw...............wwww.........................................................................................................................",
@@ -111141,8 +110921,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -111151,7 +110929,7 @@
    "id": "ogs-7850-68744",
    "category": "ogs",
    "section": "ld-kill",
-   "title": "Kill: Pyramid Four",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".............................................................................................................................................bbbb.............bbwwwb.............bww.wwb............bw...wb.............bwwwbb.............bbbb..........................................................................................................................",
@@ -111201,8 +110979,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -111211,7 +110987,7 @@
    "id": "ogs-7850-68745",
    "category": "ogs",
    "section": "ld-live",
-   "title": "Make Life: Crossed Five",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".........................................................................................................................wwww...............wbbbww............wbb.bbw............wb...bw............wbb.bbw............wwbbbw...............wwww.........................................................................................................................",
@@ -111248,8 +111024,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -111258,7 +111032,7 @@
    "id": "ogs-7850-68748",
    "category": "ogs",
    "section": "ld-kill",
-   "title": "Kill: Crossed Five",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": ".........................................................................................................................bbbb...............bwwwbb............bww.wwb............bw...wb............bww.wwb............bbwwwb...............bbbb.........................................................................................................................",
@@ -111319,8 +111093,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -111329,7 +111101,7 @@
    "id": "ogs-7850-68746",
    "category": "ogs",
    "section": "ld-live",
-   "title": "Make Life: Bulky Five",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "............................................................................................................................................wwww..............wbbbbww............wb..bbw............wb...bw............wwbbbbw..............wwww.........................................................................................................................",
@@ -111390,8 +111162,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }
@@ -111400,7 +111170,7 @@
    "id": "ogs-7850-68747",
    "category": "ogs",
    "section": "ld-kill",
-   "title": "Kill - Bulky Five",
+   "title": "",
    "to_move": "b",
    "size": 19,
    "board": "............................................................................................................................................bbbb..............bwwwwbb............bw..wwb............bw...wb............bbwwwwb..............bbbb.........................................................................................................................",
@@ -111495,8 +111265,6 @@
    "marked_by": {
     "engine": "ogs-import",
     "collection": 7850,
-    "collection_label": "Absolute Basics I",
-    "owner": "ElysianOne",
     "source": "online-go.com",
     "license": "personal-use-unverified"
    }

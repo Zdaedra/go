@@ -16,7 +16,7 @@ import { relativeLabel } from '../engine/adaptive2';
 import {
   nextEpisode, recordEpisode, domainLabels, useTrainingProfile,
   placementState, EpisodeOutcome, problemById, sectionProblems,
-  getProfile, completeOnboarding, todayProgress, DAILY_GOAL,
+  getProfile, completeOnboarding, todayProgress, dailyGoal,
 } from '../state/trainingStats';
 import { recordAttempt } from '../state/tsumegoProgress';
 import { soundForMove, playStone } from '../sound/stones';
@@ -540,7 +540,7 @@ export default function TrainingSessionScreen(
             {cs.reproduced > 0 && <Text style={styles.summaryRow}>{t('session_row_reproduced', { n: cs.reproduced })}</Text>}
             <Text style={styles.summaryRow}>{t('session_row_firsttry', { pct: firstTry })}</Text>
             {cs.points > 0 && <Text style={styles.summaryRowAccent}>{t('session_row_points', { n: cs.points })}</Text>}
-            {todayProgress(profile) >= DAILY_GOAL && (
+            {todayProgress(profile) >= dailyGoal(profile) && (
               <Text style={styles.summaryGoalDone}>{t('goal_done')}</Text>
             )}
             {gains.map((g) => (
