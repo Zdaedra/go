@@ -215,7 +215,6 @@ export default function OpeningScreen({ route, navigation }: { route: any; navig
         {descText !== '' && (
           <Text style={styles.infoDesc}>{descText}</Text>
         )}
-        <Text style={styles.infoText}>{branch.caption}</Text>
         {branch.result && (
           <Text style={styles.infoText}>
             {t('eval')}: {branch.result in RESULT_KEY ? t(RESULT_KEY[branch.result]) : branch.result}

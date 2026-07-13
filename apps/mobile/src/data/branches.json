@@ -31,7 +31,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 1,
    "diagram": "tengen-fig001",
-   "caption": "Tengen diagram 1",
+   "caption": "",
    "result": null,
    "to_move": "w",
    "moves": [
@@ -120,7 +120,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 2,
    "diagram": "tengen-fig002",
-   "caption": "Tengen diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -230,7 +230,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 3,
    "diagram": "c3t3",
-   "caption": "‘Three in a Row’ diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -350,7 +350,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 4,
    "diagram": "c3t4",
-   "caption": "‘Three in a Row’ diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -480,7 +480,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 5,
    "diagram": "c3t5",
-   "caption": "‘Three in a Row’ diagram 3",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -530,7 +530,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 6,
    "diagram": "c3t6",
-   "caption": "‘Three in a Row’ diagram 4",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -658,7 +658,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 7,
    "diagram": "tengen-fig007",
-   "caption": "‘Three in a Row’ diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -736,7 +736,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 8,
    "diagram": "tengen-fig008",
-   "caption": "‘Three in a Row’ diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -806,7 +806,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 9,
    "diagram": "tengen-fig009",
-   "caption": "‘Three in a Row’ diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -947,7 +947,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 10,
    "diagram": "tengen-fig010",
-   "caption": "‘Three in a Row’ diagram 8",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -1017,7 +1017,7 @@
    "opening_name": "Chapter 3 Tengen Openings — preamble",
    "branch_no": 11,
    "diagram": "tengen-fig011",
-   "caption": "‘Three in a Row’ diagram 9",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -1091,7 +1091,7 @@
    "opening_name": "Sword",
    "branch_no": 1,
    "diagram": "tengen-fig012",
-   "caption": "Sword diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -1183,7 +1183,7 @@
    "opening_name": "Sword",
    "branch_no": 2,
    "diagram": "tengen-fig013",
-   "caption": "Sword diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -1346,7 +1346,7 @@
    "opening_name": "Sword",
    "branch_no": 3,
    "diagram": "tengen-fig014",
-   "caption": "Sword diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -1500,7 +1500,7 @@
    "opening_name": "Sword",
    "branch_no": 4,
    "diagram": "tengen-fig015",
-   "caption": "Sword diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -1586,7 +1586,7 @@
    "opening_name": "Sword",
    "branch_no": 5,
    "diagram": "tengen-fig016",
-   "caption": "Sword diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -1695,7 +1695,7 @@
    "opening_name": "Sword",
    "branch_no": 6,
    "diagram": "tengen-fig017",
-   "caption": "Sword diagram 6",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -1764,7 +1764,7 @@
    "opening_name": "Sword",
    "branch_no": 7,
    "diagram": "tengen-fig018",
-   "caption": "Sword diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -1887,7 +1887,7 @@
    "opening_name": "Sword",
    "branch_no": 8,
    "diagram": "tengen-fig019",
-   "caption": "Sword diagram 8",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -1990,7 +1990,7 @@
    "opening_name": "Sword",
    "branch_no": 9,
    "diagram": "tengen-fig020",
-   "caption": "Sword diagram 9",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -2043,7 +2043,7 @@
    "opening_name": "Sword",
    "branch_no": 10,
    "diagram": "tengen-fig021",
-   "caption": "Sword diagram 10",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -2147,7 +2147,7 @@
    "opening_name": "Orthodox",
    "branch_no": 1,
    "diagram": "tengen-fig022",
-   "caption": "Orthodox diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -2306,7 +2306,7 @@
    "opening_name": "Orthodox",
    "branch_no": 2,
    "diagram": "tengen-fig023",
-   "caption": "Orthodox diagram 2",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -2465,7 +2465,7 @@
    "opening_name": "Orthodox",
    "branch_no": 3,
    "diagram": "c3o3",
-   "caption": "Orthodox diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -2522,7 +2522,7 @@
    "opening_name": "Orthodox",
    "branch_no": 4,
    "diagram": "tengen-fig025",
-   "caption": "Orthodox diagram 4",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -2610,7 +2610,7 @@
    "opening_name": "Orthodox",
    "branch_no": 5,
    "diagram": "tengen-fig026",
-   "caption": "Orthodox diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -2755,7 +2755,7 @@
    "opening_name": "Orthodox",
    "branch_no": 6,
    "diagram": "tengen-fig027",
-   "caption": "Orthodox diagram 6",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -2817,7 +2817,7 @@
    "opening_name": "Windmill",
    "branch_no": 1,
    "diagram": "c3w1",
-   "caption": "Windmill diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -2958,7 +2958,7 @@
    "opening_name": "Windmill",
    "branch_no": 2,
    "diagram": "tengen-fig029",
-   "caption": "Windmill diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -3032,7 +3032,7 @@
    "opening_name": "Windmill",
    "branch_no": 3,
    "diagram": "tengen-fig030",
-   "caption": "Windmill diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -3098,7 +3098,7 @@
    "opening_name": "Windmill",
    "branch_no": 4,
    "diagram": "tengen-fig031",
-   "caption": "Windmill diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -3153,7 +3153,7 @@
    "opening_name": "Windmill",
    "branch_no": 5,
    "diagram": "tengen-fig032",
-   "caption": "Windmill diagram 5",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -3206,7 +3206,7 @@
    "opening_name": "Windmill",
    "branch_no": 6,
    "diagram": "c3w6",
-   "caption": "Windmill diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -3362,7 +3362,7 @@
    "opening_name": "Windmill",
    "branch_no": 7,
    "diagram": "c3w7",
-   "caption": "Windmill diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -3450,7 +3450,7 @@
    "opening_name": "Windmill",
    "branch_no": 8,
    "diagram": "tengen-fig035",
-   "caption": "Windmill diagram 8 18: connects",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -3639,7 +3639,7 @@
    "opening_name": "Hand Fan",
    "branch_no": 1,
    "diagram": "c3hf1",
-   "caption": "Hand Fan diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -3764,7 +3764,7 @@
    "opening_name": "Hand Fan",
    "branch_no": 2,
    "diagram": "c3hf2",
-   "caption": "Hand Fan diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -3910,7 +3910,7 @@
    "opening_name": "Hand Fan",
    "branch_no": 3,
    "diagram": "tengen-fig038",
-   "caption": "Hand Fan diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -3986,7 +3986,7 @@
    "opening_name": "Hand Fan",
    "branch_no": 4,
    "diagram": "tengen-fig039",
-   "caption": "Hand Fan diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -4116,7 +4116,7 @@
    "opening_name": "Curveball",
    "branch_no": 1,
    "diagram": "tengen-fig040",
-   "caption": "Curveball diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -4226,7 +4226,7 @@
    "opening_name": "Curveball",
    "branch_no": 2,
    "diagram": "c3c2",
-   "caption": "Curveball diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -4380,7 +4380,7 @@
    "opening_name": "Curveball",
    "branch_no": 3,
    "diagram": "tengen-fig042",
-   "caption": "Curveball diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -4527,7 +4527,7 @@
    "opening_name": "Curveball",
    "branch_no": 4,
    "diagram": "tengen-fig043",
-   "caption": "Curveball diagram 4",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -4595,7 +4595,7 @@
    "opening_name": "Curveball",
    "branch_no": 5,
    "diagram": "tengen-fig044",
-   "caption": "Curveball diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -4698,7 +4698,7 @@
    "opening_name": "Soccer Juggling",
    "branch_no": 1,
    "diagram": "tengen-fig045",
-   "caption": "Soccer Juggling diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -4866,7 +4866,7 @@
    "opening_name": "Soccer Juggling",
    "branch_no": 2,
    "diagram": "c3sj2",
-   "caption": "Soccer Juggling diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -4963,7 +4963,7 @@
    "opening_name": "Soccer Juggling",
    "branch_no": 3,
    "diagram": "tengen-fig047",
-   "caption": "Soccer Juggling diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -5077,7 +5077,7 @@
    "opening_name": "Soccer Juggling",
    "branch_no": 4,
    "diagram": "tengen-fig048",
-   "caption": "Soccer Juggling diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -5137,7 +5137,7 @@
    "opening_name": "Soccer Juggling",
    "branch_no": 5,
    "diagram": "tengen-fig049",
-   "caption": "Soccer Juggling diagram 5",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -5199,7 +5199,7 @@
    "opening_name": "Soccer Juggling",
    "branch_no": 6,
    "diagram": "c3sj6",
-   "caption": "Soccer Juggling diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -5324,7 +5324,7 @@
    "opening_name": "Soccer Juggling",
    "branch_no": 7,
    "diagram": "tengen-fig051",
-   "caption": "Soccer Juggling diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -5451,7 +5451,7 @@
    "opening_name": "Jump Attack",
    "branch_no": 1,
    "diagram": "tengen-fig052",
-   "caption": "Jump Attack diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -5579,7 +5579,7 @@
    "opening_name": "Jump Attack",
    "branch_no": 2,
    "diagram": "tengen-fig053",
-   "caption": "Jump Attack diagram 2",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -5644,7 +5644,7 @@
    "opening_name": "Jump Attack",
    "branch_no": 3,
    "diagram": "tengen-fig054",
-   "caption": "Jump Attack diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -5711,7 +5711,7 @@
    "opening_name": "Jump Attack",
    "branch_no": 4,
    "diagram": "tengen-fig055",
-   "caption": "Jump Attack diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -5798,7 +5798,7 @@
    "opening_name": "Jump Attack",
    "branch_no": 5,
    "diagram": "tengen-fig056",
-   "caption": "Jump Attack diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -5896,7 +5896,7 @@
    "opening_name": "Jump Attack",
    "branch_no": 6,
    "diagram": "tengen-fig057",
-   "caption": "‘Tengen Tobi’ diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [],
@@ -6059,7 +6059,7 @@
    "opening_name": "Jump Attack",
    "branch_no": 7,
    "diagram": "tengen-fig058",
-   "caption": "‘Tengen Tobi’ diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -6138,7 +6138,7 @@
    "opening_name": "Cross Line",
    "branch_no": 1,
    "diagram": "tengen-fig059",
-   "caption": "Cross Line diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -6259,7 +6259,7 @@
    "opening_name": "Cross Line",
    "branch_no": 2,
    "diagram": "tengen-fig060",
-   "caption": "Cross Line diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -6344,7 +6344,7 @@
    "opening_name": "Cross Line",
    "branch_no": 3,
    "diagram": "tengen-fig061",
-   "caption": "Cross Line diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -6477,7 +6477,7 @@
    "opening_name": "Almost Equilateral 1",
    "branch_no": 1,
    "diagram": "tengen-fig062",
-   "caption": "Almost Equilateral 1 diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -6639,7 +6639,7 @@
    "opening_name": "Almost Equilateral 1",
    "branch_no": 2,
    "diagram": "tengen-fig063",
-   "caption": "Almost Equilateral 1 diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -6750,7 +6750,7 @@
    "opening_name": "Almost Equilateral 1",
    "branch_no": 3,
    "diagram": "tengen-fig064",
-   "caption": "Almost Equilateral 1 diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -6832,7 +6832,7 @@
    "opening_name": "Almost Equilateral 1",
    "branch_no": 4,
    "diagram": "tengen-fig065",
-   "caption": "Almost Equilateral 1 diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -6980,7 +6980,7 @@
    "opening_name": "Almost Equilateral 1",
    "branch_no": 5,
    "diagram": "tengen-fig066",
-   "caption": "Almost Equilateral 1 diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -7099,7 +7099,7 @@
    "opening_name": "Headbutt",
    "branch_no": 1,
    "diagram": "tengen-fig067",
-   "caption": "Headbutt diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -7168,7 +7168,7 @@
    "opening_name": "Headbutt",
    "branch_no": 2,
    "diagram": "tengen-fig068",
-   "caption": "Headbutt diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -7278,7 +7278,7 @@
    "opening_name": "Almost Equilateral 2",
    "branch_no": 1,
    "diagram": "tengen-fig069",
-   "caption": "Almost Equilateral 2 diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -7414,7 +7414,7 @@
    "opening_name": "Almost Equilateral 2",
    "branch_no": 2,
    "diagram": "c3a22",
-   "caption": "Almost Equilateral 2 diagram 2",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -7529,7 +7529,7 @@
    "opening_name": "Almost Equilateral 2",
    "branch_no": 3,
    "diagram": "tengen-fig071",
-   "caption": "Almost Equilateral 2 diagram 3",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -7586,7 +7586,7 @@
    "opening_name": "Almost Equilateral 2",
    "branch_no": 4,
    "diagram": "tengen-fig072",
-   "caption": "Almost Equilateral 2 diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -7664,7 +7664,7 @@
    "opening_name": "Almost Equilateral 2",
    "branch_no": 5,
    "diagram": "tengen-fig073",
-   "caption": "Almost Equilateral 2 diagram 5",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -7817,7 +7817,7 @@
    "opening_name": "Pendulum",
    "branch_no": 1,
    "diagram": "tengen-fig074",
-   "caption": "Pendulum diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -7976,7 +7976,7 @@
    "opening_name": "Pendulum",
    "branch_no": 2,
    "diagram": "c3p2",
-   "caption": "Pendulum diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -8094,7 +8094,7 @@
    "opening_name": "Pendulum",
    "branch_no": 3,
    "diagram": "tengen-fig076",
-   "caption": "Pendulum diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -8187,7 +8187,7 @@
    "opening_name": "Pendulum",
    "branch_no": 4,
    "diagram": "c3p4",
-   "caption": "Pendulum diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -8297,7 +8297,7 @@
    "opening_name": "Pendulum",
    "branch_no": 5,
    "diagram": "c3p5",
-   "caption": "Pendulum diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -8363,7 +8363,7 @@
    "opening_name": "Pendulum",
    "branch_no": 6,
    "diagram": "tengen-fig079",
-   "caption": "Pendulum diagram 6",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -8407,7 +8407,7 @@
    "opening_name": "Pendulum",
    "branch_no": 7,
    "diagram": "tengen-fig080",
-   "caption": "Pendulum diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -8531,7 +8531,7 @@
    "opening_name": "Pendulum",
    "branch_no": 8,
    "diagram": "tengen-fig081",
-   "caption": "Pendulum diagram 8",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -8658,7 +8658,7 @@
    "opening_name": "Almost Equilateral 3",
    "branch_no": 1,
    "diagram": "tengen-fig082",
-   "caption": "Almost Equilateral 3 diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -8811,7 +8811,7 @@
    "opening_name": "Almost Equilateral 3",
    "branch_no": 2,
    "diagram": "tengen-fig083",
-   "caption": "Almost Equilateral 3 diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -8964,7 +8964,7 @@
    "opening_name": "Almost Equilateral 3",
    "branch_no": 3,
    "diagram": "tengen-fig084",
-   "caption": "Almost Equilateral 3 diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -9091,7 +9091,7 @@
    "opening_name": "Almost Equilateral 3",
    "branch_no": 4,
    "diagram": "tengen-fig085",
-   "caption": "Almost Equilateral 3 diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -9235,7 +9235,7 @@
    "opening_name": "Side Attachment",
    "branch_no": 1,
    "diagram": "tengen-fig086",
-   "caption": "Side Attachment diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -9287,7 +9287,7 @@
    "opening_name": "Side Attachment",
    "branch_no": 2,
    "diagram": "tengen-fig087",
-   "caption": "Side Attachment diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -9340,7 +9340,7 @@
    "opening_name": "Side Attachment",
    "branch_no": 3,
    "diagram": "tengen-fig088",
-   "caption": "Side Attachment diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -9409,7 +9409,7 @@
    "opening_name": "Other Tengen Openings",
    "branch_no": 1,
    "diagram": "c3hc",
-   "caption": "‘Hunchback in the Corner’ diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -9524,7 +9524,7 @@
    "opening_name": "Other Tengen Openings",
    "branch_no": 2,
    "diagram": "tengen-fig090",
-   "caption": "‘Hunchback in the Corner’ diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -9627,7 +9627,7 @@
    "opening_name": "Other Tengen Openings",
    "branch_no": 3,
    "diagram": "tengen-fig091",
-   "caption": "‘Hunchback in the Corner’ diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -9763,7 +9763,7 @@
    "opening_name": "Other Tengen Openings",
    "branch_no": 4,
    "diagram": "tengen-fig092",
-   "caption": "Shoulder hit diagram 1",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -9875,7 +9875,7 @@
    "opening_name": "Other Tengen Openings",
    "branch_no": 5,
    "diagram": "tengen-fig093",
-   "caption": "Shoulder hit diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -9991,7 +9991,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 1,
    "diagram": "hoshi-fig001",
-   "caption": "Hoshi diagram 1",
+   "caption": "",
    "result": null,
    "to_move": "w",
    "moves": [
@@ -10137,7 +10137,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 2,
    "diagram": "c4op",
-   "caption": "Hoshi diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -10214,7 +10214,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 3,
    "diagram": "hoshi-fig003",
-   "caption": "Hoshi diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -10302,7 +10302,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 4,
    "diagram": "hoshi-fig004",
-   "caption": "Hoshi diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -10369,7 +10369,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 5,
    "diagram": "hoshi-fig005",
-   "caption": "Hoshi diagram 5",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -10466,7 +10466,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 6,
    "diagram": "hoshi-fig006",
-   "caption": "Hoshi diagram 6",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -10541,7 +10541,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 7,
    "diagram": "hoshi-fig007",
-   "caption": "Hoshi diagram 7",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -10640,7 +10640,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 8,
    "diagram": "hoshi-fig008",
-   "caption": "Hoshi diagram 8",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -10810,7 +10810,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 9,
    "diagram": "hoshi-fig009",
-   "caption": "Hoshi diagram 9",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -10877,7 +10877,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 10,
    "diagram": "hoshi-fig010",
-   "caption": "Hoshi diagram 10",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -10940,7 +10940,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 11,
    "diagram": "hoshi-fig011",
-   "caption": "Hoshi diagram 11",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -11014,7 +11014,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 12,
    "diagram": "hoshi-fig012",
-   "caption": "Hoshi diagram 12",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -11103,7 +11103,7 @@
    "opening_name": "Chapter 4 Hoshi Openings — preamble",
    "branch_no": 13,
    "diagram": "hoshi-fig013",
-   "caption": "Hoshi diagram 13",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -11186,7 +11186,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 1,
    "diagram": "hoshi-fig014",
-   "caption": "Black Boomerang diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -11304,7 +11304,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 2,
    "diagram": "hoshi-fig015",
-   "caption": "Black Boomerang diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -11525,7 +11525,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 3,
    "diagram": "hoshi-fig016",
-   "caption": "Black Boomerang diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -11635,7 +11635,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 4,
    "diagram": "hoshi-fig017",
-   "caption": "Black Boomerang diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -11716,7 +11716,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 5,
    "diagram": "hoshi-fig018",
-   "caption": "Black Boomerang diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -11808,7 +11808,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 6,
    "diagram": "hoshi-fig019",
-   "caption": "Black Boomerang diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -11892,7 +11892,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 7,
    "diagram": "hoshi-fig020",
-   "caption": "Black Boomerang diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -11995,7 +11995,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 8,
    "diagram": "hoshi-fig021",
-   "caption": "Black Boomerang diagram 8",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -12068,7 +12068,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 9,
    "diagram": "hoshi-fig022",
-   "caption": "Black Boomerang diagram 9",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -12145,7 +12145,7 @@
    "opening_name": "Black Boomerang",
    "branch_no": 10,
    "diagram": "hoshi-fig023",
-   "caption": "Black Boomerang diagram 10",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -12248,7 +12248,7 @@
    "opening_name": "Bean Throwing",
    "branch_no": 1,
    "diagram": "hoshi-fig024",
-   "caption": "Bean Throwing diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -12437,7 +12437,7 @@
    "opening_name": "Bean Throwing",
    "branch_no": 2,
    "diagram": "hoshi-fig025",
-   "caption": "Bean Throwing diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -12551,7 +12551,7 @@
    "opening_name": "Bean Throwing",
    "branch_no": 3,
    "diagram": "hoshi-fig026",
-   "caption": "Bean Throwing diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -12697,7 +12697,7 @@
    "opening_name": "Bean Throwing",
    "branch_no": 4,
    "diagram": "hoshi-fig027",
-   "caption": "Bean Throwing diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -12810,7 +12810,7 @@
    "opening_name": "Bean Throwing",
    "branch_no": 5,
    "diagram": "hoshi-fig028",
-   "caption": "Bean Throwing diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -13007,7 +13007,7 @@
    "opening_name": "Bean Throwing",
    "branch_no": 6,
    "diagram": "hoshi-fig029",
-   "caption": "Bean Throwing diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -13088,7 +13088,7 @@
    "opening_name": "Bean Throwing",
    "branch_no": 7,
    "diagram": "hoshi-fig030",
-   "caption": "Bean Throwing diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -13285,7 +13285,7 @@
    "opening_name": "Bean Throwing",
    "branch_no": 8,
    "diagram": "hoshi-fig031",
-   "caption": "Bean Throwing diagram 8",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -13352,7 +13352,7 @@
    "opening_name": "Big Flower",
    "branch_no": 1,
    "diagram": "hoshi-fig032",
-   "caption": "Big Flower diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -13453,7 +13453,7 @@
    "opening_name": "Big Flower",
    "branch_no": 2,
    "diagram": "hoshi-fig033",
-   "caption": "Big Flower diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -13613,7 +13613,7 @@
    "opening_name": "Flower",
    "branch_no": 1,
    "diagram": "hoshi-fig034",
-   "caption": "Flower diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -13738,7 +13738,7 @@
    "opening_name": "Flower",
    "branch_no": 2,
    "diagram": "hoshi-fig035",
-   "caption": "Flower diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -13859,7 +13859,7 @@
    "opening_name": "Flower",
    "branch_no": 3,
    "diagram": "hoshi-fig036",
-   "caption": "Flower diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -14002,7 +14002,7 @@
    "opening_name": "Flower",
    "branch_no": 4,
    "diagram": "hoshi-fig037",
-   "caption": "Flower diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -14088,7 +14088,7 @@
    "opening_name": "Flower",
    "branch_no": 5,
    "diagram": "hoshi-fig038",
-   "caption": "Flower diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -14296,7 +14296,7 @@
    "opening_name": "Flower",
    "branch_no": 6,
    "diagram": "hoshi-fig039",
-   "caption": "Flower diagram 6",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -14461,7 +14461,7 @@
    "opening_name": "Flower",
    "branch_no": 7,
    "diagram": "hoshi-fig040",
-   "caption": "Flower diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -14540,7 +14540,7 @@
    "opening_name": "Lunar Eclipse",
    "branch_no": 1,
    "diagram": "hoshi-fig041",
-   "caption": "Lunar Eclipse diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -14624,7 +14624,7 @@
    "opening_name": "Lunar Eclipse",
    "branch_no": 2,
    "diagram": "hoshi-fig042",
-   "caption": "Lunar Eclipse diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -14737,7 +14737,7 @@
    "opening_name": "Lunar Eclipse",
    "branch_no": 3,
    "diagram": "hoshi-fig043",
-   "caption": "Lunar Eclipse diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -14931,7 +14931,7 @@
    "opening_name": "Lunar Eclipse",
    "branch_no": 4,
    "diagram": "hoshi-fig044",
-   "caption": "Lunar Eclipse diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -15028,7 +15028,7 @@
    "opening_name": "Blackjack",
    "branch_no": 1,
    "diagram": "hoshi-fig045",
-   "caption": "Blackjack diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -15119,7 +15119,7 @@
    "opening_name": "Blackjack",
    "branch_no": 2,
    "diagram": "hoshi-fig046",
-   "caption": "Blackjack diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -15324,7 +15324,7 @@
    "opening_name": "Blackjack",
    "branch_no": 3,
    "diagram": "c4hs",
-   "caption": "‘Heavenly Sake’ diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -15420,7 +15420,7 @@
    "opening_name": "Blackjack",
    "branch_no": 4,
    "diagram": "hoshi-fig048",
-   "caption": "‘Heavenly Sake’ diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -15544,7 +15544,7 @@
    "opening_name": "Swing",
    "branch_no": 1,
    "diagram": "hoshi-fig049",
-   "caption": "Swing diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -15635,7 +15635,7 @@
    "opening_name": "Swing",
    "branch_no": 2,
    "diagram": "hoshi-fig050",
-   "caption": "Swing diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -15791,7 +15791,7 @@
    "opening_name": "Swing",
    "branch_no": 3,
    "diagram": "hoshi-fig051",
-   "caption": "Swing diagram 3",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -15881,7 +15881,7 @@
    "opening_name": "Horse Head",
    "branch_no": 1,
    "diagram": "hoshi-fig052",
-   "caption": "Horse Head diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -15950,7 +15950,7 @@
    "opening_name": "Horse Head",
    "branch_no": 2,
    "diagram": "hoshi-fig053",
-   "caption": "Horse Head diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -16059,7 +16059,7 @@
    "opening_name": "Horse Head",
    "branch_no": 3,
    "diagram": "c4dh",
-   "caption": "‘Dog’s Head’ diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -16139,7 +16139,7 @@
    "opening_name": "Horse Head",
    "branch_no": 4,
    "diagram": "hoshi-fig055",
-   "caption": "‘Dog’s Head’ diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -16301,7 +16301,7 @@
    "opening_name": "Airship",
    "branch_no": 1,
    "diagram": "hoshi-fig056",
-   "caption": "Airship diagram 1",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -16432,7 +16432,7 @@
    "opening_name": "Airship",
    "branch_no": 2,
    "diagram": "hoshi-fig057",
-   "caption": "Airship diagram 2",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -16518,7 +16518,7 @@
    "opening_name": "Submarine",
    "branch_no": 1,
    "diagram": "hoshi-fig058",
-   "caption": "Submarine diagram 1",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -16633,7 +16633,7 @@
    "opening_name": "Submarine",
    "branch_no": 2,
    "diagram": "hoshi-fig059",
-   "caption": "Submarine diagram 2",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -16728,7 +16728,7 @@
    "opening_name": "Submarine",
    "branch_no": 3,
    "diagram": "hoshi-fig060",
-   "caption": "Submarine diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -16795,7 +16795,7 @@
    "opening_name": "Submarine",
    "branch_no": 4,
    "diagram": "hoshi-fig061",
-   "caption": "Submarine diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -16887,7 +16887,7 @@
    "opening_name": "Submarine",
    "branch_no": 5,
    "diagram": "hoshi-fig062",
-   "caption": "Submarine diagram 5",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -16947,7 +16947,7 @@
    "opening_name": "Other Hoshi Openings",
    "branch_no": 1,
    "diagram": "hoshi-fig063",
-   "caption": "Other hoshi openings diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -17039,7 +17039,7 @@
    "opening_name": "Other Hoshi Openings",
    "branch_no": 2,
    "diagram": "c4oh2",
-   "caption": "Other hoshi openings diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -17166,7 +17166,7 @@
    "opening_name": "Other Hoshi Openings",
    "branch_no": 3,
    "diagram": "hoshi-fig065",
-   "caption": "Other hoshi openings diagram 3",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -17304,7 +17304,7 @@
    "opening_name": "Other Hoshi Openings",
    "branch_no": 4,
    "diagram": "hoshi-fig066",
-   "caption": "Other hoshi openings diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -17365,7 +17365,7 @@
    "opening_name": "Other Hoshi Openings",
    "branch_no": 5,
    "diagram": "hoshi-fig067",
-   "caption": "Other hoshi openings diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -17500,7 +17500,7 @@
    "opening_name": "Other Hoshi Openings",
    "branch_no": 6,
    "diagram": "hoshi-fig068",
-   "caption": "Other hoshi openings diagram 6",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -17547,7 +17547,7 @@
    "opening_name": "Other Hoshi Openings",
    "branch_no": 7,
    "diagram": "hoshi-fig069",
-   "caption": "Other hoshi openings diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -17685,7 +17685,7 @@
    "opening_name": "Other Hoshi Openings",
    "branch_no": 8,
    "diagram": "hoshi-fig070",
-   "caption": "Other hoshi openings diagram 8",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -17828,7 +17828,7 @@
    "opening_name": "Other Hoshi Openings",
    "branch_no": 9,
    "diagram": "hoshi-fig071",
-   "caption": "Other hoshi openings diagram 9",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -17942,7 +17942,7 @@
    "opening_name": "Chapter 5 Takamoku Openings — preamble",
    "branch_no": 1,
    "diagram": "takamoku-fig001",
-   "caption": "Takamoku diagram 1",
+   "caption": "",
    "result": null,
    "to_move": "w",
    "moves": [
@@ -18097,7 +18097,7 @@
    "opening_name": "Chapter 5 Takamoku Openings — preamble",
    "branch_no": 2,
    "diagram": "takamoku-fig002",
-   "caption": "Takamoku diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -18153,7 +18153,7 @@
    "opening_name": "Chapter 5 Takamoku Openings — preamble",
    "branch_no": 3,
    "diagram": "takamoku-fig003",
-   "caption": "Takamoku diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -18260,7 +18260,7 @@
    "opening_name": "Chapter 5 Takamoku Openings — preamble",
    "branch_no": 4,
    "diagram": "takamoku-fig004",
-   "caption": "Takamoku diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -18390,7 +18390,7 @@
    "opening_name": "Chapter 5 Takamoku Openings — preamble",
    "branch_no": 5,
    "diagram": "takamoku-fig005",
-   "caption": "Takamoku diagram 5",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -18537,7 +18537,7 @@
    "opening_name": "Chapter 5 Takamoku Openings — preamble",
    "branch_no": 6,
    "diagram": "c4ba",
-   "caption": "Takamoku diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -18666,7 +18666,7 @@
    "opening_name": "New Orthodox",
    "branch_no": 1,
    "diagram": "takamoku-fig007",
-   "caption": "New Orthodox diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -18849,7 +18849,7 @@
    "opening_name": "New Orthodox",
    "branch_no": 2,
    "diagram": "takamoku-fig008",
-   "caption": "New Orthodox diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -18946,7 +18946,7 @@
    "opening_name": "New Orthodox",
    "branch_no": 3,
    "diagram": "takamoku-fig009",
-   "caption": "New Orthodox diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -19040,7 +19040,7 @@
    "opening_name": "New Orthodox",
    "branch_no": 4,
    "diagram": "c5no4",
-   "caption": "New Orthodox diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -19122,7 +19122,7 @@
    "opening_name": "New Orthodox",
    "branch_no": 5,
    "diagram": "takamoku-fig011",
-   "caption": "New Orthodox diagram 5",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -19164,7 +19164,7 @@
    "opening_name": "New Orthodox",
    "branch_no": 6,
    "diagram": "takamoku-fig012",
-   "caption": "New Orthodox diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -19282,7 +19282,7 @@
    "opening_name": "Andromeda",
    "branch_no": 1,
    "diagram": "takamoku-fig013",
-   "caption": "Andromeda diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -19405,7 +19405,7 @@
    "opening_name": "Andromeda",
    "branch_no": 2,
    "diagram": "takamoku-fig014",
-   "caption": "Andromeda diagram 2",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -19507,7 +19507,7 @@
    "opening_name": "Andromeda",
    "branch_no": 3,
    "diagram": "takamoku-fig015",
-   "caption": "Andromeda diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -19676,7 +19676,7 @@
    "opening_name": "Andromeda",
    "branch_no": 4,
    "diagram": "takamoku-fig016",
-   "caption": "Andromeda diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -19762,7 +19762,7 @@
    "opening_name": "Andromeda",
    "branch_no": 5,
    "diagram": "takamoku-fig017",
-   "caption": "Andromeda diagram 5",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -19868,7 +19868,7 @@
    "opening_name": "Andromeda",
    "branch_no": 6,
    "diagram": "takamoku-fig018",
-   "caption": "Andromeda diagram 6",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -20012,7 +20012,7 @@
    "opening_name": "Andromeda",
    "branch_no": 7,
    "diagram": "takamoku-fig019",
-   "caption": "Andromeda diagram 7",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -20188,7 +20188,7 @@
    "opening_name": "Slider",
    "branch_no": 1,
    "diagram": "takamoku-fig020",
-   "caption": "Slider diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -20280,7 +20280,7 @@
    "opening_name": "Slider",
    "branch_no": 2,
    "diagram": "takamoku-fig021",
-   "caption": "Slider diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -20387,7 +20387,7 @@
    "opening_name": "Slider",
    "branch_no": 3,
    "diagram": "takamoku-fig022",
-   "caption": "Slider diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -20478,7 +20478,7 @@
    "opening_name": "Slider",
    "branch_no": 4,
    "diagram": "takamoku-fig023",
-   "caption": "Slider diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -20547,7 +20547,7 @@
    "opening_name": "Slider",
    "branch_no": 5,
    "diagram": "takamoku-fig024",
-   "caption": "Slider diagram 5",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -20641,7 +20641,7 @@
    "opening_name": "Slider",
    "branch_no": 6,
    "diagram": "takamoku-fig025",
-   "caption": "Slider diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -20720,7 +20720,7 @@
    "opening_name": "Slider",
    "branch_no": 7,
    "diagram": "takamoku-fig026",
-   "caption": "Slider diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -20859,7 +20859,7 @@
    "opening_name": "Slider",
    "branch_no": 8,
    "diagram": "takamoku-fig027",
-   "caption": "Slider diagram 8",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -21022,7 +21022,7 @@
    "opening_name": "Slider",
    "branch_no": 9,
    "diagram": "takamoku-fig028",
-   "caption": "Slider diagram 9",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -21157,7 +21157,7 @@
    "opening_name": "Secret Agent 033",
    "branch_no": 1,
    "diagram": "takamoku-fig029",
-   "caption": "Secret Agent 033 diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -21306,7 +21306,7 @@
    "opening_name": "Secret Agent 033",
    "branch_no": 2,
    "diagram": "takamoku-fig030",
-   "caption": "Secret Agent 033 diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -21395,7 +21395,7 @@
    "opening_name": "White Slice",
    "branch_no": 1,
    "diagram": "takamoku-fig031",
-   "caption": "White Slice diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -21463,7 +21463,7 @@
    "opening_name": "White Slice",
    "branch_no": 2,
    "diagram": "takamoku-fig032",
-   "caption": "White Slice diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -21592,7 +21592,7 @@
    "opening_name": "White Slice",
    "branch_no": 3,
    "diagram": "takamoku-fig033",
-   "caption": "White Slice diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -21691,7 +21691,7 @@
    "opening_name": "Kodachi",
    "branch_no": 1,
    "diagram": "takamoku-fig034",
-   "caption": "Kodachi diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -21769,7 +21769,7 @@
    "opening_name": "Kodachi",
    "branch_no": 2,
    "diagram": "takamoku-fig035",
-   "caption": "Kodachi diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -21877,7 +21877,7 @@
    "opening_name": "Jump Attachment!",
    "branch_no": 1,
    "diagram": "takamoku-fig036",
-   "caption": "Jump Attachment! diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -21974,7 +21974,7 @@
    "opening_name": "Jump Attachment!",
    "branch_no": 2,
    "diagram": "c5ja2",
-   "caption": "Jump Attachment! diagram 2",
+   "caption": "",
    "result": "B+",
    "to_move": "b",
    "moves": [
@@ -22142,7 +22142,7 @@
    "opening_name": "Zazen",
    "branch_no": 1,
    "diagram": "takamoku-fig038",
-   "caption": "Zazen diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -22230,7 +22230,7 @@
    "opening_name": "Zazen",
    "branch_no": 2,
    "diagram": "takamoku-fig039",
-   "caption": "Zazen diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -22315,7 +22315,7 @@
    "opening_name": "Zazen",
    "branch_no": 3,
    "diagram": "takamoku-fig040",
-   "caption": "Zazen diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -22389,7 +22389,7 @@
    "opening_name": "Boots",
    "branch_no": 1,
    "diagram": "takamoku-fig041",
-   "caption": "Boots diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -22501,7 +22501,7 @@
    "opening_name": "Boots",
    "branch_no": 2,
    "diagram": "takamoku-fig042",
-   "caption": "Boots diagram 2 18: connects",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -22607,7 +22607,7 @@
    "opening_name": "Boots",
    "branch_no": 3,
    "diagram": "takamoku-fig043",
-   "caption": "Boots diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -22759,7 +22759,7 @@
    "opening_name": "Other Takamoku Openings",
    "branch_no": 1,
    "diagram": "takamoku-fig044",
-   "caption": "Other takamoku openings diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -22888,7 +22888,7 @@
    "opening_name": "Other Takamoku Openings",
    "branch_no": 2,
    "diagram": "takamoku-fig045",
-   "caption": "Other takamoku openings diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -23001,7 +23001,7 @@
    "opening_name": "Other Takamoku Openings",
    "branch_no": 3,
    "diagram": "takamoku-fig046",
-   "caption": "Other takamoku openings diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -23082,7 +23082,7 @@
    "opening_name": "Other Takamoku Openings",
    "branch_no": 4,
    "diagram": "takamoku-fig047",
-   "caption": "Other takamoku openings diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -23227,7 +23227,7 @@
    "opening_name": "Mokuhazushi",
    "branch_no": 1,
    "diagram": "territorial-fig001",
-   "caption": "Mokuhazushi",
+   "caption": "",
    "result": null,
    "to_move": "w",
    "moves": [
@@ -23412,7 +23412,7 @@
    "opening_name": "Mokuhazushi Main Line",
    "branch_no": 1,
    "diagram": "territorial-fig004",
-   "caption": "Mokuhazushi main line diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -23509,7 +23509,7 @@
    "opening_name": "Mokuhazushi Main Line",
    "branch_no": 2,
    "diagram": "territorial-fig005",
-   "caption": "Mokuhazushi main line diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -23577,7 +23577,7 @@
    "opening_name": "Mokuhazushi Main Line",
    "branch_no": 3,
    "diagram": "territorial-fig006",
-   "caption": "Mokuhazushi main line diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -23674,7 +23674,7 @@
    "opening_name": "Mokuhazushi Main Line",
    "branch_no": 4,
    "diagram": "territorial-fig007",
-   "caption": "Mokuhazushi main line diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -23910,7 +23910,7 @@
    "opening_name": "Mokuhazushi Main Line",
    "branch_no": 5,
    "diagram": "territorial-fig008",
-   "caption": "Mokuhazushi main line diagram 5",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -24032,7 +24032,7 @@
    "opening_name": "Mokuhazushi Main Line",
    "branch_no": 6,
    "diagram": "territorial-fig009",
-   "caption": "Mokuhazushi main line diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -24177,7 +24177,7 @@
    "opening_name": "Mokuhazushi Main Line",
    "branch_no": 7,
    "diagram": "territorial-fig010",
-   "caption": "Mokuhazushi main line diagram 7",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -24339,7 +24339,7 @@
    "opening_name": "Sea Fairy",
    "branch_no": 1,
    "diagram": "territorial-fig011",
-   "caption": "Sea Fairy diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -24417,7 +24417,7 @@
    "opening_name": "Sea Fairy",
    "branch_no": 2,
    "diagram": "territorial-fig012",
-   "caption": "Sea Fairy diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -24477,7 +24477,7 @@
    "opening_name": "Sea Fairy",
    "branch_no": 3,
    "diagram": "territorial-fig013",
-   "caption": "Sea Fairy diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -24598,7 +24598,7 @@
    "opening_name": "Avoiding Transpositions",
    "branch_no": 1,
    "diagram": "territorial-fig014",
-   "caption": "Avoiding transpositions, diagram 1",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -24704,7 +24704,7 @@
    "opening_name": "Avoiding Transpositions",
    "branch_no": 2,
    "diagram": "territorial-fig015",
-   "caption": "Avoiding transpositions, diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -24849,7 +24849,7 @@
    "opening_name": "Avoiding Transpositions",
    "branch_no": 3,
    "diagram": "territorial-fig016",
-   "caption": "Avoiding transpositions, diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -24981,7 +24981,7 @@
    "opening_name": "Avoiding Transpositions",
    "branch_no": 4,
    "diagram": "territorial-fig017",
-   "caption": "Avoiding transpositions, diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -25033,7 +25033,7 @@
    "opening_name": "Avoiding Transpositions",
    "branch_no": 5,
    "diagram": "territorial-fig018",
-   "caption": "Avoiding transpositions, diagram 5",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -25173,7 +25173,7 @@
    "opening_name": "Avoiding Transpositions",
    "branch_no": 6,
    "diagram": "territorial-fig019",
-   "caption": "Avoiding transpositions, diagram 6",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -25262,7 +25262,7 @@
    "opening_name": "Other Mokuhazushi Openings",
    "branch_no": 1,
    "diagram": "territorial-fig020",
-   "caption": "Other mokuhazushi openings diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -25378,7 +25378,7 @@
    "opening_name": "Other Mokuhazushi Openings",
    "branch_no": 2,
    "diagram": "territorial-fig021",
-   "caption": "Other mokuhazushi openings diagram 2",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -25550,7 +25550,7 @@
    "opening_name": "Other Mokuhazushi Openings",
    "branch_no": 3,
    "diagram": "territorial-fig022",
-   "caption": "Other mokuhazushi openings diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -25640,7 +25640,7 @@
    "opening_name": "Other Mokuhazushi Openings",
    "branch_no": 4,
    "diagram": "territorial-fig023",
-   "caption": "Other mokuhazushi openings diagram 4",
+   "caption": "",
    "result": "even",
    "to_move": "b",
    "moves": [
@@ -25752,7 +25752,7 @@
    "opening_name": "Komoku",
    "branch_no": 1,
    "diagram": "territorial-fig024",
-   "caption": "Komoku diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -25788,7 +25788,7 @@
    "opening_name": "Komoku",
    "branch_no": 2,
    "diagram": "c7k2",
-   "caption": "Komoku diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -25835,7 +25835,7 @@
    "opening_name": "Komoku",
    "branch_no": 3,
    "diagram": "territorial-fig026",
-   "caption": "Komoku diagram 3",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -25932,7 +25932,7 @@
    "opening_name": "Komoku",
    "branch_no": 4,
    "diagram": "territorial-fig027",
-   "caption": "Komoku diagram 4",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -26020,7 +26020,7 @@
    "opening_name": "Komoku",
    "branch_no": 5,
    "diagram": "territorial-fig028",
-   "caption": "Komoku diagram 5",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -26098,7 +26098,7 @@
    "opening_name": "Komoku",
    "branch_no": 6,
    "diagram": "territorial-fig029",
-   "caption": "Komoku diagram 6",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -26187,7 +26187,7 @@
    "opening_name": "Komoku",
    "branch_no": 7,
    "diagram": "territorial-fig030",
-   "caption": "Komoku diagram 7",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -26259,7 +26259,7 @@
    "opening_name": "Komoku",
    "branch_no": 8,
    "diagram": "territorial-fig031",
-   "caption": "Komoku diagram 8",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -26332,7 +26332,7 @@
    "opening_name": "Komoku",
    "branch_no": 9,
    "diagram": "territorial-fig032",
-   "caption": "Komoku diagram 9",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -26399,7 +26399,7 @@
    "opening_name": "Komoku",
    "branch_no": 10,
    "diagram": "territorial-fig033",
-   "caption": "Komoku diagram 10",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -26465,7 +26465,7 @@
    "opening_name": "Komoku",
    "branch_no": 11,
    "diagram": "territorial-fig034",
-   "caption": "Komoku diagram 11",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -26559,7 +26559,7 @@
    "opening_name": "Komoku",
    "branch_no": 12,
    "diagram": "territorial-fig035",
-   "caption": "Komoku diagram 12",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -26650,7 +26650,7 @@
    "opening_name": "Komoku",
    "branch_no": 13,
    "diagram": "territorial-fig036",
-   "caption": "Komoku diagram 13",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -26718,7 +26718,7 @@
    "opening_name": "Komoku",
    "branch_no": 14,
    "diagram": "territorial-fig037",
-   "caption": "Komoku diagram 14",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -26802,7 +26802,7 @@
    "opening_name": "Komoku",
    "branch_no": 15,
    "diagram": "territorial-fig038",
-   "caption": "Komoku diagram 15",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -26862,7 +26862,7 @@
    "opening_name": "Komoku",
    "branch_no": 16,
    "diagram": "territorial-fig039",
-   "caption": "Komoku diagram 16",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -26917,7 +26917,7 @@
    "opening_name": "Komoku",
    "branch_no": 17,
    "diagram": "territorial-fig040",
-   "caption": "Komoku diagram 17",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -26980,7 +26980,7 @@
    "opening_name": "Komoku",
    "branch_no": 18,
    "diagram": "territorial-fig041",
-   "caption": "Komoku diagram 18 34: throws in; 35: takes",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -27091,7 +27091,7 @@
    "opening_name": "Komoku",
    "branch_no": 19,
    "diagram": "territorial-fig042",
-   "caption": "Komoku diagram 19",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -27138,7 +27138,7 @@
    "opening_name": "Komoku",
    "branch_no": 20,
    "diagram": "territorial-fig043",
-   "caption": "Komoku diagram 20",
+   "caption": "",
    "result": "W+",
    "to_move": "b",
    "moves": [
@@ -27193,7 +27193,7 @@
    "opening_name": "Sansan",
    "branch_no": 1,
    "diagram": "territorial-fig044",
-   "caption": "Sansan diagram 1",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -27279,7 +27279,7 @@
    "opening_name": "Sansan",
    "branch_no": 2,
    "diagram": "territorial-fig045",
-   "caption": "Sansan diagram 2",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -27369,7 +27369,7 @@
    "opening_name": "Sansan",
    "branch_no": 3,
    "diagram": "territorial-fig046",
-   "caption": "Sansan diagram 3",
+   "caption": "",
    "result": "even",
    "to_move": "w",
    "moves": [
@@ -27477,7 +27477,7 @@
    "opening_name": "Sansan",
    "branch_no": 4,
    "diagram": "territorial-fig047",
-   "caption": "Sansan diagram 4",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -27576,7 +27576,7 @@
    "opening_name": "Sansan",
    "branch_no": 5,
    "diagram": "territorial-fig048",
-   "caption": "Sansan diagram 5",
+   "caption": "",
    "result": "W+",
    "to_move": "w",
    "moves": [
@@ -27816,7 +27816,7 @@
    "opening_name": "Sansan",
    "branch_no": 6,
    "diagram": "territorial-fig049",
-   "caption": "Sansan diagram 6",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [
@@ -27853,7 +27853,7 @@
    "opening_name": "Sansan",
    "branch_no": 7,
    "diagram": "territorial-fig050",
-   "caption": "Sansan diagram 7",
+   "caption": "",
    "result": "B+",
    "to_move": "w",
    "moves": [

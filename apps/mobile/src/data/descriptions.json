@@ -112,12 +112,12 @@
   "ko": "백의 응수가 스스로 활로를 줄인다; 흑은 두터운 이단 하네로 응징해야 한다."
  },
  "tengen/orthodox/5": {
-  "ru": "Внутреннее ханэ ведёт к сложной мельнице; интуитивные атари чёрных часто вредят.",
-  "en": "The inside hane leads to a complex windmill; Black's intuitive ataris often do harm.",
-  "es": "El hane interior lleva a un molino complejo; los ataris intuitivos de Negro suelen hacer daño.",
-  "fr": "Le hane intérieur mène à un moulin complexe ; les ataris intuitifs de Noir font souvent du tort.",
-  "de": "Der innere Hane führt zu einer komplexen Windmühle; Schwarz' intuitive Ataris schaden oft.",
-  "ko": "안쪽 하네는 복잡한 풍차 형태로 이어진다; 흑의 직관적 아타리는 흔히 손해다."
+  "ru": "Внутреннее ханэ ведёт к сложной вращающейся форме; интуитивные атари чёрных часто вредят.",
+  "en": "The inside hane leads to a complex rotating fight; Black's intuitive ataris often do harm.",
+  "es": "El hane interior lleva a una compleja forma giratoria; los ataris intuitivos de Negro suelen hacer daño.",
+  "fr": "Le hane intérieur mène à une forme tournante complexe ; les ataris intuitifs de Noir font souvent du tort.",
+  "de": "Der innere Hane führt zu einer komplexen kreisenden Form; Schwarz' intuitive Ataris schaden oft.",
+  "ko": "안쪽 하네는 복잡한 회전형 싸움으로 이어진다; 흑의 직관적 아타리는 흔히 손해다."
  },
  "tengen/orthodox/6": {
   "ru": "Растяжка белых слишком пассивна: чёрные в сэнтэ крепят левый край и выбирают жертву для атаки.",
@@ -128,12 +128,12 @@
   "ko": "백의 뻗음은 너무 소극적이다: 흑은 선수로 좌변을 두텁게 하고 공격할 사석을 고른다."
  },
  "tengen/windmill/1": {
-  "ru": "«Мельница» равна при точности; главная ловушка — защищать камни, которые выгоднее жертвовать.",
-  "en": "The windmill is even with accuracy; the main trap is defending stones that are better sacrificed.",
-  "es": "El molino es parejo con precisión; la trampa principal es defender piedras que conviene sacrificar.",
-  "fr": "Le moulin est égal avec précision ; le piège principal est de défendre des pierres qu'il vaut mieux sacrifier.",
-  "de": "Die Windmühle ist bei Genauigkeit ausgeglichen; die Hauptfalle ist, Steine zu verteidigen, die man besser opfert.",
-  "ko": "풍차는 정확하면 호각이다; 가장 큰 함정은 버리는 게 나은 돌을 지키는 것이다."
+  "ru": "Эта форма равна при точности; главная ловушка — защищать камни, которые выгоднее жертвовать.",
+  "en": "This shape is even with accuracy; the main trap is defending stones that are better sacrificed.",
+  "es": "Esta forma es pareja con precisión; la trampa principal es defender piedras que conviene sacrificar.",
+  "fr": "Cette forme est égale avec précision ; le piège principal est de défendre des pierres qu'il vaut mieux sacrifier.",
+  "de": "Diese Form ist bei Genauigkeit ausgeglichen; die Hauptfalle ist, Steine zu verteidigen, die man besser opfert.",
+  "ko": "이 모양은 정확하면 호각이다; 가장 큰 함정은 버리는 게 나은 돌을 지키는 것이다."
  },
  "tengen/windmill/2": {
   "ru": "Чёрный разрез ради одного камня мелковат: белые через атари занимают общую слабую точку и получают перевес.",
@@ -192,20 +192,20 @@
   "ko": "백의 내림은 좋다; 흑은 우변을 짜내지만 형태가 엷어 지켜야 한다."
  },
  "tengen/hand-fan/1": {
-  "ru": "Белые уходят от «Мельницы» и ставят живучий камень; чёрные могут позже вынудить прибыльную жертву.",
-  "en": "White leaves the windmill and plays a resilient stone; Black can later force a profitable sacrifice.",
-  "es": "Blanco abandona el molino y coloca una piedra resistente; Negro puede forzar más tarde un sacrificio provechoso.",
-  "fr": "Blanc quitte le moulin et pose une pierre résistante ; Noir peut plus tard forcer un sacrifice profitable.",
-  "de": "Weiß verlässt die Windmühle und setzt einen widerstandsfähigen Stein; Schwarz kann später ein einträgliches Opfer erzwingen.",
-  "ko": "백은 풍차를 피해 끈질긴 돌을 둔다; 흑은 나중에 이득이 되는 사석을 강요할 수 있다."
+  "ru": "Белые уходят от «Лабиринта» и ставят живучий камень; чёрные могут позже вынудить прибыльную жертву.",
+  "en": "White leaves the Maze and plays a resilient stone; Black can later force a profitable sacrifice.",
+  "es": "Blanco abandona el Laberinto y coloca una piedra resistente; Negro puede forzar más tarde un sacrificio provechoso.",
+  "fr": "Blanc quitte le Labyrinthe et pose une pierre résistante ; Noir peut plus tard forcer un sacrifice profitable.",
+  "de": "Weiß verlässt das Labyrinth und setzt einen widerstandsfähigen Stein; Schwarz kann später ein einträgliches Opfer erzwingen.",
+  "ko": "백은 미로를 벗어나 끈질긴 돌을 둔다; 흑은 나중에 이득이 되는 사석을 강요할 수 있다."
  },
  "tengen/hand-fan/2": {
-  "ru": "Чёрные зовут к бою, похожему на «Мельницу»; при точной игре ни одна сторона не опережает.",
-  "en": "Black invites a fight like the windmill; with precise play neither side pulls ahead.",
-  "es": "Negro invita a una lucha parecida al molino; con juego preciso ninguno se adelanta.",
-  "fr": "Noir invite à un combat proche du moulin ; en jouant avec précision, aucun camp ne prend l'avance.",
-  "de": "Schwarz lädt zu einem Kampf wie bei der Windmühle ein; bei genauem Spiel zieht keine Seite davon.",
-  "ko": "흑은 풍차와 비슷한 싸움을 부른다; 정확히 두면 어느 쪽도 앞서지 못한다."
+  "ru": "Чёрные зовут к бою, похожему на «Лабиринт»; при точной игре ни одна сторона не опережает.",
+  "en": "Black invites a fight like the Maze; with precise play neither side pulls ahead.",
+  "es": "Negro invita a una lucha parecida al Laberinto; con juego preciso ninguno se adelanta.",
+  "fr": "Noir invite à un combat proche du Labyrinthe ; en jouant avec précision, aucun camp ne prend l'avance.",
+  "de": "Schwarz lädt zu einem Kampf wie im Labyrinth ein; bei genauem Spiel zieht keine Seite davon.",
+  "ko": "흑은 미로와 비슷한 싸움을 부른다; 정확히 두면 어느 쪽도 앞서지 못한다."
  },
  "tengen/hand-fan/3": {
   "ru": "Борьба чуть проще для белых, но компенсация чёрных достаточна для равновесия.",
@@ -224,12 +224,12 @@
   "ko": "흑의 되끌기는 압박하며 공격을 준비한다; 들여다본 곳에 잇는 건 소극적이고, 선수로 내려서는 편이 낫다."
  },
  "tengen/curveball/1": {
-  "ru": "Белые избегают «Мельницы», уходя вверх: больше помощи левому камню, но и больше драки.",
-  "en": "White dodges the windmill by going up: more help for the left stone, but also more fighting.",
-  "es": "Blanco esquiva el molino subiendo: más ayuda para la piedra izquierda, pero también más pelea.",
-  "fr": "Blanc esquive le moulin en montant : plus d'aide pour la pierre gauche, mais aussi plus de combat.",
-  "de": "Weiß weicht der Windmühle nach oben aus: mehr Hilfe für den linken Stein, aber auch mehr Kampf.",
-  "ko": "백은 위로 나가며 풍차를 피한다: 좌변 돌에 도움이 더 되지만 싸움도 커진다."
+  "ru": "Белые избегают «Лабиринта», уходя вверх: больше помощи левому камню, но и больше драки.",
+  "en": "White dodges the Maze by going up: more help for the left stone, but also more fighting.",
+  "es": "Blanco esquiva el Laberinto subiendo: más ayuda para la piedra izquierda, pero también más pelea.",
+  "fr": "Blanc esquive le Labyrinthe en montant : plus d'aide pour la pierre gauche, mais aussi plus de combat.",
+  "de": "Weiß weicht dem Labyrinth nach oben aus: mehr Hilfe für den linken Stein, aber auch mehr Kampf.",
+  "ko": "백은 위로 나가며 미로를 피한다: 좌변 돌에 도움이 더 되지만 싸움도 커진다."
  },
  "tengen/curveball/2": {
   "ru": "Чёрные вызывают бой; вариант равен, но после продолжения чёрным чуть проще вести позицию.",
@@ -264,12 +264,12 @@
   "ko": "백은 위로 뻗기보다 뛰어야 한다: 아니면 흑이 아래에서 걷잡을 수 없이 부푼다."
  },
  "tengen/soccer-juggling/1": {
-  "ru": "Обратная кейма сохраняет гибкость «Меча» без симметрии; у белых остаётся несколько надёжных ответов.",
-  "en": "The reverse keima keeps the sword's flexibility without symmetry; White still has several reliable replies.",
-  "es": "El keima inverso conserva la flexibilidad de la espada sin simetría; Blanco aún tiene varias respuestas fiables.",
-  "fr": "Le keima inverse garde la souplesse de l'épée sans symétrie ; Blanc dispose encore de plusieurs réponses fiables.",
-  "de": "Der umgekehrte Keima behält die Flexibilität des Schwerts ohne Symmetrie; Weiß hat noch mehrere verlässliche Antworten.",
-  "ko": "역날일자는 대칭 없이 '검'의 유연함을 유지한다; 백에게는 여전히 든든한 응수가 여럿 있다."
+  "ru": "Обратная кейма сохраняет гибкость «Перешейка» без симметрии; у белых остаётся несколько надёжных ответов.",
+  "en": "The reverse keima keeps the Isthmus's flexibility without symmetry; White still has several reliable replies.",
+  "es": "El keima inverso conserva la flexibilidad del Istmo sin simetría; Blanco aún tiene varias respuestas fiables.",
+  "fr": "Le keima inverse garde la souplesse de l'Isthme sans symétrie ; Blanc dispose encore de plusieurs réponses fiables.",
+  "de": "Der umgekehrte Keima behält die Flexibilität der Landenge ohne Symmetrie; Weiß hat noch mehrere verlässliche Antworten.",
+  "ko": "역날일자는 대칭 없이 '지협'의 유연함을 유지한다; 백에게는 여전히 든든한 응수가 여럿 있다."
  },
  "tengen/soccer-juggling/2": {
   "ru": "Ограда чёрных прочна; белым трудно соединиться, поэтому лучше заранее играть на две группы.",
@@ -352,12 +352,12 @@
   "ko": "흑의 우회는 백이 편하게 안정하게 해 준다; 흑은 좌변 무리로 방향을 돌린다."
  },
  "tengen/jump-attack/5": {
-  "ru": "Внутренний изгиб белых ведёт к форме типа «Мельницы»; игра остаётся равной, но требует счёта жертв.",
-  "en": "White's inside bend leads to a windmill-like shape; the game stays even but demands counting the sacrifices.",
-  "es": "El giro interior de Blanco lleva a una forma tipo molino; la partida sigue pareja pero exige contar los sacrificios.",
-  "fr": "Le pli intérieur de Blanc mène à une forme de moulin ; la partie reste égale mais exige de compter les sacrifices.",
-  "de": "Weiß' innere Biegung führt zu einer windmühlenartigen Form; das Spiel bleibt gleich, verlangt aber das Zählen der Opfer.",
-  "ko": "백의 안쪽 젖힘은 풍차 비슷한 형태로 이어진다; 형세는 호각이지만 사석 계산이 필요하다."
+  "ru": "Внутренний изгиб белых ведёт к сложной вращающейся форме; игра остаётся равной, но требует счёта жертв.",
+  "en": "White's inside bend leads to a complex rotating shape; the game stays even but demands counting the sacrifices.",
+  "es": "El giro interior de Blanco lleva a una compleja forma giratoria; la partida sigue pareja pero exige contar los sacrificios.",
+  "fr": "Le pli intérieur de Blanc mène à une forme tournante complexe ; la partie reste égale mais exige de compter les sacrifices.",
+  "de": "Weiß' innere Biegung führt zu einer komplexen kreisenden Form; das Spiel bleibt gleich, verlangt aber das Zählen der Opfer.",
+  "ko": "백의 안쪽 젖힘은 복잡한 회전형 모양으로 이어진다; 형세는 호각이지만 사석 계산이 필요하다."
  },
  "tengen/jump-attack/6": {
   "ru": "У белых есть обходные четвёртые ходы: они создают вторую группу или грозят связкой, часто переводя игру в другой вариант.",
@@ -1576,12 +1576,12 @@
   "ko": "흑이 이 모양을 허용하면 백의 굳힘에도 침입할 여지가 남는다; 흑은 다르게 두는 게 낫다."
  },
  "territorial/avoiding-transpositions/6": {
-  "ru": "Прилипание к тэнгэну срывает переход в Новую ортодоксию; территория делится просто, но белым нужно творческое вторжение.",
-  "en": "Attaching at tengen thwarts the switch into the New Orthodox; the territory divides simply, but White needs a creative invasion.",
-  "es": "Apoyarse en el tengen frustra el paso a la Nueva Ortodoxia; el territorio se reparte de forma simple, pero Blanco necesita una invasión creativa.",
-  "fr": "Se coller au tengen contrarie le passage à la Nouvelle Orthodoxie ; le territoire se partage simplement, mais Blanc a besoin d'une invasion créative.",
-  "de": "Am Tengen anzukleben vereitelt den Wechsel in die Neue Orthodoxie; das Gebiet teilt sich einfach, doch Weiß braucht eine kreative Invasion.",
-  "ko": "천원에 붙이면 '신정통'으로의 전환을 막는다; 집은 단순하게 갈리지만, 백에게는 창의적인 침입이 필요하다."
+  "ru": "Прилипание к тэнгэну срывает переход в «Горный зуб»; территория делится просто, но белым нужно творческое вторжение.",
+  "en": "Attaching at tengen thwarts the switch into the Mountain Tooth; the territory divides simply, but White needs a creative invasion.",
+  "es": "Apoyarse en el tengen frustra el paso al Diente de Montaña; el territorio se reparte de forma simple, pero Blanco necesita una invasión creativa.",
+  "fr": "Se coller au tengen contrarie le passage vers la Dent de Montagne ; le territoire se partage simplement, mais Blanc a besoin d'une invasion créative.",
+  "de": "Am Tengen anzukleben vereitelt den Wechsel zum Bergzahn; das Gebiet teilt sich einfach, doch Weiß braucht eine kreative Invasion.",
+  "ko": "천원에 붙이면 '산 이빨'로의 전환을 막는다; 집은 단순하게 갈리지만, 백에게는 창의적인 침입이 필요하다."
  },
  "territorial/other-mokuhazushi-openings/1": {
   "ru": "Территориальный ответ даёт белым крупный угол, а чёрные группы остаются мелкими и разобщёнными.",
