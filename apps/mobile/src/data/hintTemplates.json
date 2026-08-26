@@ -1,0 +1,575 @@
+{
+ "version": "2.0-2026-07-11-i18n",
+ "reviewStatus": "approved — ревью Алексея 2026-07-11 («подсказки выглядят нормальными»)",
+ "_format": {
+  "h0": "диагностические вопросы; cap — потолок Q_rating при использовании (1.0 = не сужает решение, 0.9 = слегка сужает)",
+  "h1Fallback": "текст ступени H1, когда структурная зона не вычислилась (показывается без подсветки)",
+  "h2": "мотив/ограничение поиска; слоты: {libs} свободы целевой группы, {oppLibs} свободы чужой, {eyespace} размер глазного пространства",
+  "h4Reason": "причинная формула для точного хода; слот {move} — координата",
+  "h4RefutePrefix": "префикс показа опровержения из wrong-ветки",
+  "i18n": "каждый text/h1Fallback/h4Reason/h4RefutePrefix — объект {ru,en,es,fr,de,ko}; проекция по языку в domainTemplates()"
+ },
+ "domains": {
+  "ld-live": {
+   "h0": [
+    {
+     "text": {
+      "ru": "Сколько глаз у группы уже есть?",
+      "en": "How many eyes does the group already have?",
+      "es": "¿Cuántos ojos tiene ya el grupo?",
+      "fr": "Combien d’yeux le groupe a-t-il déjà ?",
+      "de": "Wie viele Augen hat die Gruppe schon?",
+      "ko": "이 그룹은 이미 집을 몇 개 갖고 있나요?"
+     },
+     "cap": 1.0
+    },
+    {
+     "text": {
+      "ru": "Какое пространство группа может превратить в глаза?",
+      "en": "Which space can the group turn into eyes?",
+      "es": "¿Qué espacio puede convertir el grupo en ojos?",
+      "fr": "Quel espace le groupe peut-il transformer en yeux ?",
+      "de": "Welchen Raum kann die Gruppe in Augen verwandeln?",
+      "ko": "어느 공간을 집으로 만들 수 있을까요?"
+     },
+     "cap": 1.0
+    },
+    {
+     "text": {
+      "ru": "Что случится, если пропустить ход?",
+      "en": "What happens if you pass here?",
+      "es": "¿Qué pasa si pasas el turno?",
+      "fr": "Que se passe-t-il si vous passez ?",
+      "de": "Was passiert, wenn du hier aussetzt?",
+      "ko": "한 수 손을 빼면 어떻게 될까요?"
+     },
+     "cap": 1.0
+    }
+   ],
+   "h1Fallback": {
+    "ru": "Смотри на свою группу, чья жизнь решается — её глазное пространство важнее всего.",
+    "en": "Focus on your group whose life is at stake — its eye space matters most.",
+    "es": "Mira tu grupo cuya vida está en juego: su espacio de ojos es lo más importante.",
+    "fr": "Regardez votre groupe dont la vie se joue — son espace d’yeux compte avant tout.",
+    "de": "Schau auf deine Gruppe, um deren Leben es geht — ihr Augenraum zählt am meisten.",
+    "ko": "삶이 걸린 내 그룹을 보세요 — 집 공간이 가장 중요합니다."
+   },
+   "h2": [
+    {
+     "text": {
+      "ru": "Раздели пространство на два глаза одним ходом.",
+      "en": "Split the space into two eyes with one move.",
+      "es": "Divide el espacio en dos ojos con una sola jugada.",
+      "fr": "Divisez l’espace en deux yeux en un seul coup.",
+      "de": "Teile den Raum mit einem Zug in zwei Augen.",
+      "ko": "한 수로 공간을 두 집으로 나누세요."
+     },
+     "slots": []
+    },
+    {
+     "text": {
+      "ru": "У группы {libs} свобод. Ключ — жизненно важный пункт глазной формы: займи его сам.",
+      "en": "The group has {libs} liberties. The key is the vital point of the eye shape: take it yourself.",
+      "es": "El grupo tiene {libs} libertades. La clave es el punto vital de la forma: ocúpalo tú.",
+      "fr": "Le groupe a {libs} libertés. La clé : le point vital de la forme d’yeux — prenez-le.",
+      "de": "Die Gruppe hat {libs} Freiheiten. Der Schlüssel ist der vitale Punkt der Augenform: besetze ihn selbst.",
+      "ko": "이 그룹의 활로는 {libs}개. 열쇠는 궁도의 급소 — 직접 차지하세요."
+     },
+     "slots": [
+      "libs"
+     ]
+    }
+   ],
+   "h4Reason": [
+    {
+     "ru": "{move} делает второй глаз — группа жива.",
+     "en": "{move} makes the second eye — the group lives.",
+     "es": "{move} crea el segundo ojo: el grupo vive.",
+     "fr": "{move} fait le deuxième œil — le groupe vit.",
+     "de": "{move} macht das zweite Auge — die Gruppe lebt.",
+     "ko": "{move} — 두 번째 집이 생겨 그룹이 삽니다."
+    },
+    {
+     "ru": "{move} занимает жизненно важный пункт: форму больше не убить.",
+     "en": "{move} takes the vital point: the shape can no longer be killed.",
+     "es": "{move} ocupa el punto vital: la forma ya no se puede matar.",
+     "fr": "{move} prend le point vital : la forme ne peut plus être tuée.",
+     "de": "{move} besetzt den vitalen Punkt: die Form ist nicht mehr zu töten.",
+     "ko": "{move} — 급소를 차지해 더는 잡히지 않는 모양입니다."
+    }
+   ],
+   "h4RefutePrefix": {
+    "ru": "Почему иначе не выжить:",
+    "en": "Why nothing else lives:",
+    "es": "Por qué otra cosa no vive:",
+    "fr": "Pourquoi rien d’autre ne vit :",
+    "de": "Warum sonst nichts lebt:",
+    "ko": "다른 수로는 살 수 없는 이유:"
+   },
+   "why": {
+    "ru": "Живёт группа с двумя глазами. Этот ход даёт ей форму, которую уже не убить.",
+    "en": "A group with two eyes lives. This move gives it a shape that can no longer be killed.",
+    "es": "Un grupo con dos ojos vive. Esta jugada le da una forma que ya no se puede matar.",
+    "fr": "Un groupe à deux yeux vit. Ce coup lui donne une forme qu’on ne peut plus tuer.",
+    "de": "Eine Gruppe mit zwei Augen lebt. Dieser Zug gibt ihr eine Form, die nicht mehr zu töten ist.",
+    "ko": "두 집이 있으면 삽니다. 이 수가 더는 잡히지 않는 모양을 만들어 줍니다."
+   }
+  },
+  "ld-kill": {
+   "h0": [
+    {
+     "text": {
+      "ru": "Сколько глаз у группы соперника?",
+      "en": "How many eyes does the opponent’s group have?",
+      "es": "¿Cuántos ojos tiene el grupo rival?",
+      "fr": "Combien d’yeux a le groupe adverse ?",
+      "de": "Wie viele Augen hat die gegnerische Gruppe?",
+      "ko": "상대 그룹은 집이 몇 개인가요?"
+     },
+     "cap": 1.0
+    },
+    {
+     "text": {
+      "ru": "Что нужно этой группе, чтобы жить?",
+      "en": "What does this group need to live?",
+      "es": "¿Qué necesita ese grupo para vivir?",
+      "fr": "De quoi ce groupe a-t-il besoin pour vivre ?",
+      "de": "Was braucht diese Gruppe zum Leben?",
+      "ko": "이 그룹이 살려면 무엇이 필요할까요?"
+     },
+     "cap": 1.0
+    },
+    {
+     "text": {
+      "ru": "Где соперник сыграл бы сам, будь его ход?",
+      "en": "Where would the opponent play if it were their turn?",
+      "es": "¿Dónde jugaría el rival si fuera su turno?",
+      "fr": "Où l’adversaire jouerait-il si c’était son tour ?",
+      "de": "Wo würde der Gegner spielen, wäre er am Zug?",
+      "ko": "상대 차례라면 어디에 둘까요?"
+     },
+     "cap": 0.9
+    }
+   ],
+   "h1Fallback": {
+    "ru": "Смотри на группу соперника — реши, где она собирается строить глаза.",
+    "en": "Look at the opponent’s group — decide where it plans to build eyes.",
+    "es": "Mira el grupo rival: decide dónde piensa construir sus ojos.",
+    "fr": "Regardez le groupe adverse — trouvez où il compte faire ses yeux.",
+    "de": "Schau auf die gegnerische Gruppe — wo will sie Augen bauen?",
+    "ko": "상대 그룹을 보고, 어디에 집을 지으려는지 파악하세요."
+   },
+   "h2": [
+    {
+     "text": {
+      "ru": "Убей тем пунктом, которым группа жила бы сама.",
+      "en": "Kill on the very point the group would use to live.",
+      "es": "Mata en el punto donde el grupo viviría.",
+      "fr": "Tuez sur le point même où le groupe vivrait.",
+      "de": "Töte auf genau dem Punkt, mit dem die Gruppe leben würde.",
+      "ko": "상대가 살 자리, 바로 그 곳에 두어 잡으세요."
+     },
+     "slots": []
+    },
+    {
+     "text": {
+      "ru": "Сужай глазное пространство: у группы {eyespace} пунктов — не дай разделить его на два глаза.",
+      "en": "Shrink the eye space: the group has {eyespace} points — don’t let it split them into two eyes.",
+      "es": "Reduce el espacio de ojos: el grupo tiene {eyespace} puntos; no dejes que haga dos ojos.",
+      "fr": "Réduisez l’espace d’yeux : le groupe a {eyespace} points — ne le laissez pas faire deux yeux.",
+      "de": "Verkleinere den Augenraum: die Gruppe hat {eyespace} Punkte — lass keine zwei Augen zu.",
+      "ko": "궁도를 좁히세요: {eyespace}집 공간 — 두 집으로 나뉘지 못하게 막으세요."
+     },
+     "slots": [
+      "eyespace"
+     ]
+    }
+   ],
+   "h4Reason": [
+    {
+     "ru": "{move} отнимает второй глаз — группа мертва.",
+     "en": "{move} removes the second eye — the group is dead.",
+     "es": "{move} quita el segundo ojo: el grupo está muerto.",
+     "fr": "{move} supprime le deuxième œil — le groupe est mort.",
+     "de": "{move} nimmt das zweite Auge — die Gruppe ist tot.",
+     "ko": "{move} — 두 번째 집을 없애 그룹이 죽습니다."
+    },
+    {
+     "ru": "{move} бьёт в жизненно важный пункт: два глаза уже не построить.",
+     "en": "{move} hits the vital point: two eyes can no longer be made.",
+     "es": "{move} golpea el punto vital: ya no se pueden hacer dos ojos.",
+     "fr": "{move} frappe le point vital : impossible désormais de faire deux yeux.",
+     "de": "{move} trifft den vitalen Punkt: zwei Augen sind nicht mehr möglich.",
+     "ko": "{move} — 급소 일격, 이제 두 집을 낼 수 없습니다."
+    }
+   ],
+   "h4RefutePrefix": {
+    "ru": "Почему группа не спасается:",
+    "en": "Why the group cannot be saved:",
+    "es": "Por qué el grupo no se salva:",
+    "fr": "Pourquoi le groupe ne se sauve pas :",
+    "de": "Warum die Gruppe nicht zu retten ist:",
+    "ko": "이 그룹을 살릴 수 없는 이유:"
+   },
+   "why": {
+    "ru": "Без двух глаз группа не живёт. Этот ход не даёт сопернику их построить.",
+    "en": "Without two eyes a group can’t live. This move stops the opponent from making them.",
+    "es": "Sin dos ojos, un grupo no vive. Esta jugada impide que el rival los haga.",
+    "fr": "Sans deux yeux, un groupe ne vit pas. Ce coup empêche l’adversaire de les faire.",
+    "de": "Ohne zwei Augen lebt keine Gruppe. Dieser Zug verhindert, dass der Gegner sie macht.",
+    "ko": "두 집이 없으면 살 수 없습니다. 이 수가 상대의 두 집 만들기를 막습니다."
+   }
+  },
+  "ko": {
+   "h0": [
+    {
+     "text": {
+      "ru": "Проверь каждое взятие: что произойдёт сразу после него?",
+      "en": "Check every capture: what happens right after it?",
+      "es": "Revisa cada captura: ¿qué pasa justo después?",
+      "fr": "Examinez chaque capture : que se passe-t-il juste après ?",
+      "de": "Prüfe jedes Schlagen: was passiert direkt danach?",
+      "ko": "따낼 수 있는 곳을 모두 점검하세요: 따낸 직후 무슨 일이 일어날까요?"
+     },
+     "cap": 0.9
+    },
+    {
+     "text": {
+      "ru": "Есть ли ход, на который у соперника нет прямого ответа?",
+      "en": "Is there a move the opponent has no direct answer to?",
+      "es": "¿Hay una jugada sin respuesta directa del rival?",
+      "fr": "Y a-t-il un coup sans réponse directe pour l’adversaire ?",
+      "de": "Gibt es einen Zug, auf den der Gegner keine direkte Antwort hat?",
+      "ko": "상대가 곧바로 받을 수 없는 수가 있을까요?"
+     },
+     "cap": 1.0
+    }
+   ],
+   "h1Fallback": {
+    "ru": "Смотри на камни, которые можно взять — одно из взятий меняет всю позицию.",
+    "en": "Look at the stones you can capture — one of the captures changes everything.",
+    "es": "Mira las piedras que puedes capturar: una de las capturas lo cambia todo.",
+    "fr": "Regardez les pierres prenables — l’une des captures change tout.",
+    "de": "Schau auf die schlagbaren Steine — eines der Schlagen ändert alles.",
+    "ko": "따낼 수 있는 돌을 보세요 — 그중 하나가 판을 통째로 바꿉니다."
+   },
+   "h2": [
+    {
+     "text": {
+      "ru": "Решение — через ко: найди взятие, которое сопернику нельзя отыграть сразу.",
+      "en": "The solution runs through a ko: find the capture the opponent cannot retake at once.",
+      "es": "La solución pasa por un ko: busca la captura que el rival no puede retomar enseguida.",
+      "fr": "La solution passe par un ko : trouvez la capture que l’adversaire ne peut pas reprendre aussitôt.",
+      "de": "Die Lösung läuft über ein Ko: finde das Schlagen, das der Gegner nicht sofort zurücknehmen darf.",
+      "ko": "해답은 패에 있습니다: 상대가 바로 되따낼 수 없는 따냄을 찾으세요."
+     },
+     "slots": []
+    }
+   ],
+   "h4Reason": [
+    {
+     "ru": "{move} начинает ко — прямого ответа нет, судьбу группы решит борьба за ко.",
+     "en": "{move} starts the ko — there is no direct answer; the ko fight decides the group’s fate.",
+     "es": "{move} inicia el ko: no hay respuesta directa; la lucha de ko decide el destino del grupo.",
+     "fr": "{move} lance le ko — pas de réponse directe ; le combat de ko décidera du sort du groupe.",
+     "de": "{move} startet das Ko — keine direkte Antwort; der Ko-Kampf entscheidet.",
+     "ko": "{move} — 패가 시작됩니다. 곧장 받을 수 없으니 패싸움이 그룹의 운명을 정합니다."
+    },
+    {
+     "ru": "{move} берёт ко первым: у тебя темп и угрозы.",
+     "en": "{move} takes the ko first: you get the initiative and ko threats.",
+     "es": "{move} toma el ko primero: tienes el tempo y las amenazas.",
+     "fr": "{move} prend le ko en premier : le tempo et les menaces sont pour vous.",
+     "de": "{move} nimmt das Ko zuerst: du hast die Initiative und Ko-Drohungen.",
+     "ko": "{move} — 패를 먼저 따내 템포와 팻감이 내 것이 됩니다."
+    }
+   ],
+   "h4RefutePrefix": {
+    "ru": "Что даёт ко:",
+    "en": "What the ko gives you:",
+    "es": "Qué te da el ko:",
+    "fr": "Ce que le ko apporte :",
+    "de": "Was das Ko bringt:",
+    "ko": "패로 얻는 것:"
+   },
+   "why": {
+    "ru": "Прямого ответа у соперника нет — позиция решается через ко. Этот ход его и начинает.",
+    "en": "The opponent has no direct answer — the position is settled by a ko. This move starts it.",
+    "es": "El rival no tiene respuesta directa: la posición se decide por un ko. Esta jugada lo inicia.",
+    "fr": "L’adversaire n’a pas de réponse directe — la position se règle par un ko. Ce coup l’engage.",
+    "de": "Der Gegner hat keine direkte Antwort — die Stellung entscheidet ein Ko. Dieser Zug beginnt es.",
+    "ko": "상대에겐 곧바로 받을 수가 없습니다 — 이 자리는 패로 갈립니다. 이 수가 그 패를 시작합니다."
+   }
+  },
+  "race": {
+   "h0": [
+    {
+     "text": {
+      "ru": "Сосчитай свободы своей группы. Теперь — соперника.",
+      "en": "Count your group’s liberties. Now the opponent’s.",
+      "es": "Cuenta las libertades de tu grupo. Ahora las del rival.",
+      "fr": "Comptez les libertés de votre groupe. Puis celles de l’adversaire.",
+      "de": "Zähle die Freiheiten deiner Gruppe. Jetzt die des Gegners.",
+      "ko": "내 그룹의 수를 세어 보세요. 이제 상대의 수도."
+     },
+     "cap": 0.9
+    },
+    {
+     "text": {
+      "ru": "Кто победит, если оба будут просто заполнять свободы?",
+      "en": "Who wins if both sides just fill liberties?",
+      "es": "¿Quién gana si ambos solo rellenan libertades?",
+      "fr": "Qui gagne si chacun se contente de remplir les libertés ?",
+      "de": "Wer gewinnt, wenn beide nur Freiheiten füllen?",
+      "ko": "둘 다 수만 메우면 누가 이길까요?"
+     },
+     "cap": 0.9
+    }
+   ],
+   "h1Fallback": {
+    "ru": "Смотри на две сцепленные группы — их свободы решают исход.",
+    "en": "Look at the two entangled groups — their liberties decide the outcome.",
+    "es": "Mira los dos grupos trabados: sus libertades deciden el resultado.",
+    "fr": "Regardez les deux groupes enchevêtrés — leurs libertés décident de l’issue.",
+    "de": "Schau auf die zwei verzahnten Gruppen — ihre Freiheiten entscheiden.",
+    "ko": "맞물린 두 그룹을 보세요 — 수의 개수가 승부를 가릅니다."
+   },
+   "h2": [
+    {
+     "text": {
+      "ru": "Гонка свобод: {libs} против {oppLibs}. Заполняй внешние свободы соперника — свои общие не трогай.",
+      "en": "Capturing race: {libs} vs {oppLibs}. Fill the opponent’s outside liberties — leave the shared ones alone.",
+      "es": "Carrera de capturas: {libs} contra {oppLibs}. Rellena las libertades externas del rival; no toques las compartidas.",
+      "fr": "Semeai : {libs} contre {oppLibs}. Remplissez les libertés extérieures adverses — pas les libertés communes.",
+      "de": "Wettrennen: {libs} gegen {oppLibs}. Fülle die äußeren Freiheiten des Gegners — die gemeinsamen nicht.",
+      "ko": "수상전: {libs} 대 {oppLibs}. 상대의 바깥 수부터 메우고, 공유 수는 건드리지 마세요."
+     },
+     "slots": [
+      "libs",
+      "oppLibs"
+     ]
+    }
+   ],
+   "h4Reason": [
+    {
+     "ru": "{move} отнимает свободу первым — гонку выигрываешь на темп.",
+     "en": "{move} takes a liberty first — you win the race by one move.",
+     "es": "{move} quita una libertad primero: ganas la carrera por un movimiento.",
+     "fr": "{move} prend une liberté en premier — vous gagnez la course d’un tempo.",
+     "de": "{move} nimmt zuerst eine Freiheit — du gewinnst das Rennen um einen Zug.",
+     "ko": "{move} — 한발 먼저 수를 메워 한 수 차이로 수상전을 이깁니다."
+    },
+    {
+     "ru": "{move} — внешняя свобода: соперник не успевает ответить тем же.",
+     "en": "{move} is an outside liberty: the opponent cannot answer in kind in time.",
+     "es": "{move} es una libertad externa: el rival no llega a responder igual.",
+     "fr": "{move} est une liberté extérieure : l’adversaire n’a pas le temps de répondre pareil.",
+     "de": "{move} ist eine äußere Freiheit: der Gegner kommt nicht rechtzeitig nach.",
+     "ko": "{move} — 바깥 수라 상대는 같은 속도로 따라올 수 없습니다."
+    }
+   ],
+   "h4RefutePrefix": {
+    "ru": "Почему гонка выиграна:",
+    "en": "Why the race is won:",
+    "es": "Por qué la carrera está ganada:",
+    "fr": "Pourquoi la course est gagnée :",
+    "de": "Warum das Rennen gewonnen ist:",
+    "ko": "수상전을 이기는 이유:"
+   },
+   "why": {
+    "ru": "В гонке свобод выигрывает тот, кто снимает первым. Этот ход выводит тебя вперёд на темп.",
+    "en": "In a capturing race, whoever captures first wins. This move puts you one move ahead.",
+    "es": "En una carrera de capturas gana quien captura primero. Esta jugada te pone un tiempo por delante.",
+    "fr": "Dans un semeai, celui qui capture en premier gagne. Ce coup vous met un temps devant.",
+    "de": "Im Wettlauf gewinnt, wer zuerst schlägt. Dieser Zug bringt dich einen Zug in Führung.",
+    "ko": "수상전은 먼저 잡는 쪽이 이깁니다. 이 수가 한 수 앞서게 해 줍니다."
+   }
+  },
+  "connect": {
+   "h0": [
+    {
+     "text": {
+      "ru": "Все ли твои камни связаны между собой?",
+      "en": "Are all your stones connected to each other?",
+      "es": "¿Están todas tus piedras conectadas entre sí?",
+      "fr": "Toutes vos pierres sont-elles reliées entre elles ?",
+      "de": "Sind alle deine Steine miteinander verbunden?",
+      "ko": "내 돌이 모두 이어져 있나요?"
+     },
+     "cap": 1.0
+    },
+    {
+     "text": {
+      "ru": "Какие камни соперник может отрезать следующим ходом?",
+      "en": "Which stones can the opponent cut off with the next move?",
+      "es": "¿Qué piedras puede cortar el rival en la próxima jugada?",
+      "fr": "Quelles pierres l’adversaire peut-il couper au prochain coup ?",
+      "de": "Welche Steine kann der Gegner mit dem nächsten Zug abschneiden?",
+      "ko": "상대가 다음 수로 끊을 수 있는 돌은 어디일까요?"
+     },
+     "cap": 1.0
+    }
+   ],
+   "h1Fallback": {
+    "ru": "Смотри на стык своих групп — там, где их можно разрезать.",
+    "en": "Look at the seam between your groups — where they can be cut.",
+    "es": "Mira la unión de tus grupos: ahí es donde pueden cortarte.",
+    "fr": "Regardez la jointure de vos groupes — là où l’on peut couper.",
+    "de": "Schau auf die Naht deiner Gruppen — dort, wo man schneiden kann.",
+    "ko": "내 그룹들이 만나는 이음새, 끊길 수 있는 곳을 보세요."
+   },
+   "h2": [
+    {
+     "text": {
+      "ru": "Соедини группы одним ходом — или отрежь соперника раньше, чем он тебя.",
+      "en": "Connect your groups with one move — or cut the opponent before they cut you.",
+      "es": "Conecta tus grupos con una jugada, o corta al rival antes de que te corte a ti.",
+      "fr": "Reliez vos groupes en un coup — ou coupez l’adversaire avant qu’il ne vous coupe.",
+      "de": "Verbinde deine Gruppen mit einem Zug — oder schneide den Gegner zuerst.",
+      "ko": "한 수로 그룹을 이으세요 — 아니면 끊기기 전에 먼저 끊으세요."
+     },
+     "slots": []
+    }
+   ],
+   "h4Reason": [
+    {
+     "ru": "{move} соединяет группы — разрезать больше нельзя.",
+     "en": "{move} connects the groups — no cut is left.",
+     "es": "{move} conecta los grupos: ya no hay corte.",
+     "fr": "{move} relie les groupes — plus aucune coupe possible.",
+     "de": "{move} verbindet die Gruppen — kein Schnitt mehr möglich.",
+     "ko": "{move} — 그룹이 이어져 더는 끊을 수 없습니다."
+    },
+    {
+     "ru": "{move} режет соперника: его камни остаются без поддержки.",
+     "en": "{move} cuts the opponent: their stones are left without support.",
+     "es": "{move} corta al rival: sus piedras quedan sin apoyo.",
+     "fr": "{move} coupe l’adversaire : ses pierres restent sans soutien.",
+     "de": "{move} schneidet den Gegner: seine Steine bleiben ohne Halt.",
+     "ko": "{move} — 상대를 끊어 그 돌들이 고립됩니다."
+    }
+   ],
+   "h4RefutePrefix": {
+    "ru": "Почему соединение держится:",
+    "en": "Why the connection holds:",
+    "es": "Por qué la conexión aguanta:",
+    "fr": "Pourquoi la connexion tient :",
+    "de": "Warum die Verbindung hält:",
+    "ko": "연결이 유지되는 이유:"
+   },
+   "why": {
+    "ru": "Связанные камни не разрезать, а разрезанные — уязвимы. Этот ход решает связь в твою пользу.",
+    "en": "Connected stones can’t be cut; split stones are weak. This move settles the connection in your favor.",
+    "es": "Las piedras conectadas no se cortan; las separadas son débiles. Esta jugada resuelve la conexión a tu favor.",
+    "fr": "Des pierres reliées ne se coupent pas ; séparées, elles sont faibles. Ce coup règle la connexion en votre faveur.",
+    "de": "Verbundene Steine kann man nicht schneiden, getrennte sind schwach. Dieser Zug klärt die Verbindung zu deinen Gunsten.",
+    "ko": "이어진 돌은 끊기지 않고, 끊긴 돌은 약합니다. 이 수가 연결을 내게 유리하게 정리합니다."
+   }
+  },
+  "capture": {
+   "h0": [
+    {
+     "text": {
+      "ru": "У каких камней соперника меньше всего свобод?",
+      "en": "Which of the opponent’s stones have the fewest liberties?",
+      "es": "¿Qué piedras del rival tienen menos libertades?",
+      "fr": "Quelles pierres adverses ont le moins de libertés ?",
+      "de": "Welche gegnerischen Steine haben die wenigsten Freiheiten?",
+      "ko": "상대 돌 중 활로가 가장 적은 것은 어느 돌인가요?"
+     },
+     "cap": 0.9
+    },
+    {
+     "text": {
+      "ru": "Есть ли ход, ставящий сразу две группы под удар?",
+      "en": "Is there a move that threatens two groups at once?",
+      "es": "¿Hay una jugada que amenace dos grupos a la vez?",
+      "fr": "Y a-t-il un coup qui menace deux groupes à la fois ?",
+      "de": "Gibt es einen Zug, der zwei Gruppen zugleich bedroht?",
+      "ko": "두 무리를 동시에 노리는 수가 있을까요?"
+     },
+     "cap": 0.9
+    },
+    {
+     "text": {
+      "ru": "Куда камням соперника бежать?",
+      "en": "Where can the opponent’s stones run?",
+      "es": "¿Hacia dónde pueden huir las piedras del rival?",
+      "fr": "Où les pierres adverses peuvent-elles fuir ?",
+      "de": "Wohin können die gegnerischen Steine fliehen?",
+      "ko": "상대 돌이 달아날 곳이 있을까요?"
+     },
+     "cap": 1.0
+    }
+   ],
+   "h1Fallback": {
+    "ru": "Смотри на короткие камни соперника — им некуда расти.",
+    "en": "Look at the opponent’s stones low on liberties — they have nowhere to run.",
+    "es": "Mira las piedras del rival con pocas libertades: no tienen a dónde huir.",
+    "fr": "Regardez les pierres adverses à court de libertés — elles n’ont nulle part où aller.",
+    "de": "Schau auf die kurzatmigen Steine des Gegners — sie können nirgendwo hinwachsen.",
+    "ko": "수가 짧은 상대 돌을 보세요 — 자랄 곳이 없습니다."
+   },
+   "h2": [
+    {
+     "text": {
+      "ru": "Приём захвата: отними сразу две свободы или гони к краю доски.",
+      "en": "Capturing technique: take two liberties at once or drive them to the edge.",
+      "es": "Técnica de captura: quita dos libertades a la vez o empuja hacia el borde.",
+      "fr": "Technique de capture : ôtez deux libertés d’un coup ou poussez vers le bord.",
+      "de": "Fangtechnik: Nimm zwei Freiheiten auf einmal oder treibe sie an den Rand.",
+      "ko": "돌 잡는 기술: 한 수로 활로 둘을 줄이거나 변으로 몰아붙이세요."
+     },
+     "slots": []
+    },
+    {
+     "text": {
+      "ru": "У цели {oppLibs} свободы. Ищи пункт, после которого бегство только ухудшает дело.",
+      "en": "The target has {oppLibs} liberties. Find the point after which running only makes it worse.",
+      "es": "El objetivo tiene {oppLibs} libertades. Busca el punto tras el cual huir solo empeora las cosas.",
+      "fr": "La cible a {oppLibs} libertés. Cherchez le point après lequel fuir ne fait qu’empirer.",
+      "de": "Das Ziel hat {oppLibs} Freiheiten. Finde den Punkt, nach dem Flucht alles schlimmer macht.",
+      "ko": "목표 돌의 활로는 {oppLibs}개. 도망칠수록 나빠지는 지점을 찾으세요."
+     },
+     "slots": [
+      "oppLibs"
+     ]
+    }
+   ],
+   "h4Reason": [
+    {
+     "ru": "{move} лишает камни свобод — им не убежать.",
+     "en": "{move} strips the stones of liberties — they cannot escape.",
+     "es": "{move} deja las piedras sin libertades: no pueden escapar.",
+     "fr": "{move} prive les pierres de libertés — elles ne peuvent pas fuir.",
+     "de": "{move} nimmt den Steinen die Freiheiten — kein Entkommen.",
+     "ko": "{move} — 활로가 막혀 달아날 수 없습니다."
+    },
+    {
+     "ru": "{move} ставит двойную угрозу: спасти всё сразу нельзя.",
+     "en": "{move} sets a double threat: not everything can be saved at once.",
+     "es": "{move} crea una doble amenaza: no se puede salvar todo a la vez.",
+     "fr": "{move} crée une double menace : impossible de tout sauver à la fois.",
+     "de": "{move} stellt eine Doppeldrohung: nicht alles ist zugleich zu retten.",
+     "ko": "{move} — 양수겸장, 모두 살릴 수는 없습니다."
+    }
+   ],
+   "h4RefutePrefix": {
+    "ru": "Почему не убежать:",
+    "en": "Why there is no escape:",
+    "es": "Por qué no hay escapatoria:",
+    "fr": "Pourquoi pas d’échappatoire :",
+    "de": "Warum es kein Entkommen gibt:",
+    "ko": "달아날 수 없는 이유:"
+   },
+   "why": {
+    "ru": "Захватить — значит отнять последнюю свободу или закрыть путь к бегству. Этот ход делает именно это.",
+    "en": "To capture is to take the last liberty or close the escape. That’s exactly what this move does.",
+    "es": "Capturar es quitar la última libertad o cerrar la huida. Eso es justo lo que hace esta jugada.",
+    "fr": "Capturer, c’est ôter la dernière liberté ou fermer la fuite. C’est exactement ce que fait ce coup.",
+    "de": "Fangen heißt: die letzte Freiheit nehmen oder die Flucht schließen. Genau das tut dieser Zug.",
+    "ko": "돌을 잡는다는 건 마지막 활로를 없애거나 도망길을 막는 것 — 이 수가 바로 그것입니다."
+   }
+  }
+ }
+}

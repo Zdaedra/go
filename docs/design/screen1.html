@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: 'Playfair'; src: url('file:///root/.fonts/PlayfairDisplay.ttf'); }
+@font-face { font-family: 'InterV'; src: url('file:///root/.fonts/Inter.ttf'); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { zoom: 2; }
+html, body { width: 427px; height: 922px; }
+body {
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgba(255,255,255,0.030), transparent 60%),
+    radial-gradient(65% 30% at 80% 27%, rgba(160,145,128,0.11), transparent 66%),
+    radial-gradient(52% 24% at 14% 47%, rgba(150,134,118,0.09), transparent 70%),
+    radial-gradient(80% 36% at 55% 82%, rgba(135,120,106,0.09), transparent 72%),
+    #100E0D;
+  font-family: 'InterV', sans-serif;
+  color: #F2EFEA;
+  position: relative;
+}
+.eyebrow {
+  font-size: 9.5px; font-weight: 650; letter-spacing: 2.1px;
+  text-transform: uppercase;
+}
+.card {
+  position: absolute; left: 18px; right: 18px;
+  background: rgba(255,255,255,0.027);
+  border: 1px solid rgba(255,255,255,0.065);
+  border-radius: 16px;
+}
+
+/* ---- header ---- */
+.header { top: 36px; height: 72px; display: flex; align-items: center; padding: 0 14px; }
+.avatar {
+  width: 47px; height: 47px; border-radius: 50%;
+  background:
+    linear-gradient(180deg, #6E6A64, #3B3833 70%, #26241F);
+  border: 1px solid rgba(255,255,255,0.14);
+  margin-right: 14px;
+  position: relative; overflow: hidden;
+}
+.avatar::after {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background:
+    radial-gradient(ellipse 12px 9px at 50% 34%, #8C867E 0 60%, transparent 70%),
+    radial-gradient(ellipse 17px 13px at 50% 92%, #7A746C 0 60%, transparent 72%),
+    radial-gradient(circle at 50% 45%, transparent 55%, rgba(0,0,0,0.35));
+}
+.who { flex: 1; }
+.name { font-family: 'Playfair', serif; font-size: 19.5px; font-weight: 500; letter-spacing: 0.2px; }
+.lvl { display: flex; align-items: center; gap: 9px; margin-top: 4px; }
+.lvl-t { font-size: 12px; color: #93908A; }
+.bar { width: 85px; height: 3px; border-radius: 2px; background: #383838; position: relative; }
+.bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 35%; border-radius: 2px; background: #8B5CF6; }
+.hbtns { display: flex; gap: 10px; }
+.hbtn {
+  width: 34px; height: 34px; border-radius: 11px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.02);
+  display: flex; align-items: center; justify-content: center;
+}
+.hbtn svg { display: block; }
+
+/* ---- opening card ---- */
+.opening { top: 116px; height: 150px; padding: 15px 16px; display: flex; }
+.op-left { width: 232px; padding-right: 14px; }
+.op-eyebrow { color: #9D8CFF; }
+.op-title {
+  font-family: 'Playfair', serif; font-size: 31px; font-weight: 500;
+  margin-top: 8px; letter-spacing: 0.2px; color: #EFECE7;
+}
+.op-desc { margin-top: 9px; font-size: 12.5px; line-height: 1.5; color: #B0ABA5; width: 200px; }
+.op-right { flex: 1; border-left: 1px solid rgba(255,255,255,0.07); padding-left: 16px; padding-top: 6px; }
+.op-lab { color: #7B7872; }
+.diff-row { display: flex; align-items: center; gap: 6px; margin-top: 9px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: #8B79F3; }
+.dot.off { background: #4E4560; }
+.diff-t { font-size: 13px; color: #C5BBF0; margin-left: 5px; }
+.outcome { display: flex; align-items: center; gap: 9px; margin-top: 9px; }
+.mini-stone {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 26%, #FFFFFF 0%, #7A7A7A 9%, #121212 42%);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.outcome-t { font-size: 14.5px; color: #EDEAE4; font-family: 'InterV'; }
+.op-right .op-lab.second { margin-top: 15px; display: block; }
+
+/* ---- board ---- */
+.coords-top { position: absolute; top: 281px; left: 0; right: 0; }
+.coords-top span, .coords-side span {
+  position: absolute; font-size: 10.5px; color: #848484; font-weight: 450; letter-spacing: 0.5px;
+}
+.board {
+  position: absolute; left: 32px; top: 302px; width: 363px; height: 365px;
+  border-radius: 10px;
+  background:
+    radial-gradient(120px 260px at 22% 30%, rgba(120,88,48,0.04), transparent 70%),
+    radial-gradient(160px 300px at 64% 65%, rgba(70,48,24,0.04), transparent 72%),
+    radial-gradient(140px 240px at 88% 25%, rgba(125,92,52,0.03), transparent 70%),
+    repeating-linear-gradient(90.6deg,
+      rgba(96,68,36,0.05) 0px, rgba(96,68,36,0.0) 11px,
+      rgba(255,225,180,0.03) 23px, rgba(88,62,32,0.045) 41px, rgba(96,68,36,0.0) 57px),
+    repeating-linear-gradient(89.3deg,
+      rgba(133,99,56,0.07) 0px, rgba(133,99,56,0.0) 47px,
+      rgba(186,148,92,0.05) 71px, rgba(133,99,56,0.06) 101px),
+    linear-gradient(180deg, #9F7A4C 0%, #957043 45%, #88663C 100%);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6),
+    inset 0 0 0 2px rgba(80,55,25,0.4), inset 4px 0 14px rgba(55,38,15,0.3), inset -4px 0 14px rgba(55,38,15,0.3),
+    inset 0 0 70px rgba(55,38,15,0.40),
+    inset 0 1px 0 rgba(255,240,210,0.18);
+}
+.grid { position: absolute; left: 27px; top: 27px; width: 309px; height: 311px; }
+.grid svg { display: block; overflow: visible; }
+
+/* ---- your turn ---- */
+.turn { top: 700px; height: 78px; padding: 14px 14px 0 16px; display: flex; }
+.turn-left { flex: 1; }
+.turn-eyebrow { color: #9D8CFF; }
+.turn-t { margin-top: 8px; font-size: 14.5px; white-space: nowrap; color: #E8E6E3; letter-spacing: 0.1px; }
+.hint {
+  width: 98px; height: 47px; border-radius: 13px; align-self: center;
+  border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.03);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.hint-t { color: #A79AF5; font-size: 15px; }
+
+/* ---- bottom controls ---- */
+.bottom { position: absolute; left: 0; right: 0; top: 792px; height: 130px; }
+.glow {
+  position: absolute; left: 50%; top: 2px; transform: translateX(-50%);
+  width: 190px; height: 100px;
+  border-radius: 95px 95px 0 0;
+  background: radial-gradient(ellipse 60% 90% at 50% 100%, rgba(244,160,110,0.20), rgba(139,121,243,0.10) 55%, transparent 75%);
+  filter: blur(5px);
+}
+.glow::before {
+  content: ''; position: absolute; inset: 0;
+  border-radius: 95px 95px 0 0;
+  border-top: 2px solid transparent;
+  background: linear-gradient(90deg, rgba(124,106,232,0.7), rgba(196,181,253,0.8), rgba(240,168,120,0.7)) border-box;
+  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: blur(1.5px);
+}
+.big {
+  position: relative;
+  width: 86px; height: 86px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #201F1D, #131211 70%);
+  display: flex; align-items: center; justify-content: center;
+}
+.big::before {
+  content: ''; position: absolute; inset: -2px; border-radius: 50%;
+  opacity: 0.88;
+  background: conic-gradient(from 0deg, #8B7CF6 0 12%, rgba(222,150,96,0.95) 32%, rgba(222,150,96,0.35) 48%, rgba(139,124,246,0.5) 62%, #8B7CF6 88%, #8B7CF6 100%);
+  -webkit-mask: radial-gradient(circle, transparent 0 43.4px, black 43.4px 45px, transparent 45px);
+  mask: radial-gradient(circle, transparent 0 43.4px, black 43.4px 45px, transparent 45px);
+}
+.controls-row {
+  position: absolute; left: 0; right: 0; top: 0; height: 130px;
+  display: flex; justify-content: center; align-items: flex-start; gap: 68px;
+}
+.ctrl { display: flex; flex-direction: column; align-items: center; gap: 11px; padding-top: 24px; }
+.ctrl.center { padding-top: 8px; gap: 9px; }
+.side-btn {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: #191817; border: 1px solid rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+}
+.blabel {
+  font-size: 10px; letter-spacing: 2.4px; color: #7E7B75;
+  font-weight: 600; text-transform: uppercase; white-space: nowrap;
+}
+body::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+</style>
+</head>
+<body>
+<svg style="position:absolute; left:0; top:170px; width:427px; height:130px; opacity:0.09; pointer-events:none; filter: blur(9px);" viewBox="0 0 427 130" preserveAspectRatio="none">
+  <path d="M170 130 Q 220 66 262 84 Q 300 98 322 60 Q 352 26 384 74 Q 405 96 427 78 L427 130 Z" fill="#3A3530"/>
+  <path d="M220 130 Q 268 96 306 104 Q 348 112 384 92 Q 408 82 427 98 L427 130 Z" fill="#2B2723"/>
+</svg>
+<svg style="position:absolute; left:0; top:660px; width:427px; height:120px; opacity:0.08; pointer-events:none; filter: blur(10px);" viewBox="0 0 427 120" preserveAspectRatio="none">
+  <path d="M0 120 Q 40 66 84 84 Q 130 100 172 66 Q 214 38 258 78 Q 300 108 348 82 Q 390 62 427 92 L427 120 L0 120 Z" fill="#38332E"/>
+  <path d="M0 120 Q 60 98 116 106 Q 176 114 232 96 Q 290 82 344 102 Q 390 114 427 104 L427 120 Z" fill="#26221E"/>
+</svg>
+
+<div class="card header">
+  <div class="avatar"></div>
+  <div class="who">
+    <div class="name">Alexey</div>
+    <div class="lvl"><span class="lvl-t">Level 12</span><span class="bar"><i></i></span></div>
+  </div>
+  <div class="hbtns">
+    <div class="hbtn">
+      <svg width="15" height="14" viewBox="0 0 15 14" fill="none" stroke="#C9C6C0" stroke-width="1.5" stroke-linecap="round">
+        <path d="M1.5 8.5v-3M4.5 11V3M7.5 9.5v-5M10.5 12V2M13.5 8.5v-3"/>
+      </svg>
+    </div>
+    <div class="hbtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9C6C0" stroke-width="1.8">
+        <circle cx="12" cy="12" r="3.2"/>
+        <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34h.01a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.01a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="card opening">
+  <div class="op-left">
+    <div class="eyebrow op-eyebrow">Opening</div>
+    <div class="op-title">Curving Ball</div>
+    <div class="op-desc">A flexible opening that aims to influence the corner while maintaining balance.</div>
+  </div>
+  <div class="op-right">
+    <span class="eyebrow op-lab">Difficulty</span>
+    <div class="diff-row">
+      <span class="dot"></span><span class="dot"></span><span class="dot off"></span>
+      <span class="diff-t">Medium</span>
+    </div>
+    <span class="eyebrow op-lab second">Best outcome</span>
+    <div class="outcome"><span class="mini-stone"></span><span class="outcome-t">Black wins</span></div>
+  </div>
+</div>
+
+<div class="coords-top" id="coordsTop"></div>
+<div class="coords-side" id="coordsSide"></div>
+
+<div class="board">
+  <div class="grid">
+    <svg width="309" height="311" viewBox="0 0 309 311" id="boardSvg"></svg>
+  </div>
+</div>
+
+<div class="card turn">
+  <div class="turn-left">
+    <div class="eyebrow turn-eyebrow">Your turn</div>
+    <div class="turn-t">Continue the Curving Ball opening.</div>
+  </div>
+  <div class="hint">
+    <svg width="15" height="17" viewBox="0 0 15 17" fill="none" stroke="#A79AF5" stroke-width="1.3" stroke-linecap="round">
+      <path d="M7.5 1.2a5 5 0 0 1 5 5c0 2-1.1 3.1-2 4.1-.5.6-.8 1-.8 1.7H5.3c0-.7-.3-1.1-.8-1.7-.9-1-2-2.1-2-4.1a5 5 0 0 1 5-5z"/>
+      <path d="M5.6 14.4h3.8M6.3 16.1h2.4"/>
+    </svg>
+    <span class="hint-t">Hint</span>
+  </div>
+</div>
+
+<div class="bottom">
+  <svg class="crest" width="230" height="128" viewBox="0 0 230 128"
+       style="position:absolute; left:50%; top:2px; transform:translateX(-50%); overflow:visible;">
+    <defs>
+      <linearGradient id="crestg" x1="0" y1="0.3" x2="1" y2="0.85">
+        <stop offset="0" stop-color="#6D5BD8"/>
+        <stop offset="0.5" stop-color="#B7A8F2"/>
+        <stop offset="0.78" stop-color="#C9A98A"/>
+        <stop offset="1" stop-color="#F0A878"/>
+      </linearGradient>
+      <linearGradient id="crestfade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0.45" stop-color="#fff"/>
+        <stop offset="0.95" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+      <mask id="crestmask">
+        <rect x="-10" y="-10" width="240" height="120" fill="url(#crestfade)"/>
+      </mask>
+    </defs>
+    <path d="M2 128 C 74 128 58 4 115 4 C 172 4 156 128 228 128 Z" fill="rgba(60,50,80,0.16)"/>
+    <path d="M2 128 C 74 128 58 4 115 4 C 172 4 156 128 228 128" fill="none"
+          stroke="url(#crestg)" stroke-width="1.5" opacity="0.9" mask="url(#crestmask)"
+          style="filter: drop-shadow(0 0 7px rgba(150,120,240,0.35));"/>
+    <radialGradient id="domewarm" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="rgba(226,166,110,0.20)"/>
+      <stop offset="1" stop-color="rgba(226,166,110,0)"/>
+    </radialGradient>
+    <ellipse cx="138" cy="52" rx="42" ry="30" fill="url(#domewarm)"/>
+  </svg>
+  <div class="controls-row">
+    <div class="ctrl">
+      <div class="side-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9C6C0" stroke-width="1.5" stroke-linecap="round">
+          <path d="M14.5 7.5A6 6 0 1 0 15 10"/>
+          <path d="M15 3.5v4h-4" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="blabel">New</div>
+    </div>
+    <div class="ctrl center">
+      <div class="big">
+        <svg width="18" height="22" viewBox="0 0 18 22" fill="none" stroke="#EDEAE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 3l8 8-8 8"/>
+        </svg>
+      </div>
+      <div class="blabel">Next&nbsp;Move</div>
+    </div>
+    <div class="ctrl">
+      <div class="side-btn">
+        <svg width="20" height="4" viewBox="0 0 20 4" fill="#C9C6C0">
+          <circle cx="3" cy="2" r="1.7"/><circle cx="10" cy="2" r="1.7"/><circle cx="17" cy="2" r="1.7"/>
+        </svg>
+      </div>
+      <div class="blabel">Options</div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.onerror=function(m,s,l,c){document.title='JSERR:'+m+' line '+l;};
+try{
+const CELL_X = 309 / 8, CELL_Y = 311 / 8;
+const px = c => c * CELL_X, py = r => r * CELL_Y;
+const COLS = 'ABCDEFGHJ';
+const svg = document.getElementById('boardSvg');
+const NS = 'http://www.w3.org/2000/svg';
+function el(name, attrs) {
+  const n = document.createElementNS(NS, name);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  svg.appendChild(n);
+  return n;
+}
+// defs: stone gradients
+svg.innerHTML = `
+<defs>
+  <radialGradient id="bs" cx="0.36" cy="0.28" r="0.95">
+    <stop offset="0" stop-color="#7A7A7A"/><stop offset="0.18" stop-color="#262626"/><stop offset="0.65" stop-color="#101010"/><stop offset="1" stop-color="#0B0B0B"/>
+  </radialGradient>
+  <radialGradient id="ws" cx="0.36" cy="0.28" r="0.95">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset="0.55" stop-color="#F2F0EC"/><stop offset="1" stop-color="#CFCBC4"/>
+  </radialGradient>
+<pattern id="brush" width="3" height="3" patternTransform="rotate(32)" patternUnits="userSpaceOnUse">
+    <line x1="0" y1="0" x2="0" y2="3" stroke="rgba(255,255,255,0.035)" stroke-width="0.8"/>
+  </pattern>
+  <pattern id="brushd" width="3" height="3" patternTransform="rotate(32)" patternUnits="userSpaceOnUse">
+    <line x1="0" y1="0" x2="0" y2="3" stroke="rgba(0,0,0,0.03)" stroke-width="0.8"/>
+  </pattern>
+</defs>`;
+// grid
+for (let i = 0; i < 9; i++) {
+  el('line', { x1: 0, y1: py(i), x2: 309, y2: py(i), stroke: '#4A3A26', 'stroke-width': 1 });
+  el('line', { x1: px(i), y1: 0, x2: px(i), y2: 311, stroke: '#4A3A26', 'stroke-width': 1 });
+}
+// hoshi as in mock (E7, E3)
+for (const [c, r] of [[4, 2], [4, 6]]) {
+  el('circle', { cx: px(c), cy: py(r), r: 2.4, fill: '#241A0C' });
+}
+const R = 18.4;
+function stone(cc, rr, color, glow) {
+  const c = COLS.indexOf(cc), r = 9 - rr;
+  const shadowAlpha = glow ? 0.28 : 0.5;
+  if (glow) {
+    el('circle', { cx: px(c), cy: py(r), r: R + 7, fill: 'none', stroke: 'rgba(222,166,108,0.30)', 'stroke-width': 10, filter: 'blur(5px)' });
+    el('circle', { cx: px(c), cy: py(r), r: R + 3.5, fill: 'none', stroke: 'rgba(240,216,178,0.42)', 'stroke-width': 5 });
+    el('circle', { cx: px(c), cy: py(r), r: R + 1, fill: 'none', stroke: 'rgba(244,224,190,0.72)', 'stroke-width': 1.8 });
+  }
+  el('ellipse', { cx: px(c) + 1.5, cy: py(r) + 3.2, rx: R + 0.5, ry: R - 0.5, fill: `rgba(15,9,3,${shadowAlpha})`, filter: 'blur(2px)' });
+  el('circle', { cx: px(c), cy: py(r), r: R, fill: color === 'b' ? 'url(#bs)' : 'url(#ws)' });
+  el('circle', { cx: px(c), cy: py(r), r: R, fill: color === 'b' ? 'url(#brush)' : 'url(#brushd)' });
+  if (color === 'w') el('ellipse', { cx: px(c) - 6, cy: py(r) - 7.5, rx: 4.6, ry: 3.1, fill: '#FFFFFF', opacity: 0.9 });
+}
+stone('B', 8, 'w'); stone('H', 8, 'w'); stone('E', 5, 'w'); stone('H', 1, 'w');
+stone('C', 7, 'b'); stone('G', 7, 'b'); stone('C', 2, 'b'); stone('G', 2, 'b');
+stone('B', 1, 'b', true);
+// purple suggestion dot at C1
+el('circle', { cx: px(2), cy: py(8), r: 5.5, fill: '#8B7CF6' });
+
+// coordinates around the board
+const top = document.getElementById('coordsTop');
+for (let i = 0; i < 9; i++) {
+  const s = document.createElement('span');
+  s.textContent = COLS[i];
+  s.style.left = (32 + 27 + px(i) - 4) + 'px';
+  top.appendChild(s);
+}
+const side = document.getElementById('coordsSide');
+for (let i = 0; i < 9; i++) {
+  for (const x of [14, 409]) {
+    const s = document.createElement('span');
+    s.textContent = String(9 - i);
+    s.style.left = x + 'px';
+    s.style.top = (302 + 27 + py(i) - 7) + 'px';
+    s.style.position = 'absolute';
+    side.appendChild(s);
+  }
+}
+}catch(e){document.title='JSERR:'+e.message;}
+</script>
+</body>
+</html>

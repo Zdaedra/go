@@ -1,0 +1,7 @@
+node_modules/
+.expo/
+dist/
+*.tsbuildinfo
+# expo prebuild output — native projects are generated, not sources
+ios/
+android/

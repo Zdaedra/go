@@ -1,0 +1,134 @@
+/* Shared design system for app screen replicas — mirrors
+   apps/mobile/src/theme/uiTheme.ts and the approved reference. */
+@font-face { font-family: 'Playfair'; src: url('file:///root/.fonts/PlayfairDisplay.ttf'); }
+@font-face { font-family: 'InterV'; src: url('file:///root/.fonts/Inter.ttf'); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { zoom: 2; }
+html, body { width: 427px; min-height: 922px; }
+body { z-index: 0; }
+body {
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgba(255,255,255,0.025), transparent 60%),
+    linear-gradient(168deg, transparent 30%, rgba(21,24,26,0.5) 44%, transparent 58%),
+    linear-gradient(196deg, transparent 55%, rgba(22,25,23,0.45) 70%, transparent 84%),
+    #121110;
+  font-family: 'InterV', sans-serif;
+  color: #F2EFEA;
+  position: relative;
+}
+.page { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.navbar {
+  height: 44px; display: flex; align-items: center; justify-content: center;
+  background: #161412; border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 15px; font-weight: 600; color: #F2EFEA; position: relative;
+}
+.navbar .back { position: absolute; left: 14px; color: #9D8CFF; font-size: 20px; }
+.tabbar {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 56px;
+  background: #161412; border-top: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: space-around;
+}
+.tabitem { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 10.5px; color: #7E7B75; }
+.tabitem .ticon { font-size: 17px; }
+.tabitem.active { color: #9D8CFF; }
+.card {
+  background: rgba(6,6,7,0.40);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+}
+.eyebrow {
+  font-size: 9.5px; font-weight: 650; letter-spacing: 2.1px;
+  text-transform: uppercase; color: #7B7872;
+}
+.eyebrow.accent { color: #9D8CFF; }
+.serif { font-family: 'Playfair', serif; font-weight: 500; font-variation-settings: 'wght' 500; letter-spacing: -0.01em; color: #EFECE7; }
+.muted { color: #8E8B85; }
+.dim { color: #7E7B75; }
+.pills { display: flex; gap: 8px; }
+.pill {
+  padding: 6px 16px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  font-size: 13.5px; font-weight: 600; color: #F2EFEA;
+}
+.pill.active { background: rgba(139,124,246,0.14); border-color: #8B7CF6; color: #C5BBF0; }
+.btn-primary {
+  position: relative; background: #1A1720; border-radius: 12px;
+  padding: 14px; text-align: center; color: #F2EFEA;
+  font-size: 16px; font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.30);
+  /* clear field between the card above and the dome arc, as in the mockup */
+  margin-top: 28px;
+}
+/* layer 1: warm stroke — the mockup ring is CLOSED (elliptical stroke,
+   radial-max measured): rose top, copper right thinning to a 135° minimum,
+   warm again across the bottom, peach left, rose-pink peak at 315° */
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 1.6px;
+  background: conic-gradient(from 0deg,
+    #CE86A0 0deg, #B07A6D 45deg, #A17353 90deg, #966750 135deg,
+    #C98870 180deg, #CB8664 205deg, #9F7058 225deg, #D8A37F 248deg,
+    #D79E83 270deg, #F1A6AD 315deg, #D48FA8 345deg, #CE86A0 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+/* layer 2: lavender dome — an arc floating above the pill with cool haze
+   between arc and pill; field-dark again within ~2px above the arc line */
+.btn-primary::after {
+  content: ''; position: absolute; left: 11%; right: 11%; top: -13px; height: 26px;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  border-top: 1.6px solid rgba(108,97,190,1);
+  /* haze ends at the pill's top edge (52% of the 26px box) so it never
+     darkens the rose stroke beneath */
+  background: linear-gradient(180deg, rgba(62,52,108,0.52), rgba(36,31,58,0.28) 30%, rgba(36,31,58,0) 52%);
+  -webkit-mask: linear-gradient(90deg, transparent 0, #000 18%, #000 82%, transparent 100%);
+  filter: blur(0.4px);
+  pointer-events: none;
+}
+.btn-outline {
+  padding: 8px 14px; border-radius: 8px; font-size: 13.5px; color: #F2EFEA;
+  border: 1px solid rgba(255,255,255,0.14); display: inline-block;
+}
+.bar-track { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); position: relative; }
+.bar-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 2px; background: #6F63DC; }
+.link { color: rgba(196,189,255,0.75); font-size: 13.5px; text-align: center; }
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.4px;
+  text-transform: uppercase; color: #8E8B85;
+}
+
+/* atmosphere: misty ridges + fine noise on every screen.
+   Bands peak ~#181A1A over the field; built from overlapping ellipses of
+   different heights so the ridge line undulates like mountain silhouettes
+   instead of running level. */
+body::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(56% 15% at 16% 43%, rgba(24,26,26,0.95), transparent 72%),
+    radial-gradient(44% 11% at 58% 40%, rgba(24,26,26,0.7), transparent 70%),
+    radial-gradient(62% 14% at 92% 46%, rgba(24,26,26,0.85), transparent 72%),
+    radial-gradient(38% 9% at 38% 45%, rgba(24,26,26,0.55), transparent 68%),
+    radial-gradient(58% 13% at 22% 77%, rgba(24,26,26,0.9), transparent 72%),
+    radial-gradient(46% 10% at 68% 73%, rgba(24,26,26,0.65), transparent 70%),
+    radial-gradient(52% 12% at 96% 79%, rgba(24,26,26,0.8), transparent 72%);
+  filter: blur(11px);
+}
+body::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+/* grain confined to the mist bands (3–4%) so they don't read as plain gradients */
+html::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  z-index: -1; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  -webkit-mask:
+    radial-gradient(56% 15% at 16% 43%, #000, transparent 72%),
+    radial-gradient(62% 14% at 92% 46%, #000, transparent 72%),
+    radial-gradient(58% 13% at 22% 77%, #000, transparent 72%),
+    radial-gradient(52% 12% at 96% 79%, #000, transparent 72%);
+}
+.serif-num { font-family: 'Playfair', serif; font-weight: 500; }
+
+.swatch-chip i { box-shadow: inset 0 1px 0 rgba(255,255,255,0.12) !important; }

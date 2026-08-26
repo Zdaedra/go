@@ -1,0 +1,1834 @@
+{
+ "tengen/sword/1": {
+  "ru": "Симметрия лишает белых ясной цели; чёрным нельзя жадно бить, иначе центральный разрез оживёт.",
+  "en": "Symmetry leaves White without a clear target; Black must not capture greedily, or the central cut comes alive.",
+  "es": "La simetría deja a Blanco sin un objetivo claro; Negro no debe capturar con avidez, o el corte central cobra vida.",
+  "fr": "La symétrie prive Blanc d'une cible claire ; Noir ne doit pas capturer avidement, sinon la coupe centrale se réveille.",
+  "de": "Die Symmetrie nimmt Weiß ein klares Ziel; Schwarz darf nicht gierig schlagen, sonst wird der zentrale Schnitt lebendig.",
+  "ko": "대칭이라 백은 뚜렷한 목표가 없다; 흑이 욕심내 잡으려 하면 중앙 절단이 살아난다."
+ },
+ "tengen/sword/2": {
+  "ru": "Ханэ чёрных давит на камень; слабость в том, что белые легко выбирают, где выйти, а что пожертвовать.",
+  "en": "Black's hane presses the stone; the flaw is that White easily chooses where to come out and what to sacrifice.",
+  "es": "El hane de Negro presiona la piedra; el defecto es que Blanco elige con facilidad por dónde salir y qué sacrificar.",
+  "fr": "Le hane de Noir presse la pierre ; le défaut est que Blanc choisit aisément par où sortir et quoi sacrifier.",
+  "de": "Schwarz' Hane drückt auf den Stein; der Nachteil: Weiß wählt leicht, wo es herauskommt und was es opfert.",
+  "ko": "흑의 하네가 돌을 압박하지만, 백이 어디로 나갈지·무엇을 버릴지 쉽게 고르는 게 약점이다."
+ },
+ "tengen/sword/3": {
+  "ru": "Белые сразу используют адзи; атари чёрных — ошибка: разрез даёт белым центр и левую сторону.",
+  "en": "White uses the aji at once; Black's atari is a mistake — the cut hands White the center and the left side.",
+  "es": "Blanco aprovecha el aji de inmediato; el atari de Negro es un error: el corte le da a Blanco el centro y el lado izquierdo.",
+  "fr": "Blanc exploite aussitôt l'aji ; l'atari de Noir est une faute : la coupe offre à Blanc le centre et le côté gauche.",
+  "de": "Weiß nutzt sofort das Aji; Schwarz' Atari ist ein Fehler — der Schnitt schenkt Weiß Zentrum und linke Seite.",
+  "ko": "백은 곧바로 아지를 활용한다; 흑의 아타리는 실수여서, 절단으로 백이 중앙과 좌변을 얻는다."
+ },
+ "tengen/sword/4": {
+  "ru": "Соединение не спасает чёрных: белые спокойно берут левый и нижний фланги, сохраняя угрозы.",
+  "en": "Connecting does not save Black: White calmly takes the left and bottom flanks while keeping threats in reserve.",
+  "es": "Conectar no salva a Negro: Blanco toma con calma los flancos izquierdo e inferior conservando amenazas.",
+  "fr": "Se connecter ne sauve pas Noir : Blanc prend tranquillement les flancs gauche et bas tout en gardant des menaces.",
+  "de": "Verbinden rettet Schwarz nicht: Weiß nimmt ruhig linke und untere Flanke und behält Drohungen in Reserve.",
+  "ko": "이어도 흑은 안 산다: 백은 위협을 남긴 채 좌변과 하변을 느긋이 차지한다."
+ },
+ "tengen/sword/5": {
+  "ru": "Спокойное соединение чёрных гасит разрез; опасно заиграться локально и дать белым миаи по краям.",
+  "en": "A calm connection by Black smothers the cut; the danger is overplaying locally and giving White miai on the edges.",
+  "es": "Una conexión tranquila de Negro apaga el corte; el peligro es forzar localmente y dar a Blanco miai en los bordes.",
+  "fr": "Une connexion calme de Noir étouffe la coupe ; le danger est de forcer localement et d'offrir à Blanc un miai sur les bords.",
+  "de": "Eine ruhige Verbindung von Schwarz erstickt den Schnitt; die Gefahr ist lokales Überziehen und Miai für Weiß am Rand.",
+  "ko": "흑의 침착한 연결이 절단을 지운다; 국지에서 무리하면 백에게 변의 미아이를 주는 게 위험하다."
+ },
+ "tengen/sword/6": {
+  "ru": "Растяжка белых сильна; толчок чёрных даёт простой разрез, нужен точный плотный ответ.",
+  "en": "White's extension is strong; Black's push leaves a simple cut, so a precise, solid reply is required.",
+  "es": "La extensión de Blanco es fuerte; el empuje de Negro deja un corte simple, así que hace falta una respuesta sólida y precisa.",
+  "fr": "L'extension de Blanc est solide ; la poussée de Noir laisse une coupe simple, il faut donc une réponse ferme et précise.",
+  "de": "Weiß' Ausdehnung ist stark; Schwarz' Schub lässt einen einfachen Schnitt, daher ist eine präzise, feste Antwort nötig.",
+  "ko": "백의 뻗음이 강하다; 흑의 밈은 단순한 절단을 남기니 정확하고 두터운 응수가 필요하다."
+ },
+ "tengen/sword/7": {
+  "ru": "Прыжок чёрных гибок, но камни белых снизу лёгкие: захват отдаёт нижнюю сторону.",
+  "en": "Black's jump is flexible, but White's stones below are light: capturing them concedes the lower side.",
+  "es": "El salto de Negro es flexible, pero las piedras de Blanco abajo son ligeras: capturarlas cede el lado inferior.",
+  "fr": "Le saut de Noir est souple, mais les pierres de Blanc en bas sont légères : les capturer concède le côté inférieur.",
+  "de": "Schwarz' Sprung ist flexibel, doch Weiß' Steine unten sind leicht: sie zu fangen gibt die untere Seite her.",
+  "ko": "흑의 뜀은 유연하지만 아래 백돌은 가볍다: 그걸 잡으면 하변을 내준다."
+ },
+ "tengen/sword/8": {
+  "ru": "Белый камень лучше считать зондом; погоня за ним медленна, важнее крупно закрыть правый низ.",
+  "en": "The white stone is better treated as a probe; chasing it is slow — closing the lower right on a large scale matters more.",
+  "es": "Conviene tratar la piedra blanca como una sonda; perseguirla es lento — importa más cerrar en grande el inferior derecho.",
+  "fr": "Mieux vaut traiter la pierre blanche comme une sonde ; la poursuivre est lent — fermer largement le bas-droit compte davantage.",
+  "de": "Der weiße Stein ist besser als Sonde zu behandeln; ihn zu jagen ist langsam — die untere rechte Ecke groß zu schließen zählt mehr.",
+  "ko": "백돌은 탐색용으로 보는 편이 낫다; 쫓는 건 느리고, 우하귀를 크게 닫는 게 더 중요하다."
+ },
+ "tengen/sword/9": {
+  "ru": "Ранний захват снова проигрывает: белые режут центр и берут солидный верхний левый угол.",
+  "en": "An early capture loses again: White cuts the center and takes a solid upper-left corner.",
+  "es": "Una captura temprana vuelve a perder: Blanco corta el centro y se lleva un sólido rincón superior izquierdo.",
+  "fr": "Une capture précoce perd encore : Blanc coupe le centre et prend un solide coin supérieur gauche.",
+  "de": "Ein frühes Fangen verliert erneut: Weiß schneidet das Zentrum und nimmt eine solide obere linke Ecke.",
+  "ko": "이른 잡기는 또 진다: 백은 중앙을 끊고 좌상귀를 두텁게 차지한다."
+ },
+ "tengen/sword/10": {
+  "ru": "Удлинение чёрных прочно, но толчки дают белым жизнь справа и миаи слева; сэнтэ некуда вложить.",
+  "en": "Black's extension is solid, but the pushes give White life on the right and miai on the left; there is nowhere to spend the sente.",
+  "es": "La extensión de Negro es sólida, pero los empujes dan vida a Blanco a la derecha y miai a la izquierda; el sente no tiene dónde invertirse.",
+  "fr": "L'extension de Noir est solide, mais les poussées donnent la vie à Blanc à droite et un miai à gauche ; le sente n'a nulle part où s'employer.",
+  "de": "Schwarz' Ausdehnung ist fest, doch die Schübe geben Weiß Leben rechts und Miai links; der Sente lässt sich nirgends anlegen.",
+  "ko": "흑의 뻗음은 두텁지만, 밀기가 백에게 우변의 삶과 좌변의 미아이를 준다; 선수를 쓸 곳이 없다."
+ },
+ "tengen/orthodox/1": {
+  "ru": "Прикрепление чёрных классично и богато вариантами; белые выбирают, в какую борьбу войти.",
+  "en": "Black's attachment is classic and rich in variations; White chooses which fight to enter.",
+  "es": "El apoyo de Negro es clásico y rico en variantes; Blanco elige en qué lucha entrar.",
+  "fr": "Le contact de Noir est classique et riche en variantes ; Blanc choisit dans quel combat entrer.",
+  "de": "Schwarz' Ankleben ist klassisch und variantenreich; Weiß wählt, in welchen Kampf es geht.",
+  "ko": "흑의 붙임은 정통이고 변화가 많다; 백이 어느 싸움으로 들어갈지 고른다."
+ },
+ "tengen/orthodox/2": {
+  "ru": "Ханэ белых естественно, но растяжка медленна: белые низко живут, а чёрные спокойно берут перевес.",
+  "en": "White's hane is natural, but the extension is slow: White lives low while Black calmly takes the edge.",
+  "es": "El hane de Blanco es natural, pero la extensión es lenta: Blanco vive bajo mientras Negro se lleva la ventaja con calma.",
+  "fr": "Le hane de Blanc est naturel, mais l'extension est lente : Blanc vit bas tandis que Noir prend tranquillement l'avantage.",
+  "de": "Weiß' Hane ist natürlich, doch die Ausdehnung ist langsam: Weiß lebt niedrig, während Schwarz ruhig die Oberhand nimmt.",
+  "ko": "백의 하네는 자연스럽지만 뻗음이 느리다: 백은 낮게 살고 흑은 느긋이 우위를 잡는다."
+ },
+ "tengen/orthodox/3": {
+  "ru": "Лучший отход белых создаёт миаи и не даёт их прижать; позиция остаётся сбалансированной.",
+  "en": "White's best retreat makes miai and cannot be pressed down; the position stays balanced.",
+  "es": "La mejor retirada de Blanco crea miai y no permite ser aplastado; la posición se mantiene equilibrada.",
+  "fr": "Le meilleur repli de Blanc crée un miai et évite d'être écrasé ; la position reste équilibrée.",
+  "de": "Weiß' bester Rückzug schafft Miai und lässt sich nicht niederdrücken; die Stellung bleibt ausgeglichen.",
+  "ko": "백의 최선의 물러섬은 미아이를 만들어 눌리지 않는다; 형세는 균형을 유지한다."
+ },
+ "tengen/orthodox/4": {
+  "ru": "Белый ответ сам лишает себя дыханий; чёрные должны наказать жёстким двойным ханэ.",
+  "en": "White's reply strips its own liberties; Black must punish with a firm double hane.",
+  "es": "La respuesta de Blanco se quita sus propias libertades; Negro debe castigar con un doble hane firme.",
+  "fr": "La réponse de Blanc se prive de ses propres libertés ; Noir doit punir par un double hane ferme.",
+  "de": "Weiß' Antwort raubt sich selbst Freiheiten; Schwarz muss mit einem festen Doppel-Hane bestrafen.",
+  "ko": "백의 응수가 스스로 활로를 줄인다; 흑은 두터운 이단 하네로 응징해야 한다."
+ },
+ "tengen/orthodox/5": {
+  "ru": "Внутреннее ханэ ведёт к сложной вращающейся форме; интуитивные атари чёрных часто вредят.",
+  "en": "The inside hane leads to a complex rotating fight; Black's intuitive ataris often do harm.",
+  "es": "El hane interior lleva a una compleja forma giratoria; los ataris intuitivos de Negro suelen hacer daño.",
+  "fr": "Le hane intérieur mène à une forme tournante complexe ; les ataris intuitifs de Noir font souvent du tort.",
+  "de": "Der innere Hane führt zu einer komplexen kreisenden Form; Schwarz' intuitive Ataris schaden oft.",
+  "ko": "안쪽 하네는 복잡한 회전형 싸움으로 이어진다; 흑의 직관적 아타리는 흔히 손해다."
+ },
+ "tengen/orthodox/6": {
+  "ru": "Растяжка белых слишком пассивна: чёрные в сэнтэ крепят левый край и выбирают жертву для атаки.",
+  "en": "White's extension is too passive: in sente Black reinforces the left edge and picks a sacrifice to attack.",
+  "es": "La extensión de Blanco es demasiado pasiva: en sente Negro refuerza el borde izquierdo y elige un sacrificio para atacar.",
+  "fr": "L'extension de Blanc est trop passive : en sente, Noir renforce le bord gauche et choisit un sacrifice pour attaquer.",
+  "de": "Weiß' Ausdehnung ist zu passiv: in Sente verstärkt Schwarz den linken Rand und wählt ein Opfer zum Angriff.",
+  "ko": "백의 뻗음은 너무 소극적이다: 흑은 선수로 좌변을 두텁게 하고 공격할 사석을 고른다."
+ },
+ "tengen/windmill/1": {
+  "ru": "Эта форма равна при точности; главная ловушка — защищать камни, которые выгоднее жертвовать.",
+  "en": "This shape is even with accuracy; the main trap is defending stones that are better sacrificed.",
+  "es": "Esta forma es pareja con precisión; la trampa principal es defender piedras que conviene sacrificar.",
+  "fr": "Cette forme est égale avec précision ; le piège principal est de défendre des pierres qu'il vaut mieux sacrifier.",
+  "de": "Diese Form ist bei Genauigkeit ausgeglichen; die Hauptfalle ist, Steine zu verteidigen, die man besser opfert.",
+  "ko": "이 모양은 정확하면 호각이다; 가장 큰 함정은 버리는 게 나은 돌을 지키는 것이다."
+ },
+ "tengen/windmill/2": {
+  "ru": "Чёрный разрез ради одного камня мелковат: белые через атари занимают общую слабую точку и получают перевес.",
+  "en": "Black's cut for a single stone is too small: via atari White takes the shared weak point and gains the edge.",
+  "es": "El corte de Negro por una sola piedra es demasiado pequeño: con atari Blanco toma el punto débil común y saca ventaja.",
+  "fr": "La coupe de Noir pour une seule pierre est trop petite : par atari, Blanc prend le point faible commun et prend l'avantage.",
+  "de": "Schwarz' Schnitt für einen einzigen Stein ist zu klein: per Atari nimmt Weiß den gemeinsamen Schwachpunkt und die Oberhand.",
+  "ko": "돌 하나를 위한 흑의 절단은 너무 작다: 백은 아타리로 공통 약점을 차지해 우위를 잡는다."
+ },
+ "tengen/windmill/3": {
+  "ru": "Белые жертвуют левый фланг, но внешние форсинги дают огромную правую сторону.",
+  "en": "White sacrifices the left flank, but the outside forcing moves yield a huge right side.",
+  "es": "Blanco sacrifica el flanco izquierdo, pero los forzados exteriores rinden un enorme lado derecho.",
+  "fr": "Blanc sacrifie le flanc gauche, mais les coups forçants extérieurs procurent un immense côté droit.",
+  "de": "Weiß opfert die linke Flanke, doch die äußeren Zugzwänge bringen eine riesige rechte Seite.",
+  "ko": "백은 좌변을 버리지만 바깥의 활용수로 거대한 우변을 얻는다."
+ },
+ "tengen/windmill/4": {
+  "ru": "План чёрных естественно пожертвовать два камня срывается: форсинг белых готовит разрушительный разрез.",
+  "en": "Black's natural plan to sacrifice two stones breaks down: White's forcing moves prepare a devastating cut.",
+  "es": "El plan natural de Negro de sacrificar dos piedras fracasa: los forzados de Blanco preparan un corte devastador.",
+  "fr": "Le plan naturel de Noir de sacrifier deux pierres échoue : les coups forçants de Blanc préparent une coupe dévastatrice.",
+  "de": "Schwarz' natürlicher Plan, zwei Steine zu opfern, scheitert: Weiß' Zugzwänge bereiten einen verheerenden Schnitt vor.",
+  "ko": "두 점을 버리려는 흑의 자연스러운 계획은 무너진다: 백의 활용수가 치명적인 절단을 준비한다."
+ },
+ "tengen/windmill/5": {
+  "ru": "Поворот чёрных выглядит нормально, но верхняя левая группа остаётся слабой; простая жизнь слишком медленна.",
+  "en": "Black's turn looks normal, but the upper-left group stays weak; a plain life is too slow.",
+  "es": "El giro de Negro parece normal, pero el grupo superior izquierdo queda débil; una vida simple es demasiado lenta.",
+  "fr": "Le tournant de Noir paraît normal, mais le groupe supérieur gauche reste faible ; une vie simple est trop lente.",
+  "de": "Schwarz' Wendung wirkt normal, doch die obere linke Gruppe bleibt schwach; ein schlichtes Leben ist zu langsam.",
+  "ko": "흑의 젖힘은 무난해 보이지만 좌상 대마가 약하게 남는다; 단순히 사는 건 너무 느리다."
+ },
+ "tengen/windmill/6": {
+  "ru": "Белые держат два камня, но захват не обязателен; обе стороны решают, что важнее — левый узел или правая сторона.",
+  "en": "White holds the two stones, but capture is not forced; both sides decide what matters more — the left knot or the right side.",
+  "es": "Blanco retiene las dos piedras, pero la captura no es obligada; ambos deciden qué importa más: el nudo izquierdo o el lado derecho.",
+  "fr": "Blanc tient les deux pierres, mais la capture n'est pas forcée ; chacun décide de ce qui compte le plus : le nœud gauche ou le côté droit.",
+  "de": "Weiß hält die zwei Steine, doch das Fangen ist nicht erzwungen; beide entscheiden, was wichtiger ist — der linke Knoten oder die rechte Seite.",
+  "ko": "백은 두 점을 잡고 있지만 잡기가 강제는 아니다; 양쪽은 좌변의 매듭과 우변 중 무엇이 더 큰지 판단한다."
+ },
+ "tengen/windmill/7": {
+  "ru": "Захват двух камней белыми силён; чёрные берут правый низ, а белые жертвуют зонд ради верха.",
+  "en": "White's capture of two stones is strong; Black takes the lower right while White sacrifices the probe for the top.",
+  "es": "La captura de dos piedras por Blanco es fuerte; Negro toma el inferior derecho mientras Blanco sacrifica la sonda por arriba.",
+  "fr": "La capture de deux pierres par Blanc est forte ; Noir prend le bas-droit tandis que Blanc sacrifie la sonde pour le haut.",
+  "de": "Weiß' Fangen der zwei Steine ist stark; Schwarz nimmt unten rechts, während Weiß die Sonde für oben opfert.",
+  "ko": "백의 두 점 잡기는 강하다; 백이 상변을 위해 탐색돌을 버리는 사이 흑은 우하변을 차지한다."
+ },
+ "tengen/windmill/8": {
+  "ru": "Спуск белых хорош; чёрные выжимают правый бок, но форма тонкая и требует защиты.",
+  "en": "White's descent is good; Black squeezes the right side, but the shape is thin and needs defending.",
+  "es": "El descenso de Blanco es bueno; Negro exprime el lado derecho, pero la forma es fina y hay que defenderla.",
+  "fr": "La descente de Blanc est bonne ; Noir presse le côté droit, mais la forme est mince et doit être défendue.",
+  "de": "Weiß' Abstieg ist gut; Schwarz presst die rechte Seite, doch die Form ist dünn und muss verteidigt werden.",
+  "ko": "백의 내림은 좋다; 흑은 우변을 짜내지만 형태가 엷어 지켜야 한다."
+ },
+ "tengen/hand-fan/1": {
+  "ru": "Белые уходят от «Лабиринта» и ставят живучий камень; чёрные могут позже вынудить прибыльную жертву.",
+  "en": "White leaves the Maze and plays a resilient stone; Black can later force a profitable sacrifice.",
+  "es": "Blanco abandona el Laberinto y coloca una piedra resistente; Negro puede forzar más tarde un sacrificio provechoso.",
+  "fr": "Blanc quitte le Labyrinthe et pose une pierre résistante ; Noir peut plus tard forcer un sacrifice profitable.",
+  "de": "Weiß verlässt das Labyrinth und setzt einen widerstandsfähigen Stein; Schwarz kann später ein einträgliches Opfer erzwingen.",
+  "ko": "백은 미로를 벗어나 끈질긴 돌을 둔다; 흑은 나중에 이득이 되는 사석을 강요할 수 있다."
+ },
+ "tengen/hand-fan/2": {
+  "ru": "Чёрные зовут к бою, похожему на «Лабиринт»; при точной игре ни одна сторона не опережает.",
+  "en": "Black invites a fight like the Maze; with precise play neither side pulls ahead.",
+  "es": "Negro invita a una lucha parecida al Laberinto; con juego preciso ninguno se adelanta.",
+  "fr": "Noir invite à un combat proche du Labyrinthe ; en jouant avec précision, aucun camp ne prend l'avance.",
+  "de": "Schwarz lädt zu einem Kampf wie im Labyrinth ein; bei genauem Spiel zieht keine Seite davon.",
+  "ko": "흑은 미로와 비슷한 싸움을 부른다; 정확히 두면 어느 쪽도 앞서지 못한다."
+ },
+ "tengen/hand-fan/3": {
+  "ru": "Борьба чуть проще для белых, но компенсация чёрных достаточна для равновесия.",
+  "en": "The fight is a touch easier for White, but Black's compensation is enough for balance.",
+  "es": "La lucha es algo más fácil para Blanco, pero la compensación de Negro basta para el equilibrio.",
+  "fr": "Le combat est un peu plus facile pour Blanc, mais la compensation de Noir suffit à l'équilibre.",
+  "de": "Der Kampf ist für Weiß etwas leichter, doch Schwarz' Ausgleich reicht für Gleichgewicht.",
+  "ko": "싸움은 백에게 조금 수월하지만, 흑의 보상으로 균형은 맞는다."
+ },
+ "tengen/hand-fan/4": {
+  "ru": "Оттяжка чёрных давит и готовит атаку; соединяться на подгляде пассивно, лучше спуститься в сэнтэ.",
+  "en": "Black's draw-back presses and prepares an attack; connecting at the peep is passive — better to descend in sente.",
+  "es": "El repliegue de Negro presiona y prepara un ataque; conectar en el atisbo es pasivo — mejor descender en sente.",
+  "fr": "Le repli de Noir presse et prépare une attaque ; se connecter au coup d'œil est passif — mieux vaut descendre en sente.",
+  "de": "Schwarz' Rückzug drückt und bereitet einen Angriff vor; am Späher zu verbinden ist passiv — besser in Sente absteigen.",
+  "ko": "흑의 되끌기는 압박하며 공격을 준비한다; 들여다본 곳에 잇는 건 소극적이고, 선수로 내려서는 편이 낫다."
+ },
+ "tengen/curveball/1": {
+  "ru": "Белые избегают «Лабиринта», уходя вверх: больше помощи левому камню, но и больше драки.",
+  "en": "White dodges the Maze by going up: more help for the left stone, but also more fighting.",
+  "es": "Blanco esquiva el Laberinto subiendo: más ayuda para la piedra izquierda, pero también más pelea.",
+  "fr": "Blanc esquive le Labyrinthe en montant : plus d'aide pour la pierre gauche, mais aussi plus de combat.",
+  "de": "Weiß weicht dem Labyrinth nach oben aus: mehr Hilfe für den linken Stein, aber auch mehr Kampf.",
+  "ko": "백은 위로 나가며 미로를 피한다: 좌변 돌에 도움이 더 되지만 싸움도 커진다."
+ },
+ "tengen/curveball/2": {
+  "ru": "Чёрные вызывают бой; вариант равен, но после продолжения чёрным чуть проще вести позицию.",
+  "en": "Black calls a fight; the line is even, but after the continuation Black steers the position a touch more easily.",
+  "es": "Negro provoca una lucha; la línea es pareja, pero tras la continuación Negro conduce la posición algo mejor.",
+  "fr": "Noir provoque un combat ; la ligne est égale, mais après la suite Noir dirige la position un peu plus aisément.",
+  "de": "Schwarz sucht einen Kampf; die Linie ist gleich, doch nach der Fortsetzung lenkt Schwarz die Stellung etwas leichter.",
+  "ko": "흑이 싸움을 건다; 진행은 호각이나, 이후 흑이 형세를 조금 더 편하게 이끈다."
+ },
+ "tengen/curveball/3": {
+  "ru": "Отход белых хорош, если прыгать в угол; соединяться на подгляде нельзя — чёрные слишком усилятся.",
+  "en": "White's retreat is good if it jumps into the corner; connecting at the peep is wrong — Black grows too strong.",
+  "es": "La retirada de Blanco es buena si salta al rincón; conectar en el atisbo es un error — Negro se fortalece demasiado.",
+  "fr": "Le repli de Blanc est bon s'il saute dans le coin ; se connecter au coup d'œil est mauvais — Noir devient trop fort.",
+  "de": "Weiß' Rückzug ist gut, wenn er in die Ecke springt; am Späher zu verbinden ist falsch — Schwarz wird zu stark.",
+  "ko": "백의 물러섬은 귀로 뛰면 좋다; 들여다본 곳에 잇는 건 나쁘다 — 흑이 지나치게 강해진다."
+ },
+ "tengen/curveball/4": {
+  "ru": "Чёрные давят вторжение и строят большой правый низ, не давая белым группам соединиться.",
+  "en": "Black presses the invasion and builds a big lower right, keeping the white groups from linking up.",
+  "es": "Negro presiona la invasión y construye un gran inferior derecho, impidiendo que los grupos blancos se unan.",
+  "fr": "Noir presse l'invasion et bâtit un grand bas-droit, empêchant les groupes blancs de se relier.",
+  "de": "Schwarz drückt die Invasion und baut eine große untere rechte Seite, ohne die weißen Gruppen zu verbinden.",
+  "ko": "흑은 침입을 압박하며 우하변을 크게 짓고, 백의 두 무리가 연결되지 못하게 한다."
+ },
+ "tengen/curveball/5": {
+  "ru": "Белым лучше прыгать, а не тянуться вверх: иначе чёрные бесконтрольно разрастутся снизу.",
+  "en": "White should jump rather than stretch upward: otherwise Black expands from below unchecked.",
+  "es": "Blanco debería saltar en vez de estirarse hacia arriba: si no, Negro se expande desde abajo sin freno.",
+  "fr": "Blanc devrait sauter plutôt que s'étirer vers le haut : sinon Noir s'étend d'en bas sans contrôle.",
+  "de": "Weiß sollte springen statt sich nach oben zu strecken: sonst breitet sich Schwarz von unten ungehindert aus.",
+  "ko": "백은 위로 뻗기보다 뛰어야 한다: 아니면 흑이 아래에서 걷잡을 수 없이 부푼다."
+ },
+ "tengen/soccer-juggling/1": {
+  "ru": "Обратная кейма сохраняет гибкость «Перешейка» без симметрии; у белых остаётся несколько надёжных ответов.",
+  "en": "The reverse keima keeps the Isthmus's flexibility without symmetry; White still has several reliable replies.",
+  "es": "El keima inverso conserva la flexibilidad del Istmo sin simetría; Blanco aún tiene varias respuestas fiables.",
+  "fr": "Le keima inverse garde la souplesse de l'Isthme sans symétrie ; Blanc dispose encore de plusieurs réponses fiables.",
+  "de": "Der umgekehrte Keima behält die Flexibilität der Landenge ohne Symmetrie; Weiß hat noch mehrere verlässliche Antworten.",
+  "ko": "역날일자는 대칭 없이 '지협'의 유연함을 유지한다; 백에게는 여전히 든든한 응수가 여럿 있다."
+ },
+ "tengen/soccer-juggling/2": {
+  "ru": "Ограда чёрных прочна; белым трудно соединиться, поэтому лучше заранее играть на две группы.",
+  "en": "Black's enclosure is solid; White has trouble connecting, so it is better to plan for two groups from the start.",
+  "es": "El cerco de Negro es sólido; a Blanco le cuesta conectar, así que conviene planear dos grupos desde el inicio.",
+  "fr": "La clôture de Noir est solide ; Blanc peine à se relier, mieux vaut donc prévoir deux groupes d'emblée.",
+  "de": "Schwarz' Umschließung ist fest; Weiß hat Mühe zu verbinden, daher besser von Anfang an mit zwei Gruppen planen.",
+  "ko": "흑의 굳힘이 두텁다; 백은 연결이 어려우니 처음부터 두 무리로 갈 계획을 세우는 게 낫다."
+ },
+ "tengen/soccer-juggling/3": {
+  "ru": "Перестановка ходов вредна чёрным: белые забирают слишком много территории по периметру.",
+  "en": "Reversing the move order hurts Black: White takes too much territory around the perimeter.",
+  "es": "Invertir el orden de jugadas perjudica a Negro: Blanco toma demasiado territorio por el perímetro.",
+  "fr": "Inverser l'ordre des coups nuit à Noir : Blanc prend trop de territoire sur le pourtour.",
+  "de": "Die Zugreihenfolge umzukehren schadet Schwarz: Weiß nimmt zu viel Gebiet entlang des Rands.",
+  "ko": "수순을 바꾸면 흑이 손해다: 백이 둘레를 따라 너무 많은 집을 차지한다."
+ },
+ "tengen/soccer-juggling/4": {
+  "ru": "Чёрные крепко закрывают правый низ; белым надо отвечать столь же прямо и искать слабости прикреплениями.",
+  "en": "Black firmly closes the lower right; White must answer just as directly and seek weaknesses with attachments.",
+  "es": "Negro cierra con firmeza el inferior derecho; Blanco debe responder con igual franqueza y buscar debilidades con apoyos.",
+  "fr": "Noir ferme fermement le bas-droit ; Blanc doit répondre tout aussi directement et chercher des faiblesses par des contacts.",
+  "de": "Schwarz schließt die untere rechte Ecke fest; Weiß muss ebenso direkt antworten und mit Ankleben Schwächen suchen.",
+  "ko": "흑은 우하변을 단단히 닫는다; 백도 그만큼 직접적으로 응하며 붙임으로 약점을 노려야 한다."
+ },
+ "tengen/soccer-juggling/5": {
+  "ru": "Прикрепление белых даёт мало очков: угол чёрных закрыт, а верхний край белых остаётся уязвим.",
+  "en": "White's attachment yields little: Black's corner is sealed, while White's upper edge stays vulnerable.",
+  "es": "El apoyo de Blanco rinde poco: el rincón de Negro queda sellado, mientras el borde superior de Blanco sigue vulnerable.",
+  "fr": "Le contact de Blanc rapporte peu : le coin de Noir est scellé, tandis que le bord supérieur de Blanc reste vulnérable.",
+  "de": "Weiß' Ankleben bringt wenig: Schwarz' Ecke ist versiegelt, während Weiß' oberer Rand verwundbar bleibt.",
+  "ko": "백의 붙임은 소득이 적다: 흑의 귀는 봉해지고, 백의 상변은 약하게 남는다."
+ },
+ "tengen/soccer-juggling/6": {
+  "ru": "Узкая ограда белых играбельна, но вторжение трудно; разрез чёрных оставляет полезное адзи.",
+  "en": "White's tight enclosure is playable, but the invasion is hard; Black's cut leaves useful aji.",
+  "es": "El cerco ceñido de Blanco es jugable, pero la invasión es difícil; el corte de Negro deja aji útil.",
+  "fr": "La clôture serrée de Blanc est jouable, mais l'invasion est difficile ; la coupe de Noir laisse un aji utile.",
+  "de": "Weiß' enge Umschließung ist spielbar, doch die Invasion ist schwer; Schwarz' Schnitt lässt nützliches Aji.",
+  "ko": "백의 좁은 굳힘은 둘 만하지만 침입은 어렵다; 흑의 절단이 쓸모 있는 아지를 남긴다."
+ },
+ "tengen/soccer-juggling/7": {
+  "ru": "Белые выбирают две гибкие группы; чёрные держат их отдельно, но точка «подножки» неожиданно помогает белым.",
+  "en": "White chooses two flexible groups; Black keeps them apart, but the trip point unexpectedly helps White.",
+  "es": "Blanco elige dos grupos flexibles; Negro los mantiene separados, pero el punto de zancadilla ayuda a Blanco inesperadamente.",
+  "fr": "Blanc choisit deux groupes souples ; Noir les tient séparés, mais le point de croc-en-jambe aide Blanc de façon inattendue.",
+  "de": "Weiß wählt zwei flexible Gruppen; Schwarz hält sie getrennt, doch der Stolperpunkt hilft Weiß unerwartet.",
+  "ko": "백은 유연한 두 무리를 고른다; 흑은 그들을 갈라놓지만, '걸림' 자리가 뜻밖에 백을 돕는다."
+ },
+ "tengen/jump-attack/1": {
+  "ru": "Прыжковая атака запирает белых в две малые базы; чёрным нужна точность и чередование давления.",
+  "en": "The jumping attack pens White into two small bases; Black needs accuracy and alternating pressure.",
+  "es": "El ataque a salto encierra a Blanco en dos bases pequeñas; Negro necesita precisión y presión alterna.",
+  "fr": "L'attaque en saut enferme Blanc dans deux petites bases ; Noir a besoin de précision et d'une pression alternée.",
+  "de": "Der Sprungangriff sperrt Weiß in zwei kleine Basen; Schwarz braucht Genauigkeit und abwechselnden Druck.",
+  "ko": "뛰어 씌우는 공격은 백을 두 개의 작은 근거로 몰아넣는다; 흑은 정확함과 번갈아 가하는 압박이 필요하다."
+ },
+ "tengen/jump-attack/2": {
+  "ru": "Если белые рано оседают, чёрные в сэнтэ их поджимают и забирают низ, оставляя лишь малые углы.",
+  "en": "If White settles early, Black presses it in sente and takes the bottom, leaving White only small corners.",
+  "es": "Si Blanco se asienta pronto, Negro lo presiona en sente y toma el fondo, dejando a Blanco solo rincones pequeños.",
+  "fr": "Si Blanc s'installe tôt, Noir le presse en sente et prend le bas, ne laissant à Blanc que de petits coins.",
+  "de": "Setzt sich Weiß früh, drückt Schwarz es in Sente und nimmt unten, sodass Weiß nur kleine Ecken bleiben.",
+  "ko": "백이 일찍 안정하면 흑은 선수로 눌러 하변을 차지하고, 백에게는 작은 귀들만 남긴다."
+ },
+ "tengen/jump-attack/3": {
+  "ru": "Растяжка белых создаёт миаи вверх и вниз; чёрные отвечают зондами, сохраняя гибкость атаки.",
+  "en": "White's extension makes miai up and down; Black replies with probes, keeping the attack flexible.",
+  "es": "La extensión de Blanco crea miai arriba y abajo; Negro responde con sondas, manteniendo el ataque flexible.",
+  "fr": "L'extension de Blanc crée un miai en haut et en bas ; Noir répond par des sondes, gardant l'attaque souple.",
+  "de": "Weiß' Ausdehnung schafft Miai oben und unten; Schwarz antwortet mit Sonden und hält den Angriff flexibel.",
+  "ko": "백의 뻗음은 위아래로 미아이를 만든다; 흑은 탐색수로 응하며 공격을 유연하게 유지한다."
+ },
+ "tengen/jump-attack/4": {
+  "ru": "Обход чёрных даёт белым удобную стабилизацию; чёрные переключаются на левую группу.",
+  "en": "Black's detour lets White stabilize comfortably; Black switches to the left group.",
+  "es": "El rodeo de Negro deja a Blanco estabilizarse con comodidad; Negro cambia al grupo izquierdo.",
+  "fr": "Le détour de Noir laisse Blanc se stabiliser confortablement ; Noir bascule vers le groupe de gauche.",
+  "de": "Schwarz' Umweg lässt Weiß sich bequem stabilisieren; Schwarz wechselt zur linken Gruppe.",
+  "ko": "흑의 우회는 백이 편하게 안정하게 해 준다; 흑은 좌변 무리로 방향을 돌린다."
+ },
+ "tengen/jump-attack/5": {
+  "ru": "Внутренний изгиб белых ведёт к сложной вращающейся форме; игра остаётся равной, но требует счёта жертв.",
+  "en": "White's inside bend leads to a complex rotating shape; the game stays even but demands counting the sacrifices.",
+  "es": "El giro interior de Blanco lleva a una compleja forma giratoria; la partida sigue pareja pero exige contar los sacrificios.",
+  "fr": "Le pli intérieur de Blanc mène à une forme tournante complexe ; la partie reste égale mais exige de compter les sacrifices.",
+  "de": "Weiß' innere Biegung führt zu einer komplexen kreisenden Form; das Spiel bleibt gleich, verlangt aber das Zählen der Opfer.",
+  "ko": "백의 안쪽 젖힘은 복잡한 회전형 모양으로 이어진다; 형세는 호각이지만 사석 계산이 필요하다."
+ },
+ "tengen/jump-attack/6": {
+  "ru": "У белых есть обходные четвёртые ходы: они создают вторую группу или грозят связкой, часто переводя игру в другой вариант.",
+  "en": "White has detouring fourth moves: they make a second group or threaten a link, often shifting the game to another variation.",
+  "es": "Blanco tiene cuartas jugadas de rodeo: crean un segundo grupo o amenazan una conexión, a menudo llevando la partida a otra variante.",
+  "fr": "Blanc dispose de quatrièmes coups de détour : ils créent un second groupe ou menacent une liaison, faisant souvent basculer la partie vers une autre variante.",
+  "de": "Weiß hat umweglenkende vierte Züge: sie bilden eine zweite Gruppe oder drohen mit Verbindung und lenken das Spiel oft in eine andere Variante.",
+  "ko": "백에게는 우회하는 네 번째 수들이 있다: 둘째 무리를 만들거나 연결을 위협하며, 흔히 국면을 다른 변화로 옮긴다."
+ },
+ "tengen/jump-attack/7": {
+  "ru": "Единственный нажим чёрных не даёт белым лёгкой формы; дальше важно попеременно давить обе группы.",
+  "en": "A single push by Black does not give White easy shape; from here it is vital to pressure both groups by turns.",
+  "es": "Un solo empuje de Negro no da a Blanco forma fácil; desde aquí es vital presionar ambos grupos por turnos.",
+  "fr": "Une seule poussée de Noir ne donne pas à Blanc une forme facile ; dès lors il est vital de pressuriser les deux groupes à tour de rôle.",
+  "de": "Ein einzelner Schub von Schwarz gibt Weiß keine leichte Form; von hier an ist es entscheidend, beide Gruppen abwechselnd zu bedrängen.",
+  "ko": "흑의 한 번의 밈만으로는 백이 쉬운 모양을 얻지 못한다; 이제 두 무리를 번갈아 압박하는 것이 관건이다."
+ },
+ "tengen/cross-line/1": {
+  "ru": "Два прыжка чёрных почти не давят и не дают очков; белые спокойно строят две базы и выигрывают.",
+  "en": "Black's two jumps barely press and yield no points; White calmly builds two bases and wins.",
+  "es": "Los dos saltos de Negro apenas presionan y no dan puntos; Blanco construye con calma dos bases y gana.",
+  "fr": "Les deux sauts de Noir pressent à peine et ne rapportent pas de points ; Blanc bâtit tranquillement deux bases et gagne.",
+  "de": "Schwarz' zwei Sprünge drücken kaum und bringen keine Punkte; Weiß baut ruhig zwei Basen und gewinnt.",
+  "ko": "흑의 두 번 뜀은 거의 압박이 안 되고 집도 없다; 백은 느긋이 두 근거를 지어 이긴다."
+ },
+ "tengen/cross-line/2": {
+  "ru": "Игра по звёздным пунктам близка к равной, но клин белых рушит центр чёрных и почти даёт нужные очки.",
+  "en": "Play on the star points is close to even, but White's wedge shatters Black's center and nearly gives the needed points.",
+  "es": "El juego en los puntos estrella es casi parejo, pero la cuña de Blanco rompe el centro de Negro y casi da los puntos necesarios.",
+  "fr": "Le jeu sur les points étoiles est presque égal, mais le coin de Blanc brise le centre de Noir et donne presque les points requis.",
+  "de": "Spiel auf den Sternpunkten ist nahezu gleich, doch Weiß' Keil zerschlägt Schwarz' Zentrum und bringt fast die nötigen Punkte.",
+  "ko": "화점 위주의 진행은 호각에 가깝지만, 백의 끼움이 흑 중앙을 부수고 필요한 집을 거의 만든다."
+ },
+ "tengen/cross-line/3": {
+  "ru": "Защитный ход чёрных смягчает клин, но мирная игра при коми выгодна белым.",
+  "en": "Black's defensive move softens the wedge, but peaceful play with komi favors White.",
+  "es": "La jugada defensiva de Negro suaviza la cuña, pero el juego pacífico con komi favorece a Blanco.",
+  "fr": "Le coup défensif de Noir adoucit le coin, mais un jeu paisible avec komi favorise Blanc.",
+  "de": "Schwarz' Verteidigungszug entschärft den Keil, doch friedliches Spiel mit Komi begünstigt Weiß.",
+  "ko": "흑의 지키는 수가 끼움을 누그러뜨리지만, 덤이 있는 평화로운 진행은 백에게 유리하다."
+ },
+ "tengen/almost-equilateral-1/1": {
+  "ru": "Кейма чёрных давит с дистанции и шире охватывает позицию; белые могут бежать слева или делать вторую группу.",
+  "en": "Black's keima presses from a distance and covers more of the board; White can run to the left or make a second group.",
+  "es": "El keima de Negro presiona a distancia y abarca más tablero; Blanco puede correr a la izquierda o hacer un segundo grupo.",
+  "fr": "Le keima de Noir presse à distance et couvre plus de goban ; Blanc peut fuir à gauche ou faire un second groupe.",
+  "de": "Schwarz' Keima drückt aus der Distanz und deckt mehr Brett ab; Weiß kann nach links laufen oder eine zweite Gruppe bilden.",
+  "ko": "흑의 날일자는 멀찍이서 압박하며 판을 넓게 감싼다; 백은 좌변으로 달아나거나 둘째 무리를 만들 수 있다."
+ },
+ "tengen/almost-equilateral-1/2": {
+  "ru": "Кейма снизу достаточно давит; белым лучше защищаться плотно, иначе разрез по форме.",
+  "en": "The keima from below presses enough; White is better off defending solidly, or the shape gets cut.",
+  "es": "El keima desde abajo presiona lo suficiente; a Blanco le conviene defender con solidez, o la forma se corta.",
+  "fr": "Le keima d'en bas presse suffisamment ; mieux vaut que Blanc défende solidement, sinon la forme est coupée.",
+  "de": "Der Keima von unten drückt genug; Weiß verteidigt besser solide, sonst wird die Form geschnitten.",
+  "ko": "아래에서의 날일자는 충분히 압박한다; 백은 두텁게 지키는 게 낫고, 아니면 모양이 끊긴다."
+ },
+ "tengen/almost-equilateral-1/3": {
+  "ru": "В варианте attach-block чёрные жертвуют камень двойным ханэ и получают сэнтэ для атаки одиночки.",
+  "en": "In the attach-block line Black sacrifices a stone with a double hane and gets sente to attack the lone stone.",
+  "es": "En la línea de apoyo y bloqueo Negro sacrifica una piedra con doble hane y obtiene sente para atacar la piedra solitaria.",
+  "fr": "Dans la ligne contact-blocage, Noir sacrifie une pierre par double hane et obtient le sente pour attaquer la pierre isolée.",
+  "de": "In der Ankleben-Block-Linie opfert Schwarz per Doppel-Hane einen Stein und erhält Sente, um den einzelnen Stein anzugreifen.",
+  "ko": "붙여 막는 진행에서 흑은 이단 하네로 한 점을 버리고 선수를 얻어 외돌을 공격한다."
+ },
+ "tengen/almost-equilateral-1/4": {
+  "ru": "Косой ход белых ищет связь, но она непрочна; чёрным важно вовремя занять ключевой пункт боя.",
+  "en": "White's diagonal move seeks a link, but it is fragile; Black must take the key point of the fight in time.",
+  "es": "El movimiento diagonal de Blanco busca conexión, pero es frágil; Negro debe tomar a tiempo el punto clave de la lucha.",
+  "fr": "Le coup diagonal de Blanc cherche une liaison, mais elle est fragile ; Noir doit prendre à temps le point clé du combat.",
+  "de": "Weiß' Diagonalzug sucht eine Verbindung, doch sie ist brüchig; Schwarz muss rechtzeitig den Schlüsselpunkt des Kampfes nehmen.",
+  "ko": "백의 마늘모는 연결을 노리지만 약하다; 흑은 싸움의 급소를 제때 차지해야 한다."
+ },
+ "tengen/almost-equilateral-1/5": {
+  "ru": "Прикрепление белых редко; чёрные закрывают верхний правый угол, а белым тяжело искать там проверки.",
+  "en": "White's attachment is rare; Black closes the upper-right corner, and White struggles to find probes there.",
+  "es": "El apoyo de Blanco es raro; Negro cierra el rincón superior derecho y a Blanco le cuesta encontrar sondas allí.",
+  "fr": "Le contact de Blanc est rare ; Noir ferme le coin supérieur droit, et Blanc peine à y trouver des sondes.",
+  "de": "Weiß' Ankleben ist selten; Schwarz schließt die obere rechte Ecke, und Weiß tut sich schwer, dort Sonden zu finden.",
+  "ko": "백의 붙임은 드물다; 흑이 우상귀를 닫으면 백은 거기서 활용거리를 찾기 어렵다."
+ },
+ "tengen/headbutt/1": {
+  "ru": "Чёрные грубо прижимают левый камень ради влияния; белым обычно комфортно искать вторжение справа.",
+  "en": "Black roughly butts the left stone for influence; White is usually comfortable seeking an invasion on the right.",
+  "es": "Negro embiste con rudeza la piedra izquierda por influencia; Blanco suele estar cómodo buscando una invasión a la derecha.",
+  "fr": "Noir heurte brutalement la pierre de gauche pour l'influence ; Blanc est en général à l'aise pour chercher une invasion à droite.",
+  "de": "Schwarz stößt grob gegen den linken Stein für Einfluss; Weiß sucht meist bequem eine Invasion rechts.",
+  "ko": "흑은 세력을 위해 좌변 돌을 거칠게 부딪친다; 백은 대개 우변 침입을 편하게 노린다."
+ },
+ "tengen/headbutt/2": {
+  "ru": "Белые естественно развиваются слева; из-за открытого правого фланга чёрным трудно набрать территорию.",
+  "en": "White develops naturally on the left; with the right flank open, Black finds it hard to gather territory.",
+  "es": "Blanco se desarrolla con naturalidad a la izquierda; con el flanco derecho abierto, a Negro le cuesta reunir territorio.",
+  "fr": "Blanc se développe naturellement à gauche ; le flanc droit ouvert, Noir a du mal à réunir du territoire.",
+  "de": "Weiß entwickelt sich links natürlich; bei offener rechter Flanke fällt es Schwarz schwer, Gebiet zu sammeln.",
+  "ko": "백은 좌변에서 자연스럽게 발전한다; 우변이 열려 있어 흑은 집을 모으기 어렵다."
+ },
+ "tengen/almost-equilateral-2/1": {
+  "ru": "Чёрные закрывают верх и запирают белых снизу; белым важно оградиться или выбрать активный пункт развития.",
+  "en": "Black closes the top and pens White below; White must wall off or pick an active development point.",
+  "es": "Negro cierra arriba y encierra a Blanco abajo; Blanco debe amurallar o elegir un punto de desarrollo activo.",
+  "fr": "Noir ferme le haut et enferme Blanc en bas ; Blanc doit murer ou choisir un point de développement actif.",
+  "de": "Schwarz schließt oben und sperrt Weiß unten ein; Weiß muss abmauern oder einen aktiven Entwicklungspunkt wählen.",
+  "ko": "흑은 상변을 닫고 백을 아래에 가둔다; 백은 벽을 치거나 적극적인 발전점을 골라야 한다."
+ },
+ "tengen/almost-equilateral-2/2": {
+  "ru": "Прямой выход чёрных силён; внутренний подгляд белых портит форму и оставляет много слабостей.",
+  "en": "Black's straight jump-out is strong; White's inside peep spoils its own shape and leaves many weaknesses.",
+  "es": "El salto recto de Negro es fuerte; el atisbo interior de Blanco estropea su propia forma y deja muchas debilidades.",
+  "fr": "La sortie droite de Noir est forte ; le coup d'œil intérieur de Blanc gâche sa propre forme et laisse beaucoup de faiblesses.",
+  "de": "Schwarz' gerader Aussprung ist stark; Weiß' innerer Späher verdirbt die eigene Form und lässt viele Schwächen.",
+  "ko": "흑의 곧게 나감은 강하다; 백의 안쪽 들여다봄은 제 모양을 망치고 약점을 잔뜩 남긴다."
+ },
+ "tengen/almost-equilateral-2/3": {
+  "ru": "Угловое вторжение белых тесно: после ответа чёрных остаётся лишь искать жизнь прикреплением.",
+  "en": "White's corner invasion is cramped: after Black's reply only seeking life by attachment remains.",
+  "es": "La invasión al rincón de Blanco es estrecha: tras la respuesta de Negro solo queda buscar vida con apoyo.",
+  "fr": "L'invasion de coin de Blanc est à l'étroit : après la réponse de Noir, il ne reste qu'à chercher la vie par contact.",
+  "de": "Weiß' Eckinvasion ist beengt: nach Schwarz' Antwort bleibt nur, per Ankleben Leben zu suchen.",
+  "ko": "백의 귀 침입은 옹색하다: 흑이 응수하면 붙여 사는 길밖에 남지 않는다."
+ },
+ "tengen/almost-equilateral-2/4": {
+  "ru": "Вторжение на 2–5 живее; чёрные режут для силы, но сами оставляют белым много точек проверки.",
+  "en": "Invading at 2-5 is livelier; Black cuts for strength but leaves White many probe points.",
+  "es": "Invadir en 2-5 es más vivo; Negro corta por fuerza pero deja a Blanco muchos puntos de sonda.",
+  "fr": "Envahir en 2-5 est plus vivant ; Noir coupe pour la force mais laisse à Blanc de nombreux points de sonde.",
+  "de": "Die Invasion auf 2-5 ist lebendiger; Schwarz schneidet für Stärke, lässt Weiß aber viele Sondenpunkte.",
+  "ko": "2-5 침입이 더 활기차다; 흑은 힘을 위해 끊지만 백에게 활용점을 많이 남긴다."
+ },
+ "tengen/almost-equilateral-2/5": {
+  "ru": "Подрезка чёрных — перебор: спокойный ход белых раскрывает слабость, и у чёрных нет контригры.",
+  "en": "Black's undercut is an overplay: White's calm move exposes the weakness, and Black has no counterplay.",
+  "es": "El corte por debajo de Negro es un exceso: la jugada tranquila de Blanco revela la debilidad y Negro no tiene contrajuego.",
+  "fr": "La sous-coupe de Noir est un excès : le coup calme de Blanc révèle la faiblesse, et Noir n'a pas de contre-jeu.",
+  "de": "Schwarz' Unterschnitt ist ein Überzug: Weiß' ruhiger Zug legt die Schwäche offen, und Schwarz hat kein Gegenspiel.",
+  "ko": "흑의 밑끊음은 무리다: 백의 침착한 수가 약점을 드러내고, 흑에게는 반격이 없다."
+ },
+ "tengen/pendulum/1": {
+  "ru": "Чёрные смещаются к белому камню и давят; белым надо укрепить левый бок и готовить вторжение справа.",
+  "en": "Black shifts toward the white stone and presses; White must reinforce the left flank and prepare a right-side invasion.",
+  "es": "Negro se desplaza hacia la piedra blanca y presiona; Blanco debe reforzar el flanco izquierdo y preparar una invasión a la derecha.",
+  "fr": "Noir se déplace vers la pierre blanche et presse ; Blanc doit renforcer le flanc gauche et préparer une invasion à droite.",
+  "de": "Schwarz rückt zum weißen Stein und drückt; Weiß muss die linke Flanke stärken und eine Invasion rechts vorbereiten.",
+  "ko": "흑은 백돌 쪽으로 옮겨 압박한다; 백은 좌변을 보강하고 우변 침입을 준비해야 한다."
+ },
+ "tengen/pendulum/2": {
+  "ru": "Белые берут левую базу, чёрные правую; вторжение белых должно быть точным, иначе жизнь под вопросом.",
+  "en": "White takes the left base, Black the right; White's invasion must be precise, or life is in doubt.",
+  "es": "Blanco toma la base izquierda, Negro la derecha; la invasión de Blanco debe ser precisa, o la vida queda en duda.",
+  "fr": "Blanc prend la base gauche, Noir la droite ; l'invasion de Blanc doit être précise, sinon la vie est douteuse.",
+  "de": "Weiß nimmt die linke Basis, Schwarz die rechte; Weiß' Invasion muss präzise sein, sonst ist das Leben fraglich.",
+  "ko": "백은 좌변 근거를, 흑은 우변을 갖는다; 백의 침입은 정확해야 하고, 아니면 삶이 불확실하다."
+ },
+ "tengen/pendulum/3": {
+  "ru": "Чёрные могут угрожать разрезом; белым выгодно первыми занять верх и обменять левую сторону.",
+  "en": "Black can threaten a cut; it pays White to take the top first and trade off the left side.",
+  "es": "Negro puede amenazar un corte; a Blanco le conviene tomar primero arriba y cambiar el lado izquierdo.",
+  "fr": "Noir peut menacer une coupe ; il est rentable pour Blanc de prendre d'abord le haut et d'échanger le côté gauche.",
+  "de": "Schwarz kann mit einem Schnitt drohen; es lohnt für Weiß, zuerst oben zu nehmen und die linke Seite zu tauschen.",
+  "ko": "흑은 절단을 위협할 수 있다; 백은 먼저 상변을 차지하고 좌변을 맞바꾸는 게 이득이다."
+ },
+ "tengen/pendulum/4": {
+  "ru": "Прыжок белых похож, но вторжение требует чтения: чёрные могут прижать слева или закрыть угол.",
+  "en": "White's jump is similar, but the invasion needs reading: Black can press from the left or seal the corner.",
+  "es": "El salto de Blanco es parecido, pero la invasión requiere lectura: Negro puede presionar desde la izquierda o cerrar el rincón.",
+  "fr": "Le saut de Blanc est similaire, mais l'invasion demande de la lecture : Noir peut presser à gauche ou fermer le coin.",
+  "de": "Weiß' Sprung ist ähnlich, doch die Invasion verlangt Lesen: Schwarz kann von links drücken oder die Ecke schließen.",
+  "ko": "백의 뜀은 비슷하지만 침입에는 수읽기가 필요하다: 흑은 좌측에서 압박하거나 귀를 닫을 수 있다."
+ },
+ "tengen/pendulum/5": {
+  "ru": "Простое вторжение белых даёт им второй ход в углу; чёрные давят снаружи, строя территорию.",
+  "en": "White's simple invasion earns a second move in the corner; Black presses from outside, building territory.",
+  "es": "La invasión simple de Blanco gana una segunda jugada en el rincón; Negro presiona desde fuera, construyendo territorio.",
+  "fr": "L'invasion simple de Blanc gagne un second coup dans le coin ; Noir presse de l'extérieur, bâtissant du territoire.",
+  "de": "Weiß' einfache Invasion verdient einen zweiten Zug in der Ecke; Schwarz drückt von außen und baut Gebiet.",
+  "ko": "백의 단순한 침입은 귀에서 한 수를 더 얻는다; 흑은 바깥에서 압박하며 집을 짓는다."
+ },
+ "tengen/pendulum/6": {
+  "ru": "Двухпунктовый прыжок белых ловит ленивый ответ: чёрные дают лёгкую жизнь и слабую связь.",
+  "en": "White's two-space jump catches a lazy reply: Black gives easy life and a weak connection.",
+  "es": "El salto de dos espacios de Blanco pilla una respuesta perezosa: Negro concede vida fácil y una conexión débil.",
+  "fr": "Le saut de deux espaces de Blanc surprend une réponse paresseuse : Noir concède une vie facile et une liaison faible.",
+  "de": "Weiß' Zwei-Punkt-Sprung erwischt eine träge Antwort: Schwarz gibt leichtes Leben und eine schwache Verbindung.",
+  "ko": "백의 두 칸 뜀은 안이한 응수를 노린다: 흑은 쉬운 삶과 약한 연결을 내준다."
+ },
+ "tengen/pendulum/7": {
+  "ru": "Дальний ход чёрных справа суровее: угол закрыт, а белым лучше зондировать снизу.",
+  "en": "Black's distant move on the right is harsher: the corner is closed, and White does better to probe from below.",
+  "es": "La jugada lejana de Negro a la derecha es más severa: el rincón queda cerrado y a Blanco le conviene sondar desde abajo.",
+  "fr": "Le coup lointain de Noir à droite est plus sévère : le coin est fermé, et Blanc fait mieux de sonder par en bas.",
+  "de": "Schwarz' ferner Zug rechts ist härter: die Ecke ist zu, und Weiß sondiert besser von unten.",
+  "ko": "우변에서의 흑의 먼 수가 더 매섭다: 귀가 닫히고, 백은 아래에서 찔러 보는 편이 낫다."
+ },
+ "tengen/pendulum/8": {
+  "ru": "Спуск белых популярен, но рискован; чёрные атакуют группы по очереди, не давая им разрастись.",
+  "en": "White's descent is popular but risky; Black attacks the groups one by one, not letting them expand.",
+  "es": "El descenso de Blanco es popular pero arriesgado; Negro ataca los grupos uno a uno, sin dejarlos expandirse.",
+  "fr": "La descente de Blanc est populaire mais risquée ; Noir attaque les groupes un à un, sans les laisser s'étendre.",
+  "de": "Weiß' Abstieg ist beliebt, aber riskant; Schwarz greift die Gruppen einzeln an und lässt sie nicht wachsen.",
+  "ko": "백의 내림은 인기 있지만 위험하다; 흑은 무리들을 하나씩 공격하며 커지지 못하게 한다."
+ },
+ "tengen/almost-equilateral-3/1": {
+  "ru": "Чёрные мягко отнимают ключевой пункт; белым нужно развиваться вверх или готовить вторую группу.",
+  "en": "Black gently takes the key point away; White must develop upward or prepare a second group.",
+  "es": "Negro toma con suavidad el punto clave; Blanco debe desarrollarse hacia arriba o preparar un segundo grupo.",
+  "fr": "Noir prend doucement le point clé ; Blanc doit se développer vers le haut ou préparer un second groupe.",
+  "de": "Schwarz nimmt sanft den Schlüsselpunkt weg; Weiß muss sich nach oben entwickeln oder eine zweite Gruppe vorbereiten.",
+  "ko": "흑은 급소를 부드럽게 앗아간다; 백은 위로 발전하거나 둘째 무리를 준비해야 한다."
+ },
+ "tengen/almost-equilateral-3/2": {
+  "ru": "Осторожный чёрный ход даёт белым больше дыхания, чем кажется; у белых несколько равных путей.",
+  "en": "A cautious Black move gives White more breathing room than it seems; White has several equal paths.",
+  "es": "Una jugada cautelosa de Negro da a Blanco más aire del que parece; Blanco tiene varios caminos equivalentes.",
+  "fr": "Un coup prudent de Noir donne à Blanc plus d'air qu'il n'y paraît ; Blanc a plusieurs voies équivalentes.",
+  "de": "Ein vorsichtiger Zug von Schwarz gibt Weiß mehr Luft als es scheint; Weiß hat mehrere gleichwertige Wege.",
+  "ko": "흑의 조심스러운 수는 보기보다 백에게 여유를 준다; 백에게는 대등한 길이 여럿 있다."
+ },
+ "tengen/almost-equilateral-3/3": {
+  "ru": "Белые закрепляют левый край, но чёрные закрывают угол и мешают нижнеправому вторжению.",
+  "en": "White secures the left edge, but Black closes the corner and hinders the lower-right invasion.",
+  "es": "Blanco asegura el borde izquierdo, pero Negro cierra el rincón y estorba la invasión inferior derecha.",
+  "fr": "Blanc sécurise le bord gauche, mais Noir ferme le coin et gêne l'invasion en bas à droite.",
+  "de": "Weiß sichert den linken Rand, doch Schwarz schließt die Ecke und behindert die Invasion unten rechts.",
+  "ko": "백은 좌변을 굳히지만, 흑이 귀를 닫아 우하 침입을 방해한다."
+ },
+ "tengen/almost-equilateral-3/4": {
+  "ru": "При обратном порядке белым обычно нужны две группы; маленькая ограда безопаснее, кейма режется.",
+  "en": "With the order reversed White usually needs two groups; a small enclosure is safer, the keima gets cut.",
+  "es": "Con el orden invertido Blanco suele necesitar dos grupos; un cerco pequeño es más seguro, el keima se corta.",
+  "fr": "L'ordre inversé, Blanc a d'ordinaire besoin de deux groupes ; une petite clôture est plus sûre, le keima se coupe.",
+  "de": "Bei umgekehrter Reihenfolge braucht Weiß meist zwei Gruppen; eine kleine Umschließung ist sicherer, der Keima wird geschnitten.",
+  "ko": "수순이 뒤바뀌면 백은 대개 두 무리가 필요하다; 작은 굳힘이 더 안전하고, 날일자는 끊긴다."
+ },
+ "tengen/side-attachment/1": {
+  "ru": "Прикрепление в атаке помогает белым укрепить левый край; правый фланг остаётся удобен для вторжения.",
+  "en": "The attachment while attacking helps White reinforce the left edge; the right flank stays convenient to invade.",
+  "es": "El apoyo durante el ataque ayuda a Blanco a reforzar el borde izquierdo; el flanco derecho sigue cómodo para invadir.",
+  "fr": "Le contact en attaquant aide Blanc à renforcer le bord gauche ; le flanc droit reste commode à envahir.",
+  "de": "Das Ankleben beim Angriff hilft Weiß, den linken Rand zu stärken; die rechte Flanke bleibt bequem zu überfallen.",
+  "ko": "공격하며 붙이는 수는 백이 좌변을 보강하게 돕는다; 우변은 여전히 침입하기 좋다."
+ },
+ "tengen/side-attachment/2": {
+  "ru": "Ранний жизненный пункт белых был бы преждевременным: он вынуждает чёрных укрепиться и получить контригру.",
+  "en": "An early vital point for White would be premature: it forces Black to strengthen and gain counterplay.",
+  "es": "Un punto vital temprano para Blanco sería prematuro: obliga a Negro a fortalecerse y a ganar contrajuego.",
+  "fr": "Un point vital précoce pour Blanc serait prématuré : il force Noir à se renforcer et à obtenir un contre-jeu.",
+  "de": "Ein früher Vitalpunkt für Weiß wäre verfrüht: er zwingt Schwarz, sich zu verstärken und Gegenspiel zu gewinnen.",
+  "ko": "백이 급소를 서둘러 두는 것은 이르다: 흑을 보강하게 만들어 반격의 여지를 준다."
+ },
+ "tengen/side-attachment/3": {
+  "ru": "Белые сохраняют потенциал вторжения; естественные ходы чёрных оставляют им комфорт справа.",
+  "en": "White keeps the invasion potential; Black's natural moves leave White comfortable on the right.",
+  "es": "Blanco conserva el potencial de invasión; las jugadas naturales de Negro dejan a Blanco cómodo a la derecha.",
+  "fr": "Blanc conserve le potentiel d'invasion ; les coups naturels de Noir laissent Blanc à l'aise à droite.",
+  "de": "Weiß behält das Invasionspotenzial; Schwarz' natürliche Züge lassen Weiß rechts bequem.",
+  "ko": "백은 침입의 여지를 유지한다; 흑의 자연스러운 수들은 백을 우변에서 편하게 둔다."
+ },
+ "tengen/other-tengen-openings/1": {
+  "ru": "Угловой ход белых надёжен и территориален; чёрные отвечают давлением и не дают легко войти в угол.",
+  "en": "White's corner move is reliable and territorial; Black replies with pressure and denies an easy entry into the corner.",
+  "es": "La jugada de rincón de Blanco es fiable y territorial; Negro responde con presión y niega una entrada fácil al rincón.",
+  "fr": "Le coup de coin de Blanc est fiable et territorial ; Noir répond par la pression et refuse une entrée facile dans le coin.",
+  "de": "Weiß' Eckzug ist verlässlich und territorial; Schwarz antwortet mit Druck und verwehrt einen leichten Eckzugang.",
+  "ko": "백의 귀 수는 든든하고 실리적이다; 흑은 압박으로 응하며 귀로의 쉬운 진입을 막는다."
+ },
+ "tengen/other-tengen-openings/2": {
+  "ru": "Прыжок белых слева обычен; трапеция чёрных закрывает крупную зону, которую трудно отнять.",
+  "en": "White's jump on the left is ordinary; Black's trapezoid closes a large zone that is hard to take away.",
+  "es": "El salto de Blanco a la izquierda es corriente; el trapecio de Negro cierra una gran zona difícil de arrebatar.",
+  "fr": "Le saut de Blanc à gauche est ordinaire ; le trapèze de Noir ferme une grande zone difficile à reprendre.",
+  "de": "Weiß' Sprung links ist gewöhnlich; Schwarz' Trapez schließt eine große, schwer zu nehmende Zone.",
+  "ko": "백의 좌변 뜀은 평범하다; 흑의 사다리꼴이 뺏기 어려운 큰 영역을 닫는다."
+ },
+ "tengen/other-tengen-openings/3": {
+  "ru": "Больший прыжок белых динамичнее; трапеция чёрных сильна, но верхний левый угол даёт белым смелые проверки.",
+  "en": "White's larger jump is more dynamic; Black's trapezoid is strong, but the upper-left corner gives White bold probes.",
+  "es": "El salto mayor de Blanco es más dinámico; el trapecio de Negro es fuerte, pero el rincón superior izquierdo da a Blanco sondas audaces.",
+  "fr": "Le saut plus large de Blanc est plus dynamique ; le trapèze de Noir est fort, mais le coin supérieur gauche donne à Blanc des sondes audacieuses.",
+  "de": "Weiß' größerer Sprung ist dynamischer; Schwarz' Trapez ist stark, doch die obere linke Ecke gibt Weiß kühne Sonden.",
+  "ko": "백의 더 큰 뜀은 더 역동적이다; 흑의 사다리꼴은 강하지만, 좌상귀가 백에게 과감한 활용거리를 준다."
+ },
+ "tengen/other-tengen-openings/4": {
+  "ru": "У плечевого удара белых мало хороших продолжений; спуск позволяет чёрным серией ходов получить явный перевес.",
+  "en": "White's shoulder hit has few good follow-ups; the descent lets Black gain a clear edge with a series of moves.",
+  "es": "El golpe de hombro de Blanco tiene pocas buenas continuaciones; el descenso permite a Negro sacar clara ventaja con una serie de jugadas.",
+  "fr": "L'épaulement de Blanc a peu de bonnes suites ; la descente permet à Noir de prendre un net avantage par une série de coups.",
+  "de": "Weiß' Schulterzug hat wenige gute Fortsetzungen; der Abstieg lässt Schwarz mit einer Zugfolge einen klaren Vorteil gewinnen.",
+  "ko": "백의 어깨짚음은 좋은 후속이 적다; 내려서면 흑이 연속수로 뚜렷한 우위를 잡는다."
+ },
+ "tengen/other-tengen-openings/5": {
+  "ru": "Ханэ белых держит баланс; после ограды чёрных есть одно лучшее вторжение, а дальше у чёрных много ответов.",
+  "en": "White's hane keeps the balance; after Black's enclosure there is one best invasion, and thereafter Black has many replies.",
+  "es": "El hane de Blanco mantiene el equilibrio; tras el cerco de Negro hay una única mejor invasión, y después Negro tiene muchas respuestas.",
+  "fr": "Le hane de Blanc garde l'équilibre ; après la clôture de Noir, il y a une seule meilleure invasion, puis Noir a de nombreuses réponses.",
+  "de": "Weiß' Hane hält die Balance; nach Schwarz' Umschließung gibt es eine beste Invasion, danach hat Schwarz viele Antworten.",
+  "ko": "백의 하네가 균형을 유지한다; 흑의 굳힘 뒤에는 최선의 침입이 하나 있고, 그다음엔 흑에게 응수가 많다."
+ },
+ "hoshi/black-boomerang/1": {
+  "ru": "Белые строят левую сторону; у чёрных много вариантов атаки и ёсэ. Позиция равная, но теории здесь немало.",
+  "en": "White builds the left side; Black has many ways to attack and to play the endgame. The position is even, but there is plenty of theory here.",
+  "es": "Blanco construye el lado izquierdo; Negro tiene muchas formas de atacar y de jugar el final. La posición es pareja, pero aquí hay mucha teoría.",
+  "fr": "Blanc bâtit le côté gauche ; Noir a de nombreuses façons d'attaquer et de jouer la finale. La position est égale, mais la théorie y est abondante.",
+  "de": "Weiß baut die linke Seite; Schwarz hat viele Wege anzugreifen und das Endspiel zu spielen. Die Stellung ist gleich, doch es gibt hier viel Theorie.",
+  "ko": "백은 좌변을 짓는다; 흑에게는 공격과 끝내기의 길이 많다. 형세는 호각이지만 여기엔 이론이 적지 않다."
+ },
+ "hoshi/black-boomerang/2": {
+  "ru": "Атари белых быстро даёт простую границу и равенство. Минус — давление слабое, чёрные слишком легко соглашаются.",
+  "en": "White's atari quickly settles a simple border and equality. The downside: the pressure is weak, and Black agrees too easily.",
+  "es": "El atari de Blanco fija rápido una frontera simple y la igualdad. La pega: la presión es débil y Negro acepta con demasiada facilidad.",
+  "fr": "L'atari de Blanc fixe vite une frontière simple et l'égalité. L'inconvénient : la pression est faible et Noir accepte trop facilement.",
+  "de": "Weiß' Atari legt schnell eine einfache Grenze und Gleichstand fest. Nachteil: der Druck ist schwach, und Schwarz willigt zu leicht ein.",
+  "ko": "백의 아타리는 단순한 경계와 호각을 빠르게 정한다. 단점은 압박이 약해 흑이 너무 쉽게 응한다는 점이다."
+ },
+ "hoshi/black-boomerang/3": {
+  "ru": "Зажим чёрных усложняет игру при плохом коми. При точной защите белые впереди, хотя группы ещё не устроены.",
+  "en": "Black's clamp complicates the game when komi is low. With accurate defense White is ahead, though the groups are not yet settled.",
+  "es": "El pinza de Negro complica la partida con komi bajo. Con defensa precisa Blanco va delante, aunque los grupos aún no están asentados.",
+  "fr": "La pince de Noir complique la partie quand le komi est faible. Avec une défense précise, Blanc mène, bien que les groupes ne soient pas encore établis.",
+  "de": "Schwarz' Klammer verkompliziert das Spiel bei niedrigem Komi. Mit genauer Verteidigung liegt Weiß vorn, auch wenn die Gruppen noch nicht gefestigt sind.",
+  "ko": "흑의 붙여 씌우기는 덤이 적을 때 국면을 복잡하게 한다. 정확히 지키면 백이 앞서지만, 아직 무리들이 안정되지 않았다."
+ },
+ "hoshi/black-boomerang/4": {
+  "ru": "Прыжок белых и позднее ханэ держат чёрных разорванными. Чёрные создают борьбу, но отдают верх белым.",
+  "en": "White's jump and a later hane keep Black split. Black creates a fight but hands White the top.",
+  "es": "El salto de Blanco y un hane posterior mantienen a Negro dividido. Negro genera lucha pero cede arriba a Blanco.",
+  "fr": "Le saut de Blanc et un hane ultérieur maintiennent Noir divisé. Noir crée un combat mais offre le haut à Blanc.",
+  "de": "Weiß' Sprung und ein späterer Hane halten Schwarz gespalten. Schwarz erzeugt einen Kampf, überlässt Weiß aber die Oberseite.",
+  "ko": "백의 뜀과 나중의 하네가 흑을 갈라놓는다. 흑은 싸움을 만들지만 상변을 백에게 내준다."
+ },
+ "hoshi/black-boomerang/5": {
+  "ru": "Прямое соединение белых спокойно и крепко. Чёрным важно выбрать форму без лишней слабости к разрезанию.",
+  "en": "White's straight connection is calm and firm. Black must choose a shape without a needless cutting weakness.",
+  "es": "La conexión recta de Blanco es tranquila y firme. Negro debe elegir una forma sin una debilidad de corte innecesaria.",
+  "fr": "La connexion droite de Blanc est calme et ferme. Noir doit choisir une forme sans faiblesse de coupe superflue.",
+  "de": "Weiß' gerade Verbindung ist ruhig und fest. Schwarz muss eine Form ohne unnötige Schnittschwäche wählen.",
+  "ko": "백의 곧은 연결은 침착하고 튼튼하다. 흑은 불필요한 절단 약점이 없는 모양을 골라야 한다."
+ },
+ "hoshi/black-boomerang/6": {
+  "ru": "Дополнительные размены почти не меняют баланс. В японском счёте они могут лишь зря ухудшить результат.",
+  "en": "Extra exchanges barely change the balance. Under Japanese counting they may only needlessly worsen the result.",
+  "es": "Los intercambios extra apenas cambian el equilibrio. Con reglas japonesas solo pueden empeorar el resultado sin necesidad.",
+  "fr": "Les échanges supplémentaires ne modifient guère l'équilibre. En comptage japonais, ils ne font qu'aggraver inutilement le résultat.",
+  "de": "Zusätzliche Abtäusche ändern die Balance kaum. Bei japanischer Zählung können sie das Ergebnis nur unnötig verschlechtern.",
+  "ko": "여분의 교환은 균형을 거의 바꾸지 않는다. 일본 룰에서는 결과만 공연히 나빠질 수 있다."
+ },
+ "hoshi/black-boomerang/7": {
+  "ru": "Ключевой ход белых стабилизирует позицию и ведёт к простой ничьей. У чёрных почти нет серьёзного давления.",
+  "en": "White's key move stabilizes the position and leads to a simple draw. Black has almost no serious pressure.",
+  "es": "La jugada clave de Blanco estabiliza la posición y lleva a un empate simple. Negro casi no tiene presión seria.",
+  "fr": "Le coup clé de Blanc stabilise la position et mène à une nulle simple. Noir n'a presque aucune pression sérieuse.",
+  "de": "Weiß' Schlüsselzug stabilisiert die Stellung und führt zu einem einfachen Remis. Schwarz hat kaum ernsten Druck.",
+  "ko": "백의 급소가 형세를 안정시켜 단순한 비김으로 이어진다. 흑에게는 이렇다 할 압박이 거의 없다."
+ },
+ "hoshi/black-boomerang/8": {
+  "ru": "Ход конём белых портит очки обеим сторонам. Линия равная, но в ёсэ полно неприятных пробных ходов и починок.",
+  "en": "White's keima spoils points for both sides. The line is even, but the endgame is full of nasty probes and repairs.",
+  "es": "El keima de Blanco estropea puntos para ambos. La línea es pareja, pero el final está lleno de sondas molestas y reparaciones.",
+  "fr": "Le keima de Blanc gâche des points des deux côtés. La ligne est égale, mais la finale regorge de sondes gênantes et de réparations.",
+  "de": "Weiß' Keima verdirbt beiden Seiten Punkte. Die Linie ist gleich, doch das Endspiel steckt voller lästiger Sonden und Reparaturen.",
+  "ko": "백의 날일자는 양쪽 모두의 집을 깎는다. 진행은 호각이나, 끝내기가 성가신 활용과 뒷수로 가득하다."
+ },
+ "hoshi/black-boomerang/9": {
+  "ru": "Нестандартный ход чёрных выглядит активным, но белые сразу его наказывают. Естественное продолжение чёрных проигрывает.",
+  "en": "Black's offbeat move looks active, but White punishes it at once. Black's natural continuation loses.",
+  "es": "La jugada inusual de Negro parece activa, pero Blanco la castiga de inmediato. La continuación natural de Negro pierde.",
+  "fr": "Le coup insolite de Noir paraît actif, mais Blanc le punit aussitôt. La suite naturelle de Noir perd.",
+  "de": "Schwarz' ausgefallener Zug wirkt aktiv, doch Weiß bestraft ihn sofort. Schwarz' natürliche Fortsetzung verliert.",
+  "ko": "흑의 색다른 수는 활발해 보이지만 백이 즉시 응징한다. 흑의 자연스러운 후속은 진다."
+ },
+ "hoshi/black-boomerang/10": {
+  "ru": "Тэсудзи чёрных красиво осложняет борьбу, но развития не хватает. Белые сохраняют решающий перевес.",
+  "en": "Black's tesuji prettily complicates the fight, but lacks development. White keeps a decisive edge.",
+  "es": "El tesuji de Negro complica con elegancia la lucha, pero le falta desarrollo. Blanco conserva una ventaja decisiva.",
+  "fr": "Le tesuji de Noir complique joliment le combat, mais manque de développement. Blanc garde un avantage décisif.",
+  "de": "Schwarz' Tesuji verkompliziert den Kampf hübsch, doch es fehlt an Entwicklung. Weiß behält einen entscheidenden Vorteil.",
+  "ko": "흑의 묘수는 싸움을 멋지게 복잡하게 하지만 발전이 부족하다. 백은 결정적 우위를 유지한다."
+ },
+ "hoshi/bean-throwing/1": {
+  "ru": "Изящная форма чёрных давит на низ слева и сдерживает вторжение сверху. Баланс тонкий, читать нужно точно.",
+  "en": "Black's graceful shape presses the lower left and restrains the invasion from above. The balance is delicate; read precisely.",
+  "es": "La forma elegante de Negro presiona el inferior izquierdo y frena la invasión desde arriba. El equilibrio es delicado; hay que leer con precisión.",
+  "fr": "La forme élégante de Noir presse le bas-gauche et bride l'invasion d'en haut. L'équilibre est délicat ; il faut lire avec précision.",
+  "de": "Schwarz' elegante Form drückt unten links und hemmt die Invasion von oben. Die Balance ist heikel; genau lesen.",
+  "ko": "흑의 우아한 모양이 좌하변을 압박하고 위로부터의 침입을 억제한다. 균형이 미묘하니 정확히 읽어야 한다."
+ },
+ "hoshi/bean-throwing/2": {
+  "ru": "Белые закрепляют низ, чёрные выбирают укрепление или захват верха слева. У белых остаются порчи справа.",
+  "en": "White secures the bottom; Black chooses to reinforce or to take the upper left. White is left with reductions on the right.",
+  "es": "Blanco asegura el fondo; Negro elige reforzar o tomar el superior izquierdo. A Blanco le quedan reducciones a la derecha.",
+  "fr": "Blanc sécurise le bas ; Noir choisit de renforcer ou de prendre le haut-gauche. Il reste à Blanc des réductions à droite.",
+  "de": "Weiß sichert unten; Schwarz wählt Verstärkung oder die obere linke Ecke. Weiß bleiben Reduktionen rechts.",
+  "ko": "백은 하변을 굳힌다; 흑은 보강하거나 좌상을 차지한다. 백에게는 우변의 삭감이 남는다."
+ },
+ "hoshi/bean-throwing/3": {
+  "ru": "Укрепив низ справа, белые получают темп испортить верх. Блок чёрных даёт им две крепкие группы.",
+  "en": "Having secured the lower right, White gets the tempo to spoil the top. Black's block gives it two solid groups.",
+  "es": "Tras asegurar el inferior derecho, Blanco gana el tempo para estropear arriba. El bloqueo de Negro le da dos grupos sólidos.",
+  "fr": "Ayant sécurisé le bas-droit, Blanc obtient le tempo pour gâcher le haut. Le blocage de Noir lui donne deux groupes solides.",
+  "de": "Nachdem Weiß unten rechts gesichert hat, gewinnt es das Tempo, oben zu verderben. Schwarz' Block gibt ihm zwei feste Gruppen.",
+  "ko": "우하를 굳힌 백은 상변을 깎을 템포를 얻는다. 흑의 막음은 흑에게 두터운 두 무리를 준다."
+ },
+ "hoshi/bean-throwing/4": {
+  "ru": "Блок справа зажимает белых, но ведёт к трудной схватке и короткому ко. Белым важно не искать угроз там, где их нет.",
+  "en": "Blocking on the right clamps White but leads to a hard scuffle and a short ko. White must not seek threats where there are none.",
+  "es": "Bloquear a la derecha aprisiona a Blanco pero lleva a una reyerta dura y a un ko corto. Blanco no debe buscar amenazas donde no las hay.",
+  "fr": "Bloquer à droite serre Blanc mais mène à une échauffourée difficile et à un ko court. Blanc ne doit pas chercher des menaces là où il n'y en a pas.",
+  "de": "Rechts zu blocken klammert Weiß, führt aber zu einem harten Gerangel und einem kurzen Ko. Weiß darf keine Drohungen suchen, wo keine sind.",
+  "ko": "우측을 막으면 백을 옥죄지만 힘든 접전과 짧은 패로 이어진다. 백은 없는 곳에서 팻감을 찾으면 안 된다."
+ },
+ "hoshi/bean-throwing/5": {
+  "ru": "Ход конём белых ведёт к простой партии с множеством перестановок. Равенство держится скорее по китайским правилам.",
+  "en": "White's keima leads to a simple game with many transpositions. Equality holds more readily under Chinese rules.",
+  "es": "El keima de Blanco lleva a una partida simple con muchas transposiciones. La igualdad se sostiene mejor con reglas chinas.",
+  "fr": "Le keima de Blanc mène à une partie simple avec de nombreuses transpositions. L'égalité tient plus aisément en règles chinoises.",
+  "de": "Weiß' Keima führt zu einem einfachen Spiel mit vielen Zugumstellungen. Gleichstand hält eher nach chinesischen Regeln.",
+  "ko": "백의 날일자는 수순 교체가 많은 단순한 국면으로 이어진다. 중국 룰에서 호각이 더 잘 유지된다."
+ },
+ "hoshi/bean-throwing/6": {
+  "ru": "В японском счёте белым нужен точный защитный ход. Чёрные могут жёстко сокращать свободы, но дают контригру.",
+  "en": "Under Japanese counting White needs a precise defensive move. Black can harshly reduce liberties but grants counterplay.",
+  "es": "Con reglas japonesas Blanco necesita una jugada defensiva precisa. Negro puede reducir libertades con dureza pero concede contrajuego.",
+  "fr": "En comptage japonais, Blanc a besoin d'un coup défensif précis. Noir peut réduire durement les libertés mais concède du contre-jeu.",
+  "de": "Bei japanischer Zählung braucht Weiß einen präzisen Verteidigungszug. Schwarz kann hart Freiheiten nehmen, gibt aber Gegenspiel her.",
+  "ko": "일본 룰에서는 백에게 정확한 지킴수가 필요하다. 흑은 활로를 매섭게 줄일 수 있으나 반격의 여지를 준다."
+ },
+ "hoshi/bean-throwing/7": {
+  "ru": "Сабаки через прикрепление работает, но обе белые группы становятся мишенями. Один точный ответ белым обязателен.",
+  "en": "Sabaki via attachment works, but both white groups become targets. One precise reply is mandatory for White.",
+  "es": "El sabaki con apoyo funciona, pero ambos grupos blancos se vuelven objetivos. Una respuesta precisa es obligatoria para Blanco.",
+  "fr": "Le sabaki par contact fonctionne, mais les deux groupes blancs deviennent des cibles. Une réponse précise est obligatoire pour Blanc.",
+  "de": "Sabaki per Ankleben funktioniert, doch beide weißen Gruppen werden zu Zielen. Eine präzise Antwort ist für Weiß Pflicht.",
+  "ko": "붙임을 통한 사바키는 통하지만, 백의 두 무리가 모두 표적이 된다. 백에게는 정확한 응수 하나가 필수다."
+ },
+ "hoshi/bean-throwing/8": {
+  "ru": "Старый активный ход белых уже не убеждает: группы, вероятно, живут, но чёрные получают чуть больше территории.",
+  "en": "White's old active move no longer convinces: the groups probably live, but Black gets a little more territory.",
+  "es": "La antigua jugada activa de Blanco ya no convence: los grupos probablemente viven, pero Negro obtiene algo más de territorio.",
+  "fr": "L'ancien coup actif de Blanc ne convainc plus : les groupes vivent probablement, mais Noir obtient un peu plus de territoire.",
+  "de": "Weiß' alter aktiver Zug überzeugt nicht mehr: die Gruppen leben wohl, doch Schwarz bekommt etwas mehr Gebiet.",
+  "ko": "백의 옛 적극적인 수는 이제 설득력이 없다: 무리는 아마 살지만, 흑이 집을 조금 더 얻는다."
+ },
+ "hoshi/big-flower/1": {
+  "ru": "Чёрные сильнее давят низ слева, но верхняя жизнь оказывается хрупкой. Белые могут прямо погасить замысел.",
+  "en": "Black presses the lower left harder, but the life up top turns out fragile. White can directly refute the plan.",
+  "es": "Negro presiona más el inferior izquierdo, pero la vida arriba resulta frágil. Blanco puede refutar el plan directamente.",
+  "fr": "Noir presse davantage le bas-gauche, mais la vie en haut se révèle fragile. Blanc peut réfuter directement le plan.",
+  "de": "Schwarz drückt unten links stärker, doch das Leben oben erweist sich als brüchig. Weiß kann den Plan direkt widerlegen.",
+  "ko": "흑은 좌하변을 더 세게 압박하지만, 위쪽의 삶이 허약하게 드러난다. 백은 그 계획을 곧바로 논파할 수 있다."
+ },
+ "hoshi/big-flower/2": {
+  "ru": "Ранний ход в тэнгэн позволяет белым прорезать форму. Чёрные не успевают закрыть все разрезы и теряют свободы.",
+  "en": "An early tengen move lets White pierce the shape. Black cannot close all the cuts in time and loses liberties.",
+  "es": "Una jugada temprana en tengen permite a Blanco perforar la forma. Negro no cierra todos los cortes a tiempo y pierde libertades.",
+  "fr": "Un coup précoce au tengen permet à Blanc de percer la forme. Noir ne ferme pas toutes les coupes à temps et perd des libertés.",
+  "de": "Ein früher Tengen-Zug lässt Weiß die Form durchstoßen. Schwarz kann nicht alle Schnitte rechtzeitig schließen und verliert Freiheiten.",
+  "ko": "이른 천원 수는 백이 모양을 꿰뚫게 한다. 흑은 절단을 제때 다 막지 못해 활로를 잃는다."
+ },
+ "hoshi/flower/1": {
+  "ru": "Симметричная форма быстро успокаивается и держит баланс. Чёрным, однако, нелегко найти лучшие продолжения.",
+  "en": "The symmetric shape settles quickly and holds the balance. Yet it is not easy for Black to find the best follow-ups.",
+  "es": "La forma simétrica se asienta rápido y mantiene el equilibrio. Aun así, a Negro no le resulta fácil hallar las mejores continuaciones.",
+  "fr": "La forme symétrique se stabilise vite et tient l'équilibre. Pourtant, il n'est pas facile pour Noir de trouver les meilleures suites.",
+  "de": "Die symmetrische Form beruhigt sich schnell und hält die Balance. Doch für Schwarz ist es nicht leicht, die besten Fortsetzungen zu finden.",
+  "ko": "대칭 모양은 빠르게 안정되어 균형을 유지한다. 다만 흑이 최선의 후속을 찾기가 쉽지 않다."
+ },
+ "hoshi/flower/2": {
+  "ru": "Атари белых создаёт живучие группы, но территории им набрать трудно. Чёрные давят жёстко, если белые ошибутся.",
+  "en": "White's atari makes resilient groups, but earning territory is hard. Black presses harshly if White slips.",
+  "es": "El atari de Blanco crea grupos resistentes, pero conseguir territorio es difícil. Negro presiona con dureza si Blanco falla.",
+  "fr": "L'atari de Blanc crée des groupes résistants, mais gagner du territoire est difficile. Noir presse durement si Blanc dérape.",
+  "de": "Weiß' Atari bildet widerstandsfähige Gruppen, doch Gebiet zu erlangen ist schwer. Schwarz drückt hart, wenn Weiß patzt.",
+  "ko": "백의 아타리는 끈질긴 무리를 만들지만 집을 얻기는 어렵다. 백이 실수하면 흑이 매섭게 압박한다."
+ },
+ "hoshi/flower/3": {
+  "ru": "Продление белых ведёт к равенству: ходы чёрных почти вынуждены. Дальше всё решают мелкие выборы белых.",
+  "en": "White's extension leads to equality: Black's moves are almost forced. From there small choices by White decide everything.",
+  "es": "La extensión de Blanco lleva a la igualdad: las jugadas de Negro son casi forzadas. A partir de ahí, las pequeñas elecciones de Blanco lo deciden todo.",
+  "fr": "L'extension de Blanc mène à l'égalité : les coups de Noir sont quasi forcés. Dès lors, les petits choix de Blanc décident de tout.",
+  "de": "Weiß' Ausdehnung führt zum Gleichstand: Schwarz' Züge sind fast erzwungen. Von da an entscheiden Weiß' kleine Wahlen alles.",
+  "ko": "백의 뻗음은 호각으로 이어진다: 흑의 수는 거의 외길이다. 그다음엔 백의 사소한 선택이 모든 걸 가른다."
+ },
+ "hoshi/flower/4": {
+  "ru": "Старый ход конём чёрных оставляет ключевую слабость. Белые используют кикаси и 3–3, чтобы оживить вторжение.",
+  "en": "Black's old keima leaves a key weakness. White uses kikashi and the 3-3 to revive the invasion.",
+  "es": "El antiguo keima de Negro deja una debilidad clave. Blanco usa kikashi y el 3-3 para revivir la invasión.",
+  "fr": "L'ancien keima de Noir laisse une faiblesse clé. Blanc utilise le kikashi et le 3-3 pour ranimer l'invasion.",
+  "de": "Schwarz' alter Keima lässt eine Schlüsselschwäche. Weiß nutzt Kikashi und den 3-3-Punkt, um die Invasion zu beleben.",
+  "ko": "흑의 옛 날일자는 중요한 약점을 남긴다. 백은 활용수와 3-3으로 침입을 되살린다."
+ },
+ "hoshi/flower/5": {
+  "ru": "Другой ход конём чёрных надёжнее: жизнь белых справа уже не гарантирована. При спокойной игре выходит ничья.",
+  "en": "Black's other keima is safer: White's life on the right is no longer guaranteed. With calm play it is a draw.",
+  "es": "El otro keima de Negro es más seguro: la vida de Blanco a la derecha ya no está garantizada. Con juego tranquilo, es empate.",
+  "fr": "L'autre keima de Noir est plus sûr : la vie de Blanc à droite n'est plus garantie. Avec un jeu calme, c'est nulle.",
+  "de": "Schwarz' anderer Keima ist sicherer: Weiß' Leben rechts ist nicht mehr garantiert. Bei ruhigem Spiel ist es ein Remis.",
+  "ko": "흑의 다른 날일자가 더 안전하다: 백의 우변 삶이 더는 보장되지 않는다. 침착히 두면 비김이다."
+ },
+ "hoshi/flower/6": {
+  "ru": "Соединение белых очень сильное: погоня за захватом даёт им зажим и связь. Чёрным стоило блокировать раньше.",
+  "en": "White's connection is very strong: chasing the capture gives White a clamp and a link. Black should have blocked earlier.",
+  "es": "La conexión de Blanco es muy fuerte: perseguir la captura le da a Blanco un pinza y una conexión. Negro debió bloquear antes.",
+  "fr": "La connexion de Blanc est très forte : poursuivre la capture donne à Blanc une pince et une liaison. Noir aurait dû bloquer plus tôt.",
+  "de": "Weiß' Verbindung ist sehr stark: das Fangen zu jagen gibt Weiß eine Klammer und eine Verbindung. Schwarz hätte früher blocken sollen.",
+  "ko": "백의 연결이 매우 강하다: 잡기를 쫓으면 백에게 붙여 씌우기와 연결을 준다. 흑은 더 일찍 막았어야 했다."
+ },
+ "hoshi/flower/7": {
+  "ru": "Косвенный ответ чёрных играбелен, но белые успевают стабилизироваться и жить справа. Баланс сохраняется.",
+  "en": "Black's indirect reply is playable, but White gets to stabilize and live on the right. The balance holds.",
+  "es": "La respuesta indirecta de Negro es jugable, pero Blanco llega a estabilizarse y vivir a la derecha. El equilibrio se mantiene.",
+  "fr": "La réponse indirecte de Noir est jouable, mais Blanc parvient à se stabiliser et à vivre à droite. L'équilibre tient.",
+  "de": "Schwarz' indirekte Antwort ist spielbar, doch Weiß kommt dazu, sich rechts zu stabilisieren und zu leben. Die Balance hält.",
+  "ko": "흑의 간접적인 응수는 둘 만하지만, 백이 우변에서 안정하고 산다. 균형은 유지된다."
+ },
+ "hoshi/lunar-eclipse/1": {
+  "ru": "Чёрные пытаются сломать базу и жить в двух местах. Лёгкий прыжок белых гасит давление и даёт им перевес.",
+  "en": "Black tries to break the base and live in two places. White's light jump smothers the pressure and gains the edge.",
+  "es": "Negro intenta romper la base y vivir en dos sitios. El salto ligero de Blanco apaga la presión y saca ventaja.",
+  "fr": "Noir tente de briser la base et de vivre en deux endroits. Le saut léger de Blanc étouffe la pression et prend l'avantage.",
+  "de": "Schwarz versucht, die Basis zu brechen und an zwei Stellen zu leben. Weiß' leichter Sprung erstickt den Druck und gewinnt die Oberhand.",
+  "ko": "흑은 근거를 부수고 두 곳에서 살려 한다. 백의 가벼운 뜀이 압박을 지우고 우위를 잡는다."
+ },
+ "hoshi/lunar-eclipse/2": {
+  "ru": "Белым нужна активная схема: двухшаговое ханэ и встречное вторжение сверху. Иначе чёрные спокойно укрепятся.",
+  "en": "White needs an active plan: a two-step hane and a counter-invasion from above. Otherwise Black calmly reinforces.",
+  "es": "Blanco necesita un plan activo: un hane en dos pasos y una contrainvasión desde arriba. Si no, Negro se refuerza con calma.",
+  "fr": "Blanc a besoin d'un plan actif : un hane en deux temps et une contre-invasion par le haut. Sinon Noir se renforce tranquillement.",
+  "de": "Weiß braucht einen aktiven Plan: ein Zwei-Schritt-Hane und eine Gegeninvasion von oben. Sonst verstärkt sich Schwarz ruhig.",
+  "ko": "백에게는 적극적인 구상이 필요하다: 이단 하네와 위에서의 맞침입. 아니면 흑이 느긋이 보강한다."
+ },
+ "hoshi/lunar-eclipse/3": {
+  "ru": "Чёрные берут низ и хотят усилить верх, но белые получают центр и фланги. В итоге чёрные растянуты и бедны очками.",
+  "en": "Black takes the bottom and wants to strengthen the top, but White gets the center and the flanks. In the end Black is stretched and poor in points.",
+  "es": "Negro toma el fondo y quiere fortalecer arriba, pero Blanco obtiene el centro y los flancos. Al final Negro queda estirado y pobre en puntos.",
+  "fr": "Noir prend le bas et veut renforcer le haut, mais Blanc obtient le centre et les flancs. Au final Noir est étiré et pauvre en points.",
+  "de": "Schwarz nimmt unten und will oben verstärken, doch Weiß erhält Zentrum und Flanken. Am Ende ist Schwarz überdehnt und punktarm.",
+  "ko": "흑은 하변을 갖고 상변을 키우려 하지만, 백이 중앙과 양 날개를 얻는다. 결국 흑은 넓게 늘어져 집이 부족하다."
+ },
+ "hoshi/lunar-eclipse/4": {
+  "ru": "Лёгкие прыжки белых гибко чинят форму. Чёрная попытка вклиниться оказывается переигрыванием и быстро закрывается.",
+  "en": "White's light jumps repair the shape flexibly. Black's attempt to wedge in is an overplay and is closed off quickly.",
+  "es": "Los saltos ligeros de Blanco reparan la forma con flexibilidad. El intento de Negro de meter una cuña es un exceso y se cierra rápido.",
+  "fr": "Les sauts légers de Blanc réparent la forme avec souplesse. La tentative de Noir de s'enfoncer est un excès et se referme vite.",
+  "de": "Weiß' leichte Sprünge reparieren die Form flexibel. Schwarz' Versuch, sich einzukeilen, ist ein Überzug und wird schnell abgeriegelt.",
+  "ko": "백의 가벼운 뜀이 모양을 유연하게 수습한다. 파고들려는 흑의 시도는 무리여서 금세 봉쇄된다."
+ },
+ "hoshi/blackjack/1": {
+  "ru": "Чёрные нарочно оставляют разрыв и зовут белых в драку. Белые могут принять бой или спокойно уклониться.",
+  "en": "Black deliberately leaves a gap and invites White into a fight. White may accept the battle or calmly step aside.",
+  "es": "Negro deja a propósito un hueco e invita a Blanco a la lucha. Blanco puede aceptar la batalla o apartarse con calma.",
+  "fr": "Noir laisse volontairement un trou et invite Blanc au combat. Blanc peut accepter la bataille ou s'écarter tranquillement.",
+  "de": "Schwarz lässt bewusst eine Lücke und lädt Weiß zum Kampf ein. Weiß kann die Schlacht annehmen oder ruhig ausweichen.",
+  "ko": "흑은 일부러 틈을 남겨 백을 싸움으로 부른다. 백은 전투를 받아들이거나 침착히 비켜설 수 있다."
+ },
+ "hoshi/blackjack/2": {
+  "ru": "Если белые входят в разрыв, чёрные растут с обеих сторон. В борьбе две против одной двум группам чёрных хватает места.",
+  "en": "If White enters the gap, Black grows on both sides. In a two-against-one fight Black's two groups have enough room.",
+  "es": "Si Blanco entra en el hueco, Negro crece por ambos lados. En una lucha de dos contra uno, los dos grupos de Negro tienen sitio de sobra.",
+  "fr": "Si Blanc entre dans le trou, Noir grandit des deux côtés. Dans un combat à deux contre un, les deux groupes de Noir ont assez de place.",
+  "de": "Dringt Weiß in die Lücke, wächst Schwarz auf beiden Seiten. In einem Zwei-gegen-eins-Kampf haben Schwarz' zwei Gruppen genug Platz.",
+  "ko": "백이 틈으로 들어가면 흑은 양쪽에서 자란다. 둘 대 하나의 싸움에서 흑의 두 무리는 자리가 넉넉하다."
+ },
+ "hoshi/blackjack/3": {
+  "ru": "Ход конём чёрных давит естественнее, чем прыжок. Белые выбирают спокойный ответ, и позиция остаётся равной.",
+  "en": "Black's keima presses more naturally than the jump. White chooses a calm reply, and the position stays even.",
+  "es": "El keima de Negro presiona con más naturalidad que el salto. Blanco elige una respuesta tranquila y la posición sigue pareja.",
+  "fr": "Le keima de Noir presse plus naturellement que le saut. Blanc choisit une réponse calme et la position reste égale.",
+  "de": "Schwarz' Keima drückt natürlicher als der Sprung. Weiß wählt eine ruhige Antwort, und die Stellung bleibt gleich.",
+  "ko": "흑의 날일자는 뜀보다 더 자연스럽게 압박한다. 백이 침착한 응수를 고르면 형세는 호각으로 남는다."
+ },
+ "hoshi/blackjack/4": {
+  "ru": "Белые укрепляют свой камень, но чёрные забирают низ справа. Зажим наказывает два тенуки белых и даёт темп.",
+  "en": "White reinforces its stone, but Black takes the lower right. The clamp punishes White's two tenuki and gains tempo.",
+  "es": "Blanco refuerza su piedra, pero Negro toma el inferior derecho. El pinza castiga los dos tenuki de Blanco y gana tempo.",
+  "fr": "Blanc renforce sa pierre, mais Noir prend le bas-droit. La pince punit les deux tenuki de Blanc et gagne du tempo.",
+  "de": "Weiß verstärkt seinen Stein, doch Schwarz nimmt unten rechts. Die Klammer bestraft Weiß' zwei Tenuki und gewinnt Tempo.",
+  "ko": "백은 자기 돌을 보강하지만 흑이 우하를 차지한다. 붙여 씌우기가 백의 두 번의 손뺌을 응징하고 템포를 얻는다."
+ },
+ "hoshi/swing/1": {
+  "ru": "Чёрные готовы отдать белым маленькую жизнь слева. Опасность для чёрных — своевременное вторжение белых справа.",
+  "en": "Black is ready to give White a small life on the left. The danger for Black is a timely white invasion on the right.",
+  "es": "Negro está dispuesto a dar a Blanco una pequeña vida a la izquierda. El peligro para Negro es una invasión blanca oportuna a la derecha.",
+  "fr": "Noir est prêt à concéder à Blanc une petite vie à gauche. Le danger pour Noir est une invasion blanche opportune à droite.",
+  "de": "Schwarz ist bereit, Weiß links ein kleines Leben zu geben. Die Gefahr für Schwarz ist eine rechtzeitige weiße Invasion rechts.",
+  "ko": "흑은 백에게 좌변의 작은 삶을 내줄 각오다. 흑에게 위험한 건 백의 시의적절한 우변 침입이다."
+ },
+ "hoshi/swing/2": {
+  "ru": "Мирное развитие белых слева скрывает удар по тэнгэну и разрезание. Чёрным стоит заранее перекрыть этот план.",
+  "en": "White's peaceful development on the left hides a blow at tengen and a cut. Black should block that plan in advance.",
+  "es": "El desarrollo pacífico de Blanco a la izquierda esconde un golpe al tengen y un corte. Negro debería anticiparse a ese plan.",
+  "fr": "Le développement paisible de Blanc à gauche cache un coup au tengen et une coupe. Noir devrait contrer ce plan à l'avance.",
+  "de": "Weiß' friedliche Entwicklung links verbirgt einen Schlag am Tengen und einen Schnitt. Schwarz sollte diesen Plan vorab abriegeln.",
+  "ko": "백의 좌변 평화로운 발전은 천원 타격과 절단을 숨기고 있다. 흑은 그 계획을 미리 차단하는 게 좋다."
+ },
+ "hoshi/swing/3": {
+  "ru": "Удар белых в тэнгэн завязывает драку, но у чёрных больше адзи и устойчивости. Трём камням белых труднее жить.",
+  "en": "White's blow at tengen starts a fight, but Black has more aji and stability. White's three stones find it harder to live.",
+  "es": "El golpe de Blanco al tengen inicia una lucha, pero Negro tiene más aji y estabilidad. A las tres piedras de Blanco les cuesta más vivir.",
+  "fr": "Le coup de Blanc au tengen déclenche un combat, mais Noir a plus d'aji et de stabilité. Les trois pierres de Blanc peinent davantage à vivre.",
+  "de": "Weiß' Schlag am Tengen startet einen Kampf, doch Schwarz hat mehr Aji und Stabilität. Weiß' drei Steine tun sich schwerer zu leben.",
+  "ko": "백의 천원 타격은 싸움을 걸지만, 흑에게 아지와 안정성이 더 많다. 백의 석 점은 살기가 더 어렵다."
+ },
+ "hoshi/horse-head/1": {
+  "ru": "Чёрные мягко зовут к широкой борьбе за территорию. Белым непросто выбрать: строить левый край или вторгаться справа.",
+  "en": "Black gently invites a broad fight for territory. It is not easy for White to choose: build the left edge or invade on the right.",
+  "es": "Negro invita con suavidad a una amplia lucha por territorio. A Blanco no le resulta fácil elegir: construir el borde izquierdo o invadir a la derecha.",
+  "fr": "Noir invite doucement à une vaste lutte territoriale. Il n'est pas facile pour Blanc de choisir : bâtir le bord gauche ou envahir à droite.",
+  "de": "Schwarz lädt sanft zu einem breiten Gebietskampf ein. Weiß fällt die Wahl schwer: den linken Rand bauen oder rechts einfallen.",
+  "ko": "흑은 넓은 집싸움을 부드럽게 유도한다. 백은 좌변을 지을지 우변에 침입할지 고르기가 쉽지 않다."
+ },
+ "hoshi/horse-head/2": {
+  "ru": "Ход конём чёрных расширяет их позицию и вынуждает белых вторгаться. Затем чёрные по очереди атакуют две группы.",
+  "en": "Black's keima widens the position and forces White to invade. Then Black attacks the two groups in turn.",
+  "es": "El keima de Negro amplía la posición y obliga a Blanco a invadir. Luego Negro ataca por turnos los dos grupos.",
+  "fr": "Le keima de Noir élargit la position et force Blanc à envahir. Ensuite Noir attaque les deux groupes à tour de rôle.",
+  "de": "Schwarz' Keima weitet die Stellung und zwingt Weiß zur Invasion. Dann greift Schwarz die beiden Gruppen abwechselnd an.",
+  "ko": "흑의 날일자는 형세를 넓히고 백에게 침입을 강요한다. 그다음 흑은 두 무리를 번갈아 공격한다."
+ },
+ "hoshi/horse-head/3": {
+  "ru": "«Голова собаки» ровнее «лошадиной»: у белых есть крепкий ход или вторжение в сферу чёрных. Баланс держится.",
+  "en": "The dog's head is smoother than the horse's: White has a firm move or an invasion into Black's sphere. The balance holds.",
+  "es": "La cabeza de perro es más suave que la de caballo: Blanco tiene una jugada firme o una invasión en la esfera de Negro. El equilibrio se mantiene.",
+  "fr": "La tête de chien est plus douce que celle de cheval : Blanc a un coup ferme ou une invasion dans la sphère de Noir. L'équilibre tient.",
+  "de": "Der Hundekopf ist glatter als der Pferdekopf: Weiß hat einen festen Zug oder eine Invasion in Schwarz' Sphäre. Die Balance hält.",
+  "ko": "'개머리'는 '말머리'보다 무난하다: 백에게는 튼튼한 수나 흑 세력권으로의 침입이 있다. 균형은 유지된다."
+ },
+ "hoshi/horse-head/4": {
+  "ru": "Белые надёжно берут левый край и оставляют вторжение. Естественное расширение чёрных даёт белым контригру.",
+  "en": "White reliably takes the left edge and keeps the invasion in reserve. Black's natural expansion gives White counterplay.",
+  "es": "Blanco toma con fiabilidad el borde izquierdo y guarda la invasión. La expansión natural de Negro da contrajuego a Blanco.",
+  "fr": "Blanc prend de façon fiable le bord gauche et garde l'invasion en réserve. L'expansion naturelle de Noir donne du contre-jeu à Blanc.",
+  "de": "Weiß nimmt verlässlich den linken Rand und hält die Invasion bereit. Schwarz' natürliche Expansion gibt Weiß Gegenspiel.",
+  "ko": "백은 좌변을 확실히 차지하고 침입을 남겨둔다. 흑의 자연스러운 확장은 백에게 반격거리를 준다."
+ },
+ "hoshi/airship/1": {
+  "ru": "Белые прыгают в ключевую точку и обычно живут в двух местах. Но осторожная игра оставляет чёрным больше очков.",
+  "en": "White jumps to the key point and usually lives in two places. But careful play leaves Black more points.",
+  "es": "Blanco salta al punto clave y suele vivir en dos sitios. Pero el juego cuidadoso deja a Negro más puntos.",
+  "fr": "Blanc saute au point clé et vit d'ordinaire en deux endroits. Mais un jeu soigneux laisse plus de points à Noir.",
+  "de": "Weiß springt zum Schlüsselpunkt und lebt meist an zwei Stellen. Doch sorgfältiges Spiel lässt Schwarz mehr Punkte.",
+  "ko": "백은 급소로 뛰어 대개 두 곳에서 산다. 하지만 신중히 두면 흑에게 집이 더 남는다."
+ },
+ "hoshi/airship/2": {
+  "ru": "Чёрные держат белых разрезанными и забирают верх — классический рецепт 9×9. Задача всё же требует точности.",
+  "en": "Black keeps White split and takes the top — a classic 9x9 recipe. Still, the problem demands precision.",
+  "es": "Negro mantiene a Blanco dividido y toma arriba: una receta clásica del 9x9. Aun así, el problema exige precisión.",
+  "fr": "Noir maintient Blanc divisé et prend le haut — une recette classique du 9x9. Le problème exige tout de même de la précision.",
+  "de": "Schwarz hält Weiß gespalten und nimmt oben — ein klassisches 9x9-Rezept. Dennoch verlangt die Aufgabe Präzision.",
+  "ko": "흑은 백을 갈라둔 채 상변을 차지한다 — 전형적인 9x9 처방이다. 그래도 이 문제는 정확함을 요구한다."
+ },
+ "hoshi/submarine/1": {
+  "ru": "Вторжение 3–3 из 19×19 на 9×9 слабо. Белые ищут две жизни, но чёрные становятся слишком крепкими.",
+  "en": "The 3-3 invasion imported from 19x19 is weak on 9x9. White seeks two lives, but Black becomes too solid.",
+  "es": "La invasión 3-3 traída del 19x19 es débil en 9x9. Blanco busca dos vidas, pero Negro se vuelve demasiado sólido.",
+  "fr": "L'invasion 3-3 importée du 19x19 est faible en 9x9. Blanc cherche deux vies, mais Noir devient trop solide.",
+  "de": "Die vom 19x19 übernommene 3-3-Invasion ist auf 9x9 schwach. Weiß sucht zwei Leben, doch Schwarz wird zu solide.",
+  "ko": "19x19에서 가져온 3-3 침입은 9x9에서 약하다. 백은 두 삶을 노리지만 흑이 지나치게 단단해진다."
+ },
+ "hoshi/submarine/2": {
+  "ru": "Жёсткий блок и висячее соединение делают миаи двух больших зон. Чёрные почти гарантируют крупную территорию.",
+  "en": "A firm block and a hanging connection make miai of two large zones. Black nearly guarantees a big territory.",
+  "es": "Un bloqueo firme y una conexión colgante crean miai de dos grandes zonas. Negro casi garantiza un territorio amplio.",
+  "fr": "Un blocage ferme et une connexion suspendue créent un miai de deux grandes zones. Noir garantit presque un grand territoire.",
+  "de": "Ein fester Block und eine hängende Verbindung machen Miai zweier großer Zonen. Schwarz sichert sich fast ein großes Gebiet.",
+  "ko": "단단한 막음과 걸침 연결이 두 큰 영역의 미아이를 만든다. 흑은 큰 집을 거의 보장한다."
+ },
+ "hoshi/submarine/3": {
+  "ru": "Обычное дзёсэки заканчивается в готэ, а на 9×9 это дорого. Белые получают свободное вторжение и уравнивают.",
+  "en": "The usual joseki ends in gote, and on 9x9 that is costly. White gets a free invasion and equalizes.",
+  "es": "El joseki habitual acaba en gote, y en 9x9 eso es caro. Blanco consigue una invasión libre e iguala.",
+  "fr": "Le joseki habituel finit en gote, et en 9x9 c'est coûteux. Blanc obtient une invasion gratuite et égalise.",
+  "de": "Das übliche Joseki endet in Gote, und auf 9x9 ist das teuer. Weiß bekommt eine freie Invasion und gleicht aus.",
+  "ko": "보통의 정석은 후수로 끝나는데, 9x9에서는 값이 비싸다. 백은 공짜 침입을 얻어 형세를 맞춘다."
+ },
+ "hoshi/submarine/4": {
+  "ru": "Двухшаговое ханэ ещё хуже для чёрных: снова готэ и чистое вторжение белых. Дополнительная угроза помогает им войти.",
+  "en": "The two-step hane is even worse for Black: gote again and a clean white invasion. An extra threat helps White enter.",
+  "es": "El hane en dos pasos es aún peor para Negro: otra vez gote y una invasión blanca limpia. Una amenaza extra ayuda a Blanco a entrar.",
+  "fr": "Le hane en deux temps est encore pire pour Noir : encore du gote et une invasion blanche nette. Une menace supplémentaire aide Blanc à entrer.",
+  "de": "Das Zwei-Schritt-Hane ist für Schwarz noch schlechter: wieder Gote und eine saubere weiße Invasion. Eine Extradrohung hilft Weiß beim Eindringen.",
+  "ko": "이단 하네는 흑에게 더 나쁘다: 또 후수인 데다 백의 깔끔한 침입이 있다. 추가 위협이 백의 진입을 돕는다."
+ },
+ "hoshi/submarine/5": {
+  "ru": "Это дзёсэки выживает, потому что чёрные заканчивают в сэнтэ. Они успевают вернуться и закрыть большую территорию.",
+  "en": "This joseki survives because Black finishes in sente. Black gets back in time and closes a large territory.",
+  "es": "Este joseki sobrevive porque Negro termina en sente. Negro vuelve a tiempo y cierra un territorio amplio.",
+  "fr": "Ce joseki survit parce que Noir finit en sente. Noir revient à temps et ferme un grand territoire.",
+  "de": "Dieses Joseki überlebt, weil Schwarz in Sente endet. Schwarz kommt rechtzeitig zurück und schließt ein großes Gebiet.",
+  "ko": "이 정석은 흑이 선수로 끝나기에 성립한다. 흑은 제때 돌아와 큰 집을 닫는다."
+ },
+ "hoshi/other-hoshi-openings/1": {
+  "ru": "Белые спокойно уходят от теории и видят достаточно пространства. Чёрные должны сразу поддерживать давление.",
+  "en": "White calmly departs from theory and sees enough room. Black must keep the pressure up right away.",
+  "es": "Blanco se aparta con calma de la teoría y ve espacio suficiente. Negro debe mantener la presión de inmediato.",
+  "fr": "Blanc s'écarte tranquillement de la théorie et trouve assez d'espace. Noir doit maintenir la pression aussitôt.",
+  "de": "Weiß weicht ruhig von der Theorie ab und sieht genug Raum. Schwarz muss sofort den Druck aufrechterhalten.",
+  "ko": "백은 침착히 이론을 벗어나며 충분한 공간을 본다. 흑은 곧바로 압박을 이어가야 한다."
+ },
+ "hoshi/other-hoshi-openings/2": {
+  "ru": "Формы простые: чёрные вовремя входят и набирают территорию. Белым лучше всего цепляться к правой стороне.",
+  "en": "The shapes are simple: Black enters in time and gathers territory. White is best off clinging to the right side.",
+  "es": "Las formas son simples: Negro entra a tiempo y reúne territorio. A Blanco le conviene aferrarse al lado derecho.",
+  "fr": "Les formes sont simples : Noir entre à temps et réunit du territoire. Blanc fait mieux de s'accrocher au côté droit.",
+  "de": "Die Formen sind einfach: Schwarz kommt rechtzeitig herein und sammelt Gebiet. Weiß hält sich am besten an die rechte Seite.",
+  "ko": "모양이 단순하다: 흑은 제때 들어가 집을 모은다. 백은 우변에 매달리는 게 최선이다."
+ },
+ "hoshi/other-hoshi-openings/3": {
+  "ru": "Белые могут ткнуть в тонкость после ханэ чёрных. Но естественная линия опасна: белым легко отстать по очкам.",
+  "en": "White can poke at the thinness after Black's hane. But the natural line is dangerous: White easily falls behind on points.",
+  "es": "Blanco puede pinchar la fragilidad tras el hane de Negro. Pero la línea natural es peligrosa: Blanco se queda atrás en puntos con facilidad.",
+  "fr": "Blanc peut piquer la finesse après le hane de Noir. Mais la ligne naturelle est dangereuse : Blanc prend facilement du retard aux points.",
+  "de": "Weiß kann nach Schwarz' Hane in die Dünne stechen. Doch die natürliche Linie ist gefährlich: Weiß gerät leicht in Punkterückstand.",
+  "ko": "흑의 하네 뒤에 백은 엷은 곳을 찌를 수 있다. 하지만 자연스러운 진행은 위험하다: 백이 집으로 쉽게 뒤처진다."
+ },
+ "hoshi/other-hoshi-openings/4": {
+  "ru": "Белым лучше обогнуть чёрных и вызвать нехватку свобод. Затем нужно добрать пару очков, чтобы удержать ничью.",
+  "en": "White does better to go around Black and create a shortage of liberties. Then it must scrape up a couple of points to hold the draw.",
+  "es": "A Blanco le conviene rodear a Negro y crear escasez de libertades. Luego debe rascar un par de puntos para sostener el empate.",
+  "fr": "Blanc fait mieux de contourner Noir et de créer un manque de libertés. Il doit ensuite gratter deux points pour tenir la nulle.",
+  "de": "Weiß umgeht Schwarz besser und erzeugt Freiheitsmangel. Dann muss es ein paar Punkte zusammenkratzen, um das Remis zu halten.",
+  "ko": "백은 흑을 돌아 활로 부족을 만드는 편이 낫다. 그다음 비김을 지키려면 두어 집을 긁어모아야 한다."
+ },
+ "hoshi/other-hoshi-openings/5": {
+  "ru": "После изгиба чёрных белые снова бьют по тонкости. Двухшаговое ханэ сильно, потому что грозит разрез.",
+  "en": "After Black's bend White again strikes at the thinness. The two-step hane is strong because it threatens a cut.",
+  "es": "Tras el giro de Negro, Blanco vuelve a golpear la fragilidad. El hane en dos pasos es fuerte porque amenaza un corte.",
+  "fr": "Après le pli de Noir, Blanc frappe de nouveau la finesse. Le hane en deux temps est fort car il menace une coupe.",
+  "de": "Nach Schwarz' Biegung schlägt Weiß erneut auf die Dünne. Das Zwei-Schritt-Hane ist stark, weil es mit einem Schnitt droht.",
+  "ko": "흑의 젖힘 뒤에 백은 다시 엷은 곳을 때린다. 이단 하네는 절단을 위협하기에 강하다."
+ },
+ "hoshi/other-hoshi-openings/6": {
+  "ru": "Захват камня выглядит прибыльно, но белые жертвуют его и ослабляют верхний левый камень. Компенсация у белых лучше.",
+  "en": "Capturing a stone looks profitable, but White sacrifices it and weakens the upper-left stone. White's compensation is better.",
+  "es": "Capturar una piedra parece rentable, pero Blanco la sacrifica y debilita la piedra superior izquierda. La compensación de Blanco es mejor.",
+  "fr": "Capturer une pierre semble rentable, mais Blanc la sacrifie et affaiblit la pierre supérieure gauche. La compensation de Blanc est meilleure.",
+  "de": "Einen Stein zu fangen wirkt einträglich, doch Weiß opfert ihn und schwächt den oberen linken Stein. Weiß' Ausgleich ist besser.",
+  "ko": "돌 하나를 잡는 게 이득 같지만, 백은 그것을 버려 좌상귀 돌을 약화시킨다. 백의 보상이 더 크다."
+ },
+ "hoshi/other-hoshi-openings/7": {
+  "ru": "Белые стремятся жить в двух местах, а чёрные чередуют атаки. Порядок ходов гибкий, баланс сохраняется.",
+  "en": "White aims to live in two places while Black alternates attacks. The move order is flexible, and the balance holds.",
+  "es": "Blanco busca vivir en dos sitios mientras Negro alterna ataques. El orden de jugadas es flexible y el equilibrio se mantiene.",
+  "fr": "Blanc vise à vivre en deux endroits tandis que Noir alterne les attaques. L'ordre des coups est souple, et l'équilibre tient.",
+  "de": "Weiß will an zwei Stellen leben, während Schwarz die Angriffe abwechselt. Die Zugreihenfolge ist flexibel, und die Balance hält.",
+  "ko": "백은 두 곳에서 살려 하고 흑은 공격을 번갈아 한다. 수순이 유연하고 균형은 유지된다."
+ },
+ "hoshi/other-hoshi-openings/8": {
+  "ru": "Белые закрываются в углу, готовя последующее вторжение. Чёрным нужны жёсткие продолжения, чтобы не отпустить.",
+  "en": "White seals the corner, preparing a later invasion. Black needs firm follow-ups so as not to let it slip.",
+  "es": "Blanco cierra el rincón, preparando una invasión posterior. Negro necesita continuaciones firmes para no dejarlo escapar.",
+  "fr": "Blanc scelle le coin, préparant une invasion ultérieure. Noir a besoin de suites fermes pour ne pas le laisser filer.",
+  "de": "Weiß versiegelt die Ecke und bereitet eine spätere Invasion vor. Schwarz braucht feste Fortsetzungen, um es nicht entkommen zu lassen.",
+  "ko": "백은 귀를 봉해 훗날의 침입을 준비한다. 흑은 놓치지 않도록 단단한 후속이 필요하다."
+ },
+ "hoshi/other-hoshi-openings/9": {
+  "ru": "Белые сначала укрепляются, затем вторгаются. Чёрным лучше атаковать с второй линии, иногда после пробного удара.",
+  "en": "White first strengthens, then invades. Black does better to attack from the second line, sometimes after a probe.",
+  "es": "Blanco primero se fortalece, luego invade. A Negro le conviene atacar desde la segunda línea, a veces tras una sonda.",
+  "fr": "Blanc se renforce d'abord, puis envahit. Noir fait mieux d'attaquer depuis la deuxième ligne, parfois après une sonde.",
+  "de": "Weiß verstärkt sich zuerst, dann fällt es ein. Schwarz greift besser von der zweiten Linie an, manchmal nach einer Sonde.",
+  "ko": "백은 먼저 두터워진 뒤 침입한다. 흑은 둘째 선에서, 때로는 찔러 본 뒤 공격하는 편이 낫다."
+ },
+ "takamoku/new-orthodox/1": {
+  "ru": "Конь чёрных давит на белый камень и берёт территорию; у белых достаточно ответов, поэтому баланс сохраняется.",
+  "en": "Black's keima presses the white stone and takes territory; White has enough replies, so the balance holds.",
+  "es": "El keima de Negro presiona la piedra blanca y toma territorio; Blanco tiene respuestas suficientes, así que el equilibrio se mantiene.",
+  "fr": "Le keima de Noir presse la pierre blanche et prend du territoire ; Blanc a assez de réponses, donc l'équilibre tient.",
+  "de": "Schwarz' Keima drückt den weißen Stein und nimmt Gebiet; Weiß hat genug Antworten, sodass die Balance hält.",
+  "ko": "흑의 날일자가 백돌을 압박하며 집을 차지한다; 백에게 응수가 충분하니 균형은 유지된다."
+ },
+ "takamoku/new-orthodox/2": {
+  "ru": "Разрез чёрных создаёт сильное адзи; белым трудно вторгаться в угол, борьба идёт по границе владений.",
+  "en": "Black's cut creates strong aji; White struggles to invade the corner, and the fight runs along the border of the frameworks.",
+  "es": "El corte de Negro genera aji fuerte; a Blanco le cuesta invadir el rincón y la lucha va por la frontera de los marcos.",
+  "fr": "La coupe de Noir crée un aji puissant ; Blanc peine à envahir le coin, et le combat suit la frontière des cadres.",
+  "de": "Schwarz' Schnitt schafft starkes Aji; Weiß tut sich schwer, die Ecke zu überfallen, und der Kampf verläuft entlang der Rahmengrenze.",
+  "ko": "흑의 절단이 강한 아지를 만든다; 백은 귀 침입이 어렵고, 싸움은 세력권의 경계를 따라 진행된다."
+ },
+ "takamoku/new-orthodox/3": {
+  "ru": "Этот конь чёрных слишком мягок: коми не отыгрывается, а белые уверенно идут к «четырём рядам плюс один».",
+  "en": "This keima by Black is too soft: it does not recoup the komi, and White marches confidently toward 'four rows plus one'.",
+  "es": "Este keima de Negro es demasiado blando: no recupera el komi y Blanco avanza con confianza hacia 'cuatro filas más una'.",
+  "fr": "Ce keima de Noir est trop mou : il ne rattrape pas le komi, et Blanc marche avec assurance vers 'quatre rangées plus une'.",
+  "de": "Dieser Keima von Schwarz ist zu weich: er holt das Komi nicht auf, und Weiß marschiert selbstsicher auf 'vier Reihen plus eine' zu.",
+  "ko": "흑의 이 날일자는 너무 무르다: 덤을 되찾지 못하고, 백은 '네 줄 더하기 하나'로 자신 있게 나아간다."
+ },
+ "takamoku/new-orthodox/4": {
+  "ru": "Прикрепление чёрных надёжно закрывает низ; ханэ белых возможно, но втягивает их в драку с изъянами формы.",
+  "en": "Black's attachment reliably closes the bottom; White's hane is possible but drags it into a fight with shape defects.",
+  "es": "El apoyo de Negro cierra con fiabilidad el fondo; el hane de Blanco es posible pero lo arrastra a una lucha con defectos de forma.",
+  "fr": "Le contact de Noir ferme le bas de façon fiable ; le hane de Blanc est possible mais l'entraîne dans un combat aux défauts de forme.",
+  "de": "Schwarz' Ankleben schließt den Boden verlässlich; Weiß' Hane ist möglich, zieht es aber in einen Kampf mit Formfehlern.",
+  "ko": "흑의 붙임이 하변을 확실히 닫는다; 백의 하네도 가능하나 형태 결함이 있는 싸움으로 끌려든다."
+ },
+ "takamoku/new-orthodox/5": {
+  "ru": "После вытяжки белых чёрные получают отличную форму; клин вынуждает белых либо уступить, либо принять худшую драку.",
+  "en": "After White's stretch Black gets excellent shape; the wedge forces White either to yield or to accept a worse fight.",
+  "es": "Tras el estirón de Blanco, Negro obtiene una forma excelente; la cuña obliga a Blanco a ceder o a aceptar una lucha peor.",
+  "fr": "Après l'étirement de Blanc, Noir obtient une excellente forme ; le coin force Blanc à céder ou à accepter un combat pire.",
+  "de": "Nach Weiß' Streckung erhält Schwarz vorzügliche Form; der Keil zwingt Weiß nachzugeben oder einen schlechteren Kampf anzunehmen.",
+  "ko": "백의 늘림 뒤 흑은 훌륭한 모양을 얻는다; 끼움이 백에게 양보하거나 더 나쁜 싸움을 받아들이게 강요한다."
+ },
+ "takamoku/new-orthodox/6": {
+  "ru": "Прикрепление с вытяжкой даёт чёрным мощное продолжение и несколько равноправных планов развития.",
+  "en": "Attachment with a stretch gives Black a powerful follow-up and several equally good development plans.",
+  "es": "El apoyo con estirón da a Negro una continuación potente y varios planes de desarrollo igual de buenos.",
+  "fr": "Le contact avec étirement donne à Noir une suite puissante et plusieurs plans de développement aussi bons.",
+  "de": "Ankleben mit Streckung gibt Schwarz eine mächtige Fortsetzung und mehrere gleich gute Entwicklungspläne.",
+  "ko": "붙이고 늘리는 수는 흑에게 강력한 후속과 대등하게 좋은 발전 구상 여럿을 준다."
+ },
+ "takamoku/andromeda/1": {
+  "ru": "Зеркало требует от чёрных резкого разрыва симметрии; точная игра белых гасит атаку и держит равенство.",
+  "en": "The mirror requires Black to break the symmetry sharply; White's precise play smothers the attack and holds equality.",
+  "es": "El espejo obliga a Negro a romper la simetría con brusquedad; el juego preciso de Blanco apaga el ataque y mantiene la igualdad.",
+  "fr": "Le miroir oblige Noir à briser la symétrie sèchement ; le jeu précis de Blanc étouffe l'attaque et tient l'égalité.",
+  "de": "Der Spiegel verlangt von Schwarz, die Symmetrie scharf zu brechen; Weiß' präzises Spiel erstickt den Angriff und hält Gleichstand.",
+  "ko": "미러 바둑은 흑에게 대칭을 날카롭게 깨뜨릴 것을 요구한다; 백의 정확한 수가 공격을 지우고 호각을 유지한다."
+ },
+ "takamoku/andromeda/2": {
+  "ru": "Если белые слишком долго зеркалят, чёрные окружают и чинят слабости; белая центральная группа проигрывает гонку.",
+  "en": "If White mirrors too long, Black surrounds and fixes the weaknesses; White's central group loses the capturing race.",
+  "es": "Si Blanco imita demasiado tiempo, Negro rodea y arregla las debilidades; el grupo central de Blanco pierde la carrera de capturas.",
+  "fr": "Si Blanc imite trop longtemps, Noir encercle et corrige les faiblesses ; le groupe central de Blanc perd la course aux libertés.",
+  "de": "Spiegelt Weiß zu lange, umzingelt Schwarz und behebt die Schwächen; Weiß' Zentralgruppe verliert das Wettlaufen.",
+  "ko": "백이 너무 오래 따라 두면 흑이 에워싸 약점을 메운다; 백의 중앙 무리가 수상전에서 진다."
+ },
+ "takamoku/andromeda/3": {
+  "ru": "Ранний разрыв зеркала белыми лучше: они режут позицию чёрных, но дальше обе стороны почти не имеют права на ошибку.",
+  "en": "White breaking the mirror early is better: it cuts Black's position, but from there neither side can afford a mistake.",
+  "es": "Que Blanco rompa pronto el espejo es mejor: corta la posición de Negro, pero a partir de ahí ninguno puede permitirse un error.",
+  "fr": "Que Blanc brise le miroir tôt est préférable : il coupe la position de Noir, mais dès lors aucun camp ne peut se permettre d'erreur.",
+  "de": "Weiß den Spiegel früh zu brechen ist besser: es schneidet Schwarz' Stellung, doch von da an darf sich keine Seite einen Fehler leisten.",
+  "ko": "백이 미러를 일찍 깨는 편이 낫다: 흑 진영을 끊지만, 그다음엔 어느 쪽도 실수할 수 없다."
+ },
+ "takamoku/andromeda/4": {
+  "ru": "Чёрные сохраняют правую сторону, но точный разрез и вытяжка белых переворачивают борьбу в их пользу.",
+  "en": "Black keeps the right side, but White's precise cut and stretch flip the fight in White's favor.",
+  "es": "Negro conserva el lado derecho, pero el corte y el estirón precisos de Blanco vuelcan la lucha a su favor.",
+  "fr": "Noir garde le côté droit, mais la coupe et l'étirement précis de Blanc renversent le combat en faveur de Blanc.",
+  "de": "Schwarz behält die rechte Seite, doch Weiß' präziser Schnitt und die Streckung drehen den Kampf zu Weiß' Gunsten.",
+  "ko": "흑은 우변을 지키지만, 백의 정확한 절단과 늘림이 싸움을 백에게 유리하게 뒤집는다."
+ },
+ "takamoku/andromeda/5": {
+  "ru": "Разрез белых создаёт важную ко-угрозу; без неё возможное ко было бы куда опаснее для белых.",
+  "en": "White's cut creates an important ko threat; without it a possible ko would be far more dangerous for White.",
+  "es": "El corte de Blanco crea una amenaza de ko importante; sin ella, un posible ko sería mucho más peligroso para Blanco.",
+  "fr": "La coupe de Blanc crée une menace de ko importante ; sans elle, un ko éventuel serait bien plus dangereux pour Blanc.",
+  "de": "Weiß' Schnitt schafft eine wichtige Ko-Drohung; ohne sie wäre ein mögliches Ko für Weiß weit gefährlicher.",
+  "ko": "백의 절단은 중요한 팻감을 만든다; 그것이 없으면 있을 수 있는 패가 백에게 훨씬 위험하다."
+ },
+ "takamoku/andromeda/6": {
+  "ru": "Обмен ущербом выгоден чёрным: зажим после прорывов остр, а дальше зеркалить нельзя — тэнгэн решает.",
+  "en": "Trading damage favors Black: the clamp after the breakthroughs is sharp, and mirroring further is impossible — tengen decides.",
+  "es": "Cambiar daño favorece a Negro: el pinza tras las rupturas es agudo, y seguir imitando es imposible: el tengen decide.",
+  "fr": "Échanger des dégâts favorise Noir : la pince après les percées est tranchante, et continuer à imiter est impossible — le tengen décide.",
+  "de": "Schaden zu tauschen begünstigt Schwarz: die Klammer nach den Durchbrüchen ist scharf, und weiter zu spiegeln ist unmöglich — Tengen entscheidet.",
+  "ko": "손해를 맞바꾸는 건 흑에게 유리하다: 돌파 뒤의 붙여 씌우기가 날카롭고, 더는 따라 둘 수 없다 — 천원이 승부를 가른다."
+ },
+ "takamoku/andromeda/7": {
+  "ru": "Проталкивание чёрных готовит охват и захват тэнгэна; если белые не ломают зеркало вовремя, центр гибнет.",
+  "en": "Black's push prepares an envelopment and the capture of tengen; if White does not break the mirror in time, the center dies.",
+  "es": "El empuje de Negro prepara un envolvimiento y la captura del tengen; si Blanco no rompe el espejo a tiempo, el centro muere.",
+  "fr": "La poussée de Noir prépare un enveloppement et la capture du tengen ; si Blanc ne brise pas le miroir à temps, le centre meurt.",
+  "de": "Schwarz' Schub bereitet eine Umfassung und das Fangen von Tengen vor; bricht Weiß den Spiegel nicht rechtzeitig, stirbt das Zentrum.",
+  "ko": "흑의 밈은 포위와 천원 잡기를 준비한다; 백이 제때 미러를 깨지 못하면 중앙이 죽는다."
+ },
+ "takamoku/slider/1": {
+  "ru": "Белые строят левую базу и готовят жизнь справа; чёрные могут резко сузить выбор, но точное вторжение держит баланс.",
+  "en": "White builds a left base and prepares life on the right; Black can sharply narrow the choices, but a precise invasion holds the balance.",
+  "es": "Blanco construye una base izquierda y prepara vida a la derecha; Negro puede estrechar las opciones con dureza, pero una invasión precisa mantiene el equilibrio.",
+  "fr": "Blanc bâtit une base à gauche et prépare la vie à droite ; Noir peut restreindre les choix nettement, mais une invasion précise tient l'équilibre.",
+  "de": "Weiß baut eine linke Basis und bereitet Leben rechts vor; Schwarz kann die Auswahl scharf einengen, doch eine präzise Invasion hält die Balance.",
+  "ko": "백은 좌변 근거를 짓고 우변의 삶을 준비한다; 흑은 선택지를 날카롭게 좁힐 수 있으나 정확한 침입이 균형을 지킨다."
+ },
+ "takamoku/slider/2": {
+  "ru": "Чёрные жёстко закрывают большую зону и играют симметрично; белые всё ещё могут добрать нужный объём.",
+  "en": "Black firmly closes a large zone and plays symmetrically; White can still scrape together the needed amount.",
+  "es": "Negro cierra con firmeza una zona amplia y juega simétricamente; Blanco aún puede reunir la cantidad necesaria.",
+  "fr": "Noir ferme fermement une grande zone et joue symétriquement ; Blanc peut encore réunir le montant nécessaire.",
+  "de": "Schwarz schließt fest eine große Zone und spielt symmetrisch; Weiß kann die nötige Menge noch zusammenkratzen.",
+  "ko": "흑은 큰 영역을 단단히 닫고 대칭으로 둔다; 백은 그래도 필요한 만큼을 긁어모을 수 있다."
+ },
+ "takamoku/slider/3": {
+  "ru": "Вторжение белых справа почти живёт; толчок чёрных слишком мягок и даёт белым устроиться комфортно.",
+  "en": "White's invasion on the right nearly lives; Black's push is too soft and lets White settle comfortably.",
+  "es": "La invasión de Blanco a la derecha casi vive; el empuje de Negro es demasiado blando y deja a Blanco asentarse con comodidad.",
+  "fr": "L'invasion de Blanc à droite vit presque ; la poussée de Noir est trop molle et laisse Blanc s'installer confortablement.",
+  "de": "Weiß' Invasion rechts lebt beinahe; Schwarz' Schub ist zu weich und lässt Weiß sich bequem einrichten.",
+  "ko": "백의 우변 침입은 거의 산다; 흑의 밈이 너무 물러 백이 편하게 자리 잡는다."
+ },
+ "takamoku/slider/4": {
+  "ru": "Заняв ключевой пункт белых, чёрные сжимают их форму и уменьшают контригру, сохраняя равновесие.",
+  "en": "By taking White's key point, Black compresses the shape and cuts the counterplay while keeping the balance.",
+  "es": "Al tomar el punto clave de Blanco, Negro comprime la forma y recorta el contrajuego manteniendo el equilibrio.",
+  "fr": "En prenant le point clé de Blanc, Noir comprime la forme et réduit le contre-jeu tout en gardant l'équilibre.",
+  "de": "Indem Schwarz Weiß' Schlüsselpunkt nimmt, presst es die Form zusammen und beschneidet das Gegenspiel bei gehaltener Balance.",
+  "ko": "백의 급소를 차지함으로써 흑은 모양을 옥죄고 반격을 줄이면서 균형을 유지한다."
+ },
+ "takamoku/slider/5": {
+  "ru": "Ход чёрных 3–3 нарушает форму белых, но вторжение справа позволяет им стабилизовать левый фланг и выбрать верное направление.",
+  "en": "Black's 3-3 disrupts White's shape, but the invasion on the right lets White stabilize the left flank and pick the right direction.",
+  "es": "El 3-3 de Negro altera la forma de Blanco, pero la invasión a la derecha permite a Blanco estabilizar el flanco izquierdo y elegir la dirección correcta.",
+  "fr": "Le 3-3 de Noir perturbe la forme de Blanc, mais l'invasion à droite lui permet de stabiliser le flanc gauche et de choisir la bonne direction.",
+  "de": "Schwarz' 3-3 stört Weiß' Form, doch die Invasion rechts lässt Weiß die linke Flanke stabilisieren und die richtige Richtung wählen.",
+  "ko": "흑의 3-3이 백 모양을 흔들지만, 우변 침입 덕에 백은 좌변을 안정시키고 올바른 방향을 고른다."
+ },
+ "takamoku/slider/6": {
+  "ru": "Такой ответ чёрных лучше: после правого обмена они ещё могут тревожить белую форму и пробовать разные зонды.",
+  "en": "This reply by Black is better: after the right-side exchange it can still harass White's shape and try various probes.",
+  "es": "Esta respuesta de Negro es mejor: tras el cambio de la derecha aún puede hostigar la forma de Blanco y probar varias sondas.",
+  "fr": "Cette réponse de Noir est meilleure : après l'échange à droite, il peut encore harceler la forme de Blanc et tenter diverses sondes.",
+  "de": "Diese Antwort von Schwarz ist besser: nach dem Tausch rechts kann es Weiß' Form noch belästigen und verschiedene Sonden versuchen.",
+  "ko": "흑의 이 응수가 더 낫다: 우변 교환 뒤에도 백 모양을 괴롭히고 여러 활용을 시도할 수 있다."
+ },
+ "takamoku/slider/7": {
+  "ru": "Прыжок белых берёт нижний левый угол и оставляет вторжение справа; чёрные давят сверху крупной формой.",
+  "en": "White's jump takes the lower-left corner and keeps the invasion on the right; Black presses from above with a large framework.",
+  "es": "El salto de Blanco toma el rincón inferior izquierdo y conserva la invasión a la derecha; Negro presiona desde arriba con un marco amplio.",
+  "fr": "Le saut de Blanc prend le coin inférieur gauche et garde l'invasion à droite ; Noir presse par le haut avec un grand cadre.",
+  "de": "Weiß' Sprung nimmt die untere linke Ecke und behält die Invasion rechts; Schwarz drückt von oben mit einem großen Rahmen.",
+  "ko": "백의 뜀은 좌하귀를 차지하고 우변 침입을 남긴다; 흑은 위에서 큰 세력으로 압박한다."
+ },
+ "takamoku/slider/8": {
+  "ru": "Белые играют спокойно, а чёрные строят влияние и зовут к вторжению; тесудзи белых часто даёт жизнь вверху справа.",
+  "en": "White plays calmly while Black builds influence and invites an invasion; White's tesuji often secures life upper right.",
+  "es": "Blanco juega con calma mientras Negro construye influencia e invita a la invasión; el tesuji de Blanco suele asegurar la vida arriba a la derecha.",
+  "fr": "Blanc joue calmement tandis que Noir bâtit de l'influence et invite à l'invasion ; le tesuji de Blanc assure souvent la vie en haut à droite.",
+  "de": "Weiß spielt ruhig, während Schwarz Einfluss aufbaut und zur Invasion einlädt; Weiß' Tesuji sichert oft Leben oben rechts.",
+  "ko": "백은 침착히 두고 흑은 세력을 쌓으며 침입을 부른다; 백의 묘수가 흔히 우상의 삶을 확보한다."
+ },
+ "takamoku/slider/9": {
+  "ru": "Толчок и разрез белых выглядят опасно, но дают лишние дамэ и адзи для будущей жизни справа.",
+  "en": "White's push and cut look dangerous, but they give extra liberties and aji for a later life on the right.",
+  "es": "El empuje y el corte de Blanco parecen peligrosos, pero dan libertades extra y aji para una vida posterior a la derecha.",
+  "fr": "La poussée et la coupe de Blanc semblent dangereuses, mais elles donnent des libertés supplémentaires et de l'aji pour une vie ultérieure à droite.",
+  "de": "Weiß' Schub und Schnitt wirken gefährlich, geben aber zusätzliche Freiheiten und Aji für ein späteres Leben rechts.",
+  "ko": "백의 밈과 절단은 위험해 보이지만, 훗날 우변의 삶을 위한 여분의 활로와 아지를 준다."
+ },
+ "takamoku/secret-agent-033/1": {
+  "ru": "Вторжение 3–3 сразу бьёт по связи чёрных; им нужны быстрые атаки по слабостям, а не медленные ходы между камнями.",
+  "en": "The 3-3 invasion strikes at Black's connection at once; Black needs quick attacks on the weaknesses, not slow moves between the stones.",
+  "es": "La invasión 3-3 golpea de inmediato la conexión de Negro; Negro necesita ataques rápidos a las debilidades, no jugadas lentas entre las piedras.",
+  "fr": "L'invasion 3-3 frappe aussitôt la liaison de Noir ; Noir a besoin d'attaques rapides sur les faiblesses, pas de coups lents entre les pierres.",
+  "de": "Die 3-3-Invasion trifft sofort Schwarz' Verbindung; Schwarz braucht schnelle Angriffe auf die Schwächen, keine langsamen Züge zwischen den Steinen.",
+  "ko": "3-3 침입은 흑의 연결을 곧바로 때린다; 흑은 돌 사이의 느린 수가 아니라 약점을 향한 빠른 공격이 필요하다."
+ },
+ "takamoku/secret-agent-033/2": {
+  "ru": "Жёсткая атака чёрных заставляет белых отвечать; затем смена цели удерживает инициативу и даёт чёрным лучший темп.",
+  "en": "Black's harsh attack forces White to respond; then switching targets keeps the initiative and gives Black better tempo.",
+  "es": "El ataque duro de Negro obliga a Blanco a responder; luego cambiar de objetivo mantiene la iniciativa y da a Negro mejor tempo.",
+  "fr": "L'attaque dure de Noir force Blanc à répondre ; puis changer de cible garde l'initiative et donne un meilleur tempo à Noir.",
+  "de": "Schwarz' harter Angriff zwingt Weiß zur Antwort; dann hält der Zielwechsel die Initiative und gibt Schwarz besseres Tempo.",
+  "ko": "흑의 매서운 공격이 백의 응수를 강요한다; 그다음 목표를 바꾸면 주도권을 유지하고 흑이 더 좋은 템포를 얻는다."
+ },
+ "takamoku/white-slice/1": {
+  "ru": "Прямое прикрепление чёрных устарело: белые спокойно укрепляют левую сторону и сохраняют простор для вторжения справа.",
+  "en": "Black's direct attachment is outdated: White calmly reinforces the left side and keeps room to invade on the right.",
+  "es": "El apoyo directo de Negro está anticuado: Blanco refuerza con calma el lado izquierdo y conserva sitio para invadir a la derecha.",
+  "fr": "Le contact direct de Noir est dépassé : Blanc renforce tranquillement le côté gauche et garde de l'espace pour envahir à droite.",
+  "de": "Schwarz' direktes Ankleben ist veraltet: Weiß verstärkt ruhig die linke Seite und behält Raum für eine Invasion rechts.",
+  "ko": "흑의 직접 붙임은 낡았다: 백은 좌변을 침착히 보강하고 우변 침입의 여지를 남긴다."
+ },
+ "takamoku/white-slice/2": {
+  "ru": "Даже тэнгэн не спасает чёрных: правая зона слишком открыта, и белые имеют много удобных точек вторжения.",
+  "en": "Even tengen does not save Black: the right zone is too open, and White has many convenient invasion points.",
+  "es": "Ni el tengen salva a Negro: la zona derecha está demasiado abierta y Blanco tiene muchos puntos de invasión cómodos.",
+  "fr": "Même le tengen ne sauve pas Noir : la zone droite est trop ouverte, et Blanc a de nombreux points d'invasion commodes.",
+  "de": "Selbst Tengen rettet Schwarz nicht: die rechte Zone ist zu offen, und Weiß hat viele bequeme Invasionspunkte.",
+  "ko": "천원조차 흑을 구하지 못한다: 우변이 너무 열려 있어 백에게 편한 침입점이 많다."
+ },
+ "takamoku/white-slice/3": {
+  "ru": "Оттяжка чёрных тоже сомнительна: белые строят крепкий левый фланг и затем бьют по открытой правой стороне.",
+  "en": "Black's draw-back is also dubious: White builds a firm left flank and then strikes the open right side.",
+  "es": "El repliegue de Negro también es dudoso: Blanco construye un flanco izquierdo firme y luego golpea el lado derecho abierto.",
+  "fr": "Le repli de Noir est lui aussi douteux : Blanc bâtit un flanc gauche ferme puis frappe le côté droit ouvert.",
+  "de": "Schwarz' Rückzug ist ebenfalls fragwürdig: Weiß baut eine feste linke Flanke und schlägt dann auf die offene rechte Seite.",
+  "ko": "흑의 되끌기도 미심쩍다: 백은 단단한 좌변을 짓고 나서 열린 우변을 때린다."
+ },
+ "takamoku/kodachi/1": {
+  "ru": "Атака чёрных на базу неприятна, но спокойная защита белых оставляет группы чёрных разделёнными, а их позицию — хуже.",
+  "en": "Black's attack on the base is unpleasant, but White's calm defense leaves Black's groups split and its position worse.",
+  "es": "El ataque de Negro a la base es molesto, pero la defensa tranquila de Blanco deja los grupos de Negro divididos y su posición peor.",
+  "fr": "L'attaque de Noir sur la base est déplaisante, mais la défense calme de Blanc laisse les groupes de Noir séparés et sa position moins bonne.",
+  "de": "Schwarz' Angriff auf die Basis ist unangenehm, doch Weiß' ruhige Verteidigung lässt Schwarz' Gruppen gespalten und die Stellung schlechter.",
+  "ko": "근거를 노린 흑의 공격은 성가시지만, 백의 침착한 지킴이 흑 무리를 갈라놓고 흑 형세를 나쁘게 만든다."
+ },
+ "takamoku/kodachi/2": {
+  "ru": "Белым не нужна лишняя база: важнее держать чёрных разрезанными без слабостей и готовить контратаку.",
+  "en": "White does not need an extra base: it matters more to keep Black split without weaknesses and prepare a counterattack.",
+  "es": "Blanco no necesita una base extra: importa más mantener a Negro dividido sin debilidades y preparar un contraataque.",
+  "fr": "Blanc n'a pas besoin d'une base supplémentaire : il importe davantage de garder Noir séparé sans faiblesses et de préparer une contre-attaque.",
+  "de": "Weiß braucht keine zusätzliche Basis: wichtiger ist, Schwarz ohne Schwächen gespalten zu halten und einen Gegenangriff vorzubereiten.",
+  "ko": "백에게 여분의 근거는 필요 없다: 약점 없이 흑을 갈라둔 채 반격을 준비하는 게 더 중요하다."
+ },
+ "takamoku/jump-attachment/1": {
+  "ru": "Прикрепление чёрных не пытается убить белых, а укрепляет центр; из-за дистанции жёсткая атака здесь лишняя.",
+  "en": "Black's attachment does not try to kill White but strengthens the center; because of the distance, a harsh attack is superfluous here.",
+  "es": "El apoyo de Negro no intenta matar a Blanco sino que fortalece el centro; por la distancia, un ataque duro sobra aquí.",
+  "fr": "Le contact de Noir ne cherche pas à tuer Blanc mais renforce le centre ; vu la distance, une attaque dure est superflue ici.",
+  "de": "Schwarz' Ankleben will Weiß nicht töten, sondern stärkt das Zentrum; wegen der Distanz ist ein harter Angriff hier überflüssig.",
+  "ko": "흑의 붙임은 백을 잡으려는 게 아니라 중앙을 강화한다; 거리 때문에 여기서 매서운 공격은 불필요하다."
+ },
+ "takamoku/jump-attachment/2": {
+  "ru": "Ханэ чёрных расширяет верхнюю сторону; атари белых не даёт им нужного объёма, поэтому перевес у чёрных.",
+  "en": "Black's hane widens the upper side; White's atari does not give it enough volume, so Black holds the edge.",
+  "es": "El hane de Negro amplía el lado superior; el atari de Blanco no le da volumen suficiente, así que Negro conserva la ventaja.",
+  "fr": "Le hane de Noir élargit le côté supérieur ; l'atari de Blanc ne lui donne pas assez de volume, donc Noir garde l'avantage.",
+  "de": "Schwarz' Hane weitet die Oberseite; Weiß' Atari gibt nicht genug Volumen, sodass Schwarz die Oberhand behält.",
+  "ko": "흑의 하네가 상변을 넓힌다; 백의 아타리로는 충분한 실속이 없어 흑이 우위를 유지한다."
+ },
+ "takamoku/zazen/1": {
+  "ru": "Чёрные давят, но оставляют белым ключевое вторжение 2–5; белые стабилизируются слева, поэтому линия выгодна им.",
+  "en": "Black presses but leaves White the key 2-5 invasion; White stabilizes on the left, so the line favors White.",
+  "es": "Negro presiona pero deja a Blanco la invasión clave 2-5; Blanco se estabiliza a la izquierda, así que la línea favorece a Blanco.",
+  "fr": "Noir presse mais laisse à Blanc l'invasion clé en 2-5 ; Blanc se stabilise à gauche, donc la ligne favorise Blanc.",
+  "de": "Schwarz drückt, lässt Weiß aber die entscheidende 2-5-Invasion; Weiß stabilisiert sich links, sodass die Linie Weiß begünstigt.",
+  "ko": "흑은 압박하지만 백에게 핵심 2-5 침입을 남긴다; 백이 좌변에서 안정하므로 이 진행은 백에게 유리하다."
+ },
+ "takamoku/zazen/2": {
+  "ru": "Белым важно не спешить: спокойный ответ сохраняет возможность сразу вторгнуться и закрепиться в правом верхнем углу.",
+  "en": "White must not rush: a calm reply keeps the option to invade at once and settle in the upper-right corner.",
+  "es": "Blanco no debe apresurarse: una respuesta tranquila conserva la opción de invadir de inmediato y asentarse en el rincón superior derecho.",
+  "fr": "Blanc ne doit pas se précipiter : une réponse calme garde l'option d'envahir aussitôt et de s'installer dans le coin supérieur droit.",
+  "de": "Weiß darf sich nicht beeilen: eine ruhige Antwort behält die Option, sofort einzufallen und sich oben rechts einzurichten.",
+  "ko": "백은 서두르면 안 된다: 침착한 응수가 곧바로 침입해 우상귀에 자리 잡을 여지를 남긴다."
+ },
+ "takamoku/zazen/3": {
+  "ru": "На блок чёрных белые отвечают подглядыванием в связь и получают зацепку в углу; варианты чёрных не закрывают вход.",
+  "en": "Against Black's block White peeps at the link and gets a foothold in the corner; Black's variations do not seal the entry.",
+  "es": "Ante el bloqueo de Negro, Blanco atisba la conexión y consigue apoyo en el rincón; las variantes de Negro no cierran la entrada.",
+  "fr": "Face au blocage de Noir, Blanc lorgne la liaison et prend pied dans le coin ; les variantes de Noir ne ferment pas l'entrée.",
+  "de": "Gegen Schwarz' Block späht Weiß auf die Verbindung und fasst in der Ecke Fuß; Schwarz' Varianten riegeln den Zugang nicht ab.",
+  "ko": "흑의 막음에 백은 연결을 들여다보며 귀에 발판을 얻는다; 흑의 변화들은 진입을 막지 못한다."
+ },
+ "takamoku/boots/1": {
+  "ru": "Чёрные сильнее прижимают белых к левому краю и смотрят вверх, но оставляют критический разрез.",
+  "en": "Black presses White harder against the left edge and looks upward, but leaves a critical cut.",
+  "es": "Negro presiona a Blanco con más fuerza contra el borde izquierdo y mira hacia arriba, pero deja un corte crítico.",
+  "fr": "Noir presse Blanc plus fort contre le bord gauche et regarde vers le haut, mais laisse une coupe critique.",
+  "de": "Schwarz drückt Weiß stärker an den linken Rand und blickt nach oben, lässt aber einen kritischen Schnitt.",
+  "ko": "흑은 백을 좌변에 더 세게 밀어붙이며 위를 노리지만, 치명적인 절단을 남긴다."
+ },
+ "takamoku/boots/2": {
+  "ru": "После разреза чёрные жертвуют камни, зато выжимают белых и строят настоящую цель — правую сторону.",
+  "en": "After the cut Black sacrifices stones, but squeezes White and builds the real goal — the right side.",
+  "es": "Tras el corte Negro sacrifica piedras, pero exprime a Blanco y construye el verdadero objetivo: el lado derecho.",
+  "fr": "Après la coupe, Noir sacrifie des pierres, mais presse Blanc et bâtit le vrai but — le côté droit.",
+  "de": "Nach dem Schnitt opfert Schwarz Steine, presst aber Weiß und baut das eigentliche Ziel — die rechte Seite.",
+  "ko": "절단 뒤 흑은 돌을 버리지만 백을 짜내 진짜 목표인 우변을 짓는다."
+ },
+ "takamoku/boots/3": {
+  "ru": "Атари чёрных неудачно: исходный камень на такамоку почти теряет смысл, и белые получают перевес.",
+  "en": "Black's atari is a failure: the original takamoku stone almost loses its point, and White gets the edge.",
+  "es": "El atari de Negro es un fracaso: la piedra original de takamoku casi pierde su sentido y Blanco saca ventaja.",
+  "fr": "L'atari de Noir est un échec : la pierre de takamoku d'origine perd presque son sens, et Blanc prend l'avantage.",
+  "de": "Schwarz' Atari ist ein Fehlschlag: der ursprüngliche Takamoku-Stein verliert fast seinen Sinn, und Weiß erhält die Oberhand.",
+  "ko": "흑의 아타리는 실패다: 원래의 고목 돌이 거의 의미를 잃고, 백이 우위를 잡는다."
+ },
+ "takamoku/other-takamoku-openings/1": {
+  "ru": "Прикрепление чёрных гонит белых к меньшему углу и укрепляет группу; белые режут и навязывают локальную драку.",
+  "en": "Black's attachment drives White toward the smaller corner and strengthens the group; White cuts and forces a local fight.",
+  "es": "El apoyo de Negro empuja a Blanco hacia el rincón menor y fortalece el grupo; Blanco corta e impone una lucha local.",
+  "fr": "Le contact de Noir pousse Blanc vers le plus petit coin et renforce le groupe ; Blanc coupe et impose un combat local.",
+  "de": "Schwarz' Ankleben treibt Weiß zur kleineren Ecke und stärkt die Gruppe; Weiß schneidet und erzwingt einen lokalen Kampf.",
+  "ko": "흑의 붙임은 백을 더 작은 귀로 몰며 무리를 강화한다; 백은 끊어 국지전을 강요한다."
+ },
+ "takamoku/other-takamoku-openings/2": {
+  "ru": "Нижнее атари чёрных слабее: точный ход белых берёт верхний левый и готовит выгодное ко внизу справа.",
+  "en": "Black's lower atari is weaker: White's precise move takes the upper left and prepares a favorable ko in the lower right.",
+  "es": "El atari inferior de Negro es más débil: la jugada precisa de Blanco toma el superior izquierdo y prepara un ko favorable en el inferior derecho.",
+  "fr": "L'atari inférieur de Noir est plus faible : le coup précis de Blanc prend le haut-gauche et prépare un ko favorable en bas à droite.",
+  "de": "Schwarz' unterer Atari ist schwächer: Weiß' präziser Zug nimmt oben links und bereitet ein günstiges Ko unten rechts vor.",
+  "ko": "흑의 아래쪽 아타리는 더 약하다: 백의 정확한 수가 좌상을 차지하고 우하에서 유리한 패를 준비한다."
+ },
+ "takamoku/other-takamoku-openings/3": {
+  "ru": "Скромный ход белых готовит дальнейшее расширение; доска делится терпимо для чёрных, но исход решит вторжение белых.",
+  "en": "White's modest move prepares further expansion; the board splits tolerably for Black, but a white invasion will settle the outcome.",
+  "es": "La jugada modesta de Blanco prepara más expansión; el tablero se reparte de forma tolerable para Negro, pero una invasión blanca decidirá el resultado.",
+  "fr": "Le coup modeste de Blanc prépare une expansion ultérieure ; le goban se partage de façon acceptable pour Noir, mais une invasion blanche décidera de l'issue.",
+  "de": "Weiß' bescheidener Zug bereitet weitere Expansion vor; das Brett teilt sich für Schwarz erträglich, doch eine weiße Invasion entscheidet den Ausgang.",
+  "ko": "백의 수수한 수는 이후의 확장을 준비한다; 판은 흑에게 무난하게 갈리지만, 백의 침입이 승부를 가른다."
+ },
+ "takamoku/other-takamoku-openings/4": {
+  "ru": "Ранняя атака чёрных усиливает первый камень и сохраняет сэнтэ; дальше атака и защита становятся миаи.",
+  "en": "Black's early attack strengthens the first stone and keeps sente; from there attack and defense become miai.",
+  "es": "El ataque temprano de Negro fortalece la primera piedra y conserva el sente; a partir de ahí, ataque y defensa se vuelven miai.",
+  "fr": "L'attaque précoce de Noir renforce la première pierre et garde le sente ; dès lors, attaque et défense deviennent un miai.",
+  "de": "Schwarz' früher Angriff stärkt den ersten Stein und behält Sente; von da an werden Angriff und Verteidigung zu Miai.",
+  "ko": "흑의 이른 공격은 첫 돌을 강화하고 선수를 유지한다; 그다음 공격과 수비가 미아이가 된다."
+ },
+ "territorial/mokuhazushi/1": {
+  "ru": "Мокухадзуси надёжно держит сторону и мешает вторжению, но низок и пассивен: чёрным нужен точный активный план.",
+  "en": "Mokuhazushi reliably holds the side and hinders invasion, but it is low and passive: Black needs a precise active plan.",
+  "es": "El mokuhazushi mantiene con fiabilidad el lado y estorba la invasión, pero es bajo y pasivo: Negro necesita un plan activo y preciso.",
+  "fr": "Le mokuhazushi tient le côté de façon fiable et gêne l'invasion, mais il est bas et passif : Noir a besoin d'un plan actif et précis.",
+  "de": "Mokuhazushi hält die Seite verlässlich und behindert die Invasion, doch es ist niedrig und passiv: Schwarz braucht einen präzisen aktiven Plan.",
+  "ko": "목외곽(모쿠하즈시)은 변을 든든히 지키고 침입을 막지만 낮고 소극적이다: 흑에게는 정확한 적극적 구상이 필요하다."
+ },
+ "territorial/mokuhazushi-main-line/1": {
+  "ru": "Прилипание к камню на тэнгэне даёт чёрным опору в центре и страхует правую сторону; белые по-прежнему выбирают удобный ответ.",
+  "en": "Attaching to the tengen stone gives Black a foothold in the center and insures the right side; White still picks a comfortable reply.",
+  "es": "Apoyarse en la piedra del tengen da a Negro un punto de apoyo en el centro y asegura el lado derecho; Blanco aún elige una respuesta cómoda.",
+  "fr": "Se coller à la pierre du tengen donne à Noir un appui au centre et assure le côté droit ; Blanc choisit encore une réponse confortable.",
+  "de": "Am Tengen-Stein anzukleben gibt Schwarz einen Halt im Zentrum und sichert die rechte Seite; Weiß wählt weiterhin eine bequeme Antwort.",
+  "ko": "천원 돌에 붙이면 흑은 중앙의 발판을 얻고 우변을 보증한다; 백은 여전히 편한 응수를 고른다."
+ },
+ "territorial/mokuhazushi-main-line/2": {
+  "ru": "Кросс-кат заводит чёрных в бой, где после белого удлинения у них слабый разрез; перегиб отдаёт белым территорию.",
+  "en": "The cross-cut drags Black into a fight where, after White's extension, it has a weak cut; overreaching hands White the territory.",
+  "es": "El corte cruzado arrastra a Negro a una lucha donde, tras la extensión de Blanco, tiene un corte débil; excederse le da el territorio a Blanco.",
+  "fr": "Le coupé croisé entraîne Noir dans un combat où, après l'extension de Blanc, il a une coupe faible ; l'excès offre le territoire à Blanc.",
+  "de": "Der Kreuzschnitt zieht Schwarz in einen Kampf, wo es nach Weiß' Ausdehnung einen schwachen Schnitt hat; Überziehen gibt Weiß das Gebiet.",
+  "ko": "십자 끊음은 흑을 싸움으로 끌고 가는데, 백의 뻗음 뒤 흑에게는 약한 절단이 남는다; 무리하면 백에게 집을 내준다."
+ },
+ "territorial/mokuhazushi-main-line/3": {
+  "ru": "Жертвуя разрезанный камень, чёрные получают мощь сверху; белые забирают камень, а равенство зависит от дальнейшего плана.",
+  "en": "By sacrificing the cut stone, Black gets power up top; White takes the stone, and equality depends on the further plan.",
+  "es": "Al sacrificar la piedra cortada, Negro obtiene fuerza arriba; Blanco toma la piedra y la igualdad depende del plan posterior.",
+  "fr": "En sacrifiant la pierre coupée, Noir obtient de la puissance en haut ; Blanc prend la pierre, et l'égalité dépend de la suite du plan.",
+  "de": "Indem Schwarz den geschnittenen Stein opfert, erhält es oben Stärke; Weiß nimmt den Stein, und der Gleichstand hängt vom weiteren Plan ab.",
+  "ko": "끊긴 돌을 버림으로써 흑은 상변에서 세력을 얻는다; 백은 그 돌을 잡고, 호각 여부는 이후 구상에 달렸다."
+ },
+ "territorial/mokuhazushi-main-line/4": {
+  "ru": "Контр-ханэ давит на белых и строит верх, но двойное ханэ белых сильно; чёрным нужно использовать адзи камня.",
+  "en": "The counter-hane presses White and builds the top, but White's double hane is strong; Black must use the stone's aji.",
+  "es": "El contra-hane presiona a Blanco y construye arriba, pero el doble hane de Blanco es fuerte; Negro debe usar el aji de la piedra.",
+  "fr": "Le contre-hane presse Blanc et bâtit le haut, mais le double hane de Blanc est fort ; Noir doit exploiter l'aji de la pierre.",
+  "de": "Der Gegen-Hane drückt Weiß und baut oben, doch Weiß' Doppel-Hane ist stark; Schwarz muss das Aji des Steins nutzen.",
+  "ko": "되받아치는 하네가 백을 압박하며 상변을 짓지만, 백의 이단 하네가 강하다; 흑은 그 돌의 아지를 활용해야 한다."
+ },
+ "territorial/mokuhazushi-main-line/5": {
+  "ru": "Удлинение белых грозит левому флангу; чёрные держат равенство только жёстким прижимом вниз.",
+  "en": "White's extension threatens the left flank; Black keeps equality only with a firm press downward.",
+  "es": "La extensión de Blanco amenaza el flanco izquierdo; Negro mantiene la igualdad solo con una presión firme hacia abajo.",
+  "fr": "L'extension de Blanc menace le flanc gauche ; Noir ne garde l'égalité qu'avec une pression ferme vers le bas.",
+  "de": "Weiß' Ausdehnung bedroht die linke Flanke; Schwarz hält den Gleichstand nur mit einem festen Druck nach unten.",
+  "ko": "백의 뻗음이 좌변을 위협한다; 흑은 아래로 단단히 눌러야만 호각을 유지한다."
+ },
+ "territorial/mokuhazushi-main-line/6": {
+  "ru": "В кросс-кате важен темп: чёрные снимают дыхание и оставляют разрез, чтобы позже давить обе стороны.",
+  "en": "In the cross-cut tempo is vital: Black removes a liberty and leaves a cut, so as to press both sides later.",
+  "es": "En el corte cruzado el tempo es vital: Negro quita una libertad y deja un corte, para presionar ambos lados más tarde.",
+  "fr": "Dans le coupé croisé, le tempo est vital : Noir enlève une liberté et laisse une coupe, afin de presser les deux côtés plus tard.",
+  "de": "Beim Kreuzschnitt ist Tempo entscheidend: Schwarz nimmt eine Freiheit und lässt einen Schnitt, um später beide Seiten zu drücken.",
+  "ko": "십자 끊음에서는 템포가 관건이다: 흑은 활로를 하나 줄이고 절단을 남겨, 나중에 양쪽을 압박한다."
+ },
+ "territorial/mokuhazushi-main-line/7": {
+  "ru": "Тэсудзи «в нос» завершает форму чёрных; даже жертва пары камней оставляет позицию примерно равной.",
+  "en": "The nose tesuji completes Black's shape; even sacrificing a couple of stones leaves the position roughly even.",
+  "es": "El tesuji 'en la nariz' completa la forma de Negro; incluso sacrificar un par de piedras deja la posición aproximadamente pareja.",
+  "fr": "Le tesuji 'sur le nez' complète la forme de Noir ; même sacrifier deux pierres laisse la position à peu près égale.",
+  "de": "Das Nasen-Tesuji vollendet Schwarz' Form; selbst das Opfern zweier Steine lässt die Stellung ungefähr gleich.",
+  "ko": "'코붙임' 묘수가 흑의 모양을 완성한다; 두어 점을 버려도 형세는 대략 호각으로 남는다."
+ },
+ "territorial/sea-fairy/1": {
+  "ru": "Прилипание сзади тревожит базу белых, но центр у чёрных пуст; белые легко используют это и получают перевес.",
+  "en": "Attaching from behind harasses White's base, but Black's center is empty; White easily exploits this and gains the edge.",
+  "es": "Apoyarse por detrás hostiga la base de Blanco, pero el centro de Negro está vacío; Blanco lo aprovecha con facilidad y saca ventaja.",
+  "fr": "Se coller par-derrière harcèle la base de Blanc, mais le centre de Noir est vide ; Blanc l'exploite aisément et prend l'avantage.",
+  "de": "Von hinten anzukleben belästigt Weiß' Basis, doch Schwarz' Zentrum ist leer; Weiß nutzt das leicht und gewinnt die Oberhand.",
+  "ko": "뒤에서 붙이면 백의 근거를 괴롭히지만 흑의 중앙이 비어 있다; 백은 이를 쉽게 이용해 우위를 잡는다."
+ },
+ "territorial/sea-fairy/2": {
+  "ru": "Жёсткий ответ белых и двойное ханэ лишают чёрных удобного разреза; их план с территорией не окупается.",
+  "en": "White's firm reply and double hane deny Black a convenient cut; the territorial plan does not pay off.",
+  "es": "La respuesta firme de Blanco y el doble hane niegan a Negro un corte cómodo; el plan territorial no rinde.",
+  "fr": "La réponse ferme de Blanc et le double hane refusent à Noir une coupe commode ; le plan territorial ne rapporte pas.",
+  "de": "Weiß' feste Antwort und der Doppel-Hane verwehren Schwarz einen bequemen Schnitt; der Gebietsplan zahlt sich nicht aus.",
+  "ko": "백의 단단한 응수와 이단 하네가 흑에게서 편한 절단을 빼앗는다; 실리 위주의 구상은 수지가 안 맞는다."
+ },
+ "territorial/sea-fairy/3": {
+  "ru": "После кросс-ката белые получают лучший бой, но перевес требует точной игры в правом верхнем углу.",
+  "en": "After the cross-cut White gets the better fight, but the advantage requires precise play in the upper-right corner.",
+  "es": "Tras el corte cruzado Blanco obtiene la mejor lucha, pero la ventaja exige juego preciso en el rincón superior derecho.",
+  "fr": "Après le coupé croisé, Blanc obtient le meilleur combat, mais l'avantage exige un jeu précis dans le coin supérieur droit.",
+  "de": "Nach dem Kreuzschnitt bekommt Weiß den besseren Kampf, doch der Vorteil verlangt präzises Spiel in der oberen rechten Ecke.",
+  "ko": "십자 끊음 뒤 백이 더 좋은 싸움을 얻지만, 우위를 살리려면 우상귀에서 정확히 두어야 한다."
+ },
+ "territorial/avoiding-transpositions/1": {
+  "ru": "Зеркальный ход белых зовёт в знакомые дебюты; плечевой удар или прилипание сохраняют редкий характер мокухадзуси.",
+  "en": "White's mirror move invites familiar openings; a shoulder hit or attachment keeps mokuhazushi's rare character.",
+  "es": "La jugada espejo de Blanco invita a aperturas conocidas; un golpe de hombro o un apoyo conserva el carácter raro del mokuhazushi.",
+  "fr": "Le coup miroir de Blanc invite à des ouvertures familières ; un épaulement ou un contact garde le caractère rare du mokuhazushi.",
+  "de": "Weiß' Spiegelzug lädt zu vertrauten Eröffnungen ein; ein Schulterzug oder Ankleben bewahrt Mokuhazushis seltenen Charakter.",
+  "ko": "백의 미러 수는 익숙한 정석으로 유도한다; 어깨짚음이나 붙임이 목외곽 특유의 색을 유지한다."
+ },
+ "territorial/avoiding-transpositions/2": {
+  "ru": "Плечевой удар прижимает белых слева и строит правую сторону; прямой ответ белых даёт ровный раздел.",
+  "en": "The shoulder hit presses White on the left and builds the right side; White's direct reply gives an even split.",
+  "es": "El golpe de hombro presiona a Blanco por la izquierda y construye el lado derecho; la respuesta directa de Blanco da un reparto parejo.",
+  "fr": "L'épaulement presse Blanc à gauche et bâtit le côté droit ; la réponse directe de Blanc donne un partage égal.",
+  "de": "Der Schulterzug drückt Weiß links und baut die rechte Seite; Weiß' direkte Antwort ergibt eine gleiche Teilung.",
+  "ko": "어깨짚음은 백을 좌측에서 압박하며 우변을 짓는다; 백의 직접적인 응수는 고른 분할을 준다."
+ },
+ "territorial/avoiding-transpositions/3": {
+  "ru": "Прилипание чёрных опасно: после ханэ белых кросс-кат плохо работает, и центр быстро переходит к белым.",
+  "en": "Black's attachment is risky: after White's hane the cross-cut works poorly, and the center quickly passes to White.",
+  "es": "El apoyo de Negro es arriesgado: tras el hane de Blanco el corte cruzado funciona mal y el centro pasa pronto a Blanco.",
+  "fr": "Le contact de Noir est risqué : après le hane de Blanc, le coupé croisé fonctionne mal, et le centre passe vite à Blanc.",
+  "de": "Schwarz' Ankleben ist riskant: nach Weiß' Hane funktioniert der Kreuzschnitt schlecht, und das Zentrum geht schnell an Weiß.",
+  "ko": "흑의 붙임은 위험하다: 백의 하네 뒤 십자 끊음이 잘 안 통하고, 중앙이 빠르게 백에게 넘어간다."
+ },
+ "territorial/avoiding-transpositions/4": {
+  "ru": "Контр-ханэ надёжнее кросс-ката: белый блок силён, но у чёрных остаются простые продолжения.",
+  "en": "The counter-hane is safer than the cross-cut: White's block is strong, but Black keeps simple continuations.",
+  "es": "El contra-hane es más seguro que el corte cruzado: el bloqueo de Blanco es fuerte, pero Negro conserva continuaciones simples.",
+  "fr": "Le contre-hane est plus sûr que le coupé croisé : le blocage de Blanc est fort, mais Noir garde des suites simples.",
+  "de": "Der Gegen-Hane ist sicherer als der Kreuzschnitt: Weiß' Block ist stark, doch Schwarz behält einfache Fortsetzungen.",
+  "ko": "되받아치는 하네가 십자 끊음보다 안전하다: 백의 막음이 강하지만 흑에게는 단순한 후속이 남는다."
+ },
+ "territorial/avoiding-transpositions/5": {
+  "ru": "Если чёрные допускают эту форму, ограда белых всё ещё оставляет место для вторжения; чёрным лучше сыграть иначе.",
+  "en": "If Black allows this shape, White's enclosure still leaves room to invade; Black should play differently.",
+  "es": "Si Negro permite esta forma, el cerco de Blanco aún deja sitio para invadir; Negro debería jugar de otra manera.",
+  "fr": "Si Noir permet cette forme, la clôture de Blanc laisse encore la place d'envahir ; Noir devrait jouer autrement.",
+  "de": "Lässt Schwarz diese Form zu, lässt Weiß' Umschließung noch Platz zum Einfallen; Schwarz sollte anders spielen.",
+  "ko": "흑이 이 모양을 허용하면 백의 굳힘에도 침입할 여지가 남는다; 흑은 다르게 두는 게 낫다."
+ },
+ "territorial/avoiding-transpositions/6": {
+  "ru": "Прилипание к тэнгэну срывает переход в «Горный зуб»; территория делится просто, но белым нужно творческое вторжение.",
+  "en": "Attaching at tengen thwarts the switch into the Mountain Tooth; the territory divides simply, but White needs a creative invasion.",
+  "es": "Apoyarse en el tengen frustra el paso al Diente de Montaña; el territorio se reparte de forma simple, pero Blanco necesita una invasión creativa.",
+  "fr": "Se coller au tengen contrarie le passage vers la Dent de Montagne ; le territoire se partage simplement, mais Blanc a besoin d'une invasion créative.",
+  "de": "Am Tengen anzukleben vereitelt den Wechsel zum Bergzahn; das Gebiet teilt sich einfach, doch Weiß braucht eine kreative Invasion.",
+  "ko": "천원에 붙이면 '산 이빨'로의 전환을 막는다; 집은 단순하게 갈리지만, 백에게는 창의적인 침입이 필요하다."
+ },
+ "territorial/other-mokuhazushi-openings/1": {
+  "ru": "Территориальный ответ даёт белым крупный угол, а чёрные группы остаются мелкими и разобщёнными.",
+  "en": "The territorial reply gives White a big corner, while Black's groups stay small and disconnected.",
+  "es": "La respuesta territorial da a Blanco un rincón grande, mientras los grupos de Negro quedan pequeños y desconectados.",
+  "fr": "La réponse territoriale donne à Blanc un grand coin, tandis que les groupes de Noir restent petits et déconnectés.",
+  "de": "Die territoriale Antwort gibt Weiß eine große Ecke, während Schwarz' Gruppen klein und getrennt bleiben.",
+  "ko": "실리적인 응수는 백에게 큰 귀를 주고, 흑의 무리들은 작고 흩어진 채로 남는다."
+ },
+ "territorial/other-mokuhazushi-openings/2": {
+  "ru": "Кэп чёрных выталкивает белых из центра и закрывает верх; слабость — зазор, который надо вовремя прикрыть.",
+  "en": "Black's cap pushes White out of the center and closes the top; the weakness is a gap that must be patched in time.",
+  "es": "El sombrero de Negro empuja a Blanco fuera del centro y cierra arriba; la debilidad es un hueco que hay que tapar a tiempo.",
+  "fr": "Le chapeau de Noir chasse Blanc du centre et ferme le haut ; la faiblesse est un trou qu'il faut colmater à temps.",
+  "de": "Schwarz' Mütze drängt Weiß aus dem Zentrum und schließt oben; die Schwäche ist eine Lücke, die rechtzeitig geflickt werden muss.",
+  "ko": "흑의 씌움은 백을 중앙에서 밀어내고 상변을 닫는다; 약점은 제때 메워야 할 틈이다."
+ },
+ "territorial/other-mokuhazushi-openings/3": {
+  "ru": "Тэнгэн белых вынуждает чёрных играть двумя группами; после прилипания белые легко давят слабый камень.",
+  "en": "White's tengen forces Black to play with two groups; after the attachment White easily presses the weak stone.",
+  "es": "El tengen de Blanco obliga a Negro a jugar con dos grupos; tras el apoyo Blanco presiona con facilidad la piedra débil.",
+  "fr": "Le tengen de Blanc force Noir à jouer avec deux groupes ; après le contact, Blanc presse aisément la pierre faible.",
+  "de": "Weiß' Tengen zwingt Schwarz, mit zwei Gruppen zu spielen; nach dem Ankleben drückt Weiß leicht den schwachen Stein.",
+  "ko": "백의 천원은 흑을 두 무리로 두게 만든다; 붙임 뒤 백은 약한 돌을 쉽게 압박한다."
+ },
+ "territorial/other-mokuhazushi-openings/4": {
+  "ru": "Чёрные строят план с миаи, но белые разделяют центр и гасят контригру; точный ответ удерживает равенство.",
+  "en": "Black builds a plan with miai, but White splits the center and smothers the counterplay; a precise reply holds equality.",
+  "es": "Negro construye un plan con miai, pero Blanco divide el centro y apaga el contrajuego; una respuesta precisa mantiene la igualdad.",
+  "fr": "Noir bâtit un plan avec miai, mais Blanc scinde le centre et étouffe le contre-jeu ; une réponse précise tient l'égalité.",
+  "de": "Schwarz baut einen Plan mit Miai, doch Weiß spaltet das Zentrum und erstickt das Gegenspiel; eine präzise Antwort hält Gleichstand.",
+  "ko": "흑은 미아이로 구상을 짜지만, 백이 중앙을 갈라 반격을 지운다; 정확한 응수가 호각을 유지한다."
+ },
+ "territorial/komoku/1": {
+  "ru": "Комоку гибко берёт угол, но почти не давит; противоположный хоси белых сразу ставит чёрных в худшее положение.",
+  "en": "Komoku flexibly takes the corner but barely presses; White's opposing star point immediately puts Black in a worse spot.",
+  "es": "El komoku toma el rincón con flexibilidad pero apenas presiona; el punto estrella opuesto de Blanco pone a Negro de inmediato en peor situación.",
+  "fr": "Le komoku prend le coin avec souplesse mais presse à peine ; le point étoile opposé de Blanc met aussitôt Noir en plus mauvaise posture.",
+  "de": "Komoku nimmt flexibel die Ecke, drückt aber kaum; Weiß' gegenüberliegender Sternpunkt bringt Schwarz sofort in eine schlechtere Lage.",
+  "ko": "소목은 유연하게 귀를 차지하지만 압박은 거의 없다; 백의 맞은편 화점이 곧바로 흑을 불리하게 만든다."
+ },
+ "territorial/komoku/2": {
+  "ru": "Узкий бой полон сложных положений, но если белые точно укрепят группы, они выходят вперёд.",
+  "en": "The narrow fight is full of tricky positions, but if White settles the groups accurately, it comes out ahead.",
+  "es": "La lucha estrecha está llena de posiciones difíciles, pero si Blanco asienta los grupos con precisión, sale adelante.",
+  "fr": "Le combat serré est plein de positions délicates, mais si Blanc établit les groupes avec précision, il prend l'avantage.",
+  "de": "Der enge Kampf steckt voller kniffliger Stellungen, doch wenn Weiß die Gruppen genau festigt, kommt es voran.",
+  "ko": "좁은 싸움은 까다로운 국면으로 가득하지만, 백이 무리들을 정확히 안정시키면 앞서 나간다."
+ },
+ "territorial/komoku/3": {
+  "ru": "Белым сперва нужно укрепить вторгшуюся группу: верный жизненный пункт даёт форму, ошибка отдаёт чёрным миаи.",
+  "en": "White must first strengthen the invading group: the right vital point gives shape, a mistake hands Black miai.",
+  "es": "Blanco debe primero fortalecer el grupo invasor: el punto vital correcto da forma, un error entrega miai a Negro.",
+  "fr": "Blanc doit d'abord renforcer le groupe envahisseur : le bon point vital donne la forme, une erreur offre un miai à Noir.",
+  "de": "Weiß muss zuerst die eindringende Gruppe stärken: der richtige Vitalpunkt gibt Form, ein Fehler schenkt Schwarz Miai.",
+  "ko": "백은 먼저 침입한 무리를 강화해야 한다: 옳은 급소는 모양을 주고, 실수는 흑에게 미아이를 준다."
+ },
+ "territorial/komoku/4": {
+  "ru": "Попытка спасти разрезанный камень выглядит естественно, но чёрные выигрывают гонку дыханий.",
+  "en": "Trying to save the cut stone looks natural, but Black wins the capturing race.",
+  "es": "Intentar salvar la piedra cortada parece natural, pero Negro gana la carrera de capturas.",
+  "fr": "Tenter de sauver la pierre coupée semble naturel, mais Noir gagne la course aux libertés.",
+  "de": "Den geschnittenen Stein retten zu wollen wirkt natürlich, doch Schwarz gewinnt das Wettlaufen.",
+  "ko": "끊긴 돌을 살리려는 건 자연스러워 보이지만, 수상전은 흑이 이긴다."
+ },
+ "territorial/komoku/5": {
+  "ru": "Этот вариант даёт чёрным атари и ханэ в сэнтэ; белые теряют темп, а чёрные забирают крупный пункт.",
+  "en": "This variation gives Black an atari and hane in sente; White loses tempo, and Black takes a big point.",
+  "es": "Esta variante da a Negro un atari y un hane en sente; Blanco pierde tempo y Negro toma un punto grande.",
+  "fr": "Cette variante donne à Noir un atari et un hane en sente ; Blanc perd du tempo, et Noir prend un grand point.",
+  "de": "Diese Variante gibt Schwarz einen Atari und Hane in Sente; Weiß verliert Tempo, und Schwarz nimmt einen großen Punkt.",
+  "ko": "이 변화는 흑에게 선수 아타리와 하네를 준다; 백은 템포를 잃고 흑이 큰 곳을 차지한다."
+ },
+ "territorial/komoku/6": {
+  "ru": "Заняв ключевой пункт, белые угрожают взять два камня и укрепляют гораздо большую зону.",
+  "en": "By taking the key point, White threatens to capture two stones and secures a much larger zone.",
+  "es": "Al tomar el punto clave, Blanco amenaza capturar dos piedras y asegura una zona mucho mayor.",
+  "fr": "En prenant le point clé, Blanc menace de capturer deux pierres et sécurise une zone bien plus grande.",
+  "de": "Indem Weiß den Schlüsselpunkt nimmt, droht es zwei Steine zu fangen und sichert eine weit größere Zone.",
+  "ko": "급소를 차지함으로써 백은 두 점 잡기를 위협하고 훨씬 큰 영역을 굳힌다."
+ },
+ "territorial/komoku/7": {
+  "ru": "Спуск белых упрощает бой: после разреза они соединяются снизу хорошей формой и спокойно живут.",
+  "en": "White's descent simplifies the fight: after the cut it connects underneath with good shape and lives easily.",
+  "es": "El descenso de Blanco simplifica la lucha: tras el corte conecta por debajo con buena forma y vive con facilidad.",
+  "fr": "La descente de Blanc simplifie le combat : après la coupe, il se connecte par-dessous avec une bonne forme et vit aisément.",
+  "de": "Weiß' Abstieg vereinfacht den Kampf: nach dem Schnitt verbindet es sich unten mit guter Form und lebt leicht.",
+  "ko": "백의 내림은 싸움을 단순화한다: 절단 뒤 좋은 모양으로 아래에서 이어 쉽게 산다."
+ },
+ "territorial/komoku/8": {
+  "ru": "Даже при жёстком сопротивлении чёрных белые закрепляют низ слева, а правый низ остаётся спорным.",
+  "en": "Even against Black's stubborn resistance White secures the lower left, while the lower right stays contested.",
+  "es": "Incluso ante la resistencia tenaz de Negro, Blanco asegura el inferior izquierdo, mientras el inferior derecho sigue en disputa.",
+  "fr": "Même face à la résistance obstinée de Noir, Blanc sécurise le bas-gauche, tandis que le bas-droit reste contesté.",
+  "de": "Selbst gegen Schwarz' hartnäckigen Widerstand sichert Weiß unten links, während unten rechts umstritten bleibt.",
+  "ko": "흑이 끈질기게 버텨도 백은 좌하를 굳히고, 우하는 다툼으로 남는다."
+ },
+ "territorial/komoku/9": {
+  "ru": "Разделение белых хорошо наказывает трёхпунктовый прыжок; чёрные берут верх, но низ остаётся уязвим.",
+  "en": "White's split nicely punishes the three-space jump; Black takes the top, but the bottom stays vulnerable.",
+  "es": "La división de Blanco castiga bien el salto de tres espacios; Negro toma arriba, pero abajo sigue vulnerable.",
+  "fr": "La séparation de Blanc punit bien le saut de trois espaces ; Noir prend le haut, mais le bas reste vulnérable.",
+  "de": "Weiß' Trennung bestraft den Drei-Punkt-Sprung schön; Schwarz nimmt oben, doch unten bleibt verwundbar.",
+  "ko": "백의 가름은 세 칸 뜀을 잘 응징한다; 흑은 상변을 갖지만 하변은 약하게 남는다."
+ },
+ "territorial/komoku/10": {
+  "ru": "Без подготовительного обмена белые позволяют чёрным обойти с двух сторон и остаются без достаточной территории.",
+  "en": "Without the preparatory exchange White lets Black wrap around from both sides and is left short of territory.",
+  "es": "Sin el intercambio preparatorio, Blanco deja a Negro rodear por ambos lados y se queda corto de territorio.",
+  "fr": "Sans l'échange préparatoire, Blanc laisse Noir contourner des deux côtés et manque de territoire.",
+  "de": "Ohne den vorbereitenden Abtausch lässt Weiß Schwarz von beiden Seiten umgreifen und bleibt gebietsarm.",
+  "ko": "준비 교환이 없으면 백은 흑에게 양쪽에서 감싸이고 집이 부족해진다."
+ },
+ "territorial/komoku/11": {
+  "ru": "Подготовительный обмен делает атари решающим: у чёрных мало дыханий, и захват белых камней стоит им темпов.",
+  "en": "The preparatory exchange makes the atari decisive: Black is short of liberties, and capturing White's stones costs it tempo.",
+  "es": "El intercambio preparatorio hace decisivo el atari: Negro anda corto de libertades y capturar las piedras de Blanco le cuesta tempo.",
+  "fr": "L'échange préparatoire rend l'atari décisif : Noir manque de libertés, et capturer les pierres de Blanc lui coûte du tempo.",
+  "de": "Der vorbereitende Abtausch macht den Atari entscheidend: Schwarz hat zu wenig Freiheiten, und das Fangen von Weiß' Steinen kostet Tempo.",
+  "ko": "준비 교환이 아타리를 결정적으로 만든다: 흑은 활로가 부족하고, 백돌을 잡는 데 템포를 쓴다."
+ },
+ "territorial/komoku/12": {
+  "ru": "Защита чёрных снимает тактику, но ослабляет верх; белые в сэнтэ сохраняют угрозу забрать четыре камня.",
+  "en": "Black's defense removes the tactic but weakens the top; in sente White keeps the threat to take four stones.",
+  "es": "La defensa de Negro elimina la táctica pero debilita arriba; en sente Blanco conserva la amenaza de tomar cuatro piedras.",
+  "fr": "La défense de Noir supprime la tactique mais affaiblit le haut ; en sente, Blanc garde la menace de prendre quatre pierres.",
+  "de": "Schwarz' Verteidigung entfernt die Taktik, schwächt aber oben; in Sente behält Weiß die Drohung, vier Steine zu nehmen.",
+  "ko": "흑의 지킴은 수단을 없애지만 상변을 약화한다; 백은 선수로 넉 점을 잡는 위협을 유지한다."
+ },
+ "territorial/komoku/13": {
+  "ru": "Клин чёрных создаёт разрезы, но белые закрывают главный изъян и сохраняют перевес.",
+  "en": "Black's wedge creates cuts, but White closes the main flaw and keeps the edge.",
+  "es": "La cuña de Negro genera cortes, pero Blanco cierra el defecto principal y conserva la ventaja.",
+  "fr": "Le coin de Noir crée des coupes, mais Blanc ferme le défaut principal et garde l'avantage.",
+  "de": "Schwarz' Keil erzeugt Schnitte, doch Weiß schließt den Hauptmakel und behält die Oberhand.",
+  "ko": "흑의 끼움은 절단들을 만들지만, 백이 주된 결함을 막고 우위를 유지한다."
+ },
+ "territorial/komoku/14": {
+  "ru": "Висячее соединение даёт чёрным продолжения, но сэки в «плотницком углу» оставляет белым больше территории.",
+  "en": "The hanging connection gives Black continuations, but the seki in the 'carpenter's square' leaves White more territory.",
+  "es": "La conexión colgante da continuaciones a Negro, pero el seki en la 'escuadra de carpintero' deja más territorio a Blanco.",
+  "fr": "La connexion suspendue donne des suites à Noir, mais le seki dans l'« équerre du charpentier » laisse plus de territoire à Blanc.",
+  "de": "Die hängende Verbindung gibt Schwarz Fortsetzungen, doch das Seki im 'Zimmermannswinkel' lässt Weiß mehr Gebiet.",
+  "ko": "걸침 연결은 흑에게 후속을 주지만, '목수의 곱자'에서의 빅이 백에게 더 많은 집을 남긴다."
+ },
+ "territorial/komoku/15": {
+  "ru": "Прочное соединение оживляет чёрных справа, зато белые крепят центр и получают лучшие перспективы сверху и снизу.",
+  "en": "A solid connection revives Black on the right, but White reinforces the center and gets better prospects above and below.",
+  "es": "Una conexión sólida revive a Negro a la derecha, pero Blanco refuerza el centro y obtiene mejores perspectivas arriba y abajo.",
+  "fr": "Une connexion solide ranime Noir à droite, mais Blanc renforce le centre et obtient de meilleures perspectives en haut et en bas.",
+  "de": "Eine feste Verbindung belebt Schwarz rechts, doch Weiß verstärkt das Zentrum und erhält bessere Aussichten oben und unten.",
+  "ko": "단단한 연결이 흑을 우변에서 되살리지만, 백은 중앙을 두터이 하며 위아래로 더 좋은 전망을 얻는다."
+ },
+ "territorial/komoku/16": {
+  "ru": "Вынужденная линия для белых: трудный ход сохраняет плохое адзи у чёрных и поддерживает расширение.",
+  "en": "A forced line for White: the awkward move preserves bad aji for Black and supports the expansion.",
+  "es": "Una línea forzada para Blanco: la jugada incómoda conserva mal aji para Negro y apoya la expansión.",
+  "fr": "Une ligne forcée pour Blanc : le coup malaisé conserve du mauvais aji pour Noir et soutient l'expansion.",
+  "de": "Eine erzwungene Linie für Weiß: der unbequeme Zug erhält schlechtes Aji für Schwarz und stützt die Expansion.",
+  "ko": "백에게는 외길인 진행이다: 거북한 수가 흑에게 나쁜 아지를 남기고 확장을 뒷받침한다."
+ },
+ "territorial/komoku/17": {
+  "ru": "Двойное ханэ и вторжение используют тонкость формы чёрных; ключевой ход оставляет их нижнюю группу с одним глазом.",
+  "en": "The double hane and invasion exploit the thinness of Black's shape; the key move leaves its lower group with one eye.",
+  "es": "El doble hane y la invasión aprovechan la fragilidad de la forma de Negro; la jugada clave deja a su grupo inferior con un ojo.",
+  "fr": "Le double hane et l'invasion exploitent la finesse de la forme de Noir ; le coup clé laisse son groupe inférieur avec un œil.",
+  "de": "Der Doppel-Hane und die Invasion nutzen die Dünne von Schwarz' Form; der Schlüsselzug lässt seine untere Gruppe mit einem Auge.",
+  "ko": "이단 하네와 침입이 흑 모양의 엷음을 파고든다; 급소 한 수가 흑 하변 무리를 외눈으로 만든다."
+ },
+ "territorial/komoku/18": {
+  "ru": "Вариант требует сверхточности: двойное ханэ вскрывает адзи, и белые в итоге возвращают нижний левый угол.",
+  "en": "The variation demands extreme precision: the double hane opens the aji, and White in the end recovers the lower-left corner.",
+  "es": "La variante exige precisión extrema: el doble hane abre el aji y Blanco al final recupera el rincón inferior izquierdo.",
+  "fr": "La variante exige une précision extrême : le double hane ouvre l'aji, et Blanc finit par récupérer le coin inférieur gauche.",
+  "de": "Die Variante verlangt äußerste Präzision: der Doppel-Hane öffnet das Aji, und Weiß gewinnt am Ende die untere linke Ecke zurück.",
+  "ko": "이 변화는 극도의 정확함을 요구한다: 이단 하네가 아지를 열고, 백은 끝내 좌하귀를 되찾는다."
+ },
+ "territorial/komoku/19": {
+  "ru": "Территориальный план чёрных слишком медленен: белые разделяют группы, а их правый низ уже не хуже.",
+  "en": "Black's territorial plan is too slow: White splits the groups, and its lower right is no longer worse.",
+  "es": "El plan territorial de Negro es demasiado lento: Blanco divide los grupos y su inferior derecho ya no es peor.",
+  "fr": "Le plan territorial de Noir est trop lent : Blanc scinde les groupes, et son bas-droit n'est plus inférieur.",
+  "de": "Schwarz' Gebietsplan ist zu langsam: Weiß spaltet die Gruppen, und sein unteres Rechts ist nicht mehr schlechter.",
+  "ko": "흑의 실리 구상은 너무 느리다: 백이 무리들을 가르고, 백의 우하도 더는 나쁘지 않다."
+ },
+ "territorial/komoku/20": {
+  "ru": "Большой коневой ход не давит; простой ответ белых берёт центр, и чёрным не хватает территории.",
+  "en": "The large keima does not press; White's simple reply takes the center, and Black is left short of territory.",
+  "es": "El keima grande no presiona; la respuesta simple de Blanco toma el centro y Negro se queda corto de territorio.",
+  "fr": "Le grand keima ne presse pas ; la réponse simple de Blanc prend le centre, et Noir manque de territoire.",
+  "de": "Der große Keima drückt nicht; Weiß' einfache Antwort nimmt das Zentrum, und Schwarz bleibt gebietsarm.",
+  "ko": "큰 날일자는 압박이 안 된다; 백의 단순한 응수가 중앙을 차지하고, 흑은 집이 부족해진다."
+ },
+ "territorial/sansan/1": {
+  "ru": "Сансан надёжен локально, но слишком пассивен против коми; у белых несколько давящих ответов.",
+  "en": "Sansan is locally reliable but too passive against komi; White has several pressing replies.",
+  "es": "El sansan es fiable localmente pero demasiado pasivo frente al komi; Blanco tiene varias respuestas presionantes.",
+  "fr": "Le sansan est fiable localement mais trop passif face au komi ; Blanc a plusieurs réponses pressantes.",
+  "de": "Sansan ist lokal verlässlich, aber gegen Komi zu passiv; Weiß hat mehrere drückende Antworten.",
+  "ko": "삼삼은 국지적으로는 든든하나 덤에 비해 너무 소극적이다; 백에게는 압박하는 응수가 여럿 있다."
+ },
+ "territorial/sansan/2": {
+  "ru": "Противоположный хоси делает то же лучше; вторжение чёрных тонкое, и белые давлением получают перевес.",
+  "en": "The opposing star point does the same job better; Black's invasion is thin, and White gains the edge by pressing.",
+  "es": "El punto estrella opuesto hace el mismo trabajo mejor; la invasión de Negro es fina y Blanco saca ventaja presionando.",
+  "fr": "Le point étoile opposé fait le même travail en mieux ; l'invasion de Noir est mince, et Blanc prend l'avantage en pressant.",
+  "de": "Der gegenüberliegende Sternpunkt macht dasselbe besser; Schwarz' Invasion ist dünn, und Weiß gewinnt die Oberhand durch Druck.",
+  "ko": "맞은편 화점이 같은 일을 더 잘한다; 흑의 침입은 엷고, 백은 압박으로 우위를 잡는다."
+ },
+ "territorial/sansan/3": {
+  "ru": "Белые слишком долго доигрывают дзёсэки; чёрные устраиваются в сэнтэ, и выигрышный шанс уходит в равенство.",
+  "en": "White spends too long finishing the joseki; Black settles in sente, and the winning chance fades into equality.",
+  "es": "Blanco tarda demasiado en terminar el joseki; Negro se asienta en sente y la opción de ganar se diluye en igualdad.",
+  "fr": "Blanc met trop de temps à finir le joseki ; Noir s'installe en sente, et la chance de gagner se dilue en égalité.",
+  "de": "Weiß braucht zu lange, das Joseki abzuschließen; Schwarz richtet sich in Sente ein, und die Gewinnchance verblasst zum Gleichstand.",
+  "ko": "백은 정석을 마무리하는 데 너무 오래 걸린다; 흑이 선수로 자리 잡아, 승기가 호각으로 스러진다."
+ },
+ "territorial/sansan/4": {
+  "ru": "Белым лучше бросить локальный розыгрыш и взять большой пункт; отложенная прибыль снизу сохраняет перевес.",
+  "en": "White does better to abandon the local play and take the big point; the deferred profit below keeps the edge.",
+  "es": "A Blanco le conviene abandonar el juego local y tomar el punto grande; el beneficio aplazado abajo conserva la ventaja.",
+  "fr": "Blanc fait mieux d'abandonner le jeu local et de prendre le grand point ; le profit différé en bas garde l'avantage.",
+  "de": "Weiß verlässt besser das lokale Spiel und nimmt den großen Punkt; der aufgeschobene Gewinn unten hält die Oberhand.",
+  "ko": "백은 국지전을 접고 큰 곳을 차지하는 편이 낫다; 미뤄 둔 아래쪽 이득이 우위를 유지한다."
+ },
+ "territorial/sansan/5": {
+  "ru": "Плечевой удар силён: даже простая игра в готэ зажимает верхнюю группу чёрных и оставляет белым много планов.",
+  "en": "The shoulder hit is strong: even simple play in gote clamps Black's upper group and leaves White many plans.",
+  "es": "El golpe de hombro es fuerte: incluso el juego simple en gote aprisiona el grupo superior de Negro y deja a Blanco muchos planes.",
+  "fr": "L'épaulement est fort : même un jeu simple en gote serre le groupe supérieur de Noir et laisse à Blanc de nombreux plans.",
+  "de": "Der Schulterzug ist stark: selbst einfaches Spiel in Gote klammert Schwarz' obere Gruppe und lässt Weiß viele Pläne.",
+  "ko": "어깨짚음은 강하다: 후수의 단순한 진행조차 흑 상변 무리를 옥죄고 백에게 많은 구상을 남긴다."
+ },
+ "territorial/sansan/6": {
+  "ru": "Низкий ответ белых не создаёт давления; чёрные прижимают его и получают лучшую игру.",
+  "en": "White's low reply creates no pressure; Black presses it and gets the better game.",
+  "es": "La respuesta baja de Blanco no crea presión; Negro la presiona y obtiene la mejor partida.",
+  "fr": "La réponse basse de Blanc ne crée aucune pression ; Noir la presse et obtient la meilleure partie.",
+  "de": "Weiß' niedrige Antwort erzeugt keinen Druck; Schwarz drückt sie und bekommt das bessere Spiel.",
+  "ko": "백의 낮은 응수는 압박을 만들지 못한다; 흑이 그것을 눌러 더 좋은 국면을 얻는다."
+ },
+ "territorial/sansan/7": {
+  "ru": "Слишком высокий ответ почти не давит на чёрные группы; центр занят, но позиция белых проседает.",
+  "en": "A reply that is too high barely pressures Black's groups; the center is occupied, but White's position sags.",
+  "es": "Una respuesta demasiado alta apenas presiona los grupos de Negro; el centro queda ocupado, pero la posición de Blanco se hunde.",
+  "fr": "Une réponse trop haute ne presse guère les groupes de Noir ; le centre est occupé, mais la position de Blanc s'affaisse.",
+  "de": "Eine zu hohe Antwort drückt Schwarz' Gruppen kaum; das Zentrum ist besetzt, doch Weiß' Stellung sackt ab.",
+  "ko": "너무 높은 응수는 흑 무리를 거의 압박하지 못한다; 중앙은 차지하지만 백의 형세가 처진다."
+ }
+}

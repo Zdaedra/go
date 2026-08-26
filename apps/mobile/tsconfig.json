@@ -1,0 +1,12 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react-native"
+  },
+  "include": ["App.tsx", "src/**/*"],
+  "exclude": ["node_modules"]
+}

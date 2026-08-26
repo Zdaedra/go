@@ -14,3 +14,7 @@ secrets/
 id_rsa*
 id_ed25519*
 credentials.json
+data/tsumego/marked/
+analysis_logs/
+data/tsumego/ogs_cache/
+data/tsumego/generated_retired/
